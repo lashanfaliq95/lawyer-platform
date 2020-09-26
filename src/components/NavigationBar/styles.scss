@@ -1,0 +1,35 @@
+.navbar{
+   background-color: #0596de;
+   font-weight: bold;
+   line-height: 14px;
+   font-size: 14px;
+   font-family: "Roboto",arial,sans-serif;
+   a{
+      color: white !important;
+   }
+   ul{
+      width: 100%;
+      justify-content: flex-end;
+      li{
+         padding-left: 10px;
+         button{
+            font: inherit;
+            height: 40px;    
+            display: flex;
+            padding: 10px;
+         }
+          .btn-outline-secondary{
+            background-color: white;
+            color: #0596de;
+            
+         }
+         .btn-outline-secondary:hover{
+            color: #0a5377;
+         }
+         .btn-link{
+            color: white;;
+         }
+         
+      }
+   }
+}
