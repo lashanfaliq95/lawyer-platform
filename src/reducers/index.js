@@ -1,3 +1,5 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({});
+const difficultyReducer = (selectedDifficulty = null) => selectedDifficulty;
+
+export default combineReducers({ difficulty: difficultyReducer });

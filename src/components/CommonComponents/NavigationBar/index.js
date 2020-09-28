@@ -10,8 +10,9 @@ import {
 } from 'reactstrap';
 
 import './styles.scss';
+import formatMessages from 'components/formatMessages';
+import Icon from 'components/Shared/Icon';
 import messages from './messages';
-import formatMessages from '../formatMessages';
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,12 +29,14 @@ const NavigationBar = () => {
         <Nav className="mr-auto" navbar>
           <NavItem>
             <Button outline>
-              {formatMessages(messages.areYouALawyer)}
+              <span>
+                {formatMessages(messages.areYouALawyer)}
+              </span>
             </Button>
           </NavItem>
           <NavItem>
             <Button color="link ">
-              <i className="material-icons md-icon-16 ">help</i>
+              <Icon name="help" />
               <span>
                 {formatMessages(messages.needHelp)}
               </span>
@@ -41,7 +44,7 @@ const NavigationBar = () => {
           </NavItem>
           <NavItem>
             <Button color="link ">
-              <i className="material-icons md-icon-16 ">account_circle</i>
+              <Icon name="account_circle" />
               <span>
                 {formatMessages(messages.login)}
               </span>
