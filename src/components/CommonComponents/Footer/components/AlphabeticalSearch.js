@@ -1,8 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
 
-import { Button, ButtonToolbar, ButtonGroup } from 'reactstrap';
+import {
+  Button, ButtonToolbar, ButtonGroup, Row,
+} from 'reactstrap';
 import formatMessages from 'components/formatMessages';
 import { searchLawyerByLetter } from 'components/CommonComponents/actions';
 import { ALPHABET } from 'components/CommonComponents/constants';
@@ -14,7 +16,7 @@ const AlphabeticalSearch = (props) => {
   };
 
   return (
-    <>
+    <Row className="footer-search">
       <p className="search-header">{formatMessages(messages.searchLawyers)}</p>
       <ButtonToolbar>
         <ButtonGroup>
@@ -25,7 +27,7 @@ const AlphabeticalSearch = (props) => {
           ))}
         </ButtonGroup>
       </ButtonToolbar>
-    </>
+    </Row>
   );
 };
 
@@ -33,4 +35,4 @@ AlphabeticalSearch.propTypes = {
   searchLawyerByLetter: func.isRequired,
 };
 
-export default memo(connect(null, { searchLawyerByLetter })(AlphabeticalSearch));
+export default connect(null, { searchLawyerByLetter })(AlphabeticalSearch);

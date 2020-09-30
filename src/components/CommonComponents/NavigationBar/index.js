@@ -36,7 +36,7 @@ const NavigationBar = () => {
           </NavItem>
           <NavItem>
             <Button color="link ">
-              <Icon name="help" />
+              <Icon name="question-circle" />
               <span>
                 {formatMessages(messages.needHelp)}
               </span>
@@ -44,7 +44,7 @@ const NavigationBar = () => {
           </NavItem>
           <NavItem>
             <Button color="link ">
-              <Icon name="account_circle" />
+              <Icon name="user-circle" />
               <span>
                 {formatMessages(messages.login)}
               </span>

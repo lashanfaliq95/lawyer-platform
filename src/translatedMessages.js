@@ -1,6 +1,6 @@
 export default {
   'app.navbar.areYouALawyer': 'Sind Sie Rechtsanwalt, Notar oder Berater?',
-  'app.navbar.needHelp': 'Hilfe',
+  'app.navbar.needHelp': 'Hilfe?',
   'app.navbar.login': 'Anmelden',
   'app.footer.aboutUs': 'Über uns',
   'app.footer.companies': 'Unternehmen',
@@ -8,4 +8,9 @@ export default {
   'app.footer.help': 'Hilfe',
   'app.footer.aboutAvoPlan': 'Über AvoPlan',
   'app.footer.searchLawyers': 'Suche nach Anwälten',
+  'app.footer.security': 'Sicherheit',
+  'app.footer.privacyPolicy': 'Datenschutz',
+  'app.footer.terms': 'AGB',
+  'app.footer.imprint': 'Impressum',
+  'app.footer.brand': 'AdvoPlan',
 };

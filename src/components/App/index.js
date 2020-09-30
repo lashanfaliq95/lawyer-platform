@@ -6,12 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavigationBar from 'components/CommonComponents/NavigationBar';
 import Footer from 'components/CommonComponents/Footer';
+import HomePage from 'components/HomePage';
 
 function App() {
   return (
     <BrowserRouter>
       <Route path="/"><NavigationBar /></Route>
-      <Route path="/app" exact><div className="App"> app</div></Route>
+      <Route path="/"><HomePage /></Route>
       <Route path="/"><Footer /></Route>
     </BrowserRouter>
 

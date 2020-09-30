@@ -1,0 +1,54 @@
+.home-page{
+    height: auto;
+    padding: 0;
+}
+
+.image-container{
+    background-color:#0596de;
+    background-repeat:no-repeat;
+    background-image: url('../../assets/images/lawyers1.jpg') ;
+    background-size:100% 456px; /* width height */
+    height: 456px;
+    max-width: 100%;
+    padding-top: 1px;
+}
+
+.search-input-group{
+    margin-top: 8%;
+    margin-left: 20%;
+    width: 60%;
+    input{
+        height: 60px;
+    }
+    button{
+        color: white;
+    }
+}
+
+.search-title{
+    width: 70%;
+    color: white;
+    font-weight: 900;
+}
+
+@media only screen and (max-width: 691px) {
+ .search-input-group{
+     display: none;
+ }
+  }
+
+.info-image{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.info-section{
+    padding: 30px;
+}
+
+.info-title{
+    text-align: center;
+    font-weight: 700;
+    padding: 20px;
+}

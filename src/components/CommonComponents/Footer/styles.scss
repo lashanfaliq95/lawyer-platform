@@ -5,7 +5,27 @@
 
 .footer {
   bottom: 0;
-  width: 100%;
+  max-width: 1320px;
+  margin-top: 500px;
+  .info-section{
+    padding: 30px;
+  }
+  .bottom-footer{
+    color: #7791a2;
+    padding: 10px;
+  }
+  .icon-bar{
+    padding: 30px;
+  }
+  .footer-search{
+    padding-left: 30px;
+    padding-bottom: 30px;
+    .search-header{
+      margin-top: 1rem;
+      margin-right: 1rem;
+      }
+  }
+  
 }
 
 .transparent-button {
@@ -19,7 +39,5 @@
   padding: 5px;
 }
 
-.search-header{
-    margin-top: 1rem;
-    margin-right: 1rem;
-}
+
+
