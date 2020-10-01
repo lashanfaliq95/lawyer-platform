@@ -2,10 +2,10 @@ import React from 'react';
 import {
   Container, Row,
 } from 'reactstrap';
-import lawyerImage from 'assets/images/lawyer.png';
-import gavelImage from 'assets/images/gaven.jpg';
-import weightScaleImage from 'assets/images/wighinsacle.jpg';
-import hitImage from 'assets/images/hit.jpeg';
+import lawyerImage from 'assets/images/jusge.jpg';
+import gavelImage from 'assets/images/law1.jpg';
+import weightScaleImage from 'assets/images/law2.jpg';
+import hitImage from 'assets/images/lawfirm.jpg';
 
 import InfoComponent from './InfoComponent';
 

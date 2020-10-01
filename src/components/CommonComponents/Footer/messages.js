@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   aboutAvoPlan: {
     id: 'app.footer.aboutAvoPlan',
-    defaultMessage: 'About AvoPlan',
+    defaultMessage: 'About avoplan',
   },
   aboutUs: {
     id: 'app.footer.aboutUs',
@@ -43,6 +43,6 @@ export default defineMessages({
   },
   brand: {
     id: 'app.footer.brand',
-    defaultMessage: 'AdvoPlan',
+    defaultMessage: 'avoplan',
   },
 });
