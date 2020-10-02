@@ -15,6 +15,7 @@ module.exports = {
   parser: "babel-eslint",
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    "react/jsx-props-no-spreading": "off",
   },
   settings: {
     'import/resolver': {
