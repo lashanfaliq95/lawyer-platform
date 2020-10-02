@@ -5,7 +5,7 @@ import Icon from 'components/Shared/Icon';
 
 const CardComponent = ({ iconName, title, description }) => (
   <div className="col">
-    <Icon name={iconName} />
+    <Icon name={iconName} size="extraLarge" />
     <h4>{title}</h4>
     <p>{description}</p>
   </div>

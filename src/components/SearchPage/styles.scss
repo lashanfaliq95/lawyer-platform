@@ -1,0 +1,39 @@
+.container-fluid {
+  padding: 1px;
+}
+.col-md-12 {
+  padding: 1px !important;
+}
+
+.search-page {
+  .search-input-group {
+    height: 93px;
+    background-color: #32a9e4;
+    padding: 16.5px;
+
+    input {
+      height: 60px;
+    }
+    button {
+      color: white;
+      height: 100%;
+      border-radius: 0 8px 8px 0;
+    }
+    .col-md-1 {
+      padding: 0;
+    }
+    .col-md-5 {
+      padding: 0;
+    }
+    .first-search-input {
+      input {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+    .second-search-input {
+      input {
+        border-radius: 0;
+      }
+    }
+  }
+}

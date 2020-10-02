@@ -7,7 +7,7 @@ const InfoComponent = (props) => {
   return (
     <Col md="3">
       <img className="info-image" src={img} alt="Info images" />
-      <p>{description}</p>
+      <p className="info-image-description">{description}</p>
     </Col>
   );
 };

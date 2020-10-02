@@ -28,14 +28,13 @@ const ModalComponent = (props) => {
   };
 
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
     <Modal isOpen={isVisible} className={className} toggle={toggle} {...rest}>
       <ModalHeader>{title}</ModalHeader>
       <ModalBody>
         {children}
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={onClickSubmit}>Do Something</Button>
+        <Button color="primary" type="submit" onClick={onClickSubmit}>Do Something</Button>
         <Button color="secondary" onClick={onClickCancel}>Cancel</Button>
       </ModalFooter>
     </Modal>

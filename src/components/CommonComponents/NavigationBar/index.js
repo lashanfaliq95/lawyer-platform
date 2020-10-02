@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Collapse,
@@ -12,7 +12,7 @@ import {
 import './styles.scss';
 import formatMessages from 'components/formatMessages';
 import Icon from 'components/Shared/Icon';
-import LoginModal from 'components/Shared/Modal';
+import LoginModal from '../../LoginPage';
 import messages from './messages';
 
 const NavigationBar = () => {
@@ -49,17 +49,25 @@ const NavigationBar = () => {
               </Button>
             </NavItem>
             <NavItem>
-              <Button color="link" onClick={onClickLogin}>
-                <Icon name="user-circle" />
-                <span>
-                  {formatMessages(messages.login)}
-                </span>
-              </Button>
+              <Link to="/">
+                <Button color="link" onClick={onClickLogin}>
+                  <Icon name="user-circle" />
+                  <span>
+                    {formatMessages(messages.login)}
+                  </span>
+                </Button>
+              </Link>
             </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
-      {isLoginModalVisible && <LoginModal title="title" isOpen={isLoginModalVisible} onClosed={() => { setIsLoginModalVisible(false); }} onSubmit={() => { }}><div>tst</div></LoginModal>}
+      {isLoginModalVisible
+       && (
+       <LoginModal
+         isOpen={isLoginModalVisible}
+         onClosed={() => { setIsLoginModalVisible(false); }}
+       />
+       )}
     </>
 
   );
