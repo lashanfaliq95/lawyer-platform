@@ -122,9 +122,10 @@
 
   .map-container{
     .leaflet-container{
-      height: 656px;
+      height: calc(100vh - 297px);
     }
-    height: 656px;
+    height: calc(100vh - 297px);
+    margin-top: 10px;
     top: 0;
     position: sticky;
   }

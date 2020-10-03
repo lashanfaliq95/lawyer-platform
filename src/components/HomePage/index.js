@@ -6,7 +6,6 @@ import NavigationBar from 'components/CommonComponents/NavigationBar';
 
 import Footer from 'components/CommonComponents/Footer';
 import Search from './Search';
-import InfoSection from './InfoSection';
 import CardSection from './CardSection';
 
 const HomePage = () => (
@@ -14,7 +13,6 @@ const HomePage = () => (
     <NavigationBar />
     <Container className="home-page" fluid>
       <Search />
-      <InfoSection />
       <CardSection />
     </Container>
     <Footer />

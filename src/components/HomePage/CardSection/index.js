@@ -9,6 +9,7 @@ import messages from '../messages';
 function CardSection({ intl }) {
   return (
     <Container className="card-section">
+      <h3 className="info-title">Why make an appointment with AvoPlan?</h3>
       <Row>
         <Col md="4"><Card iconName="search" title={intl.formatMessage(messages.cardOneTitle)} description={intl.formatMessage(messages.cardOneDescription)} /></Col>
         <Col md="4"><Card iconName="calendar-check" title={intl.formatMessage(messages.cardTwoTitle)} description={intl.formatMessage(messages.cardTwoDescription)} /></Col>

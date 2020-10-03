@@ -26,8 +26,7 @@ const ProfileCard = () => (
               </CardTitle>
               <CardText className="address">
 
-                4 Rue de Malpartida de Caceres
-                85190 Aizenay
+                Salzgitter, Lower Saxony, Germany
 
               </CardText>
               <span className="agreement-type">

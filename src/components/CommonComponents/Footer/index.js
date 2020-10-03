@@ -11,10 +11,10 @@ import InfoSection from './components/InfoSection';
 const Footer = () => (
   <Container className="themed-container footer" fluid="xl">
     <HorizontalSeparator color="#eef2f6" height={1} />
-    <BottomFooter />
     <InfoSection />
     <IconBar />
     <AlphabeticalSearch />
+    <BottomFooter />
   </Container>
 );
 export default Footer;
