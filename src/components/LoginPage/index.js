@@ -32,7 +32,7 @@ function LoginModal() {
 
   return (
     <Modal isOpen={isVisible} toggle={toggle}>
-      <ModalHeader>asd</ModalHeader>
+      <ModalHeader>I already have a avoplan account</ModalHeader>
       <ModalBody>
         <Form onSubmit={formik.handleSubmit}>
           <FormGroup>
@@ -40,7 +40,7 @@ function LoginModal() {
               type="email"
               name="email"
               id="exampleEmail"
-              placeholder="with a placeholder"
+              placeholder="Email address or phone number"
               invalid={formik.touched.email && formik.errors.email}
               {...formik.getFieldProps('email')}
             />
@@ -51,7 +51,7 @@ function LoginModal() {
               type="password"
               name="password"
               id="examplePassword"
-              placeholder="password placeholder"
+              placeholder="Password"
               invalid={formik.touched.password && formik.errors.password}
               {...formik.getFieldProps('password')}
             />
@@ -59,12 +59,12 @@ function LoginModal() {
           </FormGroup>
           <FormGroup className="form-button">
 
-            <Button type="submit" color="warning">asd</Button>
+            <Button type="submit" color="warning">Log In</Button>
 
           </FormGroup>
           <FormGroup className="form-button">
 
-            <Button type="submit" color="link">asd</Button>
+            <Button type="submit" color="link">Forgot your password?</Button>
 
           </FormGroup>
 
@@ -72,8 +72,8 @@ function LoginModal() {
       </ModalBody>
       <ModalFooter className="login-footer">
         <div>
-          <h3>asd</h3>
-          <Button color="secondary" onClick={onClickCancel}>Cancel</Button>
+          <h3>New to avoplan?</h3>
+          <Button color="secondary" onClick={onClickCancel}>REGISTER</Button>
         </div>
       </ModalFooter>
     </Modal>
