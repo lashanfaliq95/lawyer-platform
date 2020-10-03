@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Form, FormGroup, FormFeedback, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter,
+  Form,
+  FormGroup,
+  FormFeedback,
+  Input,
+  Button,
+  Container,
+  Col,
+  Card,
+  CardBody,
+  CardTitle,
 } from 'reactstrap';
 import { func } from 'prop-types';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import './styles.scss';
 
+import Navbar from 'components/CommonComponents/NavigationBar';
+
 function LoginModal() {
-  const [isVisible, setIsModalVisible] = useState(true);
-
-  const toggle = () => setIsModalVisible(!isVisible);
-
-  const onClickCancel = () => {
-    setIsModalVisible(false);
-  };
-
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -26,57 +29,73 @@ function LoginModal() {
       password: string().required('No password provided.'),
     }),
     onSubmit: () => {
-      setIsModalVisible(false);
+
     },
   });
 
   return (
-    <Modal isOpen={isVisible} toggle={toggle}>
-      <ModalHeader>I already have a avoplan account</ModalHeader>
-      <ModalBody>
-        <Form onSubmit={formik.handleSubmit}>
-          <FormGroup>
-            <Input
-              type="email"
-              name="email"
-              id="exampleEmail"
-              placeholder="Email address or phone number"
-              invalid={formik.touched.email && formik.errors.email}
-              {...formik.getFieldProps('email')}
-            />
-            <FormFeedback>{formik.errors.email}</FormFeedback>
-          </FormGroup>
-          <FormGroup>
-            <Input
-              type="password"
-              name="password"
-              id="examplePassword"
-              placeholder="Password"
-              invalid={formik.touched.password && formik.errors.password}
-              {...formik.getFieldProps('password')}
-            />
-            <FormFeedback>{formik.errors.password}</FormFeedback>
-          </FormGroup>
-          <FormGroup className="form-button">
-
-            <Button type="submit" color="warning">Log In</Button>
-
-          </FormGroup>
-          <FormGroup className="form-button">
-
-            <Button type="submit" color="link">Forgot your password?</Button>
-
-          </FormGroup>
-
-        </Form>
-      </ModalBody>
-      <ModalFooter className="login-footer">
-        <div>
-          <h3>New to avoplan?</h3>
-          <Button color="secondary" onClick={onClickCancel}>REGISTER</Button>
-        </div>
-      </ModalFooter>
-    </Modal>
+    <>
+      <Navbar />
+      <Container fluid className="login-page">
+        <Container fluid="md">
+          <Col md={{ size: 5, offset: 3 }}>
+            <Card>
+              <CardBody>
+                <CardTitle className="title">
+                  I already have a avoplan account
+                </CardTitle>
+                <Form onSubmit={formik.handleSubmit}>
+                  <FormGroup>
+                    <Input
+                      type="email"
+                      name="email"
+                      id="exampleEmail"
+                      placeholder="Email address or phone number"
+                      invalid={formik.touched.email && formik.errors.email}
+                      {...formik.getFieldProps('email')}
+                    />
+                    <FormFeedback>{formik.errors.email}</FormFeedback>
+                  </FormGroup>
+                  <FormGroup>
+                    <Input
+                      type="password"
+                      name="password"
+                      id="examplePassword"
+                      placeholder="Password"
+                      invalid={
+                        formik.touched.password && formik.errors.password
+                      }
+                      {...formik.getFieldProps('password')}
+                    />
+                    <FormFeedback>{formik.errors.password}</FormFeedback>
+                  </FormGroup>
+                  <FormGroup className="form-button">
+                    <Button className="login-btn" type="submit" color="warning">
+                      Log In
+                    </Button>
+                  </FormGroup>
+                  <FormGroup className="form-button forgot-your-password">
+                    <Button type="submit" color="link">
+                      Forgot your password?
+                    </Button>
+                  </FormGroup>
+                </Form>
+              </CardBody>
+            </Card>
+            <Card>
+              <CardBody>
+                <div className="login-footer">
+                  <h3 className="title">New to avoplan?</h3>
+                  <Button color="link" className="register-btn">
+                    REGISTER
+                  </Button>
+                </div>
+              </CardBody>
+            </Card>
+          </Col>
+        </Container>
+      </Container>
+    </>
   );
 }
 

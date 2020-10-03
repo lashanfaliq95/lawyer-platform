@@ -1,9 +1,36 @@
-.form-button{
-    display: flex;
-    justify-content: center;
-}
-
-.login-footer{
-    justify-content: center;
+.login-page {
+  padding: 1px;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-color: whitesmoke;
+  .card {
+    margin: 16px;
+  }
+  .card-body {
     text-align: center;
+  }
+  .title {
+    font-weight: 700;
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .login-btn {
+    width: 100%;
+    font-weight: bold;
+  }
+  .forgot-your-password {
+    text-align: center;
+    .btn-link {
+      color: #435f71 !important;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+  .register-btn {
+    font-weight: bold;
+    font-size: 14px;
+    color: #0596de;
+  }
 }

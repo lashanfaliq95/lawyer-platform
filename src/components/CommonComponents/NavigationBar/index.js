@@ -12,17 +12,12 @@ import {
 import './styles.scss';
 import formatMessages from 'components/formatMessages';
 import Icon from 'components/Shared/Icon';
-import LoginModal from '../../LoginPage';
 import messages from './messages';
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  const onClickLogin = () => {
-    setIsLoginModalVisible(true);
-  };
 
   return (
     <>
@@ -49,8 +44,8 @@ const NavigationBar = () => {
               </Button>
             </NavItem>
             <NavItem>
-              <Link to="/">
-                <Button color="link" onClick={onClickLogin}>
+              <Link to="/login">
+                <Button color="link">
                   <Icon name="user-circle" />
                   <span>
                     {formatMessages(messages.login)}
@@ -61,13 +56,6 @@ const NavigationBar = () => {
           </Nav>
         </Collapse>
       </Navbar>
-      {isLoginModalVisible
-       && (
-       <LoginModal
-         isOpen={isLoginModalVisible}
-         onClosed={() => { setIsLoginModalVisible(false); }}
-       />
-       )}
     </>
 
   );
