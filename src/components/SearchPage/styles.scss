@@ -1,8 +1,10 @@
 .container-fluid {
-  padding: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .col-md-12 {
-  padding: 1px !important;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .search-page {
@@ -19,10 +21,10 @@
       height: 100%;
       border-radius: 0 8px 8px 0;
     }
-    .col-md-1 {
+    .col-md-2 {
       padding: 0;
     }
-    .col-md-5 {
+    .col-md-4 {
       padding: 0;
     }
     .first-search-input {
@@ -35,5 +37,95 @@
         border-radius: 0;
       }
     }
+  }
+
+  .filter-bar {
+    z-index: 1;
+    box-shadow: 0 2px 10px 0 rgba(67, 95, 113, 0.2);
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    .title {
+      font-weight: bold;
+      color: rgba(67, 95, 113, 0.4);
+      padding: 12px;
+      margin-bottom: 0;
+    }
+    button {
+      background-color: transparent;
+      color: inherit;
+      border: none;
+      height: 100%;
+      width: 100%;
+    }
+    ul {
+      height: 100%;
+    }
+    .dropdown {
+      height: 100%;
+    }
+    .list-group-item {
+      padding: 0;
+    }
+  }
+
+  @media only screen and (max-width: 774px) {
+    .search-input-group {
+      display: none;
+    }
+    .filter-bar {
+      display: none;
+    }
+  }
+
+  .content {
+    background-color: whitesmoke;
+
+    .list-group-item {
+      padding: 0;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+  }
+
+  .info-image {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile-card{
+    .name-btn{
+      padding: 0px;
+    }
+    .job-description{
+      font-weight: bold;
+    }
+    .address{
+      font-size: 14px;
+      margin-top: 35px;
+     
+    }
+    .agreement-type{
+      font-size: 14px;
+      color: rgba(67,95,113,0.6)
+    }
+    .make-appointment-btn-row{
+      justify-content: center;
+      padding-top: 5px;
+      button{
+        width: 60%;
+      }
+    }
+   
+  }
+
+  .map-container{
+    .leaflet-container{
+      height: 656px;
+    }
+    height: 656px;
+    top: 0;
+    position: sticky;
   }
 }

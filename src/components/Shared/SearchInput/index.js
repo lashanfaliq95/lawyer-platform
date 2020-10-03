@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Row, Col, Button,
 } from 'reactstrap';
@@ -17,7 +18,9 @@ const SearchInput = ({ sizeInputOne, sizeInputTwo, offset }) => (
       <InputWithIcon name="map-marker-alt" color="grey" placeholder="z.B. Köln oder 50678" />
     </Col>
     <Col md={`${12 - offset - sizeInputOne - sizeInputTwo}`}>
-      <Button color="warning">{formatMessages(messages.search)}</Button>
+      <Link to="/search">
+        <Button color="warning">{formatMessages(messages.search)}</Button>
+      </Link>
     </Col>
   </Row>
 );
