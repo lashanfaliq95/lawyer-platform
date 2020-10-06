@@ -9,6 +9,10 @@ import FilterBar from './FilterBar';
 import ProfileCardList from './ProfileCardList';
 import MapOfLawyers from './MapOfLawyers';
 
+const position = [52.150002, 10.333333];
+const bounds = [[52.150002, 10.333333], [52.150002, 20], [42.150002, 20]];
+const addressMap = [{ position: [52.150002, 10.333333], address: 'strin 1' }, { position: [52.150002, 20], address: 'strin 2' }, { position: [42.150002, 20], address: 'strin 3' }];
+
 function SearchPage() {
   return (
     <>
@@ -23,7 +27,7 @@ function SearchPage() {
             <Container fluid="md">
               <Row>
                 <Col md="7"><ProfileCardList /></Col>
-                <Col className="map-container" md="5"><MapOfLawyers /></Col>
+                <Col className="map-container" md="5"><MapOfLawyers position={position} bounds={bounds} addressMap={addressMap} /></Col>
               </Row>
             </Container>
           </div>

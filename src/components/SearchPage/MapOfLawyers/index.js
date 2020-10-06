@@ -1,32 +1,35 @@
 import React from 'react';
 import {
+  arrayOf, number, string, shape,
+} from 'prop-types';
+import {
   Map, Marker, Popup, TileLayer,
 } from 'react-leaflet';
 import L from 'leaflet';
 
-delete L.Icon.Default.prototype._getIconUrl;
+// Fix https://github.com/PaulLeCam/react-leaflet/issues/453
+L.Icon.Default.imagePath = 'leafletImages/';
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
-
-const position = [52.150002, 10.333333];
-const MapOfLawyers = () => (
-  <Map center={position} zoom={13}>
+const MapOfLawyers = ({ position, bounds, addressMap }) => (
+  <Map center={position} bounds={bounds}>
     <TileLayer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
     />
-    <Marker position={position}>
-      <Popup>
-        A pretty CSS3 popup.
-        <br />
-        Easily customizable.
-      </Popup>
-    </Marker>
+    {addressMap.map(({ position: location, address }) => (
+      <Marker position={location}>
+        <Popup>
+          {address}
+        </Popup>
+      </Marker>
+    ))}
   </Map>
 );
+
+MapOfLawyers.propTypes = {
+  position: arrayOf(number).isRequired,
+  bounds: arrayOf(arrayOf(number)).isRequired,
+  addressMap: arrayOf(shape({ position: arrayOf([number, number]), address: string })).isRequired,
+};
 
 export default MapOfLawyers;
