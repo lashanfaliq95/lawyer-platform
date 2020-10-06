@@ -7,9 +7,6 @@
   .card {
     margin: 16px;
   }
-  .card-body {
-    text-align: center;
-  }
   .title {
     font-weight: 700;
     text-align: center;
@@ -36,6 +33,13 @@
     color: #0596de;
   }
 
+  .login-footer{
+    display: flex;
+    flex-direction: column;
+    .title{
+      margin-bottom: 0;
+    }
+  }
   .registration-card{
     .form-check{
       display: flex ;

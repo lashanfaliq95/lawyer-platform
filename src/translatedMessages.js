@@ -21,5 +21,13 @@ export default {
   'app.homePage.cardOneDescription': 'Finden Sie schnell Ihren Rechtsanwalt, Notar oder Berater',
   'app.homePage.cardTwoDescription': 'Wählen Sie Anliegen, Datum und Uhrzeit aus',
   'app.homePage.cardThreeDescription': 'Keine Sorge: Wir erinnern Sie an Ihren Termin',
+  'app.loginPage.loginTitle': 'Ich habe bereits einen avoplan account',
+  'app.loginPage.loginBtnText': 'EINLOGGEN',
+  'app.loginPage.registerTitle': 'Neu bei avoplan?',
+  'app.loginPage.registerBtnText': 'REGISTRIEREN',
+  'app.loginPage.forgotPwdBtnText': 'Haben Sie Ihr Passwort vergessen ?',
+  'app.loginPage.emailPlaceHolder': 'E-Mail-Adresse oder Telefonnummer',
+  'app.loginPage.passwordPlaceHolder': 'Passwort',
+  'app.loginPage.rememberMe': 'Ich möchte in Verbindung bleiben.',
 
 };

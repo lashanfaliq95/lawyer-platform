@@ -1,5 +1,6 @@
 import React from 'react';
-import { bool, func } from 'prop-types';
+import { injectIntl } from 'react-intl';
+import { bool, func, shape } from 'prop-types';
 import {
   Form,
   FormGroup,
@@ -17,7 +18,12 @@ import {
   object, string,
 } from 'yup';
 
-const LoginForm = ({ isLoginVisible, collapseLogin, expandLogin }) => {
+import formatMessage from 'components/formatMessages';
+import messages from './messages';
+
+const LoginForm = ({
+  isLoginVisible, collapseLogin, expandLogin, intl,
+}) => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -36,10 +42,10 @@ const LoginForm = ({ isLoginVisible, collapseLogin, expandLogin }) => {
       <Card>
         <CardBody>
           <CardTitle className="title">
-            I already have a avoplan account
+            {formatMessage(messages.loginTitle)}
             {!isLoginVisible && (
             <Button color="link" className="register-btn" onClick={() => expandLogin()}>
-              TO LOG IN
+              {formatMessage(messages.loginBtnText)}
             </Button>
             )}
           </CardTitle>
@@ -50,7 +56,7 @@ const LoginForm = ({ isLoginVisible, collapseLogin, expandLogin }) => {
                   type="email"
                   name="email"
                   id="exampleEmail"
-                  placeholder="Email address or phone number"
+                  placeholder={intl.formatMessage(messages.emailPlaceHolder)}
                   invalid={formik.touched.email && formik.errors.email}
                   {...formik.getFieldProps('email')}
                 />
@@ -61,7 +67,7 @@ const LoginForm = ({ isLoginVisible, collapseLogin, expandLogin }) => {
                   type="password"
                   name="password"
                   id="examplePassword"
-                  placeholder="Password"
+                  placeholder={intl.formatMessage(messages.passwordPlaceHolder)}
                   invalid={formik.touched.password && formik.errors.password}
                   {...formik.getFieldProps('password')}
                 />
@@ -69,12 +75,12 @@ const LoginForm = ({ isLoginVisible, collapseLogin, expandLogin }) => {
               </FormGroup>
               <FormGroup className="form-button">
                 <Button className="login-btn" type="submit" color="warning">
-                  Log In
+                  {formatMessage(messages.loginBtnText)}
                 </Button>
               </FormGroup>
               <FormGroup className="form-button forgot-your-password">
                 <Button type="submit" color="link">
-                  Forgot your password?
+                  {formatMessage(messages.forgotPwdBtnText)}
                 </Button>
               </FormGroup>
             </Form>
@@ -85,9 +91,11 @@ const LoginForm = ({ isLoginVisible, collapseLogin, expandLogin }) => {
       <Card>
         <CardBody>
           <div className="login-footer">
-            <h3 className="title">New to avoplan?</h3>
+            <h3 className="title">
+              {formatMessage(messages.loginBtnText)}
+            </h3>
             <Button color="link" className="register-btn" onClick={() => collapseLogin()}>
-              REGISTER
+              {formatMessage(messages.registerBtnText)}
             </Button>
           </div>
         </CardBody>
@@ -101,6 +109,7 @@ LoginForm.propTypes = {
   isLoginVisible: bool.isRequired,
   collapseLogin: func.isRequired,
   expandLogin: func.isRequired,
+  intl: shape.isRequired,
 };
 
-export default LoginForm;
+export default injectIntl(LoginForm);
