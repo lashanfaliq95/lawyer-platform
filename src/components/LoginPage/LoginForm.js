@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { bool, func, shape } from 'prop-types';
 import {
@@ -21,8 +22,10 @@ import {
 import formatMessage from 'components/formatMessages';
 import messages from './messages';
 
+import { loginUser } from './actions';
+
 const LoginForm = ({
-  isLoginVisible, collapseLogin, expandLogin, intl,
+  isLoginVisible, collapseLogin, expandLogin, intl, loginUser: loginUserAction,
 }) => {
   const formik = useFormik({
     initialValues: {
@@ -33,8 +36,8 @@ const LoginForm = ({
       email: string().email('Invalid email address').required('Required'),
       password: string().required('No password provided.'),
     }),
-    onSubmit: () => {
-
+    onSubmit: (values) => {
+      loginUserAction(values);
     },
   });
   return (
@@ -110,6 +113,7 @@ LoginForm.propTypes = {
   collapseLogin: func.isRequired,
   expandLogin: func.isRequired,
   intl: shape.isRequired,
+  loginUser: func.isRequired,
 };
 
-export default injectIntl(LoginForm);
+export default injectIntl(connect(null, { loginUser })(LoginForm));

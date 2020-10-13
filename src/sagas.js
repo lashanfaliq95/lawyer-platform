@@ -1,9 +1,11 @@
 import { all } from 'redux-saga/effects';
 import CommonComponentSaga from 'components/CommonComponents/sagas';
+import LoginPageSaga from 'components/LoginPage/sagas';
 
 function* rootSaga() {
   yield all([
-    ...CommonComponentSaga, // saga1 can also yield [ fork(actionOne), fork(actionTwo) ]
+    ...CommonComponentSaga,
+    ...LoginPageSaga,
   ]);
 }
 
