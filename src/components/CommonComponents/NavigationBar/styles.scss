@@ -29,8 +29,13 @@
          .btn-outline-secondary:hover{
             color: #0a5377;
          }
-         .btn-link{
-            color: white;;
+         .nav-button{
+            background-color: transparent;
+            border-color: transparent;
+            border-radius: 30px;
+         }
+         .nav-button:hover{
+            background-color: rgba(238, 238, 238, 0.4);
          }
          
       }
