@@ -3,8 +3,8 @@ import { Container, Col, Row } from 'reactstrap';
 import './styles.scss';
 
 import SearchInput from 'components/Shared/SearchInput';
-import NavigationBar from 'components/CommonComponents/NavigationBar';
-import Footer from 'components/CommonComponents/Footer';
+import NavigationBar from 'components/NavigationBar';
+import Footer from 'components/Footer';
 import FilterBar from './FilterBar';
 import ProfileCardList from './ProfileCardList';
 import MapOfLawyers from './MapOfLawyers';

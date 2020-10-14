@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects';
-import CommonComponentSaga from 'components/CommonComponents/sagas';
+import FooterSaga from 'components/Footer/sagas';
 import LoginPageSaga from 'components/LoginPage/sagas';
 
 function* rootSaga() {
   yield all([
-    ...CommonComponentSaga,
+    ...FooterSaga,
     ...LoginPageSaga,
   ]);
 }

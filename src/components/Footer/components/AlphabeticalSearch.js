@@ -6,8 +6,8 @@ import {
   Button, ButtonToolbar, ButtonGroup, Row,
 } from 'reactstrap';
 import formatMessages from 'components/formatMessages';
-import { searchLawyerByLetter } from 'components/CommonComponents/actions';
-import { ALPHABET } from 'components/CommonComponents/constants';
+import { searchLawyerByLetter } from 'components/Footer/actions';
+import { ALPHABET } from '../constants';
 import messages from '../messages';
 
 const AlphabeticalSearch = (props) => {

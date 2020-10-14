@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container } from 'reactstrap';
 
 import './styles.scss';
-import Navbar from 'components/CommonComponents/NavigationBar';
+import Navbar from 'components/NavigationBar';
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 

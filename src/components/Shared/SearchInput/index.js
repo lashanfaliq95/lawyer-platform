@@ -17,7 +17,7 @@ const SearchInput = ({ sizeInputOne, sizeInputTwo, offset }) => (
       <InputWithIcon prependIcon={{ name: 'search', color: 'grey' }} placeholder="z.B. Notar oder Herr Müller" />
     </Col>
     <Col className="second-search-input" md={`${sizeInputTwo}`}>
-      <InputWithIcon prependIcon={{ name: 'map-marker-alt', color: 'grey' }} appendIcon={{ name: 'compass', color: 'grey', onClick: () => { getLocation((position) => { console.log(position.coords.latitude, position.coords.longitude); }); } }} placeholder="z.B. Köln oder 50678" />
+      <InputWithIcon prependIcon={{ name: 'map-marker-alt', color: 'grey' }} appendIcon={{ name: 'crosshairs', color: 'grey', onClick: () => { getLocation((position) => { console.log(position.coords.latitude, position.coords.longitude); }); } }} placeholder="z.B. Köln oder 50678" />
     </Col>
     <Col md={`${12 - offset - sizeInputOne - sizeInputTwo}`}>
       <Link to="/search">
