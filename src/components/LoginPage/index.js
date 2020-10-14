@@ -3,8 +3,8 @@ import { Container } from 'reactstrap';
 
 import './styles.scss';
 import Navbar from 'components/NavigationBar';
-import LoginForm from './LoginForm';
-import RegistrationForm from './RegistrationForm';
+import LoginForm from './components/LoginForm';
+import RegistrationForm from './components/RegistrationForm';
 
 const LoginPage = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);

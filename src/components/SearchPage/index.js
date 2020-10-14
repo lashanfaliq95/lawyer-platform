@@ -5,9 +5,9 @@ import './styles.scss';
 import SearchInput from 'components/Shared/SearchInput';
 import NavigationBar from 'components/NavigationBar';
 import Footer from 'components/Footer';
-import FilterBar from './FilterBar';
-import ProfileCardList from './ProfileCardList';
-import MapOfLawyers from './MapOfLawyers';
+import FilterBar from './components/FilterBar';
+import ProfileCardList from './components/ProfileCardList';
+import MapOfLawyers from './components/MapOfLawyers';
 
 const position = [52.150002, 10.333333];
 const bounds = [[52.150002, 10.333333], [52.150002, 20], [42.150002, 20]];

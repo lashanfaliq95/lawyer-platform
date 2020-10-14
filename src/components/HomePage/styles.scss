@@ -1,82 +1,114 @@
-.home-page{
-    height: auto;
-    padding: 0;
-    .image-container{
-        background-color:#0596de;
-        background-repeat:no-repeat;
-        background-image: url('../../assets/images/lawyer1.png') ;
-        background-position: right bottom;
-        background-size: 679px 379px;
-        height: 456px;
-        max-width: 100%;
-        padding-top: 1px;
-    }
-    
-    .search-input-group{
-        margin-top: 8%;
-        margin-left: 20%;
-        width: 60%;
-        input{
-            height: 60px;
-        }
-        button{
-            color: white;
-            height: 100%;
-            border-radius: 0 8px 8px 0;
-        }
-        .col-md-3 {
-            padding: 0;
-            input{
-                border-radius: 0;
-            }
-        }
-        .col-md-5 {
-            padding: 0;
-            input{
-                border-radius: 8px 0 0 8px;
-            }
-        }
-    }
-    
-    .search-title{
-        width: 70%;
-        color: white;
-        font-weight: 900;
-    }
-    
-    @media only screen and (max-width: 691px) {
-     .search-input-group{
-         display: none;
-     }
-      }
-    
-    .info-image{
-        border-radius: 50%;
-        height: 200px;
-        width: 200px;
-    }
-    
-    .info-section{
-        padding: 30px;
-    }
-    
-    .info-title{
-        text-align: center;
-        font-weight: 700;
-        padding: 20px;
-    }
-    
-    .card-section{
-        padding: 30px;
-        margin-top: 20px;
-        span{
-            padding-left: 0px;
-        }
-        h4{
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-    }
-    
-}
+.home-page {
+  height: auto;
+  padding: 0;
+  .image-container {
+    background-color: #0596de;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/images/lawyer1.png');
+    background-position: right bottom;
+    background-size: 679px 379px;
+    height: 456px;
+    max-width: 100%;
+    padding-top: 1px;
+  }
 
+  .search-input-group {
+    margin-top: 8%;
+    margin-left: 20%;
+    width: 60%;
+    input {
+      height: 60px;
+    }
+    button {
+      color: white;
+      height: 100%;
+      border-radius: 0 8px 8px 0;
+    }
+    .col-md-3 {
+      padding: 0;
+      input {
+        border-radius: 0;
+      }
+    }
+    .col-md-5 {
+      padding: 0;
+      input {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+  }
+
+  .search-title {
+    width: 70%;
+    color: white;
+    font-weight: 900;
+  }
+
+  @media only screen and (max-width: 691px) {
+    .search-input-group {
+      display: none;
+    }
+  }
+
+  .info-image {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+  }
+
+  .info-section {
+    padding: 30px;
+  }
+
+  .info-title {
+    text-align: center;
+    font-weight: 700;
+    padding: 20px;
+  }
+
+  .card-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    span {
+      padding-left: 0px;
+    }
+    h4 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .video-section {
+    max-height: 400px;
+    padding: 20px;
+    .player-wrapper {
+      position: relative;
+      padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+    }
+    .react-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      video {
+        object-fit: cover;
+      }
+    }
+  }
+
+  .image-section {
+    img {
+      width: 300px;
+    }
+    .image-card-section {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      span {
+        padding-left: 0px;
+      }
+      h4 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
