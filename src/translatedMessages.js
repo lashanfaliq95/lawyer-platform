@@ -55,5 +55,14 @@ export default {
   'app.homePage.imageSectionCardOneDescription': 'Steigen Sie die Profitabilität und Sichtbarkeit Ihrer Kanzlei oder Notariats',
   'app.homePage.imageSectionCardTwoDescription': 'Reduzieren Sie Ihren administrativen Aufwand und gewinnen Sie mehr Zeit für das Wesentliche.',
   'app.homePage.imageSectionCardThreeDescription': 'Ermöglichen Sie Ihren Mandanten ein noch besseres Erlebnis',
-
+  'app.homePage.bottomCardSectionTitle': 'Wir garantieren die höchste Sicherheit Ihrer Daten',
+  'app.homePage.bottomCardSectionCardOneTitle': 'Deutsche Server',
+  'app.homePage.bottomCardSectionCardTwoTitle': 'TÜV geprüfter Datenschutz',
+  'app.homePage.bottomCardSectionCardThreeTitle': 'Kein Zugriff auf Daten',
+  'app.homePage.bottomCardSectionCardOneDescription': 'Ihre Daten werden nur auf zertifizierten Servern in Deutschland gespeichert. Diese können Sie jederzeit vollständig löschen',
+  'app.homePage.bottomCardSectionCardTwoDescription': 'Die Sicherheit unseres Systems ist vom TÜV Rheinland zertifiziert und entspricht höchsten Anforderungen',
+  'app.homePage.bottomCardSectionCardThreeDescription': 'Nur Sie selbst haben Zugriff auf Ihre Daten. A(d)voplan kann zu keiner Zeit auf diese zugreifen. Es sei denn, Sie benötigen Hilfe und genehmigen es ausdrücklich.',
+  'app.homePage.bottomCardSectionCardOneBtnText': 'zur Datenschutzerklärung >',
+  'app.homePage.bottomCardSectionCardTwoBtnText': 'Zum TÜV-Zertifikat >',
+  'app.homePage.bottomCardSectionCardThreeBtnText': 'Zu unseren Grundsätzen >',
 };

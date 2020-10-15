@@ -50,23 +50,8 @@
     }
   }
 
-  .info-image {
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-  }
-
-  .info-section {
-    padding: 30px;
-  }
-
-  .info-title {
-    text-align: center;
-    font-weight: 700;
-    padding: 20px;
-  }
-
   .card-section {
+    margin-top: 40px;
     padding-top: 30px;
     padding-bottom: 30px;
     span {
@@ -79,8 +64,19 @@
   }
 
   .video-section {
+    margin-top: 50px;
     max-height: 400px;
     padding: 20px;
+    background-color: #f2fafd;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/images/videoSection.png');
+    background-position: left bottom;
+    background-size: 347px 129px;
+    .col {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 10%;
+    }
     .player-wrapper {
       position: relative;
       padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
@@ -96,11 +92,13 @@
   }
 
   .image-section {
+    margin-top: 70px;
     img {
       width: 300px;
     }
     .image-card-section {
       padding-top: 30px;
+      margin-top: 20px;
       padding-bottom: 30px;
       span {
         padding-left: 0px;
@@ -109,6 +107,14 @@
         margin-top: 20px;
         margin-bottom: 20px;
       }
+    }
+  }
+
+  .bottom-card-section {
+    margin-top: 70px;
+    .title {
+      margin-bottom: 30px;
+      font-weight: bold;
     }
   }
 }

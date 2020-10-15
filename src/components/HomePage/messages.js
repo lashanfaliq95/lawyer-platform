@@ -81,4 +81,44 @@ export default defineMessages({
     id: 'app.homePage.cardThreeDescription',
     defaultMessage: '',
   },
+  bottomCardSectionTitle: {
+    id: 'app.homePage.bottomCardSectionTitle',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardOneTitle: {
+    id: 'app.homePage.bottomCardSectionCardOneTitle',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardTwoTitle: {
+    id: 'app.homePage.bottomCardSectionCardTwoTitle',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardThreeTitle: {
+    id: 'app.homePage.bottomCardSectionCardThreeTitle',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardOneDescription: {
+    id: 'app.homePage.bottomCardSectionCardOneDescription',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardTwoDescription: {
+    id: 'app.homePage.bottomCardSectionCardTwoDescription',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardThreeDescription: {
+    id: 'app.homePage.bottomCardSectionCardThreeDescription',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardOneBtnText: {
+    id: 'app.homePage.bottomCardSectionCardOneBtnText',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardTwoBtnText: {
+    id: 'app.homePage.bottomCardSectionCardTwoBtnText',
+    defaultMessage: '',
+  },
+  bottomCardSectionCardThreeBtnText: {
+    id: 'app.homePage.bottomCardSectionCardThreeBtnText',
+    defaultMessage: '',
+  },
 });

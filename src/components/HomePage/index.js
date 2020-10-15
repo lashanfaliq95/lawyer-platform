@@ -9,6 +9,7 @@ import Search from './components/Search';
 import CardSection from './components/CardSection';
 import VideoSection from './components/VideoSection';
 import ImageSection from './components/ImageSection';
+import BottomCardSection from './components/BottomCardSection';
 
 const HomePage = () => (
   <>
@@ -18,6 +19,7 @@ const HomePage = () => (
       <CardSection />
       <VideoSection />
       <ImageSection />
+      <BottomCardSection />
     </Container>
     <Footer />
   </>

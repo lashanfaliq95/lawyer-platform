@@ -21,7 +21,7 @@ const VideoSection = () => (
           className="react-player"
           url={demoVideo}
           width="100%"
-          height="50%"
+          height="55%"
           playing
           loop
         />
