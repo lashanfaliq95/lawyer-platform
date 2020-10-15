@@ -1,20 +1,20 @@
 import React from 'react';
-import { Button } from 'reactstrap';
-import { string, shape } from 'prop-types';
+import { string, shape, func } from 'prop-types';
 
 import './styles.scss';
 import formatMessages from 'components/formatMessages';
+import BTButton from 'components/Shared/BottomTransitionButton';
 
 const ImageCardComponent = (props) => {
   const {
-    img, description, title, btnText,
+    img, description, title, btnText, onClick,
   } = props;
   return (
     <>
       <img className="info-image" src={img} alt="Info images" />
       <p className="info-title">{formatMessages(title)}</p>
       <p className="info-image-description">{formatMessages(description)}</p>
-      <Button color="link" className="image-card-btn">{formatMessages(btnText)}</Button>
+      <BTButton btnText={btnText} onClick={onClick} />
     </>
   );
 };
@@ -33,6 +33,7 @@ ImageCardComponent.propTypes = {
     id: string.isRequired,
     defaultMessage: string.isRequired,
   }).isRequired,
+  onClick: func.isRequired,
 };
 
 export default ImageCardComponent;

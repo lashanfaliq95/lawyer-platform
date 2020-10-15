@@ -3,6 +3,7 @@ import { Container, Col, Row } from 'reactstrap';
 
 import Card from 'components/Shared/CardComponent';
 import image from 'assets/images/imageSection.png';
+import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import messages from '../../messages';
 
 const ImageSection = () => (
@@ -24,6 +25,7 @@ const ImageSection = () => (
       <Col md="4"><Card iconName="clock" title={messages.imageSectionCardTwoTitle} description={messages.imageSectionCardTwoDescription} /></Col>
       <Col md="4"><Card iconName="star" title={messages.imageSectionCardThreeTitle} description={messages.imageSectionCardThreeDescription} /></Col>
     </Row>
+    <HorizontalSeparator color="#eef2f6" height={2} />
   </Container>
 );
 

@@ -1,0 +1,33 @@
+.bottom-transition-btn {
+  p {
+    color: #000000;
+    display: inline-block;
+    margin: 0;
+    border-bottom: solid #cbcbcb 1px;
+  }
+  p:after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px #000000;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+  p:hover:after {
+    transform: scaleX(1);
+  }
+  p.fromRight:after {
+    transform-origin: 100% 50%;
+  }
+  p.fromLeft:after {
+    transform-origin: 0% 50%;
+  }
+  button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+}

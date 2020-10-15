@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   loginTitle: {
     id: 'app.loginPage.loginTitle',
-    defaultMessage: 'I already have a avoplan account',
+    defaultMessage: 'I already have a Advoplan account',
   },
   loginBtnText: {
     id: 'app.loginPage.loginBtnText',
@@ -11,7 +11,7 @@ export default defineMessages({
   },
   registerTitle: {
     id: 'app.loginPage.registerTitle',
-    defaultMessage: 'New to avoplan?',
+    defaultMessage: 'New to Advoplan?',
   },
   registerBtnText: {
     id: 'app.loginPage.registerBtnText',
@@ -35,7 +35,7 @@ export default defineMessages({
   },
   newToAvoplan: {
     id: 'app.loginPage.newToAvoplan',
-    defaultMessage: 'New to avoplan?',
+    defaultMessage: 'New to Advoplan?',
   },
   wantToStayConnected: {
     id: 'app.loginPage.wantToStayConnected',
@@ -43,7 +43,7 @@ export default defineMessages({
   },
   agreeConditions: {
     id: 'app.loginPage.agreeConditions',
-    defaultMessage: 'I accept avoplans terms and conditions',
+    defaultMessage: 'I accept Advoplans terms and conditions',
   },
   pwdDescription: {
     id: 'app.loginPage.pwdDescription',

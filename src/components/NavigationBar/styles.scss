@@ -33,9 +33,15 @@
             background-color: transparent;
             border-color: transparent;
             border-radius: 30px;
+            .nav-text{
+               margin-left: 5px;
+            }
          }
          .nav-button:hover{
             background-color: rgba(238, 238, 238, 0.4);
+         }
+         .no-hover:hover{
+            text-decoration: none;
          }
          
       }

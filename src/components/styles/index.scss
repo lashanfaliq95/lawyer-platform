@@ -3,4 +3,11 @@
 
 body{
     font-family: "Roboto",arial,sans-serif !important;
+    p{
+        font-size: 14px !important;
+    }
+    .btn.focus, .btn:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }   
 }

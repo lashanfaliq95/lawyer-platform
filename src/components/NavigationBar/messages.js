@@ -15,7 +15,7 @@ export default defineMessages({
   },
   loginModalTitle: {
     id: 'app.loginModal.loginModalTitle',
-    defaultMessage: 'Login with your avoplan account',
+    defaultMessage: 'Login with your Advoplan account',
   },
   loginModalInputPlaceholder: {
     id: 'app.loginModal.loginModalInputPlaceholder',
@@ -39,7 +39,7 @@ export default defineMessages({
   },
   loginModalNewToAvoplan: {
     id: 'app.loginModal.loginModalNewToAvoplan',
-    defaultMessage: 'New to avoplan?',
+    defaultMessage: 'New to Advoplan?',
   },
   loginModalRegister: {
     id: 'app.loginModal.loginModalRegister',

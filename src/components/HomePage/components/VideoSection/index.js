@@ -9,19 +9,19 @@ import messages from '../../messages';
 const VideoSection = () => (
   <Container className="video-section">
     <Row>
-      <Col className="video-card-section" md="8">
+      <Col className="video-card-section" md="6">
         <Card
           title={messages.videoSectionCardTitle}
           description={messages.videoSectionCardDescription}
           btnText={messages.videoSectionBtnText}
         />
       </Col>
-      <Col className="player-wrapper" md="4">
+      <Col className="player-wrapper" md="5">
         <ReactPlayer
           className="react-player"
           url={demoVideo}
           width="100%"
-          height="55%"
+          height="100%"
           playing
           loop
         />

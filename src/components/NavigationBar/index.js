@@ -23,7 +23,7 @@ const NavigationBar = () => {
     <>
       <Navbar light expand="md">
         <Link to="/">
-          avoplan
+          Advoplan
         </Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -38,16 +38,16 @@ const NavigationBar = () => {
             <NavItem>
               <Button className="nav-button">
                 <Icon name="question-circle" />
-                <span>
+                <span className="nav-text">
                   {formatMessages(messages.needHelp)}
                 </span>
               </Button>
             </NavItem>
             <NavItem>
-              <Link to="/login">
+              <Link to="/login" className="no-hover">
                 <Button className="nav-button">
                   <Icon name="user-circle" />
-                  <span>
+                  <span className="nav-text">
                     {formatMessages(messages.login)}
                   </span>
                 </Button>

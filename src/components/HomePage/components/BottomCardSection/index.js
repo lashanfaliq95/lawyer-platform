@@ -18,6 +18,7 @@ const BottomCardSection = () => (
           title={messages.bottomCardSectionCardOneTitle}
           description={messages.bottomCardSectionCardOneDescription}
           btnText={messages.bottomCardSectionCardOneBtnText}
+          onClick={() => {}}
         />
       </Col>
       <Col md="4">
@@ -26,6 +27,7 @@ const BottomCardSection = () => (
           title={messages.bottomCardSectionCardTwoTitle}
           description={messages.bottomCardSectionCardTwoDescription}
           btnText={messages.bottomCardSectionCardTwoBtnText}
+          onClick={() => {}}
         />
       </Col>
       <Col md="4">
@@ -34,6 +36,7 @@ const BottomCardSection = () => (
           title={messages.bottomCardSectionCardThreeTitle}
           description={messages.bottomCardSectionCardThreeDescription}
           btnText={messages.bottomCardSectionCardThreeBtnText}
+          onClick={() => {}}
         />
       </Col>
     </Row>
