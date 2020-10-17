@@ -3,13 +3,13 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   aboutAvoPlan: {
     id: 'app.footer.aboutAvoPlan',
-    defaultMessage: 'About Advoplan',
+    defaultMessage: 'Advoplan',
   },
   aboutUs: {
     id: 'app.footer.aboutUs',
     defaultMessage: 'About us',
   },
-  companies: {
+  company: {
     id: 'app.footer.companies',
     defaultMessage: 'Companies',
   },
@@ -21,9 +21,9 @@ export default defineMessages({
     id: 'app.footer.career',
     defaultMessage: 'Career',
   },
-  help: {
+  helpCenter: {
     id: 'app.footer.help',
-    defaultMessage: 'Help',
+    defaultMessage: 'Help Center',
   },
   searchLawyers: {
     id: 'app.footer.searchLawyers',
@@ -44,5 +44,25 @@ export default defineMessages({
   brand: {
     id: 'app.footer.brand',
     defaultMessage: 'Advoplan',
+  },
+  ourPrinciples: {
+    id: 'app.footer.ourPrinciples',
+    defaultMessage: 'Our Principles',
+  },
+  bookAppointment: {
+    id: 'app.footer.bookAppointment',
+    defaultMessage: 'Book Appointments',
+  },
+  registerAsAClient: {
+    id: 'app.footer.registerAsAClient',
+    defaultMessage: 'Register As A Client',
+  },
+  AdvoplanPro: {
+    id: 'app.footer.AdvoplanPro',
+    defaultMessage: 'Advoplan Pro',
+  },
+  otherOptions: {
+    id: 'app.footer.otherOptions',
+    defaultMessage: 'Other Options',
   },
 });
