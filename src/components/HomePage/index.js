@@ -19,13 +19,11 @@ const HomePage = () => (
     <Container className="home-page" fluid>
       <Search />
       <CardSection />
-      <HorizontalSeparator color="#eef2f6" height={2} isContainer />
-
+      <HorizontalSeparator color="#eef2f6" height={1} isContainer />
       <VideoSection />
-      <HorizontalSeparator color="#eef2f6" height={2} isContainer />
-
+      <HorizontalSeparator color="#eef2f6" height={1} isContainer />
       <ImageSection />
-      <HorizontalSeparator color="#eef2f6" height={2} isContainer />
+      <HorizontalSeparator color="#eef2f6" height={1} isContainer />
       <BottomCardSection />
       <Button />
     </Container>

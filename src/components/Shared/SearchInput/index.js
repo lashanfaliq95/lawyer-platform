@@ -9,6 +9,7 @@ import InputWithIcon from 'components/Shared/InputWithIcon';
 import formatMessages from 'components/formatMessages';
 import messages from 'components/HomePage/messages';
 import './styles.scss';
+import Icon from 'components/Shared/Icon';
 
 import { getLocation } from '../utils';
 
@@ -24,7 +25,10 @@ const SearchInput = ({
     </Col>
     <Col className={className} md={`${12 - offset - sizeInputOne - sizeInputTwo}`}>
       <Link to="/search">
-        <Button color="warning">{formatMessages(messages.search)}</Button>
+        <Button className="search-input-btn">
+          {formatMessages(messages.search)}
+          <Icon name="angle-right" size="large" className="btn-icon" />
+        </Button>
       </Link>
     </Col>
   </Row>

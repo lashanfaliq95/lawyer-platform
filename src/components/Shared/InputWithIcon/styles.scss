@@ -1,6 +1,10 @@
 .input-icons {
   display: flex;
   flex-direction: row;
+  input {
+    border: none;
+    border-left: 1px solid #d2dbde;
+  }
   span {
     position: absolute;
   }

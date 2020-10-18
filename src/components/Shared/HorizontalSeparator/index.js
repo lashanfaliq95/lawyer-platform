@@ -10,7 +10,7 @@ const HorizontalSeparator = ({ color, height, isContainer }) => (
         style={{
           color,
           backgroundColor: color,
-          height: { height },
+          height,
         }}
       />
     ) : (
@@ -19,7 +19,7 @@ const HorizontalSeparator = ({ color, height, isContainer }) => (
           style={{
             color,
             backgroundColor: color,
-            height: { height },
+            height,
           }}
         />
       </Container>
