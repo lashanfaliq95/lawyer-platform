@@ -4,9 +4,9 @@ import Icon from 'components/Shared/Icon';
 
 const IconBar = () => (
   <Row className="icon-bar">
-    <Icon name="facebook-square" type="brand" color="white" size="large" />
-    <Icon name="instagram-square" type="brand" color="white" size="large" />
-    <Icon name="linkedin" type="brand" color="white" size="large" />
+    <Icon name="facebook-f" type="brand" size="large" className="facebook-icon" />
+    <Icon name="instagram" type="brand" size="large" />
+    <Icon name="linkedin-in" type="brand" size="large" />
   </Row>
 );
 

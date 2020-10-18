@@ -3,20 +3,21 @@ import { Container, Col, Row } from 'reactstrap';
 
 import Card from 'components/Shared/CardComponent';
 import image from 'assets/images/imageSection.png';
-import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import messages from '../../messages';
 
 const ImageSection = () => (
   <Container className="image-section">
     <Row>
-      <Col className="image-card-section" md="8">
+      <Col className="image-card-section" md={{ size: 6, offset: 1 }}>
         <Card
           title={messages.imageSectionCardTitle}
           description={messages.imageSectionCardDescription}
           btnText={messages.imageSectionBtnText}
+          btnClass="blue-btn-outline"
+          btnOutline
         />
       </Col>
-      <Col className="image-wrapper" md="4">
+      <Col className="image-wrapper" md={{ size: 4, offset: 1 }}>
         <img src={image} alt="test" />
       </Col>
     </Row>
@@ -25,7 +26,6 @@ const ImageSection = () => (
       <Col md="4"><Card iconName="clock" title={messages.imageSectionCardTwoTitle} description={messages.imageSectionCardTwoDescription} /></Col>
       <Col md="4"><Card iconName="star" title={messages.imageSectionCardThreeTitle} description={messages.imageSectionCardThreeDescription} /></Col>
     </Row>
-    <HorizontalSeparator color="#eef2f6" height={2} />
   </Container>
 );
 

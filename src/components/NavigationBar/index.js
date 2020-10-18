@@ -37,7 +37,7 @@ const NavigationBar = () => {
             </NavItem>
             <NavItem>
               <Button className="nav-button">
-                <Icon name="question-circle" />
+                <Icon name="question" />
                 <span className="nav-text">
                   {formatMessages(messages.needHelp)}
                 </span>
@@ -46,7 +46,7 @@ const NavigationBar = () => {
             <NavItem>
               <Link to="/login" className="no-hover">
                 <Button className="nav-button">
-                  <Icon name="user-circle" />
+                  <Icon name="user-alt" />
                   <span className="nav-text">
                     {formatMessages(messages.login)}
                   </span>

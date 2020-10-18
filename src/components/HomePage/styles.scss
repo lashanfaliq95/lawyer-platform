@@ -14,8 +14,8 @@
 
   .search-input-group {
     margin-top: 8%;
-    margin-left: 20%;
-    width: 60%;
+    margin-left: 10%;
+    width: 80%;
     input {
       height: 60px;
     }
@@ -36,6 +36,8 @@
         border-radius: 8px 0 0 8px;
       }
     }
+    .search-input-responsive {
+    }
   }
 
   .search-title {
@@ -44,16 +46,9 @@
     font-weight: 900;
   }
 
-  @media only screen and (max-width: 691px) {
-    .search-input-group {
-      display: none;
-    }
-  }
-
   .card-section {
-    margin-top: 40px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 10px;
+    margin-top: 60px;
     span {
       padding-left: 0px;
     }
@@ -64,17 +59,21 @@
   }
 
   .video-section {
-    margin-top: 50px;
-    padding: 20px;
     background-color: #f2fafd;
     background-repeat: no-repeat;
     background-image: url('../../assets/images/videoSection.png');
     background-position: left bottom;
     background-size: 347px 129px;
     .col {
-      width: 70%;
-      margin-left: 15%;
-      margin-top: 40%;
+      width: 90%;
+      padding-left: 5%;
+      padding-top: 40%;
+      h4{
+        margin-bottom: 20px;
+      }
+      button{
+        margin-top: 10px;
+      }
     }
     .player-wrapper {
       position: relative;
@@ -91,7 +90,6 @@
   }
 
   .image-section {
-    margin-top: 70px;
     background-color: #f8f8fb;
     img {
       width: 300px;
@@ -99,7 +97,7 @@
     .image-card-section {
       padding-top: 30px;
       margin-top: 20px;
-     
+
       span {
         padding-left: 0px;
       }
@@ -111,10 +109,42 @@
   }
 
   .bottom-card-section {
-    margin-top: 70px;
     .title {
       margin-bottom: 30px;
       font-weight: bold;
     }
   }
+
+  .blue-btn {
+    background-color: #0596de;
+    border-color: #0596de;
+  }
+
+  button.blue-btn:hover {
+    color: white;
+    border-color: #11689e;
+    background-color: #11689e;
+  }
+
+  .blue-btn-outline {
+    color: #0596de;
+    border-color: #0596de;
+  }
+
+  button.blue-btn-outline:hover {
+    color: #435f71;
+    border-color: #435f71;
+    background-color: white;
+  }
 }
+
+// @mixin responsive-btn-mixin() {
+//   display: flex;
+//   justify-content: center;
+// }
+
+// @media only screen and (max-width: 765) {
+//   .search-input-responsive {
+//     @include responsive-btn-mixin();
+//   }
+// }

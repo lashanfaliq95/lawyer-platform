@@ -14,6 +14,8 @@ const VideoSection = () => (
           title={messages.videoSectionCardTitle}
           description={messages.videoSectionCardDescription}
           btnText={messages.videoSectionBtnText}
+          btnClass="blue-btn"
+          isTitleBold
         />
       </Col>
       <Col className="player-wrapper" md="5">
