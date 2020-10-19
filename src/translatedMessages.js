@@ -90,4 +90,5 @@ export default {
   'app.homePage.bottomCardSectionCardOneBtnText': 'zur Datenschutzerklärung',
   'app.homePage.bottomCardSectionCardTwoBtnText': 'Zum TÜV-Zertifikat',
   'app.homePage.bottomCardSectionCardThreeBtnText': 'Zu unseren Grundsätzen',
+  'app.homePage.transitionText': 'IN MEINER NÄHER',
 };

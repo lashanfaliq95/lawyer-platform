@@ -121,4 +121,8 @@ export default defineMessages({
     id: 'app.homePage.bottomCardSectionCardThreeBtnText',
     defaultMessage: '',
   },
+  transitionText: {
+    id: 'app.homePage.transitionText',
+    defaultMessage: 'Nearby',
+  },
 });

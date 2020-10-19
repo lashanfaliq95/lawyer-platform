@@ -27,6 +27,9 @@ const Icon = (props) => {
   const {
     color, size, name, type, className, onClick,
   } = props;
+  if (!name) {
+    return null;
+  }
   const faIconType = FA_TYPE_MAP[type] || FA_SOLID_ICONS;
   const faIconSize = FA_SIZE_MAP[size] || FA_SMALL;
 

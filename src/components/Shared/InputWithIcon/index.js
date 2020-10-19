@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { string, func, shape } from 'prop-types';
 import { Input } from 'reactstrap';
 import './styles.scss';
 
 import Icon from 'components/Shared/Icon';
+import formatMessage from 'components/formatMessages';
 
 const getInputClassName = (prependIcon, appendIcon) => {
   if (prependIcon && appendIcon) {
@@ -20,9 +21,17 @@ const getInputClassName = (prependIcon, appendIcon) => {
 
 const InputWithIcon = (props) => {
   const {
-    prependIcon, appendIcon, value, onChange, placeholder, width,
+    prependIcon,
+    appendIcon,
+    value,
+    onChange,
+    placeholder,
+    width,
+    transitionText,
   } = props;
   const { className } = getInputClassName(prependIcon, appendIcon);
+  const [transition, setTransition] = useState(false);
+  const transitionDivClass = !transition ? 'transition-text' : 'transitioned';
   return (
     <div className="input-icons" style={{ width }}>
       {prependIcon && (
@@ -33,8 +42,53 @@ const InputWithIcon = (props) => {
           color={prependIcon.color}
         />
       )}
-      <Input value={value} className={className} onChange={onChange} placeholder={placeholder} />
-      {appendIcon && <Icon name={appendIcon.name} className="icon right" size="large" color={appendIcon.color} onClick={appendIcon.onClick} />}
+      <Input
+        value={value}
+        className={className}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+      {transitionText && (
+      <button
+        className={`transition-button ${transitionDivClass}`}
+        type="button"
+        onClick={() => {
+          setTransition(!transition);
+        }}
+      >
+        <div>
+          {appendIcon && (
+          <Icon
+            name="crosshairs"
+            size="large"
+            color="grey"
+            onClick={() => {
+              setTransition(!transition);
+            }}
+          />
+          )}
+          <p>{formatMessage(transitionText)}</p>
+          <Icon
+            name="times-circle"
+            className="icon"
+            size="large"
+            color={prependIcon.color}
+          />
+        </div>
+      </button>
+      )}
+      {appendIcon && (
+        <Icon
+          name={appendIcon.name}
+          className="icon right"
+          size="large"
+          color={appendIcon.color}
+          onClick={() => {
+            setTransition(!transition);
+            appendIcon.onClick();
+          }}
+        />
+      )}
     </div>
   );
 };
@@ -53,6 +107,10 @@ InputWithIcon.propTypes = {
   onChange: func,
   placeholder: string,
   width: string,
+  transitionText: shape({
+    id: string.isRequired,
+    defaultMessage: string.isRequired,
+  }),
 };
 
 InputWithIcon.defaultProps = {
@@ -61,6 +119,7 @@ InputWithIcon.defaultProps = {
   appendIcon: null,
   placeholder: '',
   width: '',
+  transitionText: null,
   onChange: () => {},
 };
 export default InputWithIcon;
