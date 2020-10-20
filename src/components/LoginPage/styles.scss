@@ -1,55 +1,132 @@
 .login-page {
-  padding: 1px;
-  width: 100%;
   height: calc(100vh - 56px);
   margin: 0;
   background-color: whitesmoke;
   .card {
-    margin: 16px;
+    margin: auto;
+    border-radius: 20px;
+    padding: 0 15.84px;
+    width: 377px;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
   }
   .title {
-    font-weight: 700;
     text-align: center;
-    font-size: 14px;
-    line-height: 24px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    .link-text {
+      text-decoration: none;
+      color: black;
+      width: fit-content;
+      font-weight: 600;
+      font-size: 25px;
+    }
   }
+
+  input:hover {
+    box-shadow: 0 5px 5px #888888;
+  }
+
   .login-btn {
     width: 100%;
     font-weight: bold;
-  }
-  .forgot-your-password {
-    text-align: center;
-    .btn-link {
-      color: #435f71 !important;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-  }
-  .register-btn {
-    font-weight: bold;
-    font-size: 14px;
-    color: #0596de;
+    color: white;
+    background-color: #0596de;
+    border-color: #0596de;
+    height: 52px;
   }
 
-  .login-footer{
+  button.login-btn:hover {
+    box-shadow: 0 5px 5px #888888;
+  }
+
+  .register-btn {
+    color: #0596de;
+    margin-top: 5px;
+  }
+
+  .login-footer {
+    position: absolute;
+    bottom: 0;
+    .bottom-footer {
+      margin-top: 0;
+      padding: 19px;
+    }
+  }
+
+  .form-group {
+    position: relative;
+    input {
+      padding: 35.2px 14.08px 1px;
+      height: 70px;
+    }
+    .floating-label {
+      position: absolute;
+      pointer-events: none;
+      left: 20px;
+      top: 18px;
+      transition: 0.2s ease all;
+    }
+    input:focus ~ .floating-label,
+    input:placeholder-shown {
+      top: 8px;
+      bottom: 10px;
+      left: 20px;
+      font-size: 11px;
+      opacity: 1;
+    }
+  }
+  .login-footer {
     display: flex;
     flex-direction: column;
-    .title{
+    .title {
       margin-bottom: 0;
     }
   }
-  .registration-card{
-    .form-check{
-      display: flex ;
-    }
-    .register-btn{
-      width: 100%;
-      margin-top: 20px;
-      color: white;
-    }
-    
+  .outer-link {
+    text-align: center;
+    color: #0596de;
+    font-weight: 550;
+  }
+  .inner-link {
+    position: absolute;
+    color: #0596de;
+    right: 5%;
+    top: 35%;
+    font-weight: 550;
   }
 
+  .pwd-btn {
+    position: absolute;
+    right: 5%;
+    top: 35%;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+  }
+
+  .forgot-pwd-body {
+    text-align: center;
+    margin-top: -15px;
+    .sub-title {
+      font-weight: bold;
+    }
+    .pwd-description {
+      max-width: 200px;
+      margin: auto;
+      margin-bottom: 1rem;
+    }
+  }
+
+  // input.pwd-input:focus +.inner-link{
+  //   display: none;
+  // }
 }

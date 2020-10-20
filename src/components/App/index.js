@@ -5,15 +5,26 @@ import '../styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from 'components/HomePage';
-import LoginPage from 'components/LoginPage';
 import SearchPage from 'components/SearchPage';
+import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
+import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage';
+import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 
 function App() {
   return (
     <BrowserRouter>
-      <Route path="/login" exact><LoginPage /></Route>
       <Route path="/search" exact><SearchPage /></Route>
       <Route path="/" exact><HomePage /></Route>
+      <Route
+        path="/auth"
+        render={({ match: { url } }) => (
+          <>
+            <Route path={`${url}/login`} component={LoginCardPage} exact />
+            <Route path={`${url}/forgot-pwd`} component={ForgotPwdCardPage} exact />
+            <Route path={`${url}/register`} component={RegisterCardPage} exact />
+          </>
+        )}
+      />
     </BrowserRouter>
   );
 }

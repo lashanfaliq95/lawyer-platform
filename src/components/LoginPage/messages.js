@@ -3,27 +3,27 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   loginTitle: {
     id: 'app.loginPage.loginTitle',
-    defaultMessage: 'I already have a Advoplan account',
+    defaultMessage: 'Advoplan',
   },
   loginBtnText: {
     id: 'app.loginPage.loginBtnText',
-    defaultMessage: 'TO LOG IN',
+    defaultMessage: 'Login',
   },
   registerTitle: {
     id: 'app.loginPage.registerTitle',
-    defaultMessage: 'New to Advoplan?',
+    defaultMessage: 'Advoplan',
   },
   registerBtnText: {
     id: 'app.loginPage.registerBtnText',
-    defaultMessage: 'REGISTER',
+    defaultMessage: 'New to advoplan? Register now',
   },
   forgotPwdBtnText: {
     id: 'app.loginPage.forgotPwdBtnText',
-    defaultMessage: '  Forgot your password?',
+    defaultMessage: '  Forgot?',
   },
   emailPlaceHolder: {
     id: 'app.loginPage.emailPlaceHolder',
-    defaultMessage: 'Email address or phone number',
+    defaultMessage: 'E-Mail',
   },
   passwordPlaceHolder: {
     id: 'app.loginPage.passwordPlaceHolder',
@@ -88,5 +88,33 @@ export default defineMessages({
   required: {
     id: 'app.loginPage.required',
     defaultMessage: 'Required',
+  },
+  register: {
+    id: 'app.loginPage.register',
+    defaultMessage: 'Register',
+  },
+  alreadyHaveAnAccount: {
+    id: 'app.loginPage.alreadyHaveAnAccount',
+    defaultMessage: 'I have a advoplan account',
+  },
+  firstName: {
+    id: 'app.loginPage.firstName',
+    defaultMessage: 'Firstname',
+  },
+  lastName: {
+    id: 'app.loginPage.lastName',
+    defaultMessage: 'Lastname',
+  },
+  forgotPwdCardTitle: {
+    id: 'app.loginPage.forgotPwdCardTitle',
+    defaultMessage: 'Forgot password?',
+  },
+  forgotPwdCardDescription: {
+    id: 'app.loginPage.forgotPwdCardDescription',
+    defaultMessage: '',
+  },
+  resetBtnText: {
+    id: 'app.loginPage.resetBtnText',
+    defaultMessage: 'Reset password',
   },
 });
