@@ -1,7 +1,11 @@
-import { LOGIN_USER } from './constants';
+import { LOGIN_USER, RESET_PASSWORD } from './constants';
 
-// eslint-disable-next-line import/prefer-default-export
 export const loginUser = (values) => ({
   type: LOGIN_USER,
   payload: values,
+});
+
+export const resetPassword = (value) => ({
+  type: RESET_PASSWORD,
+  payload: value,
 });

@@ -66,6 +66,11 @@ export default {
   'app.loginPage.forgotPwdCardDescription':
     'Keine Sorge, wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts zu',
   'app.loginPage.resetBtnText': 'Passwort zurücksetzen',
+  'app.loginPage.successCardTitle': 'Die E-Mail wurde gesendet',
+  'app.loginPage.successCardDescription':
+    'Wir haben Ihnen eine E-Mail zum Zurücksetzen Ihreres Passworts geschickt',
+  'app.loginPage.noMailReceivedText': 'Sie haben die E-Mail nicht erhalten?',
+  'app.loginPage.switchToHelp': 'Hilfebereich aufrufen',
   'app.homePage.videoSectionCardTitle': 'Von überall. Zu jeder Zeit.',
   'app.homePage.videoSectionCardDescription':
     'Terminbuchung war noch nie so einfach. Ob morgens oder abends. Wir kennen keine Zeiten. In der digitalen Zukunft möchten wir mit Ihnen gemeinsam gehen. Fangen wir in der Gegenwart an.',

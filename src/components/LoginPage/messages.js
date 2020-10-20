@@ -120,4 +120,20 @@ export default defineMessages({
     id: 'app.loginPage.resetBtnText',
     defaultMessage: 'Reset password',
   },
+  successCardTitle: {
+    id: 'app.loginPage.successCardTitle',
+    defaultMessage: 'The email has been sent',
+  },
+  successCardDescription: {
+    id: 'app.loginPage.successCardDescription',
+    defaultMessage: 'We have sent you an email to reset the password',
+  },
+  noMailReceivedText: {
+    id: 'app.loginPage.noMailReceivedText',
+    defaultMessage: 'You didn‘t get the email?',
+  },
+  switchToHelp: {
+    id: 'app.loginPage.switchToHelp',
+    defaultMessage: 'Go the the help page',
+  },
 });
