@@ -20,44 +20,41 @@ const NavigationBar = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <>
-      <Navbar light expand="md">
-        <Link to="/">
-          Advoplan
-        </Link>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Button outline>
-                <span>
-                  {formatMessages(messages.areYouALawyer)}
-                </span>
-              </Button>
-            </NavItem>
-            <NavItem>
+    <Navbar light expand="md">
+      <Link to="/">
+        {formatMessages(messages.brandName)}
+      </Link>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="mr-auto" navbar>
+          <NavItem>
+            <Button outline>
+              <span>
+                {formatMessages(messages.areYouALawyer)}
+              </span>
+            </Button>
+          </NavItem>
+          <NavItem>
+            <Button className="nav-button">
+              <Icon name="question" />
+              <span className="nav-text">
+                {formatMessages(messages.needHelp)}
+              </span>
+            </Button>
+          </NavItem>
+          <NavItem>
+            <Link to="/auth /login" className="no-hover">
               <Button className="nav-button">
-                <Icon name="question" />
+                <Icon name="user-alt" />
                 <span className="nav-text">
-                  {formatMessages(messages.needHelp)}
+                  {formatMessages(messages.login)}
                 </span>
               </Button>
-            </NavItem>
-            <NavItem>
-              <Link to="/auth/login" className="no-hover">
-                <Button className="nav-button">
-                  <Icon name="user-alt" />
-                  <span className="nav-text">
-                    {formatMessages(messages.login)}
-                  </span>
-                </Button>
-              </Link>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </>
-
+            </Link>
+          </NavItem>
+        </Nav>
+      </Collapse>
+    </Navbar>
   );
 };
 

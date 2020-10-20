@@ -36,6 +36,4 @@ const ForgotPwdCard = () => (
   </Card>
 );
 
-ForgotPwdCard.propTypes = {};
-
 export default ForgotPwdCard;

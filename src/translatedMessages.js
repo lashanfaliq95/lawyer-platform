@@ -2,6 +2,7 @@ export default {
   'app.navbar.areYouALawyer': 'Sind Sie Rechtsanwalt, Notar oder Berater?',
   'app.navbar.needHelp': 'Hilfe?',
   'app.navbar.login': 'Anmelden',
+  'app.navbar.brandName': 'Advoplan',
   'app.footer.aboutUs': 'Über uns',
   'app.footer.companies': 'Unternehmen',
   'app.footer.career': 'Karriere',
@@ -97,5 +98,5 @@ export default {
   'app.homePage.bottomCardSectionCardOneBtnText': 'zur Datenschutzerklärung',
   'app.homePage.bottomCardSectionCardTwoBtnText': 'Zum TÜV-Zertifikat',
   'app.homePage.bottomCardSectionCardThreeBtnText': 'Zu unseren Grundsätzen',
-  'app.homePage.transitionText': 'IN MEINER NÄHER',
+  'app.homePage.transitionText': 'IN MEINER NÄHE',
 };

@@ -74,7 +74,8 @@
     height: 100%;
     position: absolute;
     transform: scaleX(0);
-    transition: transform 500ms ease-in-out;
+    transition: transform 400ms ease-in-out;
+    transition-delay: 100ms;
     transform-origin: right top;
   }
   .transitioned {
@@ -84,6 +85,7 @@
     position: absolute;
     transform: scaleX(0.95);
     transform-origin: right top;
-    transition: transform 500ms ease-in-out;
+    transition: transform 400ms ease-in-out;
+    transition-delay: 100ms;
   }
 }
