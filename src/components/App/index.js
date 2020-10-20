@@ -15,16 +15,9 @@ function App() {
     <BrowserRouter>
       <Route path="/search" exact><SearchPage /></Route>
       <Route path="/" exact><HomePage /></Route>
-      <Route
-        path="/auth"
-        render={({ match: { url } }) => (
-          <>
-            <Route path={`${url}/login`} component={LoginCardPage} exact />
-            <Route path={`${url}/forgot-pwd`} component={ForgotPwdCardPage} exact />
-            <Route path={`${url}/register`} component={RegisterCardPage} exact />
-          </>
-        )}
-      />
+      <Route path="/auth/login" exact><LoginCardPage /></Route>
+      <Route path="/auth/forgot-pwd" exact><ForgotPwdCardPage /></Route>
+      <Route path="/auth/register" exact><RegisterCardPage /></Route>
     </BrowserRouter>
   );
 }

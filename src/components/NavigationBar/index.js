@@ -43,7 +43,7 @@ const NavigationBar = () => {
             </Button>
           </NavItem>
           <NavItem>
-            <Link to="/auth /login" className="no-hover">
+            <Link to="/auth/login" className="no-hover">
               <Button className="nav-button">
                 <Icon name="user-alt" />
                 <span className="nav-text">
