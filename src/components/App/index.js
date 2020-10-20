@@ -10,16 +10,14 @@ import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
 import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage';
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Route path="/search" exact><SearchPage /></Route>
-      <Route path="/" exact><HomePage /></Route>
-      <Route path="/auth/login" exact><LoginCardPage /></Route>
-      <Route path="/auth/forgot-pwd" exact><ForgotPwdCardPage /></Route>
-      <Route path="/auth/register" exact><RegisterCardPage /></Route>
-    </BrowserRouter>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Route path="/search" exact component={SearchPage} />
+    <Route path="/" exact component={HomePage} />
+    <Route path="/auth/login" exact component={LoginCardPage} />
+    <Route path="/auth/forgot-pwd" exact component={ForgotPwdCardPage} />
+    <Route path="/auth/register" exact component={RegisterCardPage} />
+  </BrowserRouter>
+);
 
 export default App;

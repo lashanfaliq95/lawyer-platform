@@ -13,7 +13,6 @@ import {
   CardTitle,
 } from 'reactstrap';
 import { useFormik } from 'formik';
-import { object, string } from 'yup';
 
 import formatMessage from 'components/formatMessages';
 import Icon from 'components/Shared/Icon';
@@ -30,10 +29,6 @@ const LoginForm = ({ intl, loginUser: loginUserAction }) => {
       email: '',
       password: '',
     },
-    validationSchema: object({
-      email: string().email('Invalid email address').required('Required'),
-      password: string().required('No password provided.'),
-    }),
     onSubmit: (values) => {
       loginUserAction(values);
     },
@@ -80,27 +75,30 @@ const LoginForm = ({ intl, loginUser: loginUserAction }) => {
               {intl.formatMessage(messages.passwordPlaceHolder)}
             </span>
             {!password && (
-            <div className="inner-link">
-              <Link to="/auth/forgot-pwd">
-                {formatMessage(messages.forgotPwdBtnText)}
-              </Link>
-            </div>
+              <div className="inner-link">
+                <Link to="/auth/forgot-pwd">
+                  {formatMessage(messages.forgotPwdBtnText)}
+                </Link>
+              </div>
             )}
-            {
-              password && !isPasswordVisible && (
-              <button className="pwd-btn" onClick={togglePasswordVisibility} type="button">
+            {password && !isPasswordVisible && (
+              <button
+                className="pwd-btn"
+                onClick={togglePasswordVisibility}
+                type="button"
+              >
                 <Icon className="pwd-icon" name="eye" />
               </button>
-              )
-            }
-            {
-              password && isPasswordVisible && (
-              <button className="pwd-btn" onClick={togglePasswordVisibility} type="button">
+            )}
+            {password && isPasswordVisible && (
+              <button
+                className="pwd-btn"
+                onClick={togglePasswordVisibility}
+                type="button"
+              >
                 <Icon className="pwd-icon" name="eye-slash" />
               </button>
-              )
-            }
-
+            )}
           </FormGroup>
           <FormGroup>
             <Button className="login-btn" type="submit" color="warning">
@@ -113,7 +111,6 @@ const LoginForm = ({ intl, loginUser: loginUserAction }) => {
             {formatMessage(messages.registerBtnText)}
           </Link>
         </div>
-
       </CardBody>
     </Card>
   );

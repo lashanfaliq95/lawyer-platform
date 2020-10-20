@@ -8,12 +8,12 @@ import messages from '../messages';
 const InfoSection = () => (
   <Row className="info-section">
     <Col md="3">
-      <Row className="first-column-header">{formatMessages(messages.aboutAvoPlan)}</Row>
+      <Row className="first-column-header">
+        {formatMessages(messages.aboutAvoPlan)}
+      </Row>
       <Row>
         <Icon name="question-circle" />
-        <span className="icon-text">
-          {formatMessages(messages.helpCenter)}
-        </span>
+        <span className="icon-text">{formatMessages(messages.helpCenter)}</span>
       </Row>
     </Col>
     <Col md={{ size: 3, offset: 3 }}>
@@ -23,7 +23,9 @@ const InfoSection = () => (
       <Row>{formatMessages(messages.career)}</Row>
     </Col>
     <Col md="3">
-      <Row className="column-header">{formatMessages(messages.otherOptions)}</Row>
+      <Row className="column-header">
+        {formatMessages(messages.otherOptions)}
+      </Row>
       <Row>{formatMessages(messages.bookAppointment)}</Row>
       <Row>{formatMessages(messages.registerAsAClient)}</Row>
       <Row>{formatMessages(messages.AdvoplanPro)}</Row>

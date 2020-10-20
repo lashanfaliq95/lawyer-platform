@@ -4,7 +4,10 @@ import { string, func } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
-  FA_SOLID_ICONS, FA_SMALL, FA_TYPE_MAP, FA_SIZE_MAP,
+  FA_SOLID_ICONS,
+  FA_SMALL,
+  FA_TYPE_MAP,
+  FA_SIZE_MAP,
 } from './constants';
 import './styles.scss';
 
@@ -38,7 +41,11 @@ const Icon = (props) => {
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <span onClick={onClick || undefined} className={iconClassName}>
-      <FontAwesomeIcon icon={[faIconType, name]} size={faIconSize} color={color} />
+      <FontAwesomeIcon
+        icon={[faIconType, name]}
+        size={faIconSize}
+        color={color}
+      />
     </span>
   );
 };
@@ -59,4 +66,5 @@ Icon.defaultProps = {
   type: FA_SOLID_ICONS,
   onClick: null,
 };
+
 export default Icon;

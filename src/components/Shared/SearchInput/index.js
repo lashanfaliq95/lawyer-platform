@@ -12,7 +12,11 @@ import Icon from 'components/Shared/Icon';
 import { getLocation } from '../utils';
 
 const SearchInput = ({
-  sizeInputOne, sizeInputTwo, offset, className, transitionText,
+  sizeInputOne,
+  sizeInputTwo,
+  offset,
+  className,
+  transitionText,
 }) => (
   <Row>
     <Col
@@ -31,9 +35,7 @@ const SearchInput = ({
           name: 'crosshairs',
           color: 'grey',
           onClick: () => {
-            getLocation((position) => {
-              console.log(position.coords.latitude, position.coords.longitude);
-            });
+            getLocation((position) => { console.log(position); });
           },
         }}
         placeholder="z.B. Köln oder 50678"

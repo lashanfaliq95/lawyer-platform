@@ -29,9 +29,11 @@ const InputWithIcon = (props) => {
     width,
     transitionText,
   } = props;
+
   const { className } = getInputClassName(prependIcon, appendIcon);
   const [transition, setTransition] = useState(false);
   const transitionDivClass = !transition ? 'transition-text' : 'transitioned';
+
   return (
     <div className="input-icons" style={{ width }}>
       {prependIcon && (
@@ -49,33 +51,33 @@ const InputWithIcon = (props) => {
         placeholder={placeholder}
       />
       {transitionText && (
-      <button
-        className={`transition-button ${transitionDivClass}`}
-        type="button"
-        onClick={() => {
-          setTransition(!transition);
-        }}
-      >
-        <div>
-          {appendIcon && (
-          <Icon
-            name="crosshairs"
-            size="large"
-            color="grey"
-            onClick={() => {
-              setTransition(!transition);
-            }}
-          />
-          )}
-          <p>{formatMessage(transitionText)}</p>
-          <Icon
-            name="times-circle"
-            className="icon"
-            size="large"
-            color={prependIcon.color}
-          />
-        </div>
-      </button>
+        <button
+          className={`transition-button ${transitionDivClass}`}
+          type="button"
+          onClick={() => {
+            setTransition(!transition);
+          }}
+        >
+          <div>
+            {appendIcon && (
+              <Icon
+                name="crosshairs"
+                size="large"
+                color="grey"
+                onClick={() => {
+                  setTransition(!transition);
+                }}
+              />
+            )}
+            <p>{formatMessage(transitionText)}</p>
+            <Icon
+              name="times-circle"
+              className="icon"
+              size="large"
+              color={prependIcon.color}
+            />
+          </div>
+        </button>
       )}
       {appendIcon && (
         <Icon
@@ -122,4 +124,5 @@ InputWithIcon.defaultProps = {
   transitionText: null,
   onChange: () => {},
 };
+
 export default InputWithIcon;

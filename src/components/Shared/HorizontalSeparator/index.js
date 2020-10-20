@@ -4,8 +4,16 @@ import { string, number, bool } from 'prop-types';
 import './styles.scss';
 
 const HorizontalSeparator = ({ color, height, isContainer }) => (
-  !isContainer
-    ? (
+  !isContainer ? (
+    <hr
+      style={{
+        color,
+        backgroundColor: color,
+        height,
+      }}
+    />
+  ) : (
+    <Container className="separator-wrapper">
       <hr
         style={{
           color,
@@ -13,18 +21,9 @@ const HorizontalSeparator = ({ color, height, isContainer }) => (
           height,
         }}
       />
-    ) : (
-      <Container className="separator-wrapper">
-        <hr
-          style={{
-            color,
-            backgroundColor: color,
-            height,
-          }}
-        />
-      </Container>
-    )
-);
+    </Container>
+  ));
+
 HorizontalSeparator.propTypes = {
   color: string,
   height: number,

@@ -63,7 +63,8 @@ export default {
   'app.loginPage.firstName': 'Vorname',
   'app.loginPage.lastName': 'Nachname',
   'app.loginPage.forgotPwdCardTitle': 'Passwort vergessen?',
-  'app.loginPage.forgotPwdCardDescription': 'Keine Sorge, wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts zu',
+  'app.loginPage.forgotPwdCardDescription':
+    'Keine Sorge, wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts zu',
   'app.loginPage.resetBtnText': 'Passwort zurücksetzen',
   'app.homePage.videoSectionCardTitle': 'Von überall. Zu jeder Zeit.',
   'app.homePage.videoSectionCardDescription':

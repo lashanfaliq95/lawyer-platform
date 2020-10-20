@@ -15,16 +15,11 @@ import {
   Col,
 } from 'reactstrap';
 import { useFormik } from 'formik';
-import {
-  object, string, number,
-} from 'yup';
 
 import formatMessage from 'components/formatMessages';
 import messages from '../../messages';
 
-const RegisterCard = ({
-  intl,
-}) => {
+const RegisterCard = ({ intl }) => {
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -32,24 +27,8 @@ const RegisterCard = ({
       mobilePhone: '',
       email: '',
       password: '',
-      emailConfirmation: '',
     },
-    validationSchema: object({
-      firstName: string().required(),
-      lastName: string().required(),
-      mobilePhone: number().test('len', intl.formatMessage(messages.mobileValidation), (val) => val && val.length === 9).required(intl.formatMessage(messages.required)),
-      email: string().email(intl.formatMessage(messages.emailValidation))
-        .required(intl.formatMessage(messages.required)),
-      password: string()
-        .required(intl.formatMessage(messages.required))
-        .matches(
-          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-          intl.formatMessage(messages.passwordValidation),
-        ),
-    }),
-    onSubmit: () => {
-
-    },
+    onSubmit: () => {},
   });
   return (
     <Card>
@@ -83,7 +62,6 @@ const RegisterCard = ({
               type="email"
               name="email"
               id="email"
-              valid={formik.touched.email && !formik.errors.email}
               {...formik.getFieldProps('email')}
             />
             <span className="floating-label">
@@ -95,7 +73,6 @@ const RegisterCard = ({
               type="text"
               name="mobilePhone"
               id="mobilePhone"
-              valid={formik.touched.mobilePhone && !formik.errors.mobilePhone}
               {...formik.getFieldProps('mobilePhone')}
             />
             <span className="floating-label">
@@ -107,7 +84,6 @@ const RegisterCard = ({
               type="password"
               name="password"
               id="password"
-              valid={formik.touched.Password && !formik.errors.Password}
               {...formik.getFieldProps('password')}
             />
             <span className="floating-label">
@@ -134,4 +110,4 @@ RegisterCard.propTypes = {
   intl: shape.isRequired,
 };
 
-export default injectIntl(connect(null, { })(RegisterCard));
+export default injectIntl(connect(null, {})(RegisterCard));

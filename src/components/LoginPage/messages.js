@@ -47,7 +47,8 @@ export default defineMessages({
   },
   pwdDescription: {
     id: 'app.loginPage.pwdDescription',
-    defaultMessage: ' Your password will allow you to manage your appointments.',
+    defaultMessage:
+      ' Your password will allow you to manage your appointments.',
   },
   mobileOrLandLine: {
     id: 'app.loginPage.mobileOrLandLine',
@@ -55,7 +56,8 @@ export default defineMessages({
   },
   mobileOrLandLineText: {
     id: 'app.loginPage.mobileOrLandLineText',
-    defaultMessage: ' A code will be sent to you on this number to validate your account.',
+    defaultMessage:
+      ' A code will be sent to you on this number to validate your account.',
   },
   yourEmail: {
     id: 'app.loginPage.yourEmail',
@@ -83,7 +85,8 @@ export default defineMessages({
   },
   passwordValidation: {
     id: 'app.loginPage.passwordValidation',
-    defaultMessage: 'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+    defaultMessage:
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
   },
   required: {
     id: 'app.loginPage.required',

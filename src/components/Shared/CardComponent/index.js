@@ -19,7 +19,9 @@ const CardComponent = ({
 }) => (
   <div className="col">
     <Icon name={iconName} size="extraLarge" />
-    <h4 style={{ fontWeight: `${isTitleBold ? 'bold' : 'inherit'}` }}>{formatMessages(title)}</h4>
+    <h4 style={{ fontWeight: `${isTitleBold ? 'bold' : 'inherit'}` }}>
+      {formatMessages(title)}
+    </h4>
     <p>{formatMessages(description)}</p>
     {btnText && (
       <Button className={btnClass} outline={btnOutline} onClick={onClick}>
