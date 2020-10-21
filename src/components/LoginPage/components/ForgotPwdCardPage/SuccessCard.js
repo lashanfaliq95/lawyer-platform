@@ -24,7 +24,7 @@ const SuccessCard = () => (
         {formatMessage(messages.successCardDescription)}
       </p>
       <p className="link-text">{formatMessage(messages.noMailReceivedText)}</p>
-      <Link to="/">{formatMessage(messages.switchToHelp)}</Link>
+      <Link to="/" className="success-card-link">{formatMessage(messages.switchToHelp)}</Link>
     </div>
   </CardBody>
 );

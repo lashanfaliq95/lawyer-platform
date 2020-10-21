@@ -2,12 +2,23 @@
   height: calc(100vh - 56px);
   margin: 0;
   background-color: whitesmoke;
+  .register-card {
+    max-height: 605px;
+  }
+  .login-card {
+    max-height: 377px;
+  }
+  .forgot-pwd-card {
+    max-height: 386px;
+  }
   .card {
     margin: auto;
     border-radius: 20px;
     padding: 0 15.84px;
     width: 377px;
     height: fit-content;
+    height: -moz-fit-content;
+    min-height: 24rem;
     position: absolute;
     top: 0;
     right: 0;
@@ -61,24 +72,30 @@
 
   .form-group {
     position: relative;
+    color: rgb(116, 116, 116);
+
     input {
-      padding: 35.2px 14.08px 1px;
+      padding: 35.2px 14.08px 13.2px;
       height: 70px;
     }
     .floating-label {
       position: absolute;
       pointer-events: none;
       left: 20px;
-      top: 18px;
-      transition: 0.2s ease all;
+      top: 25px;
+      transition: 0.3s ease all;
     }
     input:focus ~ .floating-label,
     input:placeholder-shown {
-      top: 8px;
+      top: 10px;
       bottom: 10px;
-      left: 20px;
-      font-size: 11px;
+      left: 16px;
+      font-size: 14px;
       opacity: 1;
+    }
+
+    input:focus{
+      box-shadow:0 0 1px 1px #0596de;
     }
   }
   .login-footer {
@@ -90,15 +107,19 @@
   }
   .outer-link {
     text-align: center;
-    color: #0596de;
     font-weight: 550;
+    a{
+      color: #0596de;
+    }
   }
   .inner-link {
     position: absolute;
-    color: #0596de;
     right: 5%;
     top: 35%;
     font-weight: 550;
+    a{
+      color: #0596de;
+    }
   }
 
   .pwd-btn {
@@ -126,26 +147,28 @@
     }
   }
 
-  .success-image{
+  .success-image {
     width: 30%;
     height: 100px;
     margin-bottom: 16px;
   }
 
-  .link-text{
+  .link-text {
     margin-bottom: 0;
   }
 
-  p{
+  p {
     color: rgb(116, 116, 116);
   }
 
-  .pwd-bar-wrapper{
+  .pwd-bar-wrapper {
     margin: 20px 0;
-    .score-word-style{
+    .score-word-style {
       text-align: left !important;
     }
   }
 
-
+  .success-card-link{
+    color: #0596de;
+  }
 }

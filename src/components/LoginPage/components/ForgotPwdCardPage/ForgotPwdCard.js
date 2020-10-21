@@ -21,7 +21,7 @@ const ForgotPwdCard = ({ resetPassword: resetPasswordAction }) => {
   };
 
   return (
-    <Card>
+    <Card className="forgot-pwd-card">
       {isPwdResetSuccess === null && (
       <CardBody>
         <CardTitle className="title">

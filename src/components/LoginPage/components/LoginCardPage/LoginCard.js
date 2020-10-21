@@ -44,7 +44,7 @@ const LoginForm = ({ intl, loginUser: loginUserAction }) => {
   };
 
   return (
-    <Card>
+    <Card className="login-card">
       <CardBody>
         <CardTitle className="title">
           <Link to="/" className="link-text">

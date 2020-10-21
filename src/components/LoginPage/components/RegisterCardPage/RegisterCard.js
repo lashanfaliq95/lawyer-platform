@@ -46,7 +46,7 @@ const RegisterCard = ({ intl }) => {
   };
 
   return (
-    <Card>
+    <Card className="register-card">
       <CardBody>
         <CardTitle className="title">
           <Link to="/" className="link-text">
