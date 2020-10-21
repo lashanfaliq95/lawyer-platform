@@ -1,0 +1,29 @@
+.floating-label-input{
+    position: relative;
+    color: rgb(116, 116, 116);
+
+    input {
+      padding: 35.2px 14.08px 13.2px;
+      height: 70px;
+    }
+    .floating-label {
+      position: absolute;
+      pointer-events: none;
+      left: 20px;
+      top: 25px;
+      transition: 0.3s ease all;
+    }
+    input:focus ~ .floating-label,
+    .has-input  ~ .floating-label,
+    input:placeholder-shown {
+      top: 10px;
+      bottom: 10px;
+      left: 16px;
+      font-size: 14px;
+      opacity: 1;
+    }
+
+    input:focus{
+      box-shadow:0 0 1px 1px #0596de;
+    }
+}

@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { injectIntl } from 'react-intl';
 import { shape } from 'prop-types';
 import {
   Form,
   FormGroup,
-  Input,
   Button,
   Card,
   CardBody,
@@ -15,16 +13,16 @@ import {
   Col,
 } from 'reactstrap';
 import { useFormik } from 'formik';
-import PasswordStrengthBar from 'react-password-strength-bar';
+import {
+  object, string, number,
+} from 'yup';
 
 import formatMessage from 'components/formatMessages';
-import Icon from 'components/Shared/Icon';
+import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
+import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
 import messages from '../../messages';
 
-const RegisterCard = ({ intl }) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [password, setPassword] = useState('');
-
+const RegisterCard = () => {
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -33,17 +31,15 @@ const RegisterCard = ({ intl }) => {
       email: '',
       password: '',
     },
+    validationSchema: object({
+      firstName: string().required(),
+      lastName: string().required(),
+      mobilePhone: number().required(),
+      email: string().email().required(),
+      password: string().required(),
+    }),
     onSubmit: () => {},
   });
-
-  const onPasswordChange = (e) => {
-    setPassword(e.target.value);
-    formik.handleChange(e);
-  };
-
-  const togglePasswordVisibility = () => {
-    setIsPasswordVisible(!isPasswordVisible);
-  };
 
   return (
     <Card className="register-card">
@@ -57,77 +53,54 @@ const RegisterCard = ({ intl }) => {
           <Row form>
             <Col md={6}>
               <FormGroup>
-                <Input type="text" name="firstName" id="firstName" />
-                <span className="floating-label">
-                  {intl.formatMessage(messages.firstName)}
-                </span>
+                <FloatingInputLabel
+                  label={messages.firstName}
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  {...formik.getFieldProps('firstName')}
+                />
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
-                <Input type="text" name="lastName" id="lastName" />
-                <span className="floating-label">
-                  {intl.formatMessage(messages.lastName)}
-                </span>
+                <FloatingInputLabel
+                  label={messages.lastName}
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  {...formik.getFieldProps('lastName')}
+                />
               </FormGroup>
             </Col>
           </Row>
           <FormGroup>
-            <Input
+            <FloatingInputLabel
+              label={messages.emailPlaceHolder}
               type="email"
               name="email"
               id="email"
               {...formik.getFieldProps('email')}
             />
-            <span className="floating-label">
-              {intl.formatMessage(messages.emailPlaceHolder)}
-            </span>
           </FormGroup>
           <FormGroup>
-            <Input
+            <FloatingInputLabel
+              label={messages.mobileOrLandLine}
               type="text"
               name="mobilePhone"
               id="mobilePhone"
               {...formik.getFieldProps('mobilePhone')}
             />
-            <span className="floating-label">
-              {intl.formatMessage(messages.mobileOrLandLine)}
-            </span>
           </FormGroup>
           <FormGroup>
-            <Input
-              className="pwd-input"
-              type={isPasswordVisible ? 'text' : 'password'}
+            <FloatingLabelPwdInput
+              label={messages.passwordPlaceHolder}
               name="password"
               id="password"
-              onBlur={formik.handleBlur}
-              onChange={onPasswordChange}
+              showPwdStrength
+              {...formik.getFieldProps('password')}
             />
-            <span className="floating-label">
-              {intl.formatMessage(messages.passwordPlaceHolder)}
-            </span>
-            {!isPasswordVisible && (
-              <button
-                className="pwd-btn"
-                onClick={togglePasswordVisibility}
-                type="button"
-              >
-                <Icon className="pwd-icon" name="eye" />
-              </button>
-            )}
-            {isPasswordVisible && (
-              <button
-                className="pwd-btn"
-                onClick={togglePasswordVisibility}
-                type="button"
-              >
-                <Icon className="pwd-icon" name="eye-slash" />
-              </button>
-            )}
           </FormGroup>
-          <div className="pwd-bar-wrapper">
-            <PasswordStrengthBar password={password} scoreWordClassName="score-word-style" />
-          </div>
           <FormGroup>
             <Button type="submit" color="primary" className="login-btn">
               {formatMessage(messages.register)}
@@ -148,4 +121,4 @@ RegisterCard.propTypes = {
   intl: shape.isRequired,
 };
 
-export default injectIntl(connect(null, {})(RegisterCard));
+export default connect(null, {})(RegisterCard);

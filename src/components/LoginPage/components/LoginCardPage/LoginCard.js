@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { injectIntl } from 'react-intl';
 import { func, shape } from 'prop-types';
 import {
   Form,
   FormGroup,
-  Input,
   Button,
   Card,
   CardBody,
@@ -15,15 +13,13 @@ import {
 import { useFormik } from 'formik';
 
 import formatMessage from 'components/formatMessages';
-import Icon from 'components/Shared/Icon';
+import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
+import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
 import messages from '../../messages';
 
 import { loginUser } from '../../actions';
 
-const LoginForm = ({ intl, loginUser: loginUserAction }) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [password, setPassword] = useState(null);
-
+const LoginForm = ({ loginUser: loginUserAction }) => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -33,15 +29,6 @@ const LoginForm = ({ intl, loginUser: loginUserAction }) => {
       loginUserAction(values);
     },
   });
-
-  const onPasswordInputChange = (e) => {
-    setPassword(e.target.value);
-    formik.handleChange(e);
-  };
-
-  const togglePasswordVisibility = () => {
-    setIsPasswordVisible(!isPasswordVisible);
-  };
 
   return (
     <Card className="login-card">
@@ -53,52 +40,23 @@ const LoginForm = ({ intl, loginUser: loginUserAction }) => {
         </CardTitle>
         <Form onSubmit={formik.handleSubmit}>
           <FormGroup>
-            <Input
+            <FloatingInputLabel
+              label={messages.emailPlaceHolder}
               type="email"
               name="email"
               id="exampleEmail"
               {...formik.getFieldProps('email')}
             />
-            <span className="floating-label">
-              {intl.formatMessage(messages.emailPlaceHolder)}
-            </span>
           </FormGroup>
           <FormGroup>
-            <Input
-              className="pwd-input"
-              type={isPasswordVisible ? 'text' : 'password'}
+            <FloatingLabelPwdInput
               name="password"
+              label={messages.passwordPlaceHolder}
               onBlur={formik.handleBlur}
-              onChange={onPasswordInputChange}
+              onChange={formik.handleChange}
+              forgotPwdBtnText={messages.forgotPwdBtnText}
+              showForgotPwdBtn
             />
-            <span className="floating-label">
-              {intl.formatMessage(messages.passwordPlaceHolder)}
-            </span>
-            {!password && (
-              <div className="inner-link">
-                <Link to="/auth/forgot-pwd">
-                  {formatMessage(messages.forgotPwdBtnText)}
-                </Link>
-              </div>
-            )}
-            {password && !isPasswordVisible && (
-              <button
-                className="pwd-btn"
-                onClick={togglePasswordVisibility}
-                type="button"
-              >
-                <Icon className="pwd-icon" name="eye" />
-              </button>
-            )}
-            {password && isPasswordVisible && (
-              <button
-                className="pwd-btn"
-                onClick={togglePasswordVisibility}
-                type="button"
-              >
-                <Icon className="pwd-icon" name="eye-slash" />
-              </button>
-            )}
           </FormGroup>
           <FormGroup>
             <Button className="login-btn" type="submit" color="warning">
@@ -121,4 +79,4 @@ LoginForm.propTypes = {
   loginUser: func.isRequired,
 };
 
-export default injectIntl(connect(null, { loginUser })(LoginForm));
+export default connect(null, { loginUser })(LoginForm);

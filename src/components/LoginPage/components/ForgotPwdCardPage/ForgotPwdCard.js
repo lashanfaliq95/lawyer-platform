@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
 import {
-  Button, Card, CardBody, CardTitle, Input,
+  Button, Card, CardBody, CardTitle,
 } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
+import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import messages from '../../messages';
 import SuccessCard from './SuccessCard';
 
@@ -37,10 +38,10 @@ const ForgotPwdCard = ({ resetPassword: resetPasswordAction }) => {
             {formatMessage(messages.forgotPwdCardDescription)}
           </p>
           <div className="form-group">
-            <Input />
-            <span className="floating-label">
-              {formatMessage(messages.emailPlaceHolder)}
-            </span>
+            <FloatingInputLabel
+              label={messages.emailPlaceHolder}
+              onChange={() => {}}
+            />
           </div>
           <Button className="login-btn" onClick={onPwdResetClick}>
             {formatMessage(messages.resetBtnText)}

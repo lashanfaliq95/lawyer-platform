@@ -70,34 +70,6 @@
     }
   }
 
-  .form-group {
-    position: relative;
-    color: rgb(116, 116, 116);
-
-    input {
-      padding: 35.2px 14.08px 13.2px;
-      height: 70px;
-    }
-    .floating-label {
-      position: absolute;
-      pointer-events: none;
-      left: 20px;
-      top: 25px;
-      transition: 0.3s ease all;
-    }
-    input:focus ~ .floating-label,
-    input:placeholder-shown {
-      top: 10px;
-      bottom: 10px;
-      left: 16px;
-      font-size: 14px;
-      opacity: 1;
-    }
-
-    input:focus{
-      box-shadow:0 0 1px 1px #0596de;
-    }
-  }
   .login-footer {
     display: flex;
     flex-direction: column;
@@ -108,30 +80,9 @@
   .outer-link {
     text-align: center;
     font-weight: 550;
-    a{
+    a {
       color: #0596de;
     }
-  }
-  .inner-link {
-    position: absolute;
-    right: 5%;
-    top: 35%;
-    font-weight: 550;
-    a{
-      color: #0596de;
-    }
-  }
-
-  .pwd-btn {
-    position: absolute;
-    right: 5%;
-    top: 35%;
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
   }
 
   .forgot-pwd-body {
@@ -139,6 +90,7 @@
     margin-top: -15px;
     .sub-title {
       font-weight: bold;
+      color: black;
     }
     .pwd-description {
       max-width: 200px;
@@ -161,15 +113,8 @@
     color: rgb(116, 116, 116);
   }
 
-  .pwd-bar-wrapper {
-    margin: 20px 0;
-    .score-word-style {
-      text-align: left !important;
-    }
-  }
-
-  .success-card-link{
+  .success-card-link {
     color: #0596de;
-    font-weight: 550
+    font-weight: 550;
   }
 }
