@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
@@ -15,11 +15,16 @@ import {
   Col,
 } from 'reactstrap';
 import { useFormik } from 'formik';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 import formatMessage from 'components/formatMessages';
+import Icon from 'components/Shared/Icon';
 import messages from '../../messages';
 
 const RegisterCard = ({ intl }) => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [password, setPassword] = useState('');
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -30,6 +35,16 @@ const RegisterCard = ({ intl }) => {
     },
     onSubmit: () => {},
   });
+
+  const onPasswordChange = (e) => {
+    setPassword(e.target.value);
+    formik.handleChange(e);
+  };
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
   return (
     <Card>
       <CardBody>
@@ -81,15 +96,38 @@ const RegisterCard = ({ intl }) => {
           </FormGroup>
           <FormGroup>
             <Input
-              type="password"
+              className="pwd-input"
+              type={isPasswordVisible ? 'text' : 'password'}
               name="password"
               id="password"
-              {...formik.getFieldProps('password')}
+              onBlur={formik.handleBlur}
+              onChange={onPasswordChange}
             />
             <span className="floating-label">
               {intl.formatMessage(messages.passwordPlaceHolder)}
             </span>
+            {!isPasswordVisible && (
+              <button
+                className="pwd-btn"
+                onClick={togglePasswordVisibility}
+                type="button"
+              >
+                <Icon className="pwd-icon" name="eye" />
+              </button>
+            )}
+            {isPasswordVisible && (
+              <button
+                className="pwd-btn"
+                onClick={togglePasswordVisibility}
+                type="button"
+              >
+                <Icon className="pwd-icon" name="eye-slash" />
+              </button>
+            )}
           </FormGroup>
+          <div className="pwd-bar-wrapper">
+            <PasswordStrengthBar password={password} scoreWordClassName="score-word-style" />
+          </div>
           <FormGroup>
             <Button type="submit" color="primary" className="login-btn">
               {formatMessage(messages.register)}

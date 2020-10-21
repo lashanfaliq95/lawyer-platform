@@ -9676,6 +9676,13 @@ react-overlays@^4.1.0:
     uncontrollable "^7.0.0"
     warning "^4.0.3"
 
+react-password-strength-bar@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/react-password-strength-bar/-/react-password-strength-bar-0.3.2.tgz#503012ef4f3d6a6c702d63b34c6596616807f2ac"
+  integrity sha512-ADJZVKhdDZVELGyrc0DHSyTIJL4A/9z++rUi6Un426bQJVFPv5esp3mZdZhraet/PwCOGJRMKyjGf5QgpKvX7w==
+  dependencies:
+    zxcvbn "4.4.2"
+
 react-player@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmjs.org/react-player/-/react-player-2.6.2.tgz#d41fe842f5bd6a2b1d3ce1ba9ed82c3eb26e0df4"
@@ -12315,3 +12322,8 @@ yup@^0.29.3:
     property-expr "^2.0.2"
     synchronous-promise "^2.0.13"
     toposort "^2.0.2"
+
+zxcvbn@4.4.2:
+  version "4.4.2"
+  resolved "https://registry.npmjs.org/zxcvbn/-/zxcvbn-4.4.2.tgz#28ec17cf09743edcab056ddd8b1b06262cc73c30"
+  integrity sha1-KOwXzwl0PtyrBW3dixsGJizHPDA=
