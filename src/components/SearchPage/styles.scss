@@ -5,9 +5,13 @@
 .col-md-12 {
   padding-left: 0px;
   padding-right: 0px;
-}
+} 
 
 .search-page {
+  .content{
+    width: 100%;
+    margin: 0;
+  }
   .search-input-group {
     height: 93px;
     background-color: #32a9e4;
@@ -69,25 +73,6 @@
     }
   }
 
-  @media only screen and (max-width: 774px) {
-    .search-input-group {
-      display: none;
-    }
-    .filter-bar {
-      display: none;
-    }
-  }
-
-  .content {
-    background-color: whitesmoke;
-
-    .list-group-item {
-      padding: 0;
-      margin-bottom: 10px;
-      margin-top: 10px;
-    }
-  }
-
   .info-image {
     border-radius: 50%;
     height: 80px;
@@ -121,12 +106,22 @@
   }
 
   .map-container{
-    .leaflet-container{
-      height: calc(100vh - 297px);
-    }
-    height: calc(100vh - 297px);
-    margin-top: 10px;
+    padding: 0;
+    height:  100vh;
     top: 0;
     position: sticky;
+    .leaflet-container{
+      height:100vh;
+    }
   }
+
+  .card-container{
+    padding: 0;
+  }
+
+
+}
+
+.search-footer{
+  margin-top: 0;
 }

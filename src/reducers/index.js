@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 
-const difficultyReducer = (selectedDifficulty = null) => selectedDifficulty;
+import locations from 'components/SearchPage/reducer';
 
-export default combineReducers({ difficulty: difficultyReducer });
+export default combineReducers({ locations });
