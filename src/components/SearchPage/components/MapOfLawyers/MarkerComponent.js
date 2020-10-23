@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   string, bool, arrayOf, number,
 } from 'prop-types';
@@ -12,6 +12,7 @@ const MarkerComponent = ({
   const onClick = () => {
     console.log(id);
   };
+  console.log('rendered', id, position, address, isHovered);
   return (
     <Marker key={id} position={position} onclick={onClick} icon={isHovered ? hoverIcon : icon}>
       <Popup>
@@ -33,4 +34,4 @@ MarkerComponent.defaultProps = {
   isHovered: false,
 };
 
-export default MarkerComponent;
+export default memo(MarkerComponent);

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 
-import locations from 'components/SearchPage/reducer';
+import search from 'components/SearchPage/reducer';
 
-export default combineReducers({ locations });
+export default combineReducers({ search });

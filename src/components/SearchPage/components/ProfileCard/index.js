@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
 import {
   Card,
   CardText,
@@ -15,16 +15,20 @@ import lawyerImage from 'assets/images/jusge.jpg';
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
 const ProfileCard = ({
+  id,
+  name,
+  jobDescription,
+  address,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
 }) => (
   <Card
     className="profile-card"
     onMouseEnter={() => {
-      onMouseEnterCardAction({ id: 1 });
+      onMouseEnterCardAction({ id });
     }}
     onMouseLeave={() => {
-      onMouseLeaveCardAction({ id: 1 });
+      onMouseLeaveCardAction({ id });
     }}
   >
     <CardBody>
@@ -37,12 +41,12 @@ const ProfileCard = ({
             <Col md={{ size: 7, offset: 1 }}>
               <CardTitle>
                 <Button className="name-btn" color="link">
-                  Name name
+                  {name}
                 </Button>
-                <span className="job-description">normal lawyer</span>
+                <span className="job-description">{jobDescription}</span>
               </CardTitle>
               <CardText className="address">
-                Salzgitter, Lower Saxony, Germany
+                {address}
               </CardText>
               <span className="agreement-type">Sector 1</span>
             </Col>
@@ -60,6 +64,10 @@ const ProfileCard = ({
 ProfileCard.propTypes = {
   onMouseEnterCard: func.isRequired,
   onMouseLeaveCard: func.isRequired,
+  id: string.isRequired,
+  name: string.isRequired,
+  jobDescription: string.isRequired,
+  address: string.isRequired,
 };
 
 export default connect(null, { onMouseEnterCard, onMouseLeaveCard })(

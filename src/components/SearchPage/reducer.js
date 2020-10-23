@@ -1,36 +1,57 @@
 import { ON_MOUSE_ENTER_CARD, ON_MOUSE_LEAVE_CARD } from './constants';
 
-const initialState = [
-  {
-    id: 1, position: [52.150002, 10.333333], address: 'strin 1', isHovered: false,
-  }, {
-    id: 2, position: [52.150002, 20], address: 'strin 2', isHovered: false,
-  }, {
-    id: 3, position: [42.150002, 20], address: 'strin 3', isHovered: false,
-  }];
+const initialState = {
+  locations: [
+    {
+      id: 1, position: [52.150002, 10.333333], address: 'strin 1', isHovered: false,
+    },
+    {
+      id: 2, position: [52.150002, 20], address: 'strin 2', isHovered: false,
+    },
+    {
+      id: 3, position: [42.150002, 20], address: 'strin 3', isHovered: false,
+    },
+  ],
+  users: [
+    {
+      id: 1, name: 'lashan', jobDescription: 'lawyer', address: 'no 7, st beads road badulla',
+    },
+    {
+      id: 2, name: 'rishan', jobDescription: 'lawyer', address: 'no 7, st beads road badulla',
+    },
+    {
+      id: 3, name: 'Inshira', jobDescription: 'consultont', address: 'no 7, st beads road badulla',
+    },
+  ],
+};
 
-const locations = (state = initialState, action) => {
+const search = (state = initialState, action) => {
   switch (action.type) {
     case ON_MOUSE_ENTER_CARD:
-      return (
-        state.map((location) => {
+      return {
+        ...state,
+        locations: state.locations.map((location) => {
           const updatedLocation = location;
           if (action.payload.id === location.id) {
             updatedLocation.isHovered = true;
           }
           return updatedLocation;
-        }));
+        }),
+      };
     case ON_MOUSE_LEAVE_CARD:
-      return (
-        state.map((location) => {
+      return {
+        ...state,
+        locations: state.locations.map((location) => {
           const updatedLocation = location;
           if (action.payload.id === location.id) {
             updatedLocation.isHovered = false;
           }
           return updatedLocation;
-        }));
+        }),
+      };
     default:
       return state;
   }
 };
-export default locations;
+
+export default search;

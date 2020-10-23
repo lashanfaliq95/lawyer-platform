@@ -13,7 +13,7 @@ import MapOfLawyers from './components/MapOfLawyers';
 const position = [52.150002, 10.333333];
 const bounds = [[52.150002, 10.333333], [52.150002, 20], [42.150002, 20]];
 
-const SearchPage = ({ locations }) => (
+const SearchPage = ({ locations, users }) => (
   <>
     <NavigationBar />
     <Container className="search-page" fluid>
@@ -21,7 +21,7 @@ const SearchPage = ({ locations }) => (
         <Row className="content">
           <Col md="7" className="card-container">
             <Row>
-              <ProfileCardList />
+              <ProfileCardList users={users} />
             </Row>
             <SearchInput sizeInputOne={4} sizeInputTwo={4} offset={2} />
           </Col>
@@ -36,10 +36,14 @@ const SearchPage = ({ locations }) => (
   </>
 );
 
-const mapStateToProps = (state) => ({ locations: state.locations });
+const mapStateToProps = (state) => ({
+  locations: state.search.locations,
+  users: state.search.users,
+});
 
 SearchPage.propTypes = {
   locations: arrayOf(shape({})).isRequired,
+  users: arrayOf(shape({})).isRequired,
 };
 
 export default connect(mapStateToProps)(SearchPage);
