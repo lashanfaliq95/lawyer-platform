@@ -38,7 +38,11 @@ const ProfileCard = ({
           <Col md="5">
             <Row>
               <Col md="4">
-                <img className="info-image" src={lawyerImage} alt="Info images" />
+                <img
+                  className="info-image"
+                  src={lawyerImage}
+                  alt="Info images"
+                />
               </Col>
               <Col md={{ size: 7, offset: 1 }}>
                 <CardTitle>
@@ -47,9 +51,7 @@ const ProfileCard = ({
                   </Button>
                   <span className="job-description">{jobDescription}</span>
                 </CardTitle>
-                <CardText className="address">
-                  {address}
-                </CardText>
+                <CardText className="address">{address}</CardText>
                 <span className="agreement-type">Sector 1</span>
               </Col>
             </Row>

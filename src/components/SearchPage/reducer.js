@@ -11,6 +11,18 @@ const initialState = {
     {
       id: 3, position: [42.150002, 20], address: 'strin 3', isHovered: false,
     },
+    {
+      id: 4, position: [45.150002, 20], address: 'strin 3', isHovered: false,
+    },
+    {
+      id: 5, position: [42.150002, 12], address: 'strin 3', isHovered: false,
+    },
+    {
+      id: 6, position: [60.150002, 20], address: 'strin 3', isHovered: false,
+    },
+    {
+      id: 7, position: [20.150002, 10], address: 'strin 3', isHovered: false,
+    },
   ],
   users: [
     {
@@ -21,6 +33,18 @@ const initialState = {
     },
     {
       id: 3, name: 'Inshira', jobDescription: 'consultont', address: 'no 7, st beads road badulla',
+    },
+    {
+      id: 4, name: 'Inshira', jobDescription: 'consultont', address: 'no 7, st beads road badulla',
+    },
+    {
+      id: 5, name: 'Inshira', jobDescription: 'consultont', address: 'no 7, st beads road badulla',
+    },
+    {
+      id: 6, name: 'Inshira', jobDescription: 'consultont', address: 'no 7, st beads road badulla',
+    },
+    {
+      id: 7, name: 'Inshira', jobDescription: 'consultont', address: 'no 7, st beads road badulla',
     },
   ],
 };

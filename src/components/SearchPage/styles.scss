@@ -2,13 +2,14 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+
 .col-md-12 {
   padding-left: 0px;
   padding-right: 0px;
-} 
+}
 
 .search-page {
-  .content{
+  .content {
     width: 100%;
     margin: 0;
   }
@@ -79,49 +80,51 @@
     width: 80px;
   }
 
-  .profile-card{
-    .name-btn{
+  .profile-card {
+    .name-btn {
       padding: 0px;
     }
-    .job-description{
+    .job-description {
       font-weight: bold;
     }
-    .address{
+    .address {
       font-size: 14px;
       margin-top: 35px;
-     
     }
-    .agreement-type{
+    .agreement-type {
       font-size: 14px;
-      color: rgba(67,95,113,0.6)
+      color: rgba(67, 95, 113, 0.6);
     }
-    .make-appointment-btn-row{
+    .make-appointment-btn-row {
       justify-content: center;
       padding-top: 5px;
-      button{
+      button {
         width: 60%;
       }
     }
-   
   }
 
-  .map-container{
+  .map-container {
     padding: 0;
-    height:  100vh;
+    height: 100vh;
     top: 0;
     position: sticky;
-    .leaflet-container{
-      height:100vh;
+    .leaflet-container {
+      height: 100vh;
     }
   }
 
-  .card-container{
+  .card-container {
     padding: 0;
   }
-
-
 }
 
-.search-footer{
+.search-footer {
   margin-top: 0;
+}
+
+.active-card {
+  .card{
+  background-color: red;
+  }
 }
