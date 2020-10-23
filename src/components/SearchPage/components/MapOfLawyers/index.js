@@ -1,8 +1,8 @@
 import React from 'react';
+import { Map, TileLayer } from 'react-leaflet';
 import {
   arrayOf, number, string, shape,
 } from 'prop-types';
-import { Map, TileLayer } from 'react-leaflet';
 
 import Marker from './MarkerComponent';
 
@@ -12,19 +12,16 @@ const MapOfLawyers = ({ position, bounds, locations }) => (
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
     />
-    {locations.map(({
-      id,
-      position: location,
-      address,
-      isHovered,
-    }) => (
-      <Marker
-        id={id}
-        position={location}
-        address={address}
-        isHovered={isHovered}
-      />
-    ))}
+    {
+      locations.map((location) => (
+        <Marker
+          id={location.id}
+          position={location.position}
+          address={location.address}
+          isHovered={location.isHovered}
+        />
+      ))
+}
   </Map>
 );
 

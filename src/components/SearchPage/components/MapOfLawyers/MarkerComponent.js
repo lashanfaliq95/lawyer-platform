@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { scroller } from 'react-scroll';
 import {
   string, bool, arrayOf, number,
 } from 'prop-types';
@@ -10,9 +11,13 @@ const MarkerComponent = ({
   id, position, address, isHovered,
 }) => {
   const onClick = () => {
-    console.log(id);
+    scroller.scrollTo(`profile-card-${id}`, {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+    });
   };
-  console.log('rendered', id, position, address, isHovered);
+
   return (
     <Marker key={id} position={position} onclick={onClick} icon={isHovered ? hoverIcon : icon}>
       <Popup>
