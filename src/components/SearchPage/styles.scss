@@ -9,6 +9,23 @@
 }
 
 .search-page {
+.search-summary{
+  margin: 50px 24px 20px;
+  p{
+    color: grey;
+  }
+}
+
+.filter-bar {
+  display: flex;
+  margin:0 24px 20px;
+  .filter-button-wrapper{
+    padding-right: 8px ;
+    padding-top: 4px ;
+    padding-bottom: 4px ;
+  }
+    }
+
   .content {
     width: 100%;
     margin: 0;
@@ -24,35 +41,7 @@
     }
   }
 
-  .filter-bar {
-    z-index: 1;
-    box-shadow: 0 2px 10px 0 rgba(67, 95, 113, 0.2);
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    .title {
-      font-weight: bold;
-      color: rgba(67, 95, 113, 0.4);
-      padding: 12px;
-      margin-bottom: 0;
-    }
-    button {
-      background-color: transparent;
-      color: inherit;
-      border: none;
-      height: 100%;
-      width: 100%;
-    }
-    ul {
-      height: 100%;
-    }
-    .dropdown {
-      height: 100%;
-    }
-    .list-group-item {
-      padding: 0;
-    }
-  }
+
 
   .info-image {
     border-radius: 50%;
