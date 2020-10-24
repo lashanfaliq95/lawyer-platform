@@ -12,7 +12,6 @@ const Search = () => (
         <h1 className="search-title">{formatMessages(messages.searchText)}</h1>
       </Col>
       <SearchInput
-        className="search-input-responsive"
         sizeInputOne={4}
         sizeInputTwo={3}
         offset={3}

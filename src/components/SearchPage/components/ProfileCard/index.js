@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
+import Calendar from 'react-calendar';
 import { func, string } from 'prop-types';
 import {
-  Card,
-  CardText,
-  CardBody,
   Col,
-  CardTitle,
   Button,
   Row,
 } from 'reactstrap';
+import 'react-calendar/dist/Calendar.css';
 
 import lawyerImage from 'assets/images/jusge.jpg';
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
@@ -22,18 +20,25 @@ const ProfileCard = ({
   address,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
-}) => (
-  <Element name={`profile-card-${id}`}>
-    <Card
-      className="profile-card"
-      onMouseEnter={() => {
-        onMouseEnterCardAction({ id });
-      }}
-      onMouseLeave={() => {
-        onMouseLeaveCardAction({ id });
-      }}
-    >
-      <CardBody>
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [date, setDate] = useState(new Date());
+
+  const onChange = (selectedDate) => setDate({ selectedDate });
+
+  return (
+    <Element name={`profile-card-${id}`}>
+      <div
+        className={`profile-card ${isHovered ? 'active' : ''}`}
+        onMouseEnter={() => {
+          onMouseEnterCardAction({ id });
+          setIsHovered(true);
+        }}
+        onMouseLeave={() => {
+          onMouseLeaveCardAction({ id });
+          setIsHovered(false);
+        }}
+      >
         <Row>
           <Col md="5">
             <Row>
@@ -44,27 +49,35 @@ const ProfileCard = ({
                   alt="Info images"
                 />
               </Col>
-              <Col md={{ size: 7, offset: 1 }}>
-                <CardTitle>
-                  <Button className="name-btn" color="link">
-                    {name}
-                  </Button>
-                  <span className="job-description">{jobDescription}</span>
-                </CardTitle>
-                <CardText className="address">{address}</CardText>
+              <Col md="8" className="name-section">
+                <Button className="name-btn" color="link">
+                  {name}
+                </Button>
+                <span className="job-description">{jobDescription}</span>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={{ size: 7, offset: 4 }}>
+                <div />
+                <div className="address">{address}</div>
                 <span className="agreement-type">Sector 1</span>
               </Col>
             </Row>
             <Row className="make-appointment-btn-row">
-              <Button>Button</Button>
+              <Button className="appointment-btn">Button</Button>
             </Row>
           </Col>
-          <Col md="7">Calender : TODO</Col>
+          <Col md="7">
+            <Calendar
+              onChange={onChange}
+              value={date}
+            />
+          </Col>
         </Row>
-      </CardBody>
-    </Card>
-  </Element>
-);
+      </div>
+    </Element>
+  );
+};
 
 ProfileCard.propTypes = {
   onMouseEnterCard: func.isRequired,

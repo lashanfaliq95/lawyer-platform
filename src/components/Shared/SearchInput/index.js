@@ -18,7 +18,7 @@ const SearchInput = ({
   className,
   transitionText,
 }) => (
-  <Row>
+  <Row className={className}>
     <Col
       className="first-search-input"
       md={{ size: `${sizeInputOne}`, offset: `${offset}` }}
@@ -43,7 +43,6 @@ const SearchInput = ({
       />
     </Col>
     <Col
-      className={className}
       md={`${12 - offset - sizeInputOne - sizeInputTwo}`}
     >
       <Link to="/search">

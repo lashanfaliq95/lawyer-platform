@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Events } from 'react-scroll';
-
 import { arrayOf } from 'prop-types';
-import { ListGroup, ListGroupItem } from 'reactstrap';
 
+import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import ProfileCard from '../ProfileCard';
 
 const ProfileCardList = ({ users }) => {
@@ -29,18 +28,20 @@ const ProfileCardList = ({ users }) => {
   });
 
   return (
-    <ListGroup>
+    <div className="list-group">
       {users.map((user) => (
-        <ListGroupItem>
+        <>
           <ProfileCard
             id={user.id}
             name={user.name}
             jobDescription={user.jobDescription}
             address={user.address}
           />
-        </ListGroupItem>
+          <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
+        </>
       ))}
-    </ListGroup>
+    </div>
+
   );
 };
 

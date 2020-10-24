@@ -15,6 +15,7 @@ const MarkerComponent = ({
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',
+      offset: -100,
     });
   };
 

@@ -19,18 +19,15 @@ const SearchPage = ({ locations, users }) => (
     <Container className="search-page" fluid>
       <Col md="12">
         <Row className="content">
-          <Col md="7" className="card-container">
-            <Row>
-              <ProfileCardList users={users} />
-            </Row>
-            <SearchInput sizeInputOne={4} sizeInputTwo={4} offset={2} />
+          <Col md="6" className="card-container">
+            <SearchInput className="search-bar" sizeInputOne={6} sizeInputTwo={4} offset={0} />
+            <ProfileCardList users={users} />
           </Col>
-          <Col className="map-container" md="5">
+          <Col className="map-container" md="6">
             <MapOfLawyers position={position} bounds={bounds} locations={locations} />
           </Col>
         </Row>
       </Col>
-
     </Container>
     <Footer className="search-footer" />
   </>

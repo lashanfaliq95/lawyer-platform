@@ -13,34 +13,14 @@
     width: 100%;
     margin: 0;
   }
-  .search-input-group {
-    height: 93px;
-    background-color: #32a9e4;
-    padding: 16.5px;
-
-    input {
-      height: 60px;
-    }
-    button {
-      color: white;
-      height: 100%;
-      border-radius: 0 8px 8px 0;
+  .search-bar {
+    margin-bottom: 20px;
+    margin: auto;
+    .first-search-input {
+      margin-left: 0;
     }
     .col-md-2 {
-      padding: 0;
-    }
-    .col-md-4 {
-      padding: 0;
-    }
-    .first-search-input {
-      input {
-        border-radius: 8px 0 0 8px;
-      }
-    }
-    .second-search-input {
-      input {
-        border-radius: 0;
-      }
+      margin-left: 0;
     }
   }
 
@@ -80,30 +60,6 @@
     width: 80px;
   }
 
-  .profile-card {
-    .name-btn {
-      padding: 0px;
-    }
-    .job-description {
-      font-weight: bold;
-    }
-    .address {
-      font-size: 14px;
-      margin-top: 35px;
-    }
-    .agreement-type {
-      font-size: 14px;
-      color: rgba(67, 95, 113, 0.6);
-    }
-    .make-appointment-btn-row {
-      justify-content: center;
-      padding-top: 5px;
-      button {
-        width: 60%;
-      }
-    }
-  }
-
   .map-container {
     padding: 0;
     height: 100vh;
@@ -117,6 +73,50 @@
   .card-container {
     padding: 0;
   }
+
+  .list-group {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    .card-separator {
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .profile-card {
+      padding: 8px 8px 12px;
+      .name-btn {
+        padding: 0px;
+        text-align: left;
+      }
+      .name-section {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+      }
+      .job-description {
+        font-weight: bold;
+      }
+      .address {
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+      .agreement-type {
+        font-size: 14px;
+        color: rgba(67, 95, 113, 0.6);
+      }
+      .make-appointment-btn-row {
+        justify-content: center;
+        padding-top: 5px;
+        margin-top: 16px;
+        button {
+          width: 60%;
+          background-color: #0596de;
+          border-color: #0596de;
+        }
+      }
+    }
+  }
 }
 
 .search-footer {
@@ -124,7 +124,13 @@
 }
 
 .active-card {
-  .card{
-  background-color: red;
+  .profile-card {
+    box-shadow: 0 2px 14px rgba(51, 51, 51, 0.2);
+    border: 1px solid #0596de;
   }
+}
+
+.active {
+  box-shadow: 0 2px 14px rgba(51, 51, 51, 0.2);
+  border: 1px solid #0596de;
 }
