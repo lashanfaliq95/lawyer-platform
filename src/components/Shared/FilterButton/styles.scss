@@ -1,16 +1,34 @@
- .filter-button{
+.filter-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  .filter-button {
     cursor: pointer !important;
-    text-align: center ;
-    border: 1px solid rgb(176, 176, 176) ;
-    background-color: rgb(255, 255, 255) ;
-    outline: none ;
-    margin: 0px ;
-    border-radius: 30px ;
-    color: rgb(34, 34, 34) ;
-    padding: 8px 16px ;
-    line-height: 16px ;
- }
+    text-align: center;
+    border: 1px solid rgb(176, 176, 176);
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    margin: 0px;
+    border-radius: 30px;
+    color: rgb(34, 34, 34);
+    padding: 8px 16px;
+    line-height: 16px;
+    z-index: 1050;
+  }
 
- .filter-button.active{
-   border: 2px solid rgb(118, 118, 118);
- }
+  .filter-button.active {
+    border: 2px solid rgb(118, 118, 118);
+  }
+
+  .content {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #484848;
+  }
+
+  .filter-button-wrapper {
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}

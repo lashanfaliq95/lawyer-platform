@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import Calendar from 'react-calendar';
 import { func, string } from 'prop-types';
 import {
   Col,
   Button,
   Row,
 } from 'reactstrap';
-import 'react-calendar/dist/Calendar.css';
 
-import lawyerImage from 'assets/images/jusge.jpg';
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
 const ProfileCard = ({
@@ -18,13 +15,11 @@ const ProfileCard = ({
   name,
   jobDescription,
   address,
+  imgUrl,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [date, setDate] = useState(new Date());
-
-  const onChange = (selectedDate) => setDate({ selectedDate });
 
   return (
     <Element name={`profile-card-${id}`}>
@@ -45,7 +40,7 @@ const ProfileCard = ({
               <Col md="4">
                 <img
                   className="info-image"
-                  src={lawyerImage}
+                  src={imgUrl}
                   alt="Info images"
                 />
               </Col>
@@ -68,10 +63,7 @@ const ProfileCard = ({
             </Row>
           </Col>
           <Col md="7">
-            <Calendar
-              onChange={onChange}
-              value={date}
-            />
+            <div className="calender-image" />
           </Col>
         </Row>
       </div>
@@ -86,6 +78,7 @@ ProfileCard.propTypes = {
   name: string.isRequired,
   jobDescription: string.isRequired,
   address: string.isRequired,
+  imgUrl: string.isRequired,
 };
 
 export default connect(null, { onMouseEnterCard, onMouseLeaveCard })(

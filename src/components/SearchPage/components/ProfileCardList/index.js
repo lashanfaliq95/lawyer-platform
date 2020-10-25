@@ -36,6 +36,7 @@ const ProfileCardList = ({ users }) => {
             name={user.name}
             jobDescription={user.jobDescription}
             address={user.address}
+            imgUrl={user.imgUrl}
           />
           <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
         </>

@@ -1,7 +1,9 @@
 import React from 'react';
+import { Container, Col, Row } from 'reactstrap';
+
 import { connect } from 'react-redux';
 import { arrayOf, shape } from 'prop-types';
-import { Container, Col, Row } from 'reactstrap';
+
 import './styles.scss';
 
 import SearchInput from 'components/Shared/SearchInput';
@@ -12,8 +14,11 @@ import MapOfLawyers from './components/MapOfLawyers';
 import SearchSummary from './components/SearchSummary';
 import FilterBar from './components/FilterBar';
 
-const position = [52.150002, 10.333333];
-const bounds = [[52.150002, 10.333333], [52.150002, 20], [42.150002, 20]];
+const position = [51.241920, 6.735210];
+const bounds = [
+  [51.218730, 6.781260],
+  [51.241920, 6.735210],
+  [51.231340, 6.782110], [51.218260, 6.782280], [51.232500, 6.759500], [51.262500, 6.8]];
 
 const SearchPage = ({ locations, users }) => (
   <>
@@ -22,9 +27,9 @@ const SearchPage = ({ locations, users }) => (
       <Col md="12">
         <Row className="content">
           <Col md="6" className="card-container">
+            <SearchInput className="search-bar" sizeInputOne={6} sizeInputTwo={4} offset={0} />
             <SearchSummary numberOfResults={0} specialization="lawyer" district="linden" />
             <FilterBar />
-            <SearchInput className="search-bar" sizeInputOne={6} sizeInputTwo={4} offset={0} />
             <ProfileCardList users={users} />
           </Col>
           <Col className="map-container" md="6">
@@ -33,6 +38,7 @@ const SearchPage = ({ locations, users }) => (
         </Row>
       </Col>
     </Container>
+
     <Footer className="search-footer" />
   </>
 );
