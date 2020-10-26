@@ -1,20 +1,47 @@
 import React, { memo } from 'react';
+import { bool, shape } from 'prop-types';
 
 import FilterButton from 'components/Shared/FilterButton';
 import AvailabilityFilter from './AvailabilityFilter';
 import SpecializationFilter from './SpecializationFilter';
+import LanguageFilter from './LanguageFilter';
 
-const FilterBar = () => (
+const FilterBar = ({
+  filters: {
+    availability,
+    specializations,
+    freeFirstAppointment,
+    appointmentWithImmediateConfirmation,
+    language,
+  },
+}) => (
   <div className="filter-bar">
-    <FilterButton name="test" className="availability-filter">
+    <FilterButton name="Availability" className="availability-filter" isFilterActive={availability}>
       <AvailabilityFilter />
     </FilterButton>
-    <FilterButton name="test" className="specialization-filter" isFilterActive>
+    <FilterButton name="Specializations" className="specialization-filter" isFilterActive={specializations}>
       <SpecializationFilter />
     </FilterButton>
-    <FilterButton name="test" />
-    <FilterButton name="test" />
+    <FilterButton name="Free First Appointment" className="appointment-free-first-filter" isFilterActive={freeFirstAppointment}>
+      <LanguageFilter />
+    </FilterButton>
+    <FilterButton name="Appointment With immediate confirmation" className="appointment-immediate-confirmation-filter" isFilterActive={appointmentWithImmediateConfirmation}>
+      <LanguageFilter />
+    </FilterButton>
+    <FilterButton name="Language" className="language-filter" isFilterActive={language}>
+      <LanguageFilter />
+    </FilterButton>
   </div>
 );
+
+FilterBar.propTypes = {
+  filters: shape({
+    availability: bool.isRequired,
+    specializations: bool.isRequired,
+    freeFirstAppointment: bool.isRequired,
+    appointmentWithImmediateConfirmation: bool.isRequired,
+    language: bool.isRequired,
+  }).isRequired,
+};
 
 export default memo(FilterBar);

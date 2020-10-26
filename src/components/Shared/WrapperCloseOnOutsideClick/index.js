@@ -18,12 +18,20 @@ const WrapperCloseOnOutsideClick = ({
         onClose();
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
 
+    const escFunction = (event) => {
+      if (event.keyCode === 27) {
+        // Do whatever when esc is pressed
+        onClose();
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', escFunction, false);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', escFunction, false);
     };
-    // eslint-disable-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wrapperRef, buttonRef]);
 
   return isModalVisible

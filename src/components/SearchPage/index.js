@@ -20,16 +20,22 @@ const bounds = [
   [51.241920, 6.735210],
   [51.231340, 6.782110], [51.218260, 6.782280], [51.232500, 6.759500], [51.262500, 6.8]];
 
-const SearchPage = ({ locations, users }) => (
+const SearchPage = ({ locations, users, filters }) => (
   <>
     <NavigationBar />
     <Container className="search-page" fluid>
       <Col md="12">
         <Row className="content">
           <Col md="6" className="card-container">
-            <SearchInput className="search-bar" sizeInputOne={6} sizeInputTwo={4} offset={0} />
+            <SearchInput
+              className="search-bar"
+              sizeInputOne={5}
+              sizeInputTwo={5}
+              offset={0}
+              showGetLocationIcon={false}
+            />
             <SearchSummary numberOfResults={0} specialization="lawyer" district="linden" />
-            <FilterBar />
+            <FilterBar filters={filters} />
             <ProfileCardList users={users} />
           </Col>
           <Col className="map-container" md="6">
@@ -46,11 +52,13 @@ const SearchPage = ({ locations, users }) => (
 const mapStateToProps = (state) => ({
   locations: state.search.locations,
   users: state.search.users,
+  filters: state.search.filters,
 });
 
 SearchPage.propTypes = {
   locations: arrayOf(shape({})).isRequired,
   users: arrayOf(shape({})).isRequired,
+  filters: shape({}).isRequired,
 };
 
 export default connect(mapStateToProps)(SearchPage);

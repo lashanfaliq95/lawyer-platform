@@ -65,6 +65,13 @@ const initialState = {
       imgUrl: 'https://www.franzlegal.com/files/theme_files/lawyers/teams/FRANZlegalMC2.jpg',
     },
   ],
+  filters: {
+    availability: false,
+    specializations: true,
+    freeFirstAppointment: false,
+    appointmentWithImmediateConfirmation: false,
+    language: false,
+  },
 };
 
 const search = (state = initialState, action) => {

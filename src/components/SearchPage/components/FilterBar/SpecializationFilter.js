@@ -52,16 +52,17 @@ const SpecializationFilter = () => {
       setFilteredLawSpecialization(lawResults);
       setFilteredNotarySpecialization(notaryResults);
     }
-    // eslint-disable-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm]);
 
   return (
     <>
-      <div className="top-section">
+      <div className="top-section specialization">
         <Input
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
           placeholder="Enter Search term"
+          className="search-input"
         />
         <h4>Lawyers</h4>
         {filteredLawSpecialization.map((specialization) => (
