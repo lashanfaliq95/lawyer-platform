@@ -4,6 +4,7 @@ import {
   ON_MOUSE_LEAVE_CARD,
   GET_LAWYERS,
   SET_LAWYERS,
+  SET_LOCATIONS,
 } from './constants';
 
 export const onMouseEnterCard = (values) => ({
@@ -27,5 +28,10 @@ export const getLawyers = () => ({
 
 export const setLawyers = (data) => ({
   type: SET_LAWYERS,
+  payload: data,
+});
+
+export const setLocations = (data) => ({
+  type: SET_LOCATIONS,
   payload: data,
 });

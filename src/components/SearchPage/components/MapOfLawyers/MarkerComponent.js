@@ -20,10 +20,13 @@ const MarkerComponent = ({
   };
 
   return (
-    <Marker key={id} position={position} onclick={onClick} icon={isHovered ? hoverIcon : icon}>
-      <Popup>
-        {address}
-      </Popup>
+    <Marker
+      key={id}
+      position={position}
+      onclick={onClick}
+      icon={isHovered ? hoverIcon : icon}
+    >
+      {address && <Popup>{address}</Popup>}
     </Marker>
   );
 };

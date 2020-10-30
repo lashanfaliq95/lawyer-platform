@@ -3,3 +3,4 @@ export const ON_MOUSE_ENTER_CARD = 'ON_MOUSE_ENTER_CARD';
 export const ON_MOUSE_LEAVE_CARD = 'ON_MOUSE_LEAVE_CARD';
 export const GET_LAWYERS = 'GET_LAWYERS';
 export const SET_LAWYERS = 'SET_LAWYERS';
+export const SET_LOCATIONS = 'SET_LOCATIONS';
