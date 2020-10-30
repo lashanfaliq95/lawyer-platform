@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, bool } from 'prop-types';
 import {
   Button, Card, CardBody, CardTitle,
 } from 'reactstrap';
@@ -11,19 +11,18 @@ import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import messages from '../../messages';
 import SuccessCard from './SuccessCard';
 
-import { resetPassword } from '../../actions';
+import { forgotPassword } from '../../actions';
 
-const ForgotPwdCard = ({ resetPassword: resetPasswordAction }) => {
-  const [isPwdResetSuccess, setIsPwdResetSuccess] = useState(null);
+const ForgotPwdCard = ({ forgotPassword: forgotPasswordAction, isForgotPasswordSuccess }) => {
+  const [email, setEmail] = useState('');
 
   const onPwdResetClick = () => {
-    setIsPwdResetSuccess(true);
-    resetPasswordAction();
+    forgotPasswordAction({ email });
   };
 
   return (
     <Card className="forgot-pwd-card">
-      {isPwdResetSuccess === null && (
+      {!isForgotPasswordSuccess && (
       <CardBody>
         <CardTitle className="title">
           <Link to="/" className="link-text">
@@ -40,7 +39,8 @@ const ForgotPwdCard = ({ resetPassword: resetPasswordAction }) => {
           <div className="form-group">
             <FloatingInputLabel
               label={messages.emailPlaceHolder}
-              onChange={() => {}}
+              onChange={(e) => { setEmail(e.target.value); }}
+              value={email}
             />
           </div>
           <Button className="login-btn" onClick={onPwdResetClick}>
@@ -49,13 +49,17 @@ const ForgotPwdCard = ({ resetPassword: resetPasswordAction }) => {
         </div>
       </CardBody>
       )}
-      {isPwdResetSuccess && <SuccessCard />}
+      {isForgotPasswordSuccess && <SuccessCard />}
     </Card>
   );
 };
 
 ForgotPwdCard.propTypes = {
-  resetPassword: func.isRequired,
+  forgotPassword: func.isRequired,
+  isForgotPasswordSuccess: bool.isRequired,
 };
 
-export default connect(null, { resetPassword })(ForgotPwdCard);
+const mapStateToProps = (state) => (
+  { isForgotPasswordSuccess: state.login.isForgotPasswordSuccess }
+);
+export default connect(mapStateToProps, { forgotPassword })(ForgotPwdCard);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { shape } from 'prop-types';
+import { shape, func } from 'prop-types';
 import {
   Form,
   FormGroup,
@@ -21,8 +21,10 @@ import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
 import messages from '../../messages';
+import { roleMap } from '../../constants';
+import { registerUser } from '../../actions';
 
-const RegisterCard = () => {
+const RegisterCard = ({ registerUser: registerUserAction }) => {
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -38,7 +40,10 @@ const RegisterCard = () => {
       email: string().email().required(),
       password: string().required(),
     }),
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      const roleId = roleMap.users;
+      registerUserAction({ ...values, roleId });
+    },
   });
 
   return (
@@ -119,6 +124,7 @@ const RegisterCard = () => {
 
 RegisterCard.propTypes = {
   intl: shape.isRequired,
+  registerUser: func.isRequired,
 };
 
-export default connect(null, {})(RegisterCard);
+export default connect(null, { registerUser })(RegisterCard);

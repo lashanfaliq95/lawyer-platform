@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import {
   arrayOf, number, string, shape,
@@ -37,4 +37,4 @@ MapOfLawyers.propTypes = {
   )).isRequired,
 };
 
-export default MapOfLawyers;
+export default memo(MapOfLawyers);

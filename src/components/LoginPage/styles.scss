@@ -8,6 +8,9 @@
   .login-card {
     max-height: 377px;
   }
+  .reset-card {
+    max-height: 450px;
+  }
   .forgot-pwd-card {
     max-height: 386px;
   }
@@ -37,6 +40,16 @@
       font-weight: 600;
       font-size: 25px;
     }
+  }
+  .reset-title{
+    text-decoration: none;
+    color: black;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
 
   input:hover {

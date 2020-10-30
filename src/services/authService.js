@@ -1,21 +1,16 @@
 import { post } from 'utils/apiHelper';
 
 export const loginUserService = async (values) => {
-  const { email, password } = values;
-
-  const { result, error } = await post('/auth/login', {
-    email,
-    password,
-  });
-  console.log(result, error);
+  const result = await post('/auth/login', values);
+  return result;
 };
 
-export const resetPasswordService = async (values) => {
-  const { email, password } = values;
+export const forgotPasswordService = async (values) => {
+  const result = await post('/auth/forgot', values);
+  return result;
+};
 
-  const { result, error } = await post('/auth/login', {
-    email,
-    password,
-  });
-  console.log(result, error);
+export const registerUserService = async (values) => {
+  const result = await post('/users', values);
+  return result;
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { number, string } from 'prop-types';
 
 const SearchSummary = ({ numberOfResults, specialization, district }) => (
@@ -30,4 +30,4 @@ SearchSummary.propTypes = {
   district: string.isRequired,
 };
 
-export default SearchSummary;
+export default memo(SearchSummary);

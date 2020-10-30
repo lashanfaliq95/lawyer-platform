@@ -1,4 +1,4 @@
-import { ON_MOUSE_ENTER_CARD, ON_MOUSE_LEAVE_CARD } from './constants';
+import { ON_MOUSE_ENTER_CARD, ON_MOUSE_LEAVE_CARD, SET_LAWYERS } from './constants';
 
 const initialState = {
   locations: [
@@ -76,6 +76,11 @@ const initialState = {
 
 const search = (state = initialState, action) => {
   switch (action.type) {
+    case SET_LAWYERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
     case ON_MOUSE_ENTER_CARD:
       return {
         ...state,
@@ -84,6 +89,7 @@ const search = (state = initialState, action) => {
           if (action.payload.id === location.id) {
             updatedLocation.isHovered = true;
           }
+
           return updatedLocation;
         }),
       };

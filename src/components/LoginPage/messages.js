@@ -21,6 +21,10 @@ export default defineMessages({
     id: 'app.loginPage.forgotPwdBtnText',
     defaultMessage: '  Forgot?',
   },
+  confirmResetBtnText: {
+    id: 'app.loginPage.confirmResetBtnText',
+    defaultMessage: 'Confirm',
+  },
   emailPlaceHolder: {
     id: 'app.loginPage.emailPlaceHolder',
     defaultMessage: 'E-Mail',
@@ -28,6 +32,14 @@ export default defineMessages({
   passwordPlaceHolder: {
     id: 'app.loginPage.passwordPlaceHolder',
     defaultMessage: 'Password',
+  },
+  resetPwdTitle: {
+    id: 'app.loginPage.resetPwdTitle',
+    defaultMessage: 'Enter new password',
+  },
+  confirmPasswordPlaceHolder: {
+    id: 'app.loginPage.confirmPasswordPlaceHolder',
+    defaultMessage: 'Confirm password',
   },
   rememberMe: {
     id: 'app.loginPage.rememberMe',

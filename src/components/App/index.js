@@ -9,6 +9,7 @@ import SearchPage from 'components/SearchPage';
 import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
 import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage';
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
+import ResetPwdCardPage from 'components/LoginPage/components/ResetPwdCardPage';
 
 const App = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const App = () => (
     <Route path="/auth/login" exact component={LoginCardPage} />
     <Route path="/auth/forgot-pwd" exact component={ForgotPwdCardPage} />
     <Route path="/auth/register" exact component={RegisterCardPage} />
+    <Route path="/auth/reset/:token" exact component={ResetPwdCardPage} />
   </BrowserRouter>
 );
 
