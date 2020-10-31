@@ -5,6 +5,8 @@ import FilterButton from 'components/Shared/FilterButton';
 import AvailabilityFilter from './AvailabilityFilter';
 import SpecializationFilter from './SpecializationFilter';
 import LanguageFilter from './LanguageFilter';
+import FreeFirstAppointmentFilter from './FreeFirstAppointmentFilter';
+import ImmediateConfirmationFilter from './ImmediateConfirmationFilter';
 
 const FilterBar = ({
   filters: {
@@ -23,10 +25,10 @@ const FilterBar = ({
       <SpecializationFilter />
     </FilterButton>
     <FilterButton name="Free First Appointment" className="appointment-free-first-filter" isFilterActive={freeFirstAppointment}>
-      <LanguageFilter />
+      <FreeFirstAppointmentFilter />
     </FilterButton>
     <FilterButton name="Appointment With immediate confirmation" className="appointment-immediate-confirmation-filter" isFilterActive={appointmentWithImmediateConfirmation}>
-      <LanguageFilter />
+      <ImmediateConfirmationFilter />
     </FilterButton>
     <FilterButton name="Language" className="language-filter" isFilterActive={language}>
       <LanguageFilter />

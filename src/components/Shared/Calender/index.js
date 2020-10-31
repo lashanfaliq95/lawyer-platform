@@ -21,45 +21,46 @@ const Calender = ({ className }) => {
   };
   return (
     <Container className={className}>
-      <Row className="calender-header">
-        <Icon name="chevron-left" size="large" onClick={toggle} />
-        <Col>
-          <div className="day-name">Mo.</div>
-          <div className="date">test</div>
-        </Col>
-        <Col>
-          <div className="day-name">Di.</div>
-          <div className="date">test</div>
-        </Col>
-        <Col>
-          <div className="day-name">Mi.</div>
-          <div className="date">test</div>
-        </Col>
-        <Col>
-          <div className="day-name">Do.</div>
-          <div className="date">test</div>
-        </Col>
-        <Col>
-          <div className="day-name">Fr.</div>
-          <div className="date">test</div>
-        </Col>
-        <Icon name="chevron-right" size="large" onClick={toggle} />
-      </Row>
-      <div className="separator">
-        <HS color="#ced4da" />
-      </div>
+      {isLoading
+        ? <Loader isLoading={isLoading} className="calender-loader" />
+        : (
+          <>
+            <Row className="calender-header">
+              <Icon name="chevron-left" size="large" onClick={toggle} />
+              <Col>
+                <div className="day-name">Mo.</div>
+                <div className="date">test</div>
+              </Col>
+              <Col>
+                <div className="day-name">Di.</div>
+                <div className="date">test</div>
+              </Col>
+              <Col>
+                <div className="day-name">Mi.</div>
+                <div className="date">test</div>
+              </Col>
+              <Col>
+                <div className="day-name">Do.</div>
+                <div className="date">test</div>
+              </Col>
+              <Col>
+                <div className="day-name">Fr.</div>
+                <div className="date">test</div>
+              </Col>
+              <Icon name="chevron-right" size="large" onClick={toggle} />
+            </Row>
+            <div className="separator">
+              <HS color="#ced4da" />
+            </div>
 
-      <Row className="body">
-        {isLoading
-          ? <Loader isLoading={isLoading} className="calender-loader" />
-          : (
-            <>
+            <Row className="body">
+
               {isEmpty ? (
                 <div className="no-appointments-overlay">
                   <div className="message">
                     <div className="next-slot">
                       <Button className="next-slot-btn" color="link">
-                        <p>sadsad</p>
+                        <p className="text">Nächster Termin am 25. Januar 2021</p>
 
                         <Icon name="chevron-right" />
                       </Button>
@@ -143,9 +144,10 @@ const Calender = ({ className }) => {
                     </Col>
                   </>
                 )}
-            </>
-          )}
-      </Row>
+
+            </Row>
+          </>
+        )}
       {!isEmpty && !isLoading ? (
         <>
           <div className="separator">

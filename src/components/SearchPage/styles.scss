@@ -171,6 +171,72 @@
         justify-content: space-between;
       }
     }
+
+    .appointment-free-first-filter{
+      position: absolute !important;
+      min-width: 300px;
+      display: inline-block !important;
+      left: 0px !important;
+      z-index: 10 !important;
+      background: rgb(255, 255, 255) !important;
+      border: 0.5px solid rgba(118, 118, 118, 0.28) !important;
+      border-radius: 12px !important;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px !important;
+      overflow: hidden auto !important;
+      white-space: normal !important;
+      max-height: calc(100vh - 152px) !important;
+      visibility: visible !important;
+      .top-section {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        max-height: 300px;
+        input {
+          position: relative;
+          margin-left: 0;
+          margin-right: 10px;
+        }
+      }
+      .bottom-section {
+        padding: 12px 14px !important;
+        border-top: 1px solid rgb(235, 235, 235) !important;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .appointment-immediate-confirmation-filter{
+      position: absolute !important;
+      min-width: 300px;
+      display: inline-block !important;
+      left: 0px !important;
+      z-index: 10 !important;
+      background: rgb(255, 255, 255) !important;
+      border: 0.5px solid rgba(118, 118, 118, 0.28) !important;
+      border-radius: 12px !important;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px !important;
+      overflow: hidden auto !important;
+      white-space: normal !important;
+      max-height: calc(100vh - 152px) !important;
+      visibility: visible !important;
+      .top-section {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        max-height: 300px;
+        input {
+          position: relative;
+          margin-left: 0;
+          margin-right: 10px;
+        }
+      }
+      .bottom-section {
+        padding: 12px 14px !important;
+        border-top: 1px solid rgb(235, 235, 235) !important;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
   }
 
   .content {
