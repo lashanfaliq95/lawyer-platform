@@ -7,6 +7,16 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+.search-navbar{
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+  a {
+    color: #484848 !important;
+  }
+  .nav-button{
+    color: #484848 !important;
+  }
+}
 
 .search-page {
   .search-bar {
@@ -35,7 +45,7 @@
   }
 
   .search-summary {
-    margin: 50px 24px 20px;
+    margin: 35px 24px 20px;
     p {
       color: grey;
     }

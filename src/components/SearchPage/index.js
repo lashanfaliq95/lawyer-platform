@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { arrayOf, shape, func } from 'prop-types';
 
 import './styles.scss';
-import SearchInput from 'components/Shared/SearchInput';
 import NavigationBar from 'components/NavigationBar';
 import Footer from 'components/Footer';
 import ProfileCardList from './components/ProfileCardList';
@@ -35,18 +34,11 @@ const SearchPage = ({
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBar className="search-navbar" showLawyerLogin={false} showSearchInput />
       <Container className="search-page" fluid>
         <Col md="12">
           <Row className="content">
-            <Col md="6" className="card-container">
-              <SearchInput
-                className="search-bar"
-                sizeInputOne={5}
-                sizeInputTwo={5}
-                offset={0}
-                showGetLocationIcon={false}
-              />
+            <Col md="8" className="card-container">
               <SearchSummary
                 numberOfResults={0}
                 specialization="lawyer"
@@ -55,7 +47,7 @@ const SearchPage = ({
               <FilterBar filters={filters} />
               <ProfileCardList users={users} />
             </Col>
-            <Col className="map-container" md="6">
+            <Col className="map-container" md="4">
               <MapOfLawyers
                 position={position}
                 bounds={bounds}
