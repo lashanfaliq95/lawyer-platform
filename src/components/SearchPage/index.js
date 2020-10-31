@@ -38,7 +38,7 @@ const SearchPage = ({
       <Container className="search-page" fluid>
         <Col md="12">
           <Row className="content">
-            <Col md="8" className="card-container">
+            <Col md="7" className="card-container">
               <SearchSummary
                 numberOfResults={0}
                 specialization="lawyer"
@@ -47,7 +47,7 @@ const SearchPage = ({
               <FilterBar filters={filters} />
               <ProfileCardList users={users} />
             </Col>
-            <Col className="map-container" md="4">
+            <Col className="map-container" md="5">
               <MapOfLawyers
                 position={position}
                 bounds={bounds}

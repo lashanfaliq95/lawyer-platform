@@ -8,6 +8,8 @@ import {
   Row,
 } from 'reactstrap';
 
+import Calender from 'components/Shared/Calender';
+
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
 const ProfileCard = ({
@@ -63,7 +65,7 @@ const ProfileCard = ({
             </Row>
           </Col>
           <Col md="7">
-            <div className="calender-image" />
+            <Calender />
           </Col>
         </Row>
       </div>
