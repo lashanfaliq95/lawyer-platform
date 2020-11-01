@@ -9,6 +9,8 @@ import {
 } from 'reactstrap';
 
 import Calender from 'components/Shared/Calender';
+import formatMessages from 'components/formatMessages';
+import messages from '../../messages';
 
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
@@ -61,11 +63,11 @@ const ProfileCard = ({
               </Col>
             </Row>
             <Row className="make-appointment-btn-row">
-              <Button className="appointment-btn">Button</Button>
+              <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
             </Row>
           </Col>
           <Col md="7">
-            <Calender />
+            <Calender buttonText={messages.displayMore} />
           </Col>
         </Row>
       </div>

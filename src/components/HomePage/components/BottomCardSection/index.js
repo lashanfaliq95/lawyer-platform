@@ -28,6 +28,7 @@ const BottomCardSection = () => (
           description={messages.bottomCardSectionCardTwoDescription}
           btnText={messages.bottomCardSectionCardTwoBtnText}
           onClick={() => {}}
+          className="center-btn"
         />
       </Col>
       <Col md="4">

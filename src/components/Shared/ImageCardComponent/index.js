@@ -7,15 +7,15 @@ import BTButton from 'components/Shared/BottomTransitionButton';
 
 const ImageCardComponent = (props) => {
   const {
-    img, description, title, btnText, onClick,
+    img, description, title, btnText, onClick, className,
   } = props;
   return (
-    <>
+    <div className={className}>
       <img className="info-image" src={img} alt="Info images" />
       <p className="info-title">{formatMessages(title)}</p>
       <p className="info-image-description">{formatMessages(description)}</p>
       <BTButton btnText={btnText} onClick={onClick} />
-    </>
+    </div>
   );
 };
 
@@ -34,6 +34,11 @@ ImageCardComponent.propTypes = {
     defaultMessage: string.isRequired,
   }).isRequired,
   onClick: func.isRequired,
+  className: string,
+};
+
+ImageCardComponent.defaultProps = {
+  className: '',
 };
 
 export default ImageCardComponent;

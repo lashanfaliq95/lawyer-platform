@@ -50,7 +50,7 @@ const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
             </NavItem>
             )}
             <Button className="nav-button">
-              <Icon name="question" />
+              <Icon name="question-circle" />
               <span className="nav-text">
                 {formatMessages(messages.needHelp)}
               </span>

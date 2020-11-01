@@ -26,11 +26,11 @@ export default {
   'app.homePage.cardTwoTitle': 'online',
   'app.homePage.cardThreeTitle': 'Besser',
   'app.homePage.cardOneDescription':
-    'Finden Sie schnell Ihren Rechtsanwalt, Notar oder Berater',
+    'Finden Sie den passenden Rechtsanwalt, Notar oder Berater in Ihrer Nähe',
   'app.homePage.cardTwoDescription':
-    'Wählen Sie Anliegen, Datum und Uhrzeit aus',
+    'Wählen Sie Angelegenheit, Datum und Uhrzeit Ihrer Termins aus, ohne den Hörer in die Hand zu nehmen',
   'app.homePage.cardThreeDescription':
-    'Keine Sorge: Wir erinnern Sie an Ihren Termin',
+    'Bestätigen Sie Ihren Termin. Keine Sorge, wir erinnern Sie rechtzeitig an diesen.',
   'app.loginPage.loginTitle': 'Avoplan',
   'app.loginPage.resetPwdTitle': 'Neues Passwort eingeben',
   'app.loginPage.loginBtnText': 'Einloggen',
@@ -125,5 +125,6 @@ export default {
   'app.searchPage.freeFirstAppointment': 'Nur Termine mit kostenloser Erstberatung anzeigen',
   'app.searchPage.lawyer': 'Anwälte',
   'app.searchPage.notary': 'Notare',
-
+  'app.searchPage.bookAppointment': 'Termin vereinbaren',
+  'app.searchPage.displayMore': 'Mehr anzeigen',
 };

@@ -69,4 +69,12 @@ export default defineMessages({
     id: 'app.searchPage.notary',
     defaultMessage: 'Notary',
   },
+  bookAppointment: {
+    id: 'app.searchPage.bookAppointment',
+    defaultMessage: 'Book appointment',
+  },
+  displayMore: {
+    id: 'app.searchPage.displayMore',
+    defaultMessage: 'Display more',
+  },
 });

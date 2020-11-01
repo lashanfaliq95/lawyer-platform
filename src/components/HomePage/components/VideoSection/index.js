@@ -1,9 +1,7 @@
 import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
-import ReactPlayer from 'react-player/lazy';
 
 import Card from 'components/Shared/CardComponent';
-import demoVideo from 'assets/videos/demo.mp4';
 import messages from '../../messages';
 
 const VideoSection = () => (
@@ -18,15 +16,8 @@ const VideoSection = () => (
           isTitleBold
         />
       </Col>
-      <Col className="player-wrapper" md="5">
-        <ReactPlayer
-          className="react-player"
-          url={demoVideo}
-          width="100%"
-          height="100%"
-          playing
-          loop
-        />
+      <Col md="5">
+        <div className="video-image" />
       </Col>
     </Row>
   </Container>
