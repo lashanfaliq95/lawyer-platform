@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   loginTitle: {
     id: 'app.loginPage.loginTitle',
-    defaultMessage: 'Advoplan',
+    defaultMessage: 'Avoplan',
   },
   loginBtnText: {
     id: 'app.loginPage.loginBtnText',
@@ -11,11 +11,11 @@ export default defineMessages({
   },
   registerTitle: {
     id: 'app.loginPage.registerTitle',
-    defaultMessage: 'Advoplan',
+    defaultMessage: 'Avoplan',
   },
   registerBtnText: {
     id: 'app.loginPage.registerBtnText',
-    defaultMessage: 'New to advoplan? Register now',
+    defaultMessage: 'New to avoplan? Register now',
   },
   forgotPwdBtnText: {
     id: 'app.loginPage.forgotPwdBtnText',
@@ -47,7 +47,7 @@ export default defineMessages({
   },
   newToAvoplan: {
     id: 'app.loginPage.newToAvoplan',
-    defaultMessage: 'New to Advoplan?',
+    defaultMessage: 'New to Avoplan?',
   },
   wantToStayConnected: {
     id: 'app.loginPage.wantToStayConnected',
@@ -55,7 +55,7 @@ export default defineMessages({
   },
   agreeConditions: {
     id: 'app.loginPage.agreeConditions',
-    defaultMessage: 'I accept Advoplans terms and conditions',
+    defaultMessage: 'I accept Avoplans terms and conditions',
   },
   pwdDescription: {
     id: 'app.loginPage.pwdDescription',
@@ -110,7 +110,7 @@ export default defineMessages({
   },
   alreadyHaveAnAccount: {
     id: 'app.loginPage.alreadyHaveAnAccount',
-    defaultMessage: 'I have a advoplan account',
+    defaultMessage: 'I have a avoplan account',
   },
   firstName: {
     id: 'app.loginPage.firstName',

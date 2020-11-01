@@ -57,7 +57,6 @@ const SearchPage = ({
           </Row>
         </Col>
       </Container>
-
       <Footer className="search-footer" />
     </>
   );

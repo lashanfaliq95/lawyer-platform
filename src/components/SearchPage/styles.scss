@@ -7,13 +7,13 @@
   padding-left: 0px;
   padding-right: 0px;
 }
-.search-navbar{
+.search-navbar {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
   a {
     color: #484848 !important;
   }
-  .nav-button{
+  .nav-button {
     color: #484848 !important;
   }
 }
@@ -55,61 +55,23 @@
     display: flex;
     margin: 0 24px 20px;
 
-    .availability-filter {
-      position: absolute !important;
+    .filter-modal {
+      position: absolute;
       min-width: 300px;
-      display: inline-block !important;
-      left: 0px !important;
-      z-index: 10 !important;
-      background: rgb(255, 255, 255) !important;
-      border: 0.5px solid rgba(118, 118, 118, 0.28) !important;
-      border-radius: 12px !important;
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px !important;
-      overflow: hidden auto !important;
-      white-space: normal !important;
-      max-height: calc(100vh - 152px) !important;
-      visibility: visible !important;
-      .top-section {
+      display: inline-block;
+      left: 0px;
+      z-index: 10;
+      background: rgb(255, 255, 255);
+      border: 0.5px solid rgba(118, 118, 118, 0.28);
+      border-radius: 12px;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px;
+      overflow: hidden auto;
+      white-space: normal;
+      max-height: calc(100vh - 152px);
+      visibility: visible;
+      .top-section-specialization {
         display: flex;
         flex-direction: column;
-        overflow: hidden auto !important;
-        padding: 20px !important;
-
-        input {
-          position: relative;
-          margin-left: 0;
-          margin-right: 10px;
-        }
-      }
-
-      .bottom-section {
-        padding: 12px 14px !important;
-        border-top: 1px solid rgb(235, 235, 235) !important;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-
-    .specialization-filter {
-      position: absolute !important;
-      min-width: 300px;
-      display: inline-block !important;
-      left: 0px !important;
-      z-index: 10 !important;
-      background: rgb(255, 255, 255) !important;
-      border: 0.5px solid rgba(118, 118, 118, 0.28) !important;
-      border-radius: 12px !important;
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px !important;
-      overflow: hidden auto !important;
-      white-space: normal !important;
-      max-height: calc(100vh - 152px) !important;
-      visibility: visible !important;
-      padding-top: 10px;
-      .top-section {
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
-        padding: 20px;
         max-height: 300px;
         input {
           position: relative;
@@ -123,118 +85,23 @@
           width: 90%;
           z-index: 10;
         }
-      }
-      .notary {
-        border-top: 1px solid rgb(235, 235, 235) !important;
-        overflow-y: hidden;
-      }
-      .specialization {
-        padding-top: 50px;
-      }
-      .bottom-section {
-        padding: 12px 14px !important;
-        border-top: 1px solid rgb(235, 235, 235) !important;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-
-    .language-filter {
-      position: absolute !important;
-      min-width: 300px;
-      display: inline-block !important;
-      left: 0px !important;
-      z-index: 10 !important;
-      background: rgb(255, 255, 255) !important;
-      border: 0.5px solid rgba(118, 118, 118, 0.28) !important;
-      border-radius: 12px !important;
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px !important;
-      overflow: hidden auto !important;
-      white-space: normal !important;
-      max-height: calc(100vh - 152px) !important;
-      visibility: visible !important;
-      .top-section {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        max-height: 300px;
-        input {
-          position: relative;
-          margin-left: 0;
-          margin-right: 10px;
+        .notary {
+          border-top: 1px solid rgb(235, 235, 235);
+          overflow-y: scroll;
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          max-height: 300px;
         }
-      }
-      .bottom-section {
-        padding: 12px 14px !important;
-        border-top: 1px solid rgb(235, 235, 235) !important;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
 
-    .appointment-free-first-filter{
-      position: absolute !important;
-      min-width: 300px;
-      display: inline-block !important;
-      left: 0px !important;
-      z-index: 10 !important;
-      background: rgb(255, 255, 255) !important;
-      border: 0.5px solid rgba(118, 118, 118, 0.28) !important;
-      border-radius: 12px !important;
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px !important;
-      overflow: hidden auto !important;
-      white-space: normal !important;
-      max-height: calc(100vh - 152px) !important;
-      visibility: visible !important;
-      .top-section {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        max-height: 300px;
-        input {
-          position: relative;
-          margin-left: 0;
-          margin-right: 10px;
+        .specialization {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+          overflow-y: scroll;
+          padding: 20px;
+          max-height: 300px;
         }
-      }
-      .bottom-section {
-        padding: 12px 14px !important;
-        border-top: 1px solid rgb(235, 235, 235) !important;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-
-    .appointment-immediate-confirmation-filter{
-      position: absolute !important;
-      min-width: 300px;
-      display: inline-block !important;
-      left: 0px !important;
-      z-index: 10 !important;
-      background: rgb(255, 255, 255) !important;
-      border: 0.5px solid rgba(118, 118, 118, 0.28) !important;
-      border-radius: 12px !important;
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px !important;
-      overflow: hidden auto !important;
-      white-space: normal !important;
-      max-height: calc(100vh - 152px) !important;
-      visibility: visible !important;
-      .top-section {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        max-height: 300px;
-        input {
-          position: relative;
-          margin-left: 0;
-          margin-right: 10px;
-        }
-      }
-      .bottom-section {
-        padding: 12px 14px !important;
-        border-top: 1px solid rgb(235, 235, 235) !important;
-        display: flex;
-        justify-content: space-between;
       }
     }
   }

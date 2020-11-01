@@ -1,23 +1,19 @@
 import React from 'react';
-import { Input, Label, Button } from 'reactstrap';
+import { Input, Label } from 'reactstrap';
+
+import FilterModal from 'components/Shared/FilterModal';
 
 const AvailabilityFilter = () => (
-  <>
-    <div className="top-section">
-      <Label check>
-        <Input type="checkbox" />
-        Today
-      </Label>
-      <Label check>
-        <Input type="checkbox" />
-        In Coming 3 days
-      </Label>
-    </div>
-    <div className="bottom-section">
-      <Button color="link">Delete</Button>
-      <Button color="secondary">save</Button>
-    </div>
-  </>
+  <FilterModal>
+    <Label check>
+      <Input type="checkbox" />
+      Today
+    </Label>
+    <Label check>
+      <Input type="checkbox" />
+      In Coming 3 days
+    </Label>
+  </FilterModal>
 );
 
 export default AvailabilityFilter;

@@ -8,6 +8,8 @@ import LanguageFilter from './LanguageFilter';
 import FreeFirstAppointmentFilter from './FreeFirstAppointmentFilter';
 import ImmediateConfirmationFilter from './ImmediateConfirmationFilter';
 
+import messages from '../../messages';
+
 const FilterBar = ({
   filters: {
     availability,
@@ -18,19 +20,39 @@ const FilterBar = ({
   },
 }) => (
   <div className="filter-bar">
-    <FilterButton name="Availability" className="availability-filter" isFilterActive={availability}>
+    <FilterButton
+      name={messages.availabilityFilter}
+      className="filter-modal"
+      isFilterActive={availability}
+    >
       <AvailabilityFilter />
     </FilterButton>
-    <FilterButton name="Specializations" className="specialization-filter" isFilterActive={specializations}>
+    <FilterButton
+      name={messages.specializationFilter}
+      className="filter-modal"
+      isFilterActive={specializations}
+    >
       <SpecializationFilter />
     </FilterButton>
-    <FilterButton name="Free First Appointment" className="appointment-free-first-filter" isFilterActive={freeFirstAppointment}>
+    <FilterButton
+      name={messages.firstAppointmentFilter}
+      className="filter-modal"
+      isFilterActive={freeFirstAppointment}
+    >
       <FreeFirstAppointmentFilter />
     </FilterButton>
-    <FilterButton name="Appointment With immediate confirmation" className="appointment-immediate-confirmation-filter" isFilterActive={appointmentWithImmediateConfirmation}>
+    <FilterButton
+      name={messages.appointmentWithConfirmationFilter}
+      className="filter-modal"
+      isFilterActive={appointmentWithImmediateConfirmation}
+    >
       <ImmediateConfirmationFilter />
     </FilterButton>
-    <FilterButton name="Language" className="language-filter" isFilterActive={language}>
+    <FilterButton
+      name={messages.languageFilter}
+      className="filter-modal"
+      isFilterActive={language}
+    >
       <LanguageFilter />
     </FilterButton>
   </div>

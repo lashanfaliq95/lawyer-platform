@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { bool, string, node } from 'prop-types';
+import { injectIntl } from 'react-intl';
+import {
+  bool, string, node, shape,
+} from 'prop-types';
 
 import './styles.scss';
 import WrapperCloseOnOutSideClick from 'components/Shared/WrapperCloseOnOutsideClick';
 
 const FilterButton = ({
-  isFilterActive, name, children, className,
+  intl, isFilterActive, name, children, className,
 }) => {
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -30,7 +33,7 @@ const FilterButton = ({
           ref={buttonRef}
           onClick={onClick}
         >
-          {name}
+          {intl.formatMessage(name)}
         </button>
       </div>
       <div className="content">
@@ -51,6 +54,7 @@ const FilterButton = ({
 };
 
 FilterButton.propTypes = {
+  intl: shape.isRequired,
   isFilterActive: bool,
   name: string.isRequired,
   children: node.isRequired,
@@ -62,4 +66,4 @@ FilterButton.defaultProps = {
   className: '',
 };
 
-export default FilterButton;
+export default injectIntl(FilterButton);

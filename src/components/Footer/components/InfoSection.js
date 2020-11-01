@@ -28,7 +28,7 @@ const InfoSection = () => (
       </Row>
       <Row>{formatMessages(messages.bookAppointment)}</Row>
       <Row>{formatMessages(messages.registerAsAClient)}</Row>
-      <Row>{formatMessages(messages.AdvoplanPro)}</Row>
+      <Row>{formatMessages(messages.AvoplanPro)}</Row>
     </Col>
   </Row>
 );

@@ -56,6 +56,7 @@
       color: #222222 ;
       padding-right: 20px;
       padding-left: 20px;
+      width: 25%;
       input{
          border: none;
          margin-right: 2px;
@@ -63,10 +64,10 @@
       }
       .search-icon{
          position: absolute;
-         padding: 10px;
-         right: 2.5px;
-         top:1.5px;
-         background-color:#0596de ;
+         padding: 8px;
+         right: 4px;
+         top: 4px;
+         background-color: #0596de;
          border-radius: 50%;
       }
    }

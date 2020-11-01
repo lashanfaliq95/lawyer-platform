@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   brandName: {
     id: 'app.navbar.brandName',
-    defaultMessage: 'Advoplan',
+    defaultMessage: 'Avoplan',
   },
   areYouALawyer: {
     id: 'app.navbar.areYouALawyer',

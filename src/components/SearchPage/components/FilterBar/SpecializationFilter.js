@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Label, Button } from 'reactstrap';
+import { Input, Label } from 'reactstrap';
+
+import FilterModal from 'components/Shared/FilterModal';
 
 const lawSpecializations = [
   'Agrarrecht',
@@ -56,8 +58,8 @@ const SpecializationFilter = () => {
   }, [searchTerm]);
 
   return (
-    <>
-      <div className="top-section specialization">
+    <FilterModal className="top-section-specialization">
+      <div className="specialization">
         <Input
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
@@ -72,7 +74,7 @@ const SpecializationFilter = () => {
           </Label>
         ))}
       </div>
-      <div className="top-section notary">
+      <div className="notary">
         <h4>Notaries</h4>
         {filteredNotarySpecialization.map((specialization) => (
           <Label check>
@@ -81,11 +83,7 @@ const SpecializationFilter = () => {
           </Label>
         ))}
       </div>
-      <div className="bottom-section">
-        <Button color="link">Delete</Button>
-        <Button color="secondary">save</Button>
-      </div>
-    </>
+    </FilterModal>
   );
 };
 

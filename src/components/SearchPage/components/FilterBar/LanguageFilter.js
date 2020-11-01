@@ -1,5 +1,7 @@
 import React from 'react';
-import { Input, Label, Button } from 'reactstrap';
+import { Input, Label } from 'reactstrap';
+
+import FilterModal from 'components/Shared/FilterModal';
 
 const languages = [
   'Englisch',
@@ -16,20 +18,14 @@ const languages = [
 ];
 
 const LanguageFilter = () => (
-  <>
-    <div className="top-section language">
-      {languages.map((language) => (
-        <Label check>
-          <Input type="checkbox" />
-          {language}
-        </Label>
-      ))}
-    </div>
-    <div className="bottom-section">
-      <Button color="link">Delete</Button>
-      <Button color="secondary">save</Button>
-    </div>
-  </>
+  <FilterModal>
+    {languages.map((language) => (
+      <Label check>
+        <Input type="checkbox" />
+        {language}
+      </Label>
+    ))}
+  </FilterModal>
 );
 
 export default LanguageFilter;
