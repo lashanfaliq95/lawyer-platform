@@ -11,7 +11,6 @@ import {
   FormGroup,
 } from 'reactstrap';
 import { useFormik } from 'formik';
-import { object, string } from 'yup';
 
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
@@ -25,10 +24,6 @@ const ForgotPwdCard = ({ forgotPassword: forgotPasswordAction, isForgotPasswordS
     initialValues: {
       email: '',
     },
-    validationSchema: object({
-      email: string().email(messages.emailValidation)
-        .required(messages.required),
-    }),
     onSubmit: (values) => {
       forgotPasswordAction(values);
     },
@@ -57,8 +52,7 @@ const ForgotPwdCard = ({ forgotPassword: forgotPasswordAction, isForgotPasswordS
                 type="email"
                 name="email"
                 id="exampleEmail"
-                invalid={formik.touched.email && formik.errors.email}
-                error={formik.errors.email}
+                required
                 {...formik.getFieldProps('email')}
               />
             </FormGroup>

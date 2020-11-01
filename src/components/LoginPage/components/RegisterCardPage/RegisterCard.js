@@ -14,9 +14,6 @@ import {
   Col,
 } from 'reactstrap';
 import { useFormik } from 'formik';
-import {
-  object, string,
-} from 'yup';
 
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
@@ -34,16 +31,6 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
       email: '',
       password: '',
     },
-    validationSchema: object({
-      firstName: string().required(messages.required),
-      lastName: string().required(messages.required),
-      mobilePhone: string().required(messages.required),
-      email: string().email(messages.emailValidation)
-        .required(messages.required),
-      password: string()
-        .required(messages.required),
-
-    }),
     onSubmit: (values) => {
       const roleId = roleMap.users;
       registerUserAction({ ...values, roleId });
@@ -67,8 +54,7 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
                   type="text"
                   name="firstName"
                   id="firstName"
-                  invalid={formik.touched.firstName && formik.errors.firstName}
-                  error={formik.errors.firstName}
+                  required
                   {...formik.getFieldProps('firstName')}
                 />
               </FormGroup>
@@ -80,8 +66,7 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
                   type="text"
                   name="lastName"
                   id="lastName"
-                  invalid={formik.touched.lastName && formik.errors.lastName}
-                  error={formik.errors.lastName}
+                  required
                   {...formik.getFieldProps('lastName')}
                 />
               </FormGroup>
@@ -93,8 +78,7 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               type="email"
               name="email"
               id="email"
-              invalid={formik.touched.email && formik.errors.email}
-              error={formik.errors.email}
+              required
               {...formik.getFieldProps('email')}
             />
           </FormGroup>
@@ -104,8 +88,7 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               type="text"
               name="mobilePhone"
               id="mobilePhone"
-              invalid={formik.touched.mobilePhone && formik.errors.mobilePhone}
-              error={formik.errors.mobilePhone}
+              required
               {...formik.getFieldProps('mobilePhone')}
             />
           </FormGroup>
@@ -115,7 +98,7 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               name="password"
               id="password"
               showPwdStrength
-              invalid={formik.touched.password && formik.errors.password}
+              required
               {...formik.getFieldProps('password')}
             />
           </FormGroup>
