@@ -40,9 +40,9 @@ const SearchPage = ({
           <Row className="content">
             <Col md="7" className="card-container">
               <SearchSummary
-                numberOfResults={0}
-                specialization="lawyer"
-                district="linden"
+                numberOfResults={3}
+                specialization="Anwalt"
+                district="Düsseldorf"
               />
               <FilterBar filters={filters} />
               <ProfileCardList users={users} />

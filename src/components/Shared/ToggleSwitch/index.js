@@ -1,11 +1,14 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { injectIntl } from 'react-intl';
+import { string, func, shape } from 'prop-types';
 
 import './styles.scss';
 
-const ToggleSwitch = ({ value, onChange, label }) => (
+const ToggleSwitch = ({
+  value, onChange, label, intl,
+}) => (
   <div className="toggle-switch">
-    <p className="label">{label}</p>
+    <p className="label">{intl.formatMessage(label)}</p>
     <label htmlFor="slider-input" className="switch">
       <input type="checkbox" id="slider-input" value={value} onChange={onChange} />
       <span className="slider round" />
@@ -18,6 +21,7 @@ ToggleSwitch.propTypes = {
   value: string.isRequired,
   onChange: func.isRequired,
   label: string.isRequired,
+  intl: shape.isRequired,
 };
 
-export default ToggleSwitch;
+export default injectIntl(ToggleSwitch);

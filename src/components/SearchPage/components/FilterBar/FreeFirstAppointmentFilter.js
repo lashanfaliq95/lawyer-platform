@@ -1,11 +1,12 @@
 import React from 'react';
 
-import FilterModal from 'components/Shared/FilterModal';
 import ToggleSwitch from 'components/Shared/ToggleSwitch';
+import messages from '../../messages';
+import FilterModal from './FilterModal';
 
 const FreeFirstAppointmentFilter = () => (
   <FilterModal>
-    <ToggleSwitch label="Free first appointment" />
+    <ToggleSwitch label={messages.freeFirstAppointment} />
   </FilterModal>
 );
 

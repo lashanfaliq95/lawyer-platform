@@ -37,4 +37,36 @@ export default defineMessages({
     id: 'app.searchPage.languageFilter',
     defaultMessage: 'Language',
   },
+  delete: {
+    id: 'app.searchPage.delete',
+    defaultMessage: 'delete',
+  },
+  save: {
+    id: 'app.searchPage.save',
+    defaultMessage: 'save',
+  },
+  today: {
+    id: 'app.searchPage.today',
+    defaultMessage: 'Today',
+  },
+  comingThreeDays: {
+    id: 'app.searchPage.comingThreeDays',
+    defaultMessage: 'In coming three days',
+  },
+  freeFirstAppointment: {
+    id: 'app.searchPage.freeFirstAppointment',
+    defaultMessage: 'Only show appointments with free first consultant',
+  },
+  immediateConfirmation: {
+    id: 'app.searchPage.immediateConfirmation',
+    defaultMessage: 'only show appointments with free first consultant',
+  },
+  lawyer: {
+    id: 'app.searchPage.lawyer',
+    defaultMessage: 'Lawyer',
+  },
+  notary: {
+    id: 'app.searchPage.notary',
+    defaultMessage: 'Notary',
+  },
 });

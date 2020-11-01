@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Label } from 'reactstrap';
 
-import FilterModal from 'components/Shared/FilterModal';
+import formatMessages from 'components/formatMessages';
+import FilterModal from './FilterModal';
+import messages from '../../messages';
 
 const lawSpecializations = [
   'Agrarrecht',
@@ -66,7 +68,7 @@ const SpecializationFilter = () => {
           placeholder="Enter Search term"
           className="search-input"
         />
-        <h4>Lawyers</h4>
+        <h4>{formatMessages(messages.lawyer)}</h4>
         {filteredLawSpecialization.map((specialization) => (
           <Label check>
             <Input type="checkbox" />
@@ -75,7 +77,7 @@ const SpecializationFilter = () => {
         ))}
       </div>
       <div className="notary">
-        <h4>Notaries</h4>
+        <h4>{formatMessages(messages.notary)}</h4>
         {filteredNotarySpecialization.map((specialization) => (
           <Label check>
             <Input type="checkbox" />

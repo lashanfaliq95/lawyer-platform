@@ -113,8 +113,17 @@ export default {
   'app.searchPage.changeSearchOption': 'Sucheinstellungen ändern',
   'app.searchPage.findMoreOptions': 'Finden Sie mehr {specialization} indem Sie Ihre Sucheinstellungen ändern',
   'app.searchPage.availabilityFilter': 'Verfügbarkeit',
-  'app.searchPage.specializationFilter': 'Rechtsgebiete',
+  'app.searchPage.specializationFilter': 'Beamtenrecht',
   'app.searchPage.firstAppointmentFilter': 'Kostenlose Erstberatung',
   'app.searchPage.appointmentWithConfirmationFilter': 'Sofortige Terminbestätigung',
   'app.searchPage.languageFilter': 'Sprachen',
+  'app.searchPage.delete': 'Löschen',
+  'app.searchPage.save': 'Speichern',
+  'app.searchPage.today': 'Heute',
+  'app.searchPage.comingThreeDays': 'In den nächsten drei Tagen',
+  'app.searchPage.immediateConfirmation': 'Nur Termine anzeigen, die sofort gebucht werden können, ohne auf eine Bestätigung zu warten',
+  'app.searchPage.freeFirstAppointment': 'Nur Termine mit kostenloser Erstberatung anzeigen',
+  'app.searchPage.lawyer': 'Anwälte',
+  'app.searchPage.notary': 'Notare',
+
 };

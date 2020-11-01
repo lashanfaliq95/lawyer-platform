@@ -1,11 +1,12 @@
 import React from 'react';
 
-import FilterModal from 'components/Shared/FilterModal';
 import ToggleSwitch from 'components/Shared/ToggleSwitch';
+import messages from '../../messages';
+import FilterModal from './FilterModal';
 
 const ImmediateConfirmationFilter = () => (
   <FilterModal>
-    <ToggleSwitch label="Immediate confirmation" />
+    <ToggleSwitch label={messages.immediateConfirmation} />
   </FilterModal>
 );
 

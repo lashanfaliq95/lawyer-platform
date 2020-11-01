@@ -1,17 +1,19 @@
 import React from 'react';
 import { Input, Label } from 'reactstrap';
 
-import FilterModal from 'components/Shared/FilterModal';
+import formatMessages from 'components/formatMessages';
+import FilterModal from './FilterModal';
+import messages from '../../messages';
 
 const AvailabilityFilter = () => (
   <FilterModal>
     <Label check>
       <Input type="checkbox" />
-      Today
+      {formatMessages(messages.today)}
     </Label>
     <Label check>
       <Input type="checkbox" />
-      In Coming 3 days
+      {formatMessages(messages.comingThreeDays)}
     </Label>
   </FilterModal>
 );

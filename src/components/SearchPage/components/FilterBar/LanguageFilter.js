@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Label } from 'reactstrap';
 
-import FilterModal from 'components/Shared/FilterModal';
+import FilterModal from './FilterModal';
 
 const languages = [
   'Englisch',
