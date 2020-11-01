@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from 'reactstrap';
 import { useFormik } from 'formik';
+import { object, string } from 'yup';
 
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
@@ -25,6 +26,12 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
       email: '',
       password: '',
     },
+    validationSchema: object({
+      email: string().email(messages.emailValidation)
+        .required(messages.required),
+      password: string()
+        .required(messages.required),
+    }),
     onSubmit: (values) => {
       loginUserAction(values);
     },
@@ -45,6 +52,8 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
               type="email"
               name="email"
               id="exampleEmail"
+              invalid={formik.touched.email && formik.errors.email}
+              error={formik.errors.email}
               {...formik.getFieldProps('email')}
             />
           </FormGroup>
@@ -55,6 +64,8 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               forgotPwdBtnText={messages.forgotPwdBtnText}
+              invalid={formik.touched.password && formik.errors.password}
+              error={formik.errors.password}
               showForgotPwdBtn
             />
           </FormGroup>

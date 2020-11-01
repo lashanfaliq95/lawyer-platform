@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, bool } from 'prop-types';
 import {
-  Button, Card, CardBody, CardTitle,
+  Button,
+  Card,
+  CardBody,
+  CardTitle,
+  Form,
+  FormGroup,
 } from 'reactstrap';
+import { useFormik } from 'formik';
+import { object, string } from 'yup';
 
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
@@ -14,11 +21,18 @@ import SuccessCard from './SuccessCard';
 import { forgotPassword } from '../../actions';
 
 const ForgotPwdCard = ({ forgotPassword: forgotPasswordAction, isForgotPasswordSuccess }) => {
-  const [email, setEmail] = useState('');
-
-  const onPwdResetClick = () => {
-    forgotPasswordAction({ email });
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validationSchema: object({
+      email: string().email(messages.emailValidation)
+        .required(messages.required),
+    }),
+    onSubmit: (values) => {
+      forgotPasswordAction(values);
+    },
+  });
 
   return (
     <Card className="forgot-pwd-card">
@@ -36,16 +50,24 @@ const ForgotPwdCard = ({ forgotPassword: forgotPasswordAction, isForgotPasswordS
           <p className="pwd-description">
             {formatMessage(messages.forgotPwdCardDescription)}
           </p>
-          <div className="form-group">
-            <FloatingInputLabel
-              label={messages.emailPlaceHolder}
-              onChange={(e) => { setEmail(e.target.value); }}
-              value={email}
-            />
-          </div>
-          <Button className="login-btn" onClick={onPwdResetClick}>
-            {formatMessage(messages.resetBtnText)}
-          </Button>
+          <Form onSubmit={formik.handleSubmit}>
+            <FormGroup>
+              <FloatingInputLabel
+                label={messages.emailPlaceHolder}
+                type="email"
+                name="email"
+                id="exampleEmail"
+                invalid={formik.touched.email && formik.errors.email}
+                error={formik.errors.email}
+                {...formik.getFieldProps('email')}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Button className="login-btn" type="submit" color="warning">
+                {formatMessage(messages.loginBtnText)}
+              </Button>
+            </FormGroup>
+          </Form>
         </div>
       </CardBody>
       )}

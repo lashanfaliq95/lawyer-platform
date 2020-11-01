@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { shape, func } from 'prop-types';
@@ -14,7 +15,7 @@ import {
 } from 'reactstrap';
 import { useFormik } from 'formik';
 import {
-  object, string, number,
+  object, string,
 } from 'yup';
 
 import formatMessage from 'components/formatMessages';
@@ -34,11 +35,14 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
       password: '',
     },
     validationSchema: object({
-      firstName: string().required(),
-      lastName: string().required(),
-      mobilePhone: number().required(),
-      email: string().email().required(),
-      password: string().required(),
+      firstName: string().required(messages.required),
+      lastName: string().required(messages.required),
+      mobilePhone: string().required(messages.required),
+      email: string().email(messages.emailValidation)
+        .required(messages.required),
+      password: string()
+        .required(messages.required),
+
     }),
     onSubmit: (values) => {
       const roleId = roleMap.users;
@@ -63,6 +67,8 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
                   type="text"
                   name="firstName"
                   id="firstName"
+                  invalid={formik.touched.firstName && formik.errors.firstName}
+                  error={formik.errors.firstName}
                   {...formik.getFieldProps('firstName')}
                 />
               </FormGroup>
@@ -74,6 +80,8 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
                   type="text"
                   name="lastName"
                   id="lastName"
+                  invalid={formik.touched.lastName && formik.errors.lastName}
+                  error={formik.errors.lastName}
                   {...formik.getFieldProps('lastName')}
                 />
               </FormGroup>
@@ -85,6 +93,8 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               type="email"
               name="email"
               id="email"
+              invalid={formik.touched.email && formik.errors.email}
+              error={formik.errors.email}
               {...formik.getFieldProps('email')}
             />
           </FormGroup>
@@ -94,6 +104,8 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               type="text"
               name="mobilePhone"
               id="mobilePhone"
+              invalid={formik.touched.mobilePhone && formik.errors.mobilePhone}
+              error={formik.errors.mobilePhone}
               {...formik.getFieldProps('mobilePhone')}
             />
           </FormGroup>
@@ -103,6 +115,7 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               name="password"
               id="password"
               showPwdStrength
+              invalid={formik.touched.password && formik.errors.password}
               {...formik.getFieldProps('password')}
             />
           </FormGroup>
@@ -127,4 +140,4 @@ RegisterCard.propTypes = {
   registerUser: func.isRequired,
 };
 
-export default connect(null, { registerUser })(RegisterCard);
+export default injectIntl(connect(null, { registerUser })(RegisterCard));

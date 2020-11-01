@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { injectIntl } from 'react-intl';
 import { func, string, shape } from 'prop-types';
-import { Input } from 'reactstrap';
+import { Input, FormFeedback } from 'reactstrap';
 
 import './styles.scss';
 
 const FloatingLabelInput = (props) => {
   const {
-    onChange, inputClassName, label, intl, ...rest
+    onChange, inputClassName, label, intl, error, ...rest
   } = props;
   const [value, setValue] = useState('');
 
@@ -26,6 +26,7 @@ const FloatingLabelInput = (props) => {
       <span className="floating-label">
         {intl.formatMessage(label) }
       </span>
+      {error && <FormFeedback>{intl.formatMessage(error)}</FormFeedback>}
     </div>
   );
 };
@@ -35,10 +36,12 @@ FloatingLabelInput.propTypes = {
   inputClassName: string,
   label: shape({}).isRequired,
   intl: shape({}).isRequired,
+  error: string,
 };
 
 FloatingLabelInput.defaultProps = {
   inputClassName: '',
+  error: null,
 };
 
-export default injectIntl(FloatingLabelInput);
+export default injectIntl(memo(FloatingLabelInput));
