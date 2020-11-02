@@ -1,39 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Label } from 'reactstrap';
+import { arrayOf } from 'prop-types';
 
 import formatMessages from 'components/formatMessages';
 import FilterModal from './FilterModal';
 import messages from '../../messages';
 
-const lawSpecializations = [
-  'Agrarrecht',
-  'Allgemeines Vertragsrecht',
-  'Anwaltshaftung',
-  'Arbeitsrecht',
-  'Arzthaftungsrecht',
-  'Ausländerrecht & Asylrecht',
-  'Bankrecht & Kapitalmarktrecht',
-  'Baurecht & Architektenrecht',
-  'BeamtenrechtsearchTerm',
-  'Betreuungsrecht',
-  'Betriebliche Altersversorgung',
-  'Datenschutzrecht',
-  'Designrecht',
-  'Erbrecht',
-  'Familienrecht',
-  'Forderungseinzug & Inkassorecht',
-];
-
-const notarySpecializations = [
-  'Erbrecht',
-  'Familienrecht',
-  'Handelsrecht & Gesellschaftsrecht',
-  'Immobilienrecht',
-  'Vorsorgevollmacten',
-  'Sonstige Beglaubigungen & Beurkundung',
-];
-
-const SpecializationFilter = () => {
+const SpecializationFilter = ({ lawSpecializations, notarySpecializations }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredLawSpecialization, setFilteredLawSpecialization] = useState(
     lawSpecializations,
@@ -47,11 +20,12 @@ const SpecializationFilter = () => {
       setFilteredLawSpecialization(lawSpecializations);
       setFilteredNotarySpecialization(notarySpecializations);
     } else {
+      console.log(filteredLawSpecialization);
       const lawResults = filteredLawSpecialization.filter(
-        (specialization) => specialization.toLowerCase().includes(searchTerm),
+        ({ specilization }) => specilization.toLowerCase().includes(searchTerm),
       );
       const notaryResults = filteredNotarySpecialization.filter(
-        (specialization) => specialization.toLowerCase().includes(searchTerm),
+        ({ specilization }) => specilization.toLowerCase().includes(searchTerm),
       );
       setFilteredLawSpecialization(lawResults);
       setFilteredNotarySpecialization(notaryResults);
@@ -68,25 +42,36 @@ const SpecializationFilter = () => {
           placeholder="Enter Search term"
           className="search-input"
         />
-        <h4>{formatMessages(messages.lawyer)}</h4>
-        {filteredLawSpecialization.map((specialization) => (
+        <h4 className="title">{formatMessages(messages.lawyer)}</h4>
+        <div className="content">
+          {filteredLawSpecialization
+        && filteredLawSpecialization.map(({ specilization, id }) => (
           <Label check>
-            <Input type="checkbox" />
-            {specialization}
+            <Input type="checkbox" value={id} />
+            {specilization}
           </Label>
         ))}
+        </div>
       </div>
       <div className="notary">
-        <h4>{formatMessages(messages.notary)}</h4>
-        {filteredNotarySpecialization.map((specialization) => (
+        <h4 className="title">{formatMessages(messages.notary)}</h4>
+        <div className="content">
+          {filteredNotarySpecialization
+        && filteredNotarySpecialization.map(({ specilization, id }) => (
           <Label check>
-            <Input type="checkbox" />
-            {specialization}
+            <Input type="checkbox" value={id} />
+            {specilization}
           </Label>
         ))}
+        </div>
       </div>
     </FilterModal>
   );
+};
+
+SpecializationFilter.propTypes = {
+  lawSpecializations: arrayOf({}).isRequired,
+  notarySpecializations: arrayOf({}).isRequired,
 };
 
 export default SpecializationFilter;

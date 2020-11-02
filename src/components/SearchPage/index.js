@@ -12,7 +12,7 @@ import MapOfLawyers from './components/MapOfLawyers';
 import SearchSummary from './components/SearchSummary';
 import FilterBar from './components/FilterBar';
 
-import { getLawyers } from './actions';
+import { getLawyers, getFilters } from './actions';
 
 const position = [51.24192, 6.73521];
 const bounds = [
@@ -25,10 +25,16 @@ const bounds = [
 ];
 
 const SearchPage = ({
-  locations, users, filters, getLawyers: getLawyersAction,
+  locations,
+  users,
+  filters,
+  activeFilters,
+  getLawyers: getLawyersAction,
+  getFilters: getFiltersAction,
 }) => {
   useEffect(() => {
     getLawyersAction();
+    getFiltersAction();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -44,7 +50,7 @@ const SearchPage = ({
                 specialization="Anwalt"
                 district="Düsseldorf"
               />
-              <FilterBar filters={filters} />
+              <FilterBar filters={filters} activeFilters={activeFilters} />
               <ProfileCardList users={users} />
             </Col>
             <Col className="map-container" md="5">
@@ -66,13 +72,16 @@ const mapStateToProps = (state) => ({
   locations: state.search.locations,
   users: state.search.users,
   filters: state.search.filters,
+  activeFilters: state.search.activeFilters,
 });
 
 SearchPage.propTypes = {
   locations: arrayOf(shape({})).isRequired,
   users: arrayOf(shape({})).isRequired,
   filters: shape({}).isRequired,
+  activeFilters: shape({}).isRequired,
   getLawyers: func.isRequired,
+  getFilters: func.isRequired,
 };
 
-export default connect(mapStateToProps, { getLawyers })(SearchPage);
+export default connect(mapStateToProps, { getLawyers, getFilters })(SearchPage);

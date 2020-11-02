@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
-import { bool, shape } from 'prop-types';
+import {
+  bool, shape, arrayOf,
+} from 'prop-types';
 
 import FilterButton from 'components/Shared/FilterButton';
 import AvailabilityFilter from './AvailabilityFilter';
@@ -11,28 +13,32 @@ import ImmediateConfirmationFilter from './ImmediateConfirmationFilter';
 import messages from '../../messages';
 
 const FilterBar = ({
-  filters: {
-    availability,
-    specializations,
+  activeFilters: {
+    activeAvailability,
+    activeSpecializations,
     freeFirstAppointment,
     appointmentWithImmediateConfirmation,
-    language,
+    activeLanguages,
+  },
+  filters: {
+    specializations,
+    languages,
   },
 }) => (
   <div className="filter-bar">
     <FilterButton
       name={messages.availabilityFilter}
       className="filter-modal"
-      isFilterActive={availability}
+      isFilterActive={activeAvailability.length > 0}
     >
       <AvailabilityFilter />
     </FilterButton>
     <FilterButton
       name={messages.specializationFilter}
       className="filter-modal"
-      isFilterActive={specializations}
+      isFilterActive={activeSpecializations.length > 0}
     >
-      <SpecializationFilter />
+      <SpecializationFilter {...specializations} />
     </FilterButton>
     <FilterButton
       name={messages.firstAppointmentFilter}
@@ -51,9 +57,9 @@ const FilterBar = ({
     <FilterButton
       name={messages.languageFilter}
       className="filter-modal"
-      isFilterActive={language}
+      isFilterActive={activeLanguages.length > 0}
     >
-      <LanguageFilter />
+      <LanguageFilter languages={languages} />
     </FilterButton>
   </div>
 );
@@ -64,7 +70,14 @@ FilterBar.propTypes = {
     specializations: bool.isRequired,
     freeFirstAppointment: bool.isRequired,
     appointmentWithImmediateConfirmation: bool.isRequired,
-    language: bool.isRequired,
+    languages: bool.isRequired,
+  }).isRequired,
+  activeFilters: shape({
+    activeAvailability: arrayOf().isRequired,
+    activeSpecializations: arrayOf().isRequired,
+    freeFirstAppointment: bool.isRequired,
+    appointmentWithImmediateConfirmation: bool.isRequired,
+    activeLanguages: arrayOf().isRequired,
   }).isRequired,
 };
 

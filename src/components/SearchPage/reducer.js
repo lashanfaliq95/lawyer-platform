@@ -2,7 +2,7 @@ import {
   ON_MOUSE_ENTER_CARD,
   ON_MOUSE_LEAVE_CARD,
   SET_LAWYERS,
-  SET_LOCATIONS,
+  SET_FILTERS,
 } from './constants';
 
 const initialState = {
@@ -95,11 +95,16 @@ const initialState = {
     },
   ],
   filters: {
-    availability: false,
-    specializations: true,
+    availability: [],
+    specializations: [],
+    languages: [],
+  },
+  activeFilters: {
+    activeAvailability: [],
+    activeSpecializations: [],
     freeFirstAppointment: false,
     appointmentWithImmediateConfirmation: false,
-    language: false,
+    activeLanguages: [],
   },
 };
 
@@ -109,11 +114,25 @@ const search = (state = initialState, action) => {
       return {
         ...state,
         users: action.payload,
+        locations: action.payload.map(
+          ({
+            id, latitude, longitude, address,
+          }) => ({
+            id,
+            address,
+            position: [latitude, longitude],
+            isHovered: false,
+          }),
+        ),
       };
-    case SET_LOCATIONS:
+    case SET_FILTERS:
       return {
         ...state,
-        locations: action.payload,
+        filters: {
+          ...state.filters,
+          specializations: action.payload.specializations,
+          languages: action.payload.languages,
+        },
       };
     case ON_MOUSE_ENTER_CARD:
       return {

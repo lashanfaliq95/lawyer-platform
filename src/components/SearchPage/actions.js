@@ -4,7 +4,8 @@ import {
   ON_MOUSE_LEAVE_CARD,
   GET_LAWYERS,
   SET_LAWYERS,
-  SET_LOCATIONS,
+  GET_FILTERS,
+  SET_FILTERS,
 } from './constants';
 
 export const onMouseEnterCard = (values) => ({
@@ -31,7 +32,11 @@ export const setLawyers = (data) => ({
   payload: data,
 });
 
-export const setLocations = (data) => ({
-  type: SET_LOCATIONS,
+export const getFilters = () => ({
+  type: GET_FILTERS,
+});
+
+export const setFilters = (data) => ({
+  type: SET_FILTERS,
   payload: data,
 });
