@@ -6,6 +6,12 @@ import {
   SET_LAWYERS,
   GET_FILTERS,
   SET_FILTERS,
+  SET_LANGUAGE_FILTERS,
+  SET_ACTIVE_FILTERS,
+  SET_SPECIALIZATION_FILTERS,
+  SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
+  GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
+  GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
 } from './constants';
 
 export const onMouseEnterCard = (values) => ({
@@ -38,5 +44,35 @@ export const getFilters = () => ({
 
 export const setFilters = (data) => ({
   type: SET_FILTERS,
+  payload: data,
+});
+
+export const setLanguageFilters = (data) => ({
+  type: SET_LANGUAGE_FILTERS,
+  payload: data,
+});
+
+export const setSpecializationFilters = (data) => ({
+  type: SET_SPECIALIZATION_FILTERS,
+  payload: data,
+});
+
+export const setActiveFilters = (data) => ({
+  type: SET_ACTIVE_FILTERS,
+  payload: data,
+});
+
+export const getSearchSuggestionsForNameOrFirm = (term) => ({
+  type: GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
+  payload: term,
+});
+
+export const getSearchSuggestionsForLocation = (term) => ({
+  type: GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
+  payload: term,
+});
+
+export const getSearchResult = (data) => ({
+  type: SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   payload: data,
 });

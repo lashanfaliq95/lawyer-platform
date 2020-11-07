@@ -1,19 +1,23 @@
 import React from 'react';
-import { shape, string } from 'prop-types';
+import { shape, string, func } from 'prop-types';
 import { Button } from 'reactstrap';
 
 import './styles.scss';
 import formatMessages from 'components/formatMessages';
 import messages from '../../../messages';
 
-const FilterModal = ({ children, className }) => (
+const FilterModal = ({
+  children, className, onClickSave, onClickCancel,
+}) => (
   <>
-    <div className={className}>
-      {children}
-    </div>
+    <div className={className}>{children}</div>
     <div className="bottom-section">
-      <Button color="link">{formatMessages(messages.delete)}</Button>
-      <Button color="secondary">{formatMessages(messages.save)}</Button>
+      <Button color="link" onClick={onClickCancel}>
+        {formatMessages(messages.delete)}
+      </Button>
+      <Button color="secondary" onClick={onClickSave}>
+        {formatMessages(messages.save)}
+      </Button>
     </div>
   </>
 );
@@ -21,6 +25,8 @@ const FilterModal = ({ children, className }) => (
 FilterModal.propTypes = {
   children: shape({}).isRequired,
   className: string,
+  onClickSave: func.isRequired,
+  onClickCancel: func.isRequired,
 };
 
 FilterModal.defaultProps = {

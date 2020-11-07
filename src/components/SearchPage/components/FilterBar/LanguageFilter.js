@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
-import { arrayOf } from 'prop-types';
+import { arrayOf, func } from 'prop-types';
 
+import { setLanguageFilters } from '../../actions';
 import FilterModal from './FilterModal';
 
-const LanguageFilter = ({ languages }) => {
+const LanguageFilter = ({ languages, setLanguageFilters: setLanguageFiltersAction }) => {
   const [selectedLanguages, setSelectedLanguages] = useState([]);
+
   const onChange = (e) => {
     if (selectedLanguages.indexOf(e.target.value) >= 0) {
       const updatedLanguages = [...selectedLanguages];
@@ -19,8 +22,12 @@ const LanguageFilter = ({ languages }) => {
     }
   };
 
+  const onClickSave = () => {
+    setLanguageFiltersAction({ activeLanguages: selectedLanguages });
+  };
+
   return (
-    <FilterModal>
+    <FilterModal onClickSave={onClickSave}>
       {languages.map(({ id, language }) => (
         <Label check>
           <Input value={id} type="checkbox" onChange={onChange} />
@@ -33,6 +40,7 @@ const LanguageFilter = ({ languages }) => {
 
 LanguageFilter.propTypes = {
   languages: arrayOf().isRequired,
+  setLanguageFilters: func.isRequired,
 };
 
-export default LanguageFilter;
+export default connect(null, { setLanguageFilters })(LanguageFilter);

@@ -8,13 +8,12 @@ import {
   Nav,
   NavItem,
   Button,
-  Input,
 } from 'reactstrap';
 
 import './styles.scss';
 import formatMessages from 'components/formatMessages';
 import Icon from 'components/Shared/Icon';
-import VL from 'components/Shared/VerticalSeparator';
+import SearchBar from 'components/Shared/SearchBar';
 import messages from './messages';
 
 const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
@@ -32,12 +31,7 @@ const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
         <Nav className="mr-auto" navbar>
           {showSearchInput
           && (
-          <NavItem className="nav-search">
-            <Input placeholder="Anwalt" />
-            <VL color="rgb(221, 221, 221)" />
-            <Input placeholder="Koln" />
-            <Icon name="search" className="search-icon" />
-          </NavItem>
+          <NavItem><SearchBar /></NavItem>
           )}
           <NavItem className="nav-button-group">
             {showLawyerLogin && (

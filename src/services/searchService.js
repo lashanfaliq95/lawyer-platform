@@ -1,7 +1,33 @@
 import { get } from 'utils/apiHelper';
+import qs from 'qs';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getFiltersService = async () => {
   const result = await get('/search/filters');
+  return result;
+};
+
+export const getFilteredResultService = async ({
+  activeFilters,
+  nameOrFirm,
+  location,
+}) => {
+  const { activeLanguages, activeSpecializations } = activeFilters;
+  const languageQuery = qs.stringify(
+    { languages: activeLanguages },
+    { arrayFormat: 'comma', strictNullHandling: true },
+  );
+  const specializationQuery = qs.stringify(
+    { specializations: activeSpecializations },
+    { arrayFormat: 'comma', strictNullHandling: true },
+  );
+  const nameOrFirmQuery = qs.stringify({ nameOrFirm });
+  const locationQuery = qs.stringify({ location });
+
+  const query = `${nameOrFirm ? `${nameOrFirmQuery}&` : ''}${
+    location ? `${locationQuery}&` : ''
+  }${activeLanguages.length > 0 ? `${languageQuery}&` : ''}${
+    activeSpecializations.length > 0 ? `${specializationQuery}` : ''
+  }`;
+  const result = await get(`/search/lawyers?${query}`);
   return result;
 };

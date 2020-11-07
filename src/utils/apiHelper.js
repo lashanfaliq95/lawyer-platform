@@ -1,15 +1,13 @@
 import axios from 'axios';
 
-const serviceUrl = 'http://localhost:8000';
+const serviceUrl = 'http://localhost:6060';
 
 const instance = axios.create({
   baseURL: serviceUrl,
 });
 
 instance.interceptors.response.use(null, (error) => {
-  if (error.response.status === 401) {
-    console.log('intercep');
-  }
+  if (error.response.status === 401) { return null; }
   return Promise.reject(error);
 });
 

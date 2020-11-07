@@ -3,6 +3,7 @@ import {
   ON_MOUSE_LEAVE_CARD,
   SET_LAWYERS,
   SET_FILTERS,
+  SET_ACTIVE_FILTERS,
 } from './constants';
 
 const initialState = {
@@ -133,6 +134,11 @@ const search = (state = initialState, action) => {
           specializations: action.payload.specializations,
           languages: action.payload.languages,
         },
+      };
+    case SET_ACTIVE_FILTERS:
+      return {
+        ...state,
+        activeFilters: action.payload,
       };
     case ON_MOUSE_ENTER_CARD:
       return {
