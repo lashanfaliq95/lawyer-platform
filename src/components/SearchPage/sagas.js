@@ -71,7 +71,7 @@ function* getSearchResults(action) {
 function* getLawyerAvailability(action) {
   const { result } = yield getLawyerAvailabilityService({ ...action.payload });
   if (result && result.data) {
-    const id = Object.keys(result.data)[0];
+    const { id } = action.payload;
     yield put(setLawyerAvailability({ id, data: result.data[id] }));
   }
 }

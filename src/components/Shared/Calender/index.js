@@ -66,7 +66,7 @@ const Calender = ({
   } else {
     isEmpty = true;
   }
-
+  console.log(isEmpty, isLoading);
   return (
     <Container className={className}>
       {isLoading && currentId === id ? (
@@ -121,7 +121,7 @@ const Calender = ({
           </Row>
         </>
       )}
-      {!isEmpty && !isLoading ? (
+      {!isEmpty && !(isLoading && currentId === id) ? (
         <>
           <div className="separator">
             <HS color="#ced4da" />
