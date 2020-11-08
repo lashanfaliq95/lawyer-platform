@@ -12,7 +12,7 @@ import MapOfLawyers from './components/MapOfLawyers';
 import SearchSummary from './components/SearchSummary';
 import FilterBar from './components/FilterBar';
 
-import { getLawyers, getFilters } from './actions';
+import { getLawyers, getFilters, getSearchResult } from './actions';
 
 const position = [51.24192, 6.73521];
 const bounds = [
@@ -31,10 +31,18 @@ const SearchPage = ({
   activeFilters,
   getLawyers: getLawyersAction,
   getFilters: getFiltersAction,
+  getSearchResult: getSearchResultAction,
+  location,
 }) => {
   useEffect(() => {
-    getLawyersAction();
     getFiltersAction();
+    const { searchTermForNameOrFirm, searchTermForLocation } = location.state;
+    if (searchTermForNameOrFirm !== '' || searchTermForLocation !== '') {
+      getSearchResultAction({ nameOrFirm: searchTermForNameOrFirm });
+    } else {
+      getLawyersAction();
+    }
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -82,6 +90,8 @@ SearchPage.propTypes = {
   activeFilters: shape({}).isRequired,
   getLawyers: func.isRequired,
   getFilters: func.isRequired,
+  getSearchResult: func.isRequired,
+  location: shape({}).isRequired,
 };
 
-export default connect(mapStateToProps, { getLawyers, getFilters })(SearchPage);
+export default connect(mapStateToProps, { getLawyers, getFilters, getSearchResult })(SearchPage);

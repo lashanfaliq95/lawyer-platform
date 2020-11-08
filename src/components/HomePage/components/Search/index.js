@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Col } from 'reactstrap';
 
 import formatMessages from 'components/formatMessages';
-import SearchInput from 'components/Shared/SearchInput';
+import SearchBar from 'components/Shared/SearchBar';
 import messages from '../../messages';
 
 const Search = () => (
@@ -11,12 +11,13 @@ const Search = () => (
       <Col md={{ size: 12, offset: 1 }}>
         <h1 className="search-title">{formatMessages(messages.searchText)}</h1>
       </Col>
-      <SearchInput
+      <SearchBar shouldRedirectToSearch />
+      {/* <SearchInput
         sizeInputOne={4}
         sizeInputTwo={3}
         offset={1}
-        transitionText={messages.transitionText}
-      />
+        transitionText={messages.transitionText} */}
+
     </div>
   </Container>
 );
