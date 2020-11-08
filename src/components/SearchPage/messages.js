@@ -77,4 +77,72 @@ export default defineMessages({
     id: 'app.searchPage.displayMore',
     defaultMessage: 'Display more',
   },
+  monday: {
+    id: 'app.searchPage.monday',
+    defaultMessage: 'Monday',
+  },
+  tuesday: {
+    id: 'app.searchPage.tuesday',
+    defaultMessage: 'Tuesday',
+  },
+  wednesday: {
+    id: 'app.searchPage.wednesday',
+    defaultMessage: 'Wednesday',
+  },
+  thursday: {
+    id: 'app.searchPage.thursday',
+    defaultMessage: 'Thursday',
+  },
+  friday: {
+    id: 'app.searchPage.friday',
+    defaultMessage: 'Friday',
+  },
+  january: {
+    id: 'app.searchPage.january',
+    defaultMessage: 'january',
+  },
+  february: {
+    id: 'app.searchPage.february',
+    defaultMessage: 'february',
+  },
+  march: {
+    id: 'app.searchPage.march',
+    defaultMessage: 'march',
+  },
+  april: {
+    id: 'app.searchPage.april',
+    defaultMessage: 'april',
+  },
+  may: {
+    id: 'app.searchPage.may',
+    defaultMessage: 'may',
+  },
+  june: {
+    id: 'app.searchPage.june',
+    defaultMessage: 'june',
+  },
+  july: {
+    id: 'app.searchPage.july',
+    defaultMessage: 'july',
+  },
+  august: {
+    id: 'app.searchPage.august',
+    defaultMessage: 'august',
+  },
+  september: {
+    id: 'app.searchPage.september',
+    defaultMessage: 'september',
+  },
+  october: {
+    id: 'app.searchPage.october',
+    defaultMessage: 'october',
+  },
+  november: {
+    id: 'app.searchPage.november',
+    defaultMessage: 'november',
+  },
+  december: {
+    id: 'app.searchPage.december',
+    defaultMessage: 'december',
+  },
 });

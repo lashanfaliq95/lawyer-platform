@@ -67,7 +67,7 @@ const ProfileCard = ({
             </Row>
           </Col>
           <Col md="7">
-            <Calender buttonText={messages.displayMore} />
+            <Calender buttonText={messages.displayMore} id={id} />
           </Col>
         </Row>
       </div>

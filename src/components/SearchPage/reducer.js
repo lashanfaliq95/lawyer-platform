@@ -4,6 +4,8 @@ import {
   SET_LAWYERS,
   SET_FILTERS,
   SET_ACTIVE_FILTERS,
+  SET_LAWYER_AVAILABILITY,
+  GET_LAWYER_AVAILABILITY,
 } from './constants';
 
 const initialState = {
@@ -107,6 +109,8 @@ const initialState = {
     appointmentWithImmediateConfirmation: false,
     activeLanguages: [],
   },
+  availability: {},
+  isAvailabilityLoading: false,
 };
 
 const search = (state = initialState, action) => {
@@ -140,6 +144,25 @@ const search = (state = initialState, action) => {
       return {
         ...state,
         activeFilters: action.payload,
+      };
+    case GET_LAWYER_AVAILABILITY:
+      return {
+        ...state,
+        availability: {
+          ...state.availability,
+          isAvailabilityLoading: true,
+          currentId: action.payload.id,
+        },
+      };
+    case SET_LAWYER_AVAILABILITY:
+      return {
+        ...state,
+        availability: {
+          ...state.availability,
+          isAvailabilityLoading: false,
+          currentId: null,
+          [action.payload.id]: action.payload.data,
+        },
       };
     case ON_MOUSE_ENTER_CARD:
       return {

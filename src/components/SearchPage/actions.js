@@ -12,6 +12,8 @@ import {
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
   GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
+  GET_LAWYER_AVAILABILITY,
+  SET_LAWYER_AVAILABILITY,
 } from './constants';
 
 export const onMouseEnterCard = (values) => ({
@@ -74,5 +76,15 @@ export const getSearchSuggestionsForLocation = (term) => ({
 
 export const getSearchResult = (data) => ({
   type: SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
+  payload: data,
+});
+
+export const getLawyerAvailability = (data) => ({
+  type: GET_LAWYER_AVAILABILITY,
+  payload: data,
+});
+
+export const setLawyerAvailability = (data) => ({
+  type: SET_LAWYER_AVAILABILITY,
   payload: data,
 });
