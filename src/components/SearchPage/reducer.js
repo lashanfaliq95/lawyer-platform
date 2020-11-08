@@ -121,7 +121,8 @@ const search = (state = initialState, action) => {
           }) => ({
             id,
             address,
-            position: [latitude, longitude],
+            latitude,
+            longitude,
             isHovered: false,
           }),
         ),

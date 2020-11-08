@@ -7,22 +7,17 @@ import { arrayOf, shape, func } from 'prop-types';
 import './styles.scss';
 import NavigationBar from 'components/NavigationBar';
 import Footer from 'components/Footer';
+import GoogleMap from 'components/Shared/Maps';
 import ProfileCardList from './components/ProfileCardList';
-import MapOfLawyers from './components/MapOfLawyers';
 import SearchSummary from './components/SearchSummary';
 import FilterBar from './components/FilterBar';
 
 import { getLawyers, getFilters, getSearchResult } from './actions';
 
-const position = [51.24192, 6.73521];
-const bounds = [
-  [51.21873, 6.78126],
-  [51.24192, 6.73521],
-  [51.23134, 6.78211],
-  [51.21826, 6.78228],
-  [51.2325, 6.7595],
-  [51.2625, 6.8],
-];
+const mapLocation = {
+  lat: 51.24192,
+  lng: 6.73521,
+};
 
 const SearchPage = ({
   locations,
@@ -62,11 +57,7 @@ const SearchPage = ({
               <ProfileCardList users={users} />
             </Col>
             <Col className="map-container" md="5">
-              <MapOfLawyers
-                position={position}
-                bounds={bounds}
-                locations={locations}
-              />
+              <GoogleMap locations={locations} zoomLevel={12} mapLocation={mapLocation} />
             </Col>
           </Row>
         </Col>
