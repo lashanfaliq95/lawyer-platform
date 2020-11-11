@@ -70,15 +70,15 @@ export default defineMessages({
     defaultMessage: '',
   },
   imageSectionCardOneDescription: {
-    id: 'app.homePage.cardOneDescription',
+    id: 'app.homePage.imageSectionCardOneDescription',
     defaultMessage: '',
   },
   imageSectionCardTwoDescription: {
-    id: 'app.homePage.cardTwoDescription',
+    id: 'app.homePage.imageSectionCardTwoDescription',
     defaultMessage: '',
   },
   imageSectionCardThreeDescription: {
-    id: 'app.homePage.cardThreeDescription',
+    id: 'app.homePage.imageSectionCardThreeDescription',
     defaultMessage: '',
   },
   bottomCardSectionTitle: {

@@ -1,7 +1,13 @@
-import { FORGOT_PASSWORD_SUCCESS } from './constants';
+import { getUserDetails } from 'helpers/localStorageHelper';
+import {
+  FORGOT_PASSWORD_SUCCESS, LOGIN_USER_SUCCESS, LOGIN_USER_ERROR, SET_USER_ID_FROM_TOKEN,
+} from './constants';
 
 const initialState = {
   isForgotPasswordSuccess: false,
+  userDetails: getUserDetails(),
+  loginError: null,
+  resetUser: {},
 };
 
 const login = (state = initialState, action) => {
@@ -10,6 +16,21 @@ const login = (state = initialState, action) => {
       return {
         ...state,
         isForgotPasswordSuccess: true,
+      };
+    case LOGIN_USER_SUCCESS:
+      return {
+        ...state,
+        userDetails: action.payload,
+      };
+    case LOGIN_USER_ERROR:
+      return {
+        ...state,
+        loginError: action.payload.message,
+      };
+    case SET_USER_ID_FROM_TOKEN:
+      return {
+        ...state,
+        resetUser: action.payload,
       };
     default:
       return state;

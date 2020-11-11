@@ -1,4 +1,4 @@
-import { get } from 'utils/apiHelper';
+import { get } from 'helpers/apiHelper';
 import qs from 'qs';
 
 export const getFiltersService = async () => {

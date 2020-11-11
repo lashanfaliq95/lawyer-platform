@@ -5,12 +5,14 @@ import './styles.scss';
 
 import Icon from 'components/Shared/Icon';
 import formatMessage from 'components/formatMessages';
+import ImageIcon from 'components/Shared/ImageIcon';
+import LawyerBook from 'assets/images/lawyer_book.png';
 
-const getInputClassName = (prependIcon, appendIcon) => {
+const getInputClassName = (prependIcon, appendIcon, prependImgIcon) => {
   if (prependIcon && appendIcon) {
     return { className: 'padding-left-right' };
   }
-  if (prependIcon) {
+  if (prependIcon || prependImgIcon) {
     return { className: 'padding-left' };
   }
   if (appendIcon) {
@@ -28,14 +30,16 @@ const InputWithIcon = (props) => {
     placeholder,
     width,
     transitionText,
+    prependImgIcon,
   } = props;
 
-  const { className } = getInputClassName(prependIcon, appendIcon);
+  const { className } = getInputClassName(prependIcon, appendIcon, prependImgIcon) || {};
   const [transition, setTransition] = useState(false);
   const transitionDivClass = !transition ? 'transition-text' : 'transitioned';
 
   return (
     <div className="input-icons" style={{ width }}>
+      {prependImgIcon && <ImageIcon img={LawyerBook} top="15px" left="10px" />}
       {prependIcon && (
         <Icon
           name={prependIcon.name}
@@ -113,12 +117,14 @@ InputWithIcon.propTypes = {
     id: string.isRequired,
     defaultMessage: string.isRequired,
   }),
+  prependImgIcon: shape({}),
 };
 
 InputWithIcon.defaultProps = {
   value: '',
   prependIcon: null,
   appendIcon: null,
+  prependImgIcon: null,
   placeholder: '',
   width: '',
   transitionText: null,

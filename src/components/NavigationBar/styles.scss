@@ -52,6 +52,9 @@
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      right: 5px;
+      right: 10px;
+      .nav-button-item{
+         margin-left: 10px;
+      }
    }
 }

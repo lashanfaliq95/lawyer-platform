@@ -20,13 +20,13 @@ export default {
   'app.footer.registerAsAClient': 'Als Mandant/in registrieren',
   'app.footer.AvoplanPro': 'Avoplan Pro',
   'app.homePage.searchText':
-    'Buchen sie jetzt Ihren Termin bei einem Rechtsanwalt, Notar oder Berater',
+    'Buchen Sie online Ihren Termin bei einem Rechtsanwalt, Notar oder Berater',
   'app.homePage.search': 'Suchen',
   'app.homePage.cardOneTitle': 'Einfach',
   'app.homePage.cardTwoTitle': 'online',
   'app.homePage.cardThreeTitle': 'Besser',
   'app.homePage.cardOneDescription':
-    'Finden Sie den passenden Rechtsanwalt, Notar oder Berater in Ihrer Nähe',
+    'Finden Sie den passenden Rechtsanwalt, Notar oder Berater in Ihres Nähe',
   'app.homePage.cardTwoDescription':
     'Wählen Sie Angelegenheit, Datum und Uhrzeit Ihrer Termins aus, ohne den Hörer in die Hand zu nehmen',
   'app.homePage.cardThreeDescription':
@@ -48,7 +48,7 @@ export default {
     'Ich akzeptiere die Nutzungsbedingungen von Avoplan',
   'app.loginPage.pwdDescription':
     'Mit Ihren Passwort können Sie auf Ihr Avoplan-Konto zugreifen und so Ihre Beratungstermine verwalten',
-  'app.loginPage.mobileOrLandLine': 'Handy (sonst Festnetz)',
+  'app.loginPage.mobileOrLandLine': 'Handy',
   'app.loginPage.yourEmail': 'deine Emailadresse',
   'app.loginPage.confirmYourEmail': 'Bestätigen Sie Ihre E-Mail-Adresse',
   'app.loginPage.enterInformation':
@@ -127,4 +127,21 @@ export default {
   'app.searchPage.notary': 'Notare',
   'app.searchPage.bookAppointment': 'Termin vereinbaren',
   'app.searchPage.displayMore': 'Mehr anzeigen',
+  'app.searchPage.monday': 'Mo.',
+  'app.searchPage.tuesday': 'Di.',
+  'app.searchPage.wednesday': 'Mi',
+  'app.searchPage.thursday': 'Do.',
+  'app.searchPage.friday': 'Fr.',
+  'app.searchPage.january': 'Jan.',
+  'app.searchPage.february': 'Feb.',
+  'app.searchPage.march': 'Mär.',
+  'app.searchPage.april': 'Apr.',
+  'app.searchPage.may': 'Mai.',
+  'app.searchPage.june': 'Jun.',
+  'app.searchPage.july': 'Jul.',
+  'app.searchPage.august': 'Aug.',
+  'app.searchPage.september': 'Sep.',
+  'app.searchPage.october': 'Okt.',
+  'app.searchPage.november': 'Nov.',
+  'app.searchPage.december': 'Dez.',
 };

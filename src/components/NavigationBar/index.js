@@ -35,28 +35,32 @@ const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
           )}
           <NavItem className="nav-button-group">
             {showLawyerLogin && (
-            <NavItem>
+            <div className="nav-button-item">
               <Button outline>
                 <span>
                   {formatMessages(messages.areYouALawyer)}
                 </span>
               </Button>
-            </NavItem>
+            </div>
             )}
-            <Button className="nav-button">
-              <Icon name="question-circle" />
-              <span className="nav-text">
-                {formatMessages(messages.needHelp)}
-              </span>
-            </Button>
-            <Link to="/auth/login" className="no-hover">
+            <div className="nav-button-item">
               <Button className="nav-button">
-                <Icon name="user-alt" />
+                <Icon name="question-circle" />
                 <span className="nav-text">
-                  {formatMessages(messages.login)}
+                  {formatMessages(messages.needHelp)}
                 </span>
               </Button>
-            </Link>
+            </div>
+            <div className="nav-button-item">
+              <Link to="/auth/login" className="no-hover">
+                <Button className="nav-button">
+                  <Icon name="user-alt" />
+                  <span className="nav-text">
+                    {formatMessages(messages.login)}
+                  </span>
+                </Button>
+              </Link>
+            </div>
           </NavItem>
         </Nav>
       </Collapse>

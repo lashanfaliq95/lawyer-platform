@@ -12,7 +12,7 @@ import Icon from 'components/Shared/Icon';
 
 const FloatingLabelPwdInput = (props) => {
   const {
-    onChange, label, forgotPwdBtnText, showForgotPwdBtn, showPwdStrength, intl, ...rest
+    onChange, label, forgotPwdBtnText, showForgotPwdBtn, showPwdStrength, intl, invalid, ...rest
   } = props;
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
@@ -33,6 +33,7 @@ const FloatingLabelPwdInput = (props) => {
           type={isPasswordVisible ? 'text' : 'password'}
           onChange={onPasswordInputChange}
           className={`pwd-input ${password ? 'has-input' : ''}`}
+          invalid={!!invalid}
           {...rest}
         />
         <span className="floating-label">
@@ -85,12 +86,14 @@ FloatingLabelPwdInput.propTypes = {
   forgotPwdBtnText: string,
   showForgotPwdBtn: bool,
   showPwdStrength: bool,
+  invalid: bool,
 };
 
 FloatingLabelPwdInput.defaultProps = {
   forgotPwdBtnText: '',
   showForgotPwdBtn: false,
   showPwdStrength: false,
+  invalid: false,
 };
 
 export default injectIntl(FloatingLabelPwdInput);

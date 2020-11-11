@@ -1,9 +1,11 @@
 .login-page {
-  height: calc(100vh - 56px);
+  height: 100vh;
   margin: 0;
   background-color: whitesmoke;
+  overflow-y: scroll;
   .register-card {
     max-height: 670px;
+    width: 30% !important;
   }
   .login-card {
     max-height: 400px;
@@ -53,7 +55,7 @@
   }
 
   input:hover {
-    box-shadow: 0 5px 5px #888888;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   }
 
   .login-btn {
@@ -77,19 +79,30 @@
   .login-footer {
     position: absolute;
     bottom: 0;
+    width: 100%;
+    padding: 20px;
     .bottom-footer {
-      margin-top: 0;
-      padding: 19px;
+      margin: 0;
+      .first-column {
+        padding-left: 10%;
+        margin-top: 5px;
+      }
+      .icon-bar {
+        margin-left: 18%;
+        span {
+          margin-right: 30px;
+        }
+      }
+      .col-md-1 {
+        margin-top: 5px;
+      }
+      .facebook-icon {
+        font-size: 11px;
+        margin-top: 2px;
+      }
     }
   }
 
-  .login-footer {
-    display: flex;
-    flex-direction: column;
-    .title {
-      margin-bottom: 0;
-    }
-  }
   .outer-link {
     text-align: center;
     font-weight: 550;

@@ -1,5 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
 import '../styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,15 +14,54 @@ import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 import ResetPwdCardPage from 'components/LoginPage/components/ResetPwdCardPage';
 
+import reducers from 'reducers';
+import sagas from 'sagas';
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+  reducers,
+  composeEnhancer(applyMiddleware(sagaMiddleware)),
+);
+sagaMiddleware.run(sagas);
+
 const App = () => (
-  <BrowserRouter>
-    <Route path="/search" exact component={SearchPage} />
-    <Route path="/" exact component={HomePage} />
-    <Route path="/auth/login" exact component={LoginCardPage} />
-    <Route path="/auth/forgot-pwd" exact component={ForgotPwdCardPage} />
-    <Route path="/auth/register" exact component={RegisterCardPage} />
-    <Route path="/auth/reset/:token" exact component={ResetPwdCardPage} />
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Route
+        path="/search"
+        exact
+        component={SearchPage}
+      />
+      <Route
+        path="/"
+        exact
+        component={HomePage}
+      />
+      <Route
+        path="/auth/login"
+        exact
+        component={LoginCardPage}
+      />
+      <Route
+        path="/auth/forgot-pwd"
+        exact
+        component={ForgotPwdCardPage}
+      />
+      <Route
+        path="/auth/register"
+        exact
+        component={RegisterCardPage}
+      />
+      <Route
+        path="/auth/reset/:token"
+        exact
+        component={ResetPwdCardPage}
+      />
+    </BrowserRouter>
+  </Provider>
+
 );
 
 export default App;

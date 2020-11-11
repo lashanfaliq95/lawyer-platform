@@ -66,7 +66,7 @@ const Calender = ({
   } else {
     isEmpty = true;
   }
-  console.log(isEmpty, isLoading);
+
   return (
     <Container className={className}>
       {isLoading && currentId === id ? (

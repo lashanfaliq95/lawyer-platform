@@ -7,8 +7,6 @@ import LocationPin from './LocationPin';
 
 const GoogleMaps = ({ mapLocation, locations, zoomLevel }) => (
   <div className="map">
-    <h2 className="map-h2">Come Visit Us At Our Campus</h2>
-
     <div className="google-map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}

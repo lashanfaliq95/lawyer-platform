@@ -1,23 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button } from 'reactstrap';
-import {
-  number, string, shape, bool,
-} from 'prop-types';
+import { shape, bool } from 'prop-types';
 
 import InputWithIcon from 'components/Shared/InputWithIcon';
 import formatMessages from 'components/formatMessages';
 import messages from 'components/HomePage/messages';
 import './styles.scss';
 import Icon from 'components/Shared/Icon';
+import VL from 'components/Shared/VerticalSeparator';
 
 import { getLocation } from '../utils';
 
 const SearchInput = ({
-  sizeInputOne,
-  sizeInputTwo,
-  offset,
-  className,
   transitionText,
   showGetLocationIcon,
 }) => {
@@ -31,41 +26,46 @@ const SearchInput = ({
   };
 
   return (
-    <Row className={className}>
-      <Col
-        className="first-search-input"
-        md={{ size: `${sizeInputOne}`, offset: `${offset}` }}
-      >
+    <Row className="search-input">
+      <Col className="first-search-input" md={{ size: 3, offset: 1 }}>
         <InputWithIcon
-          prependIcon={{ name: 'search', color: 'grey' }}
+          prependImgIcon
           placeholder="z.B. Notar oder Herr Müller"
           value={searchTerm}
           onChange={onSearchTermChange}
         />
+        <VL className="vertical-separator" />
       </Col>
-      <Col className="second-search-input" md={`${sizeInputTwo}`}>
+      <Col className="second-search-input" md="3">
         <InputWithIcon
           prependIcon={{ name: 'map-marker-alt', color: 'grey' }}
-          appendIcon={showGetLocationIcon ? {
-            name: 'crosshairs',
-            color: 'grey',
-            onClick: () => {
-              getLocation((position) => {
-                console.log(position);
-              });
-            },
-          } : null}
+          appendIcon={
+            showGetLocationIcon
+              ? {
+                name: 'crosshairs',
+                color: 'grey',
+                onClick: () => {
+                  getLocation((position) => {
+                    console.log(position);
+                  });
+                },
+              }
+              : null
+          }
           placeholder="z.B. Köln oder 50678"
           transitionText={transitionText}
           value={searchLocation}
           onChange={onSearchLocationChange}
         />
       </Col>
-      <Col md={`${12 - offset - sizeInputOne - sizeInputTwo}`}>
+      <Col
+        className="first-search-button"
+        md="2"
+      >
         <Link to="/search">
           <Button className="search-input-btn">
+            <Icon name="search" size="large" className="btn-icon" />
             {formatMessages(messages.search)}
-            <Icon name="angle-right" size="large" className="btn-icon" />
           </Button>
         </Link>
       </Col>
@@ -74,19 +74,11 @@ const SearchInput = ({
 };
 
 SearchInput.propTypes = {
-  sizeInputOne: number,
-  sizeInputTwo: number,
-  offset: number,
-  className: string,
   transitionText: shape(),
   showGetLocationIcon: bool,
 };
 
 SearchInput.defaultProps = {
-  sizeInputOne: 3,
-  sizeInputTwo: 3,
-  offset: 1,
-  className: '',
   transitionText: null,
   showGetLocationIcon: true,
 };

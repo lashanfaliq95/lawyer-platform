@@ -31,7 +31,7 @@ const SearchPage = ({
 }) => {
   useEffect(() => {
     getFiltersAction();
-    const { searchTermForNameOrFirm, searchTermForLocation } = location.state;
+    const { searchTermForNameOrFirm, searchTermForLocation } = location.state || {};
     if (searchTermForNameOrFirm !== '' || searchTermForLocation !== '') {
       getSearchResultAction({ nameOrFirm: searchTermForNameOrFirm });
     } else {
