@@ -5,7 +5,7 @@ import {
   Row, Col, Container, Button,
 } from 'reactstrap';
 import {
-  func, string, shape, bool,
+  func, string, shape, bool, number,
 } from 'prop-types';
 import './styles.scss';
 
@@ -78,7 +78,7 @@ const Calender = ({
             {
               calenderHeader.length > 0
               && calenderHeader.map(({ month, dayOfMonth, dayOfWeek }) => (
-                <Col>
+                <Col key={`${month}${dayOfMonth}`}>
                   <div className="day-name">{formatMessages(DAY_OF_WEEK[dayOfWeek])}</div>
                   <div className="date">
                     {dayOfMonth}
@@ -137,8 +137,8 @@ const Calender = ({
 
 Calender.propTypes = {
   className: string,
-  buttonText: string,
-  id: string.isRequired,
+  buttonText: shape(),
+  id: number.isRequired,
   getLawyerAvailability: func.isRequired,
   isLoading: bool,
   availability: shape(),

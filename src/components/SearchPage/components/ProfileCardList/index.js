@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from 'react';
 import { Events } from 'react-scroll';
-import { arrayOf } from 'prop-types';
+import { arrayOf, shape } from 'prop-types';
 
 import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import ProfileCard from '../ProfileCard';
@@ -30,7 +30,7 @@ const ProfileCardList = ({ users }) => {
   return (
     <div className="list-group">
       {users.map((user) => (
-        <>
+        <div key={user.id}>
           <ProfileCard
             id={user.id}
             name={user.name}
@@ -39,7 +39,7 @@ const ProfileCardList = ({ users }) => {
             imgUrl={user.imgUrl}
           />
           <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
-        </>
+        </div>
       ))}
     </div>
 
@@ -47,7 +47,7 @@ const ProfileCardList = ({ users }) => {
 };
 
 ProfileCardList.propTypes = {
-  users: arrayOf().isRequired,
+  users: arrayOf(shape({})).isRequired,
 };
 
 export default memo(ProfileCardList);

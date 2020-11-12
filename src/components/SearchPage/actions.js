@@ -4,8 +4,6 @@ import {
   ON_MOUSE_LEAVE_CARD,
   GET_LAWYERS,
   SET_LAWYERS,
-  GET_FILTERS,
-  SET_FILTERS,
   SET_LANGUAGE_FILTERS,
   SET_ACTIVE_FILTERS,
   SET_SPECIALIZATION_FILTERS,
@@ -37,15 +35,6 @@ export const getLawyers = () => ({
 
 export const setLawyers = (data) => ({
   type: SET_LAWYERS,
-  payload: data,
-});
-
-export const getFilters = () => ({
-  type: GET_FILTERS,
-});
-
-export const setFilters = (data) => ({
-  type: SET_FILTERS,
   payload: data,
 });
 

@@ -11,6 +11,7 @@ import FreeFirstAppointmentFilter from './FreeFirstAppointmentFilter';
 import ImmediateConfirmationFilter from './ImmediateConfirmationFilter';
 
 import messages from '../../messages';
+import { specializations, languages } from '../../constants';
 
 const FilterBar = ({
   activeFilters: {
@@ -20,10 +21,6 @@ const FilterBar = ({
     appointmentWithImmediateConfirmation,
     activeLanguages,
   },
-  filters: {
-    specializations,
-    languages,
-  },
 }) => (
   <div className="filter-bar">
     <FilterButton
@@ -31,53 +28,49 @@ const FilterBar = ({
       className="filter-modal"
       isFilterActive={activeAvailability.length > 0}
     >
-      <AvailabilityFilter />
+      <AvailabilityFilter isFilterActive={activeAvailability.length > 0} />
     </FilterButton>
     <FilterButton
       name={messages.specializationFilter}
       className="filter-modal"
       isFilterActive={activeSpecializations.length > 0}
     >
-      <SpecializationFilter {...specializations} />
+      <SpecializationFilter
+        {...specializations}
+        isFilterActive={activeSpecializations.length > 0}
+      />
     </FilterButton>
     <FilterButton
       name={messages.firstAppointmentFilter}
       className="filter-modal"
       isFilterActive={freeFirstAppointment}
     >
-      <FreeFirstAppointmentFilter />
+      <FreeFirstAppointmentFilter isFilterActive={freeFirstAppointment} />
     </FilterButton>
     <FilterButton
       name={messages.appointmentWithConfirmationFilter}
       className="filter-modal"
       isFilterActive={appointmentWithImmediateConfirmation}
     >
-      <ImmediateConfirmationFilter />
+      <ImmediateConfirmationFilter isFilterActive={appointmentWithImmediateConfirmation} />
     </FilterButton>
     <FilterButton
       name={messages.languageFilter}
       className="filter-modal"
       isFilterActive={activeLanguages.length > 0}
     >
-      <LanguageFilter languages={languages} />
+      <LanguageFilter languages={languages} isFilterActive={activeLanguages.length > 0} />
     </FilterButton>
   </div>
 );
 
 FilterBar.propTypes = {
-  filters: shape({
-    availability: bool.isRequired,
-    specializations: bool.isRequired,
-    freeFirstAppointment: bool.isRequired,
-    appointmentWithImmediateConfirmation: bool.isRequired,
-    languages: bool.isRequired,
-  }).isRequired,
   activeFilters: shape({
-    activeAvailability: arrayOf().isRequired,
-    activeSpecializations: arrayOf().isRequired,
+    activeAvailability: arrayOf(shape({})).isRequired,
+    activeSpecializations: arrayOf(shape({})).isRequired,
     freeFirstAppointment: bool.isRequired,
     appointmentWithImmediateConfirmation: bool.isRequired,
-    activeLanguages: arrayOf().isRequired,
+    activeLanguages: arrayOf(shape({})).isRequired,
   }).isRequired,
 };
 

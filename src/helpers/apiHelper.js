@@ -9,7 +9,7 @@ import {
 const instance = axios.create({
   baseURL: process.env.REACT_APP_SERVICE_URL,
   headers: {
-    Authorization: `Bearer a${getAccessToken()}`,
+    Authorization: `Bearer ${getAccessToken()}`,
   },
 });
 

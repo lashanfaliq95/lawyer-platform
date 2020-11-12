@@ -2,7 +2,6 @@ import {
   ON_MOUSE_ENTER_CARD,
   ON_MOUSE_LEAVE_CARD,
   SET_LAWYERS,
-  SET_FILTERS,
   SET_ACTIVE_FILTERS,
   SET_LAWYER_AVAILABILITY,
   GET_LAWYER_AVAILABILITY,
@@ -97,11 +96,6 @@ const initialState = {
         'https://www.franzlegal.com/files/theme_files/lawyers/teams/FRANZlegalMC2.jpg',
     },
   ],
-  filters: {
-    availability: [],
-    specializations: [],
-    languages: [],
-  },
   activeFilters: {
     activeAvailability: [],
     activeSpecializations: [],
@@ -130,15 +124,6 @@ const search = (state = initialState, action) => {
             isHovered: false,
           }),
         ),
-      };
-    case SET_FILTERS:
-      return {
-        ...state,
-        filters: {
-          ...state.filters,
-          specializations: action.payload.specializations,
-          languages: action.payload.languages,
-        },
       };
     case SET_ACTIVE_FILTERS:
       return {

@@ -1,36 +1,64 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
-import { arrayOf, func } from 'prop-types';
+import {
+  arrayOf, func, bool, shape,
+} from 'prop-types';
 
 import { setLanguageFilters } from '../../actions';
 import FilterModal from './FilterModal';
 
-const LanguageFilter = ({ languages, setLanguageFilters: setLanguageFiltersAction }) => {
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
+const getSelectedLanguages = (languages) => {
+  const selectedLanguages = [];
+  languages.forEach((language) => {
+    if (language.isChecked) {
+      selectedLanguages.push(language.id);
+    }
+  });
+  return selectedLanguages;
+};
+
+const LanguageFilter = ({
+  languages,
+  setLanguageFilters: setLanguageFiltersAction,
+  isFilterActive,
+}) => {
+  const [updatedLanguages, setUpdatedLanguages] = useState([...languages]);
+  const [isLanguageSelected, setIsLanguageSelected] = useState(false);
 
   const onChange = (e) => {
-    if (selectedLanguages.indexOf(e.target.value) >= 0) {
-      const updatedLanguages = [...selectedLanguages];
-      const index = selectedLanguages.indexOf(e.target.value);
-      updatedLanguages.splice(index, 1);
-      setSelectedLanguages(updatedLanguages);
-    } else {
-      const updatedLanguages = [...selectedLanguages];
-      updatedLanguages.push(e.target.value);
-      setSelectedLanguages(updatedLanguages);
-    }
+    let isAtLeastSingleLanguageSelected = false;
+    const selectedLanguages = updatedLanguages.map((language) => {
+      const updatedLanguage = { ...language };
+      if (parseInt(e.target.value, 10) === updatedLanguage.id) {
+        updatedLanguage.isChecked = !updatedLanguage.isChecked;
+      }
+      if (updatedLanguage.isChecked) {
+        isAtLeastSingleLanguageSelected = true;
+      }
+      return updatedLanguage;
+    });
+    setIsLanguageSelected(isAtLeastSingleLanguageSelected);
+    setUpdatedLanguages(selectedLanguages);
   };
 
   const onClickSave = () => {
-    setLanguageFiltersAction({ activeLanguages: selectedLanguages });
+    setLanguageFiltersAction({ activeLanguages: getSelectedLanguages(updatedLanguages) });
+  };
+
+  const onClickCancel = () => {
+    setUpdatedLanguages([...languages]);
   };
 
   return (
-    <FilterModal onClickSave={onClickSave}>
-      {languages.map(({ id, language }) => (
-        <Label check>
-          <Input value={id} type="checkbox" onChange={onChange} />
+    <FilterModal
+      onClickSave={onClickSave}
+      onClickCancel={onClickCancel}
+      isCancelBtnDisabled={isLanguageSelected ? false : !isFilterActive}
+    >
+      {updatedLanguages.map(({ id, language, isChecked }) => (
+        <Label check key={id}>
+          <Input value={id} type="checkbox" checked={isChecked} onChange={onChange} />
           {language}
         </Label>
       ))}
@@ -39,8 +67,9 @@ const LanguageFilter = ({ languages, setLanguageFilters: setLanguageFiltersActio
 };
 
 LanguageFilter.propTypes = {
-  languages: arrayOf().isRequired,
+  languages: arrayOf(shape({})).isRequired,
   setLanguageFilters: func.isRequired,
+  isFilterActive: bool.isRequired,
 };
 
 export default connect(null, { setLanguageFilters })(LanguageFilter);

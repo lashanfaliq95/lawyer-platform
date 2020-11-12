@@ -1,40 +1,118 @@
 import React, { useState, useEffect } from 'react';
+import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
-import { arrayOf, func } from 'prop-types';
+import {
+  arrayOf, func, bool, shape,
+} from 'prop-types';
 
 import formatMessages from 'components/formatMessages';
 import { setSpecializationFilters } from '../../actions';
 import FilterModal from './FilterModal';
 import messages from '../../messages';
 
+const getSelectedSpecializations = (
+  lawSpecializations,
+  notarySpecializations,
+) => {
+  const selectedSpecialization = [];
+  lawSpecializations.forEach((specialization) => {
+    if (specialization.isChecked) {
+      selectedSpecialization.push(specialization.id);
+    }
+  });
+  notarySpecializations.forEach((specialization) => {
+    if (specialization.isChecked) {
+      selectedSpecialization.push(specialization.id);
+    }
+  });
+  return selectedSpecialization;
+};
+
+const resetSpecialization = (specializations) => specializations.map((specialization) => ({
+  ...specialization,
+  isHidden: false,
+}));
+
+const getIsSearchTermLawyer = (searchTerm) => searchTerm.toLowerCase() === 'lawyer'
+  || searchTerm.toLowerCase() === 'anwalt'
+  || searchTerm.toLowerCase() === 'anwälte'
+  || searchTerm.toLowerCase() === 'anwältin'
+  || searchTerm.toLowerCase() === 'anwältinnen';
+
+const getIsSearchTermNotary = (searchTerm) => searchTerm.toLowerCase() === 'notarinnen'
+  || searchTerm.toLowerCase() === 'notary'
+  || searchTerm.toLowerCase() === 'notar'
+  || searchTerm.toLowerCase() === 'notarin'
+  || searchTerm.toLowerCase() === 'notare';
+
 const SpecializationFilter = ({
   lawSpecializations,
   notarySpecializations,
   setSpecializationFilters: setSpecializationFiltersAction,
+  isFilterActive,
+  intl,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredLawSpecialization, setFilteredLawSpecialization] = useState(
-    lawSpecializations,
-  );
+  const [filteredLawSpecialization, setFilteredLawSpecialization] = useState([
+    ...lawSpecializations,
+  ]);
   const [
     filteredNotarySpecialization,
     setFilteredNotarySpecialization,
-  ] = useState(notarySpecializations);
-  const [selectedSpecializations, setSelectedSpecialization] = useState([]);
+  ] = useState([...notarySpecializations]);
+  const [
+    isNotarySpecializationSelected,
+    setIsNotarySpecializationSelected,
+  ] = useState(false);
+  const [
+    isLawyerSpecializationSelected,
+    setIsLawyerSpecializationSelected,
+  ] = useState(false);
+
+  const isSearchTermLawyer = getIsSearchTermLawyer(searchTerm);
+  const isSearchTermNotary = getIsSearchTermNotary(searchTerm);
 
   useEffect(() => {
     if (!searchTerm) {
-      setFilteredLawSpecialization(lawSpecializations);
-      setFilteredNotarySpecialization(notarySpecializations);
+      setFilteredLawSpecialization(
+        resetSpecialization(filteredLawSpecialization),
+      );
+      setFilteredNotarySpecialization(
+        resetSpecialization(notarySpecializations),
+      );
+    } else if (isSearchTermLawyer) {
+      setFilteredLawSpecialization(
+        resetSpecialization(filteredLawSpecialization),
+      );
+    } else if (isSearchTermNotary) {
+      setFilteredNotarySpecialization(
+        resetSpecialization(notarySpecializations),
+      );
     } else {
-      const lawResults = filteredLawSpecialization
-        .filter((
-          { specilization },
-        ) => specilization.toLowerCase().includes(searchTerm));
-
-      const notaryResults = filteredNotarySpecialization.filter(
-        ({ specilization }) => specilization.toLowerCase().includes(searchTerm),
+      const lawResults = filteredLawSpecialization.map((specialization) => {
+        const updatedSpecialization = { ...specialization };
+        if (
+          !updatedSpecialization.specilization
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase())
+        ) {
+          updatedSpecialization.isHidden = true;
+        }
+        return updatedSpecialization;
+      });
+      const notaryResults = filteredNotarySpecialization.map(
+        (specialization) => {
+          const updatedSpecialization = { ...specialization };
+          if (
+            !updatedSpecialization.specilization
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase())
+          ) {
+            updatedSpecialization.isHidden = true;
+          }
+          return updatedSpecialization;
+        },
       );
       setFilteredLawSpecialization(lawResults);
       setFilteredNotarySpecialization(notaryResults);
@@ -42,70 +120,136 @@ const SpecializationFilter = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm]);
 
-  const onChange = (e) => {
-    if (selectedSpecializations.indexOf(e.target.value) >= 0) {
-      const updatedLanguages = [...selectedSpecializations];
-      const index = selectedSpecializations.indexOf(e.target.value);
-      updatedLanguages.splice(index, 1);
-      setSelectedSpecialization(updatedLanguages);
-    } else {
-      const updatedLanguages = [...selectedSpecializations];
-      updatedLanguages.push(e.target.value);
-      setSelectedSpecialization(updatedLanguages);
-    }
+  const onChangeLawyerSpecializations = (e) => {
+    let isSingleLawyerSpecializationSelected = false;
+    const selectedSpecialization = filteredLawSpecialization.map(
+      (specialization) => {
+        const updatedSpecialization = { ...specialization };
+        if (parseInt(e.target.value, 10) === updatedSpecialization.id) {
+          updatedSpecialization.isChecked = !updatedSpecialization.isChecked;
+        }
+        if (updatedSpecialization.isChecked) {
+          isSingleLawyerSpecializationSelected = true;
+        }
+        return updatedSpecialization;
+      },
+    );
+    setIsLawyerSpecializationSelected(isSingleLawyerSpecializationSelected);
+    setFilteredLawSpecialization(selectedSpecialization);
+  };
+
+  const onChangeNotarySpecialization = (e) => {
+    let isSingleNotarySpecializationSelected = false;
+    const selectedSpecialization = filteredNotarySpecialization.map(
+      (specialization) => {
+        const updatedSpecialization = { ...specialization };
+        if (parseInt(e.target.value, 10) === updatedSpecialization.id) {
+          updatedSpecialization.isChecked = !updatedSpecialization.isChecked;
+        }
+        if (updatedSpecialization.isChecked) {
+          isSingleNotarySpecializationSelected = true;
+        }
+        return updatedSpecialization;
+      },
+    );
+    setIsNotarySpecializationSelected(isSingleNotarySpecializationSelected);
+    setFilteredNotarySpecialization(selectedSpecialization);
   };
 
   const onClickSave = () => {
     setSpecializationFiltersAction({
-      activeSpecializations: selectedSpecializations,
+      activeSpecializations: getSelectedSpecializations(
+        filteredLawSpecialization,
+        filteredNotarySpecialization,
+      ),
     });
+  };
+
+  const onClickCancel = () => {
+    setFilteredLawSpecialization([...lawSpecializations]);
+    setFilteredNotarySpecialization([...notarySpecializations]);
   };
 
   return (
     <FilterModal
       className="top-section-specialization"
       onClickSave={onClickSave}
+      onClickCancel={onClickCancel}
+      isCancelBtnDisabled={
+        isNotarySpecializationSelected || isLawyerSpecializationSelected
+          ? false
+          : !isFilterActive
+      }
     >
-      <div className="specialization">
+      <div className="notary">
         <Input
           onChange={(e) => setSearchTerm(e.target.value)}
+          onPaste={(e) => setSearchTerm(e.clipboardData.getData('Text'))}
           value={searchTerm}
-          placeholder="Enter Search term"
+          placeholder={intl.formatMessage(messages.searchSpecialization)}
           className="search-input"
         />
-        <h4 className="title">{formatMessages(messages.lawyer)}</h4>
-        <div className="content">
-          {filteredLawSpecialization
-            && filteredLawSpecialization.map(({ specilization, id }) => (
-              <Label check>
-                <Input type="checkbox" value={id} onChange={onChange} />
-                {specilization}
-              </Label>
-            ))}
-        </div>
+        {!isSearchTermLawyer ? (
+          <>
+            <h4 className="title">{formatMessages(messages.notary)}</h4>
+            <div className="content">
+              {filteredNotarySpecialization
+                && filteredNotarySpecialization.map(
+                  ({
+                    specilization, id, isChecked, isHidden,
+                  }) => !isHidden && (
+                  <Label check key={id}>
+                    <Input
+                      type="checkbox"
+                      value={id}
+                      checked={isChecked}
+                      onChange={onChangeNotarySpecialization}
+                    />
+                    {specilization}
+                  </Label>
+                  ),
+                )}
+            </div>
+          </>
+        ) : null}
       </div>
-      <div className="notary">
-        <h4 className="title">{formatMessages(messages.notary)}</h4>
-        <div className="content">
-          {filteredNotarySpecialization
-            && filteredNotarySpecialization.map(({ specilization, id }) => (
-              <Label check>
-                <Input type="checkbox" value={id} onChange={onChange} />
-                {specilization}
-              </Label>
-            ))}
-        </div>
+      <div className="specialization">
+        {!isSearchTermNotary ? (
+          <>
+            <h4 className="title">{formatMessages(messages.lawyer)}</h4>
+            <div className="content">
+              {filteredLawSpecialization
+                && filteredLawSpecialization.map(
+                  ({
+                    specilization, id, isChecked, isHidden,
+                  }) => !isHidden && (
+                  <Label check key={id}>
+                    <Input
+                      type="checkbox"
+                      value={id}
+                      checked={isChecked}
+                      onChange={onChangeLawyerSpecializations}
+                    />
+                    {specilization}
+                  </Label>
+                  ),
+                )}
+            </div>
+          </>
+        ) : null}
       </div>
     </FilterModal>
   );
 };
 
 SpecializationFilter.propTypes = {
-  lawSpecializations: arrayOf({}).isRequired,
-  notarySpecializations: arrayOf({}).isRequired,
+  lawSpecializations: arrayOf(shape({})).isRequired,
+  notarySpecializations: arrayOf(shape({})).isRequired,
   setSpecializationFilters: func.isRequired,
+  isFilterActive: bool.isRequired,
+  intl: shape.isRequired,
 };
 
-export default connect(null, { setSpecializationFilters })(
+export default injectIntl(connect(null, { setSpecializationFilters })(
   SpecializationFilter,
-);
+));

@@ -16,6 +16,7 @@ const GoogleMaps = ({ mapLocation, locations, zoomLevel }) => (
         {locations
           ? locations.map((location) => (
             <LocationPin
+              key={location.id}
               id={location.id}
               address={location.address}
               isHovered={location.isHovered}
@@ -31,7 +32,7 @@ const GoogleMaps = ({ mapLocation, locations, zoomLevel }) => (
 GoogleMaps.propTypes = {
   mapLocation: shape({}).isRequired,
   zoomLevel: number.isRequired,
-  locations: arrayOf({}).isRequired,
+  locations: arrayOf(shape({})).isRequired,
 };
 
 export default GoogleMaps;

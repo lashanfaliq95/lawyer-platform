@@ -145,4 +145,8 @@ export default defineMessages({
     id: 'app.searchPage.december',
     defaultMessage: 'december',
   },
+  searchSpecialization: {
+    id: 'app.searchPage.searchSpecialization',
+    defaultMessage: 'Search law specialization...',
+  },
 });

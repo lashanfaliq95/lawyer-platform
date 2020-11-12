@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import { func, string } from 'prop-types';
+import { func, string, number } from 'prop-types';
 import {
   Col,
   Button,
@@ -78,7 +78,7 @@ const ProfileCard = ({
 ProfileCard.propTypes = {
   onMouseEnterCard: func.isRequired,
   onMouseLeaveCard: func.isRequired,
-  id: string.isRequired,
+  id: number.isRequired,
   name: string.isRequired,
   jobDescription: string.isRequired,
   address: string.isRequired,

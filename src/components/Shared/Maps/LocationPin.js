@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, string } from 'prop-types';
+import { bool, number } from 'prop-types';
 import { scroller } from 'react-scroll';
 import Icon from '../Icon';
 
@@ -29,7 +29,7 @@ const LocationPin = ({
 };
 
 LocationPin.propTypes = {
-  id: string.isRequired,
+  id: number.isRequired,
   isHovered: bool,
 };
 

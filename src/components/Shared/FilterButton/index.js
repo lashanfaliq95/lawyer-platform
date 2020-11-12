@@ -56,7 +56,7 @@ const FilterButton = ({
 FilterButton.propTypes = {
   intl: shape.isRequired,
   isFilterActive: bool,
-  name: string.isRequired,
+  name: shape.isRequired,
   children: node.isRequired,
   className: string,
 };

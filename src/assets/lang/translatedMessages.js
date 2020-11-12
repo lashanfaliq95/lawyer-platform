@@ -144,4 +144,5 @@ export default {
   'app.searchPage.october': 'Okt.',
   'app.searchPage.november': 'Nov.',
   'app.searchPage.december': 'Dez.',
+  'app.searchPage.searchSpecialization': 'Rechtsgebiet durchsuchen...',
 };
