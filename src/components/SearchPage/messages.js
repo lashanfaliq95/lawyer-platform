@@ -77,6 +77,10 @@ export default defineMessages({
     id: 'app.searchPage.displayMore',
     defaultMessage: 'Display more',
   },
+  displayLess: {
+    id: 'app.searchPage.displayLess',
+    defaultMessage: 'Display less',
+  },
   monday: {
     id: 'app.searchPage.monday',
     defaultMessage: 'Monday',

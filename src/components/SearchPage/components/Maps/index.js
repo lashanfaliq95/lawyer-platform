@@ -12,6 +12,12 @@ const GoogleMaps = ({ mapLocation, locations, zoomLevel }) => (
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
         defaultCenter={mapLocation}
         defaultZoom={zoomLevel}
+        options={(maps) => ({
+          zoomControl: true,
+          zoomControlOptions: {
+            position: maps.ControlPosition.TOP_RIGHT,
+          },
+        })}
       >
         {locations
           ? locations.map((location) => (

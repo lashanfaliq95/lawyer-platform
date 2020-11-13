@@ -18,12 +18,13 @@ import {
   addWeeksToDate, subWeeksFromDate, getWeeksDayDateMonth, getStartDate,
 } from 'utils/date';
 import { getLawyerAvailability } from 'components/SearchPage/actions';
+import messages from '../../messages';
 import EmptySlot from './components/EmptySlot';
 import { MONTH_OF_YEAR, DAY_OF_WEEK } from './constants';
 
 const Calender = ({
-  id, className,
-  buttonText,
+  id,
+  className,
   getLawyerAvailability: getLawyerAvailabilityAction,
   availability,
   isLoading,
@@ -31,6 +32,7 @@ const Calender = ({
 }) => {
   const [currentDate, setCurrentDate] = useState(getStartDate(new Date()));
   const [calenderHeader, setCalenderHeader] = useState(getWeeksDayDateMonth(currentDate, true));
+  const [slotsShown, setSlotsShown] = useState(4);
 
   const onClickNextWeek = () => {
     const updatedDate = addWeeksToDate(currentDate, 1);
@@ -55,7 +57,7 @@ const Calender = ({
   let isEmpty = false;
   if (availability) {
     Object.keys(availability).forEach((dayOfWeek) => {
-      for (let i = 0; i < 4; i += 1) {
+      for (let i = 0; i < slotsShown; i += 1) {
         result[dayOfWeek].push(availability[dayOfWeek][i] ? (
           <button className="slot" type="button">
             10.30
@@ -81,7 +83,7 @@ const Calender = ({
                 <Col key={`${month}${dayOfMonth}`}>
                   <div className="day-name">{formatMessages(DAY_OF_WEEK[dayOfWeek])}</div>
                   <div className="date">
-                    {dayOfMonth}
+                    {`${dayOfMonth}. `}
                     {formatMessages(MONTH_OF_YEAR[month])}
                   </div>
                 </Col>
@@ -110,11 +112,8 @@ const Calender = ({
               <>
                 { Object.keys(result).map((dayOfWeek) => (
                   <Col>
-                    {
-                    result[dayOfWeek]
-                  }
+                    {result[dayOfWeek]}
                   </Col>
-
                 ))}
               </>
             )}
@@ -126,8 +125,11 @@ const Calender = ({
           <div className="separator">
             <HS color="#ced4da" />
           </div>
+
           <Row className="bottom-button">
-            <Button color="link">{formatMessages(buttonText)}</Button>
+            {slotsShown === 4 ? <Button color="link" onClick={() => { setSlotsShown(9); }}>{formatMessages(messages.displayMore)}</Button> : null}
+            {slotsShown === 9 ? <Button color="link" onClick={() => { setSlotsShown(4); }}>{formatMessages(messages.displayLess)}</Button>
+              : null}
           </Row>
         </>
       ) : null}
@@ -137,7 +139,6 @@ const Calender = ({
 
 Calender.propTypes = {
   className: string,
-  buttonText: shape(),
   id: number.isRequired,
   getLawyerAvailability: func.isRequired,
   isLoading: bool,
@@ -147,7 +148,6 @@ Calender.propTypes = {
 
 Calender.defaultProps = {
   className: '',
-  buttonText: '',
   isLoading: false,
   availability: null,
   currentId: null,

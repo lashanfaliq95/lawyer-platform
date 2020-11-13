@@ -7,7 +7,8 @@ import { arrayOf, shape, func } from 'prop-types';
 import './styles.scss';
 import NavigationBar from 'components/NavigationBar';
 import Footer from 'components/Footer';
-import GoogleMap from 'components/Shared/Maps';
+import GoogleMap from 'components/SearchPage/components/Maps';
+import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import ProfileCardList from './components/ProfileCardList';
 import SearchSummary from './components/SearchSummary';
 import FilterBar from './components/FilterBar';
@@ -50,6 +51,7 @@ const SearchPage = ({
                 district="Düsseldorf"
               />
               <FilterBar activeFilters={activeFilters} />
+              <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
               <ProfileCardList users={users} />
             </Col>
             <Col className="map-container" md="5">

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import { func, string, number } from 'prop-types';
+import {
+  func, string, number, arrayOf,
+} from 'prop-types';
 import {
   Col,
   Button,
   Row,
 } from 'reactstrap';
 
-import Calender from 'components/Shared/Calender';
+import Calender from 'components/SearchPage/components/Calender';
 import formatMessages from 'components/formatMessages';
+import { specializationsMap } from 'components/SearchPage/constants';
 import messages from '../../messages';
 
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
@@ -17,9 +20,10 @@ import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 const ProfileCard = ({
   id,
   name,
-  jobDescription,
   address,
   imgUrl,
+  firm,
+  specializationIds,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
 }) => {
@@ -52,22 +56,28 @@ const ProfileCard = ({
                 <Button className="name-btn" color="link">
                   {name}
                 </Button>
-                <span className="job-description">{jobDescription}</span>
+                <span className="job-description">{firm}</span>
               </Col>
             </Row>
             <Row>
-              <Col md={{ size: 7, offset: 4 }}>
-                <div />
+              <Col md={{ size: 11, offset: 1 }} className="specialization-section">
+                <div className="specialization-Buttons">
+                  {specializationIds ? specializationIds.map(
+                    (specializationId) => (
+                      <Button color="primary" key={specializationId}>
+                        {specializationsMap[specializationId].specilization}
+                      </Button>
+                    ),
+                  ) : null}
+                </div>
                 <div className="address">{address}</div>
-                <span className="agreement-type">Sector 1</span>
+                <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
               </Col>
             </Row>
-            <Row className="make-appointment-btn-row">
-              <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
-            </Row>
+            <Row className="make-appointment-btn-row" />
           </Col>
           <Col md="7">
-            <Calender buttonText={messages.displayMore} id={id} />
+            <Calender id={id} />
           </Col>
         </Row>
       </div>
@@ -80,9 +90,10 @@ ProfileCard.propTypes = {
   onMouseLeaveCard: func.isRequired,
   id: number.isRequired,
   name: string.isRequired,
-  jobDescription: string.isRequired,
   address: string.isRequired,
   imgUrl: string.isRequired,
+  firm: string.isRequired,
+  specializationIds: arrayOf(number).isRequired,
 };
 
 export default connect(null, { onMouseEnterCard, onMouseLeaveCard })(

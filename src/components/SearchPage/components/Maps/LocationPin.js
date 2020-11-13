@@ -1,7 +1,10 @@
 import React from 'react';
 import { bool, number } from 'prop-types';
 import { scroller } from 'react-scroll';
-import Icon from '../Icon';
+
+import ImageIcon from 'components/Shared/ImageIcon';
+import userIcon from 'assets/images/marker_black_white.png';
+import blueUserIcon from 'assets/images/marker_blue_white.png';
 
 const LocationPin = ({
   id, isHovered,
@@ -18,12 +21,9 @@ const LocationPin = ({
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div onClick={onClick} role="button" tabIndex={0} className="location-pin">
-
       {!isHovered
-        ? <Icon name="map-marker-alt" className="pin" size="extraLarge" />
-        : <Icon name="map-marker" className="pin" size="extraLarge" />}
-
-      {/* <p className="pin-text">{address}</p> */}
+        ? <ImageIcon img={userIcon} />
+        : <ImageIcon img={blueUserIcon} />}
     </div>
   );
 };
