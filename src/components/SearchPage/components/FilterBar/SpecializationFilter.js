@@ -52,6 +52,7 @@ const SpecializationFilter = ({
   setSpecializationFilters: setSpecializationFiltersAction,
   isFilterActive,
   intl,
+  onClose,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredLawSpecialization, setFilteredLawSpecialization] = useState([
@@ -163,6 +164,7 @@ const SpecializationFilter = ({
         filteredNotarySpecialization,
       ),
     });
+    onClose();
   };
 
   const onClickCancel = () => {
@@ -248,6 +250,7 @@ SpecializationFilter.propTypes = {
   setSpecializationFilters: func.isRequired,
   isFilterActive: bool.isRequired,
   intl: shape.isRequired,
+  onClose: func.isRequired,
 };
 
 export default injectIntl(connect(null, { setSpecializationFilters })(

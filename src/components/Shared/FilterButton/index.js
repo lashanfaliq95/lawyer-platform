@@ -45,7 +45,7 @@ const FilterButton = ({
               isModalVisible={isModalVisible}
               buttonRef={buttonRef}
             >
-              {children}
+              {React.cloneElement(children, { onClose })}
             </WrapperCloseOnOutSideClick>
           ) : null}
       </div>

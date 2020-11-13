@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { bool } from 'prop-types';
+import { bool, func } from 'prop-types';
 
 import ToggleSwitch from 'components/Shared/ToggleSwitch';
 import messages from '../../messages';
 import FilterModal from './FilterModal';
 
-const ImmediateConfirmationFilter = ({ isFilterActive }) => {
+const ImmediateConfirmationFilter = ({ isFilterActive, onClose }) => {
   const [isImmediateConfirmation, setIsImmediateConfirmation] = useState(false);
   const isBtnDisabled = isImmediateConfirmation ? false : !isFilterActive;
 
@@ -13,10 +13,15 @@ const ImmediateConfirmationFilter = ({ isFilterActive }) => {
     setIsImmediateConfirmation(false);
   };
 
+  const onClickSave = () => {
+    onClose();
+  };
+
   return (
     <FilterModal
       isCancelBtnDisabled={isBtnDisabled}
       onClickCancel={onClickCancel}
+      onClickSave={onClickSave}
     >
       <ToggleSwitch
         label={messages.immediateConfirmation}
@@ -29,6 +34,7 @@ const ImmediateConfirmationFilter = ({ isFilterActive }) => {
 
 ImmediateConfirmationFilter.propTypes = {
   isFilterActive: bool.isRequired,
+  onClose: func.isRequired,
 };
 
 export default ImmediateConfirmationFilter;

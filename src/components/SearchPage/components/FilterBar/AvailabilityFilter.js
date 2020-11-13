@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { bool } from 'prop-types';
+import { bool, func } from 'prop-types';
 import { Input, Label } from 'reactstrap';
 
 import formatMessages from 'components/formatMessages';
@@ -13,7 +13,7 @@ const getIsCancelBtnDisabled = ({ isFilterActive, isFreeInComingThreeDays, isFre
   return !isFilterActive;
 };
 
-const AvailabilityFilter = ({ isFilterActive }) => {
+const AvailabilityFilter = ({ isFilterActive, onClose }) => {
   const [isFreeToday, setIsFreeToday] = useState(false);
   const [isFreeInComingThreeDays, setIsFreeInComingThreeDays] = useState(false);
   const isCancelBtnDisabled = getIsCancelBtnDisabled({
@@ -26,10 +26,16 @@ const AvailabilityFilter = ({ isFilterActive }) => {
     setIsFreeToday(false);
     setIsFreeInComingThreeDays(false);
   };
+
+  const onClickSave = () => {
+    onClose();
+  };
+
   return (
     <FilterModal
       isCancelBtnDisabled={isCancelBtnDisabled}
       onClickCancel={onClickCancel}
+      onClickSave={onClickSave}
     >
       <Label check>
         <Input
@@ -53,6 +59,7 @@ const AvailabilityFilter = ({ isFilterActive }) => {
 
 AvailabilityFilter.propTypes = {
   isFilterActive: bool.isRequired,
+  onClose: func.isRequired,
 };
 
 export default AvailabilityFilter;

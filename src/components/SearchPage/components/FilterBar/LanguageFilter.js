@@ -22,6 +22,7 @@ const LanguageFilter = ({
   languages,
   setLanguageFilters: setLanguageFiltersAction,
   isFilterActive,
+  onClose,
 }) => {
   const [updatedLanguages, setUpdatedLanguages] = useState([...languages]);
   const [isLanguageSelected, setIsLanguageSelected] = useState(false);
@@ -44,6 +45,7 @@ const LanguageFilter = ({
 
   const onClickSave = () => {
     setLanguageFiltersAction({ activeLanguages: getSelectedLanguages(updatedLanguages) });
+    onClose();
   };
 
   const onClickCancel = () => {
@@ -70,6 +72,7 @@ LanguageFilter.propTypes = {
   languages: arrayOf(shape({})).isRequired,
   setLanguageFilters: func.isRequired,
   isFilterActive: bool.isRequired,
+  onClose: func.isRequired,
 };
 
 export default connect(null, { setLanguageFilters })(LanguageFilter);
