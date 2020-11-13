@@ -14,6 +14,7 @@ const GoogleMaps = ({ mapLocation, locations, zoomLevel }) => (
         defaultZoom={zoomLevel}
         options={(maps) => ({
           zoomControl: true,
+          fullscreenControl: false,
           zoomControlOptions: {
             position: maps.ControlPosition.TOP_RIGHT,
           },
