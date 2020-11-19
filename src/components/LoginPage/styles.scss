@@ -3,9 +3,11 @@
   margin: 0;
   background-color: whitesmoke;
   overflow-y: scroll;
+  .card-body {
+    padding: 1.25rem 0;
+  }
   .register-card {
     max-height: 700px;
-    width: 700px !important;
   }
   .login-card {
     max-height: 400px;
@@ -20,7 +22,7 @@
     margin: auto;
     border-radius: 20px;
     padding: 0 15.84px;
-    width: 377px;
+    width: 410px;
     height: fit-content;
     height: -moz-fit-content;
     min-height: 24rem;
@@ -43,7 +45,7 @@
       font-size: 25px;
     }
   }
-  .reset-title{
+  .reset-title {
     text-decoration: none;
     color: black;
     width: fit-content;
@@ -56,6 +58,7 @@
 
   input:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.5s ease-in-out !important;
   }
 
   .login-btn {
@@ -106,6 +109,7 @@
   .outer-link {
     text-align: center;
     font-weight: 550;
+    color: #0596de;
     a {
       color: #0596de;
     }
@@ -142,5 +146,15 @@
   .success-card-link {
     color: #0596de;
     font-weight: 550;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1200px;
   }
 }

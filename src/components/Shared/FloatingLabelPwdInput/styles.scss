@@ -48,12 +48,34 @@
     overflow: hidden;
     outline: none;
   }
-
 }
 
 .pwd-bar-wrapper {
-    margin: 20px 0;
-    .score-word-style {
-      text-align: left !important;
+  div:first-child:first-child {
+    div {
+      height: 5px !important;
+      transition: 0.5s linear !important;
+    }
+    div:first-child {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+    div:nth-child(2) {
+      display: none;
+    }
+    div:nth-child(4) {
+      display: none;
+    }
+    div:nth-child(6) {
+      display: none;
+    }
+    div:last-child {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
     }
   }
+  margin: 20px 0;
+  .score-word-style {
+    text-align: left !important;
+  }
+}

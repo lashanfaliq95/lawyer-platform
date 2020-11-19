@@ -70,8 +70,8 @@ const FloatingLabelPwdInput = (props) => {
           <PasswordStrengthBar
             password={password}
             scoreWordClassName="score-word-style"
-            scoreWords={['Schwach', 'Schwach', 'In Ordnung', 'Gut', 'Stark']}
-            shortScoreWord="Passwortstärke"
+            scoreWords={['Sicherheit', 'Sicherheit: sehr schlecht', 'Sicherheit: schlecht', 'Sicherheit: gut', 'Sicherheit: sehr gut']}
+            shortScoreWord="Sicherheit"
           />
         </div>
       )}

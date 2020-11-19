@@ -67,8 +67,10 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
           </FormGroup>
         </Form>
         <div className="outer-link">
+          {formatMessage(messages.registerBtnText)}
           <Link to="/auth/register">
-            {formatMessage(messages.registerBtnText)}
+            &nbsp;
+            {formatMessage(messages.register)}
           </Link>
         </div>
       </CardBody>

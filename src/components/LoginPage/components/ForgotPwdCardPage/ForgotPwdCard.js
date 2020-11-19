@@ -58,7 +58,7 @@ const ForgotPwdCard = ({ forgotPassword: forgotPasswordAction, isForgotPasswordS
             </FormGroup>
             <FormGroup>
               <Button className="login-btn" type="submit" color="warning">
-                {formatMessage(messages.loginBtnText)}
+                {formatMessage(messages.resetBtnText)}
               </Button>
             </FormGroup>
           </Form>

@@ -1,6 +1,6 @@
 export default {
   'app.navbar.areYouALawyer': 'Sind Sie Rechtsanwalt, Notar oder Berater?',
-  'app.navbar.needHelp': 'Hilfe?',
+  'app.navbar.needHelp': 'Hilfe',
   'app.navbar.login': 'Anmelden',
   'app.navbar.brandName': 'Avoplan',
   'app.footer.aboutUs': 'Über uns',
@@ -28,14 +28,14 @@ export default {
   'app.homePage.cardOneDescription':
     'Finden Sie den passenden Rechtsanwalt, Notar oder Berater in Ihres Nähe',
   'app.homePage.cardTwoDescription':
-    'Wählen Sie Angelegenheit, Datum und Uhrzeit Ihrer Termins aus, ohne den Hörer in die Hand zu nehmen',
+    'Wählen Sie Angelegenheit, Datum und Uhrzeit Ihres Termins aus, ohne den Hörer in die Hand zu nehmen',
   'app.homePage.cardThreeDescription':
     'Bestätigen Sie Ihren Termin. Keine Sorge, wir erinnern Sie rechtzeitig an diesen.',
   'app.loginPage.loginTitle': 'Avoplan',
   'app.loginPage.resetPwdTitle': 'Neues Passwort eingeben',
   'app.loginPage.loginBtnText': 'Einloggen',
   'app.loginPage.registerTitle': 'Avoplan',
-  'app.loginPage.registerBtnText': 'Neu bei Avoplan? Jetzt registrieren',
+  'app.loginPage.registerBtnText': 'Neu bei Avoplan?',
   'app.loginPage.forgotPwdBtnText': 'Vergessen?',
   'app.loginPage.confirmResetBtnText': 'bestätigen',
   'app.loginPage.emailPlaceHolder': 'E-Mail',
@@ -48,7 +48,7 @@ export default {
     'Ich akzeptiere die Nutzungsbedingungen von Avoplan',
   'app.loginPage.pwdDescription':
     'Mit Ihren Passwort können Sie auf Ihr Avoplan-Konto zugreifen und so Ihre Beratungstermine verwalten',
-  'app.loginPage.mobileOrLandLine': 'Handy',
+  'app.loginPage.mobileOrLandLine': 'Handynummer',
   'app.loginPage.yourEmail': 'deine Emailadresse',
   'app.loginPage.confirmYourEmail': 'Bestätigen Sie Ihre E-Mail-Adresse',
   'app.loginPage.enterInformation':
@@ -62,12 +62,12 @@ export default {
   'app.loginPage.register': 'Registrieren',
   'app.loginPage.mobileOrLandLineText':
     'Un code va vous être envoyé sur ce numéro pour valider votre compte.',
-  'app.loginPage.alreadyHaveAnAccount': 'Ich habe ein Avoplan-Konto',
+  'app.loginPage.alreadyHaveAnAccount': 'Bereits bei Avoplan? Einloggen',
   'app.loginPage.firstName': 'Vorname',
   'app.loginPage.lastName': 'Nachname',
   'app.loginPage.forgotPwdCardTitle': 'Passwort vergessen?',
   'app.loginPage.forgotPwdCardDescription':
-    'Keine Sorge, wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts zu',
+    'Keine Sorge, wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts zu.',
   'app.loginPage.resetBtnText': 'Passwort zurücksetzen',
   'app.loginPage.successCardTitle': 'Die E-Mail wurde gesendet',
   'app.loginPage.successCardDescription':

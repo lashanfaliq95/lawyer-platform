@@ -23,9 +23,11 @@ const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
 
   return (
     <Navbar light expand="md" className={className}>
-      <Link to="/">
-        {formatMessages(messages.brandName)}
-      </Link>
+      <div className="nav-brand-link">
+        <Link to="/">
+          {formatMessages(messages.brandName)}
+        </Link>
+      </div>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>

@@ -27,7 +27,7 @@ const SearchInput = ({
 
   return (
     <Row className="search-input">
-      <Col className="first-search-input" md={{ size: 3, offset: 1 }}>
+      <Col className="first-search-input" md={{ size: 3 }}>
         <InputWithIcon
           prependImgIcon
           placeholder="z.B. Notar oder Herr Müller"

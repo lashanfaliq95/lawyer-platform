@@ -6,20 +6,24 @@ import SearchInput from 'components/Shared/SearchInput';
 import messages from '../../messages';
 
 const Search = () => (
-  <Container className="image-container">
-    <div className="search-input-group">
-      <Col md={{ size: 12, offset: 1 }}>
-        <h1 className="search-title">{formatMessages(messages.searchText)}</h1>
+  <Container className="top-image-container">
+    <Container fluid="xl">
+
+      <Col md={{ size: 12 }}>
+        <div className="search-input-group">
+          <h1 className="search-title">{formatMessages(messages.searchText)}</h1>
+        </div>
+        <SearchInput
+          sizeInputOne={4}
+          sizeInputTwo={3}
+          offset={0}
+          transitionText={messages.transitionText}
+        />
       </Col>
       {/* <SearchBar shouldRedirectToSearch /> */}
-      <SearchInput
-        sizeInputOne={4}
-        sizeInputTwo={3}
-        offset={1}
-        transitionText={messages.transitionText}
-      />
 
-    </div>
+    </Container>
+
   </Container>
 );
 
