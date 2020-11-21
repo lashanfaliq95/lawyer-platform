@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func, shape } from 'prop-types';
 import {
-  Form,
-  FormGroup,
-  Button,
-  Card,
-  CardBody,
-  CardTitle,
+  Form, FormGroup, Button, Card, CardBody, CardTitle,
 } from 'reactstrap';
 import { useFormik } from 'formik';
 
@@ -68,10 +63,8 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
         </Form>
         <div className="outer-link">
           {formatMessage(messages.registerBtnText)}
-          <Link to="/auth/register">
-            &nbsp;
-            {formatMessage(messages.register)}
-          </Link>
+          &nbsp;
+          <Link to="/auth/register">{formatMessage(messages.register)}</Link>
         </div>
       </CardBody>
     </Card>

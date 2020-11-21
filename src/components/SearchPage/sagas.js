@@ -1,5 +1,5 @@
 import {
-  put, takeLatest, select, debounce,
+  put, takeLatest, select, debounce, takeEvery,
 } from 'redux-saga/effects';
 
 import {
@@ -20,6 +20,7 @@ import {
   SET_SPECIALIZATION_FILTERS,
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   GET_LAWYER_AVAILABILITY,
+  LOAD_LAWYER_AVAILABILITY,
 } from './constants';
 
 const getActiveFilters = (state) => state.search.activeFilters;
@@ -56,14 +57,17 @@ function* getSearchResults(action) {
 
 function* getLawyerAvailability(action) {
   const { result } = yield getLawyerAvailabilityService({ ...action.payload });
+  const { id } = action.payload;
   if (result) {
-    const { id } = action.payload;
     yield put(setLawyerAvailability({ id, data: result[id] }));
+  } else {
+    yield put(setLawyerAvailability({ id, data: null }));
   }
 }
 
 export default [
   takeLatest(GET_LAWYERS, getLawyers),
+  takeEvery(LOAD_LAWYER_AVAILABILITY, getLawyerAvailability),
   debounce(500, SET_LANGUAGE_FILTERS, getFilteredSearchResult),
   debounce(500, SET_SPECIALIZATION_FILTERS, getFilteredSearchResult),
   debounce(500, SEARCH_BY_NAME_OR_FIRM_OR_LOCATION, getSearchResults),

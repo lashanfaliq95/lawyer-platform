@@ -12,6 +12,7 @@ export const GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM = 'GET_SEARCH_SUGGESTIONS_F
 export const GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS = 'GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS';
 export const GET_LAWYER_AVAILABILITY = 'GET_LAWYER_AVAILABILITY';
 export const SET_LAWYER_AVAILABILITY = 'SET_LAWYER_AVAILABILITY';
+export const LOAD_LAWYER_AVAILABILITY = 'LOAD_LAWYER_AVAILABILITY';
 
 export const specializations = {
   notarySpecializations: [
@@ -23,7 +24,11 @@ export const specializations = {
     { id: 117, specilization: 'Handelsrecht & Gesellschaftsrecht', type: 2 },
     { id: 118, specilization: 'Immobilienrecht', type: 2 },
     { id: 119, specilization: 'Vorsorgevollmacten', type: 2 },
-    { id: 120, specilization: 'Sonstige Beglaubigungen & Beurkundung', type: 2 },
+    {
+      id: 120,
+      specilization: 'Sonstige Beglaubigungen & Beurkundung',
+      type: 2,
+    },
   ],
   lawSpecializations: [
     { id: 1, specilization: 'Agrarrecht', type: 1 },
@@ -126,7 +131,11 @@ export const specializations = {
     { id: 98, specilization: 'Transportrecht & Speditionsrecht', type: 1 },
     { id: 99, specilization: 'Umweltrecht', type: 1 },
     { id: 100, specilization: 'Unterhaltsrecht', type: 1 },
-    { id: 101, specilization: 'Unternehmensrecht & Betriebsnachfolge', type: 1 },
+    {
+      id: 101,
+      specilization: 'Unternehmensrecht & Betriebsnachfolge',
+      type: 1,
+    },
     { id: 102, specilization: 'Urheberrecht & Medienrecht', type: 1 },
     { id: 103, specilization: 'Vereinsrecht & Verbandsrecht', type: 1 },
     { id: 104, specilization: 'Verfassungsrecht', type: 1 },
@@ -169,7 +178,11 @@ export const specializationsMap = {
   26: { id: 26, specilization: 'Markenrecht', type: 1 },
   27: { id: 27, specilization: 'Mediation', type: 1 },
   28: { id: 28, specilization: 'Medizinrecht', type: 1 },
-  29: { id: 29, specilization: 'Mietrechts & Wohnungseigenturmsrecht', type: 1 },
+  29: {
+    id: 29,
+    specilization: 'Mietrechts & Wohnungseigenturmsrecht',
+    type: 1,
+  },
   30: { id: 30, specilization: 'Migrationsrecht', type: 1 },
   31: { id: 31, specilization: 'Öffentliches Baurecht', type: 1 },
   32: { id: 32, specilization: 'Öffentliches Rechts', type: 1 },
@@ -217,7 +230,11 @@ export const specializationsMap = {
   74: { id: 74, specilization: 'Markenrecht', type: 1 },
   75: { id: 75, specilization: 'Mediation', type: 1 },
   76: { id: 76, specilization: 'Medizinrecht', type: 1 },
-  77: { id: 77, specilization: 'Mietrechts & Wohnungseigenturmsrecht', type: 1 },
+  77: {
+    id: 77,
+    specilization: 'Mietrechts & Wohnungseigenturmsrecht',
+    type: 1,
+  },
   78: { id: 78, specilization: 'Migrationsrecht', type: 1 },
   79: { id: 79, specilization: 'Öffentliches Baurecht', type: 1 },
   80: { id: 80, specilization: 'Öffentliches Rechts', type: 1 },
@@ -241,7 +258,11 @@ export const specializationsMap = {
   98: { id: 98, specilization: 'Transportrecht & Speditionsrecht', type: 1 },
   99: { id: 99, specilization: 'Umweltrecht', type: 1 },
   100: { id: 100, specilization: 'Unterhaltsrecht', type: 1 },
-  101: { id: 101, specilization: 'Unternehmensrecht & Betriebsnachfolge', type: 1 },
+  101: {
+    id: 101,
+    specilization: 'Unternehmensrecht & Betriebsnachfolge',
+    type: 1,
+  },
   102: { id: 102, specilization: 'Urheberrecht & Medienrecht', type: 1 },
   103: { id: 103, specilization: 'Vereinsrecht & Verbandsrecht', type: 1 },
   104: { id: 104, specilization: 'Verfassungsrecht', type: 1 },
@@ -260,7 +281,11 @@ export const specializationsMap = {
   117: { id: 117, specilization: 'Handelsrecht & Gesellschaftsrecht', type: 2 },
   118: { id: 118, specilization: 'Immobilienrecht', type: 2 },
   119: { id: 119, specilization: 'Vorsorgevollmacten', type: 2 },
-  120: { id: 120, specilization: 'Sonstige Beglaubigungen & Beurkundung', type: 2 },
+  120: {
+    id: 120,
+    specilization: 'Sonstige Beglaubigungen & Beurkundung',
+    type: 2,
+  },
 };
 
 export const languages = [
@@ -270,9 +295,10 @@ export const languages = [
   { id: 4, language: 'Gebärdensprache' },
   { id: 5, language: 'Italienisch' },
   { id: 6, language: 'Persisch' },
-  { id: 7, language: 'Polnisc' },
-  { id: 8, language: 'Portugiesisc' },
+  { id: 7, language: 'Polnisch' },
+  { id: 8, language: 'Portugiesisch' },
   { id: 9, language: 'Rumänisch' },
   { id: 10, language: 'Russisch' },
-  { id: 11, language: 'Türkisc' },
+  { id: 11, language: 'Spanisch' },
+  { id: 12, language: 'Türkisc' },
 ];

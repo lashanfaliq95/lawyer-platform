@@ -74,7 +74,6 @@ const ProfileCard = ({
                 <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
               </Col>
             </Row>
-            <Row className="make-appointment-btn-row" />
           </Col>
           <Col md="7">
             <Calender id={id} />

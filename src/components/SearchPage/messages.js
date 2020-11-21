@@ -101,6 +101,14 @@ export default defineMessages({
     id: 'app.searchPage.friday',
     defaultMessage: 'Friday',
   },
+  saturday: {
+    id: 'app.searchPage.saturday',
+    defaultMessage: 'Saturday',
+  },
+  sunday: {
+    id: 'app.searchPage.sunday',
+    defaultMessage: 'Sunday',
+  },
   january: {
     id: 'app.searchPage.january',
     defaultMessage: 'january',

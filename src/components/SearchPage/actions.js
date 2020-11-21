@@ -12,6 +12,7 @@ import {
   GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
   GET_LAWYER_AVAILABILITY,
   SET_LAWYER_AVAILABILITY,
+  LOAD_LAWYER_AVAILABILITY,
 } from './constants';
 
 export const onMouseEnterCard = (values) => ({
@@ -75,5 +76,10 @@ export const getLawyerAvailability = (data) => ({
 
 export const setLawyerAvailability = (data) => ({
   type: SET_LAWYER_AVAILABILITY,
+  payload: data,
+});
+
+export const loadLawyerAvailability = (data) => ({
+  type: LOAD_LAWYER_AVAILABILITY,
   payload: data,
 });

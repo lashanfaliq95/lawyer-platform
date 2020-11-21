@@ -7,6 +7,7 @@ import {
 } from 'prop-types';
 
 import formatMessages from 'components/formatMessages';
+import Icon from 'components/Shared/Icon';
 import { setSpecializationFilters } from '../../actions';
 import FilterModal from './FilterModal';
 import messages from '../../messages';
@@ -174,7 +175,7 @@ const SpecializationFilter = ({
 
   return (
     <FilterModal
-      className="top-section-specialization"
+      className="top-section-specializations"
       onClickSave={onClickSave}
       onClickCancel={onClickCancel}
       isCancelBtnDisabled={
@@ -183,7 +184,9 @@ const SpecializationFilter = ({
           : !isFilterActive
       }
     >
-      <div className="notary">
+      <div className="header-bar"><Icon name="times" className="close-icon" onClick={onClose} color="grey" /></div>
+      <div className="search-input-specialization">
+        <Icon name="search" className="search-icon" color="grey" />
         <Input
           onChange={(e) => setSearchTerm(e.target.value)}
           onPaste={(e) => setSearchTerm(e.clipboardData.getData('Text'))}
@@ -191,54 +194,58 @@ const SpecializationFilter = ({
           placeholder={intl.formatMessage(messages.searchSpecialization)}
           className="search-input"
         />
-        {!isSearchTermLawyer ? (
-          <>
-            <h4 className="title">{formatMessages(messages.notary)}</h4>
-            <div className="content">
-              {filteredNotarySpecialization
-                && filteredNotarySpecialization.map(
-                  ({
-                    specilization, id, isChecked, isHidden,
-                  }) => !isHidden && (
-                  <Label check key={id}>
-                    <Input
-                      type="checkbox"
-                      value={id}
-                      checked={isChecked}
-                      onChange={onChangeNotarySpecialization}
-                    />
-                    {specilization}
-                  </Label>
-                  ),
-                )}
-            </div>
-          </>
-        ) : null}
       </div>
-      <div className="specialization">
-        {!isSearchTermNotary ? (
-          <>
-            <h4 className="title">{formatMessages(messages.lawyer)}</h4>
-            <div className="content">
-              {filteredLawSpecialization
-                && filteredLawSpecialization.map(
-                  ({
-                    specilization, id, isChecked, isHidden,
-                  }) => !isHidden && (
-                  <Label check key={id}>
-                    <Input
-                      type="checkbox"
-                      value={id}
-                      checked={isChecked}
-                      onChange={onChangeLawyerSpecializations}
-                    />
-                    {specilization}
-                  </Label>
-                  ),
-                )}
-            </div>
-          </>
-        ) : null}
+      <div className="top-section-specialization">
+        <div className="notary">
+          {!isSearchTermLawyer ? (
+            <>
+              <h4 className="title">{formatMessages(messages.notary)}</h4>
+              <div className="content">
+                {filteredNotarySpecialization
+                  && filteredNotarySpecialization.map(
+                    ({
+                      specilization, id, isChecked, isHidden,
+                    }) => !isHidden && (
+                    <Label check key={id}>
+                      <Input
+                        type="checkbox"
+                        value={id}
+                        checked={isChecked}
+                        onChange={onChangeNotarySpecialization}
+                      />
+                      {specilization}
+                    </Label>
+                    ),
+                  )}
+              </div>
+            </>
+          ) : null}
+        </div>
+        <div className="specialization">
+          {!isSearchTermNotary ? (
+            <>
+              <h4 className="title">{formatMessages(messages.lawyer)}</h4>
+              <div className="content">
+                {filteredLawSpecialization
+                  && filteredLawSpecialization.map(
+                    ({
+                      specilization, id, isChecked, isHidden,
+                    }) => !isHidden && (
+                    <Label check key={id}>
+                      <Input
+                        type="checkbox"
+                        value={id}
+                        checked={isChecked}
+                        onChange={onChangeLawyerSpecializations}
+                      />
+                      {specilization}
+                    </Label>
+                    ),
+                  )}
+              </div>
+            </>
+          ) : null}
+        </div>
       </div>
     </FilterModal>
   );
@@ -253,6 +260,6 @@ SpecializationFilter.propTypes = {
   onClose: func.isRequired,
 };
 
-export default injectIntl(connect(null, { setSpecializationFilters })(
-  SpecializationFilter,
-));
+export default injectIntl(
+  connect(null, { setSpecializationFilters })(SpecializationFilter),
+);

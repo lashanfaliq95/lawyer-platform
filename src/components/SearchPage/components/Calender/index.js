@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import {
@@ -15,9 +15,9 @@ import Loader from 'components/Shared/Loader';
 import formatMessages from 'components/formatMessages';
 
 import {
-  addWeeksToDate, subWeeksFromDate, getWeeksDayDateMonth, getStartDate,
+  addWeeksToDate, subWeeksFromDate, getWeeksDayDateMonth,
 } from 'utils/date';
-import { getLawyerAvailability } from 'components/SearchPage/actions';
+import { getLawyerAvailability, loadLawyerAvailability } from 'components/SearchPage/actions';
 import messages from '../../messages';
 import EmptySlot from './components/EmptySlot';
 import { MONTH_OF_YEAR, DAY_OF_WEEK } from './constants';
@@ -26,17 +26,23 @@ const Calender = ({
   id,
   className,
   getLawyerAvailability: getLawyerAvailabilityAction,
+  loadLawyerAvailability: loadLawyerAvailabilityAction,
   availability,
   isLoading,
   currentId,
 }) => {
-  const [currentDate, setCurrentDate] = useState(getStartDate(new Date()));
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [calenderHeader, setCalenderHeader] = useState(getWeeksDayDateMonth(currentDate, true));
   const [slotsShown, setSlotsShown] = useState(4);
 
+  useEffect(() => {
+    loadLawyerAvailabilityAction({ startDate: currentDate, id });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const onClickNextWeek = () => {
     const updatedDate = addWeeksToDate(currentDate, 1);
-    setCalenderHeader(getWeeksDayDateMonth(updatedDate, true));
+    setCalenderHeader(getWeeksDayDateMonth(updatedDate));
     getLawyerAvailabilityAction({ startDate: updatedDate, id });
     setCurrentDate(updatedDate);
   };
@@ -47,20 +53,17 @@ const Calender = ({
     getLawyerAvailabilityAction({ startDate: updatedDate, id });
     setCurrentDate(updatedDate);
   };
-  const result = {
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-  };
+  const result = { };
   let isEmpty = false;
   if (availability) {
     Object.keys(availability).forEach((dayOfWeek) => {
       for (let i = 0; i < slotsShown; i += 1) {
+        if (!result[dayOfWeek]) {
+          result[dayOfWeek] = [];
+        }
         result[dayOfWeek].push(availability[dayOfWeek][i] ? (
           <button className="slot" type="button">
-            10.30
+            10:30
           </button>
         ) : <EmptySlot />);
       }
@@ -141,6 +144,7 @@ Calender.propTypes = {
   className: string,
   id: number.isRequired,
   getLawyerAvailability: func.isRequired,
+  loadLawyerAvailability: func.isRequired,
   isLoading: bool,
   availability: shape(),
   currentId: string,
@@ -159,4 +163,6 @@ const mapStateToProps = (state, props) => ({
   currentId: state.search.availability.currentId,
 });
 
-export default injectIntl(connect(mapStateToProps, { getLawyerAvailability })(Calender));
+export default injectIntl(connect(
+  mapStateToProps, { getLawyerAvailability, loadLawyerAvailability },
+)(Calender));
