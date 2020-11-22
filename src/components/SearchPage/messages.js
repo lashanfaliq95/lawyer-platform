@@ -1,13 +1,21 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  searchSummaryGeneric: {
+    id: 'app.searchPage.searchSummaryGeneric',
+    defaultMessage: '{numberOfResults} results found',
+  },
   searchSummary: {
     id: 'app.searchPage.searchSummary',
-    defaultMessage: '{numberOfResults} {specialization} in {district}',
+    defaultMessage: '{numberOfResults} results with {nameOrFirm} in {district}',
   },
-  searchSummaryNotFound: {
-    id: 'app.searchPage.searchSummaryNotFound',
-    defaultMessage: '0 found {specialization} in {district}',
+  searchSummaryWithNameOrFirm: {
+    id: 'app.searchPage.searchSummaryWithNameOrFirm',
+    defaultMessage: '{numberOfResults} results with {nameOrFirm}',
+  },
+  searchSummaryWithLocation: {
+    id: 'app.searchPage.searchSummaryWithLocation',
+    defaultMessage: '{numberOfResults} results in {district}',
   },
   changeSearchOption: {
     id: 'app.searchPage.changeSearchOption',

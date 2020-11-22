@@ -26,18 +26,18 @@ const FilterBar = ({
     <FilterButton
       name={messages.availabilityFilter}
       className="filter-modal"
-      isFilterActive={activeAvailability.length > 0}
+      isFilterActive={activeAvailability && activeAvailability.length > 0}
     >
-      <AvailabilityFilter isFilterActive={activeAvailability.length > 0} />
+      <AvailabilityFilter isFilterActive={activeAvailability && activeAvailability.length > 0} />
     </FilterButton>
     <FilterButton
       name={messages.specializationFilter}
       className="filter-modal"
-      isFilterActive={activeSpecializations.length > 0}
+      isFilterActive={activeAvailability && activeSpecializations.length > 0}
     >
       <SpecializationFilter
         {...specializations}
-        isFilterActive={activeSpecializations.length > 0}
+        isFilterActive={activeAvailability && activeSpecializations.length > 0}
       />
     </FilterButton>
     <FilterButton
@@ -57,9 +57,12 @@ const FilterBar = ({
     <FilterButton
       name={messages.languageFilter}
       className="filter-modal"
-      isFilterActive={activeLanguages.length > 0}
+      isFilterActive={activeAvailability && activeLanguages.length > 0}
     >
-      <LanguageFilter languages={languages} isFilterActive={activeLanguages.length > 0} />
+      <LanguageFilter
+        languages={languages}
+        isFilterActive={activeAvailability && activeLanguages.length > 0}
+      />
     </FilterButton>
   </div>
 );

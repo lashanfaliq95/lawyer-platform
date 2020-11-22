@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { Container, Col, Row } from 'reactstrap';
 
 import { connect } from 'react-redux';
-import { arrayOf, shape, func } from 'prop-types';
+import {
+  arrayOf, shape, func, bool,
+} from 'prop-types';
 
 import './styles.scss';
 import NavigationBar from 'components/NavigationBar';
@@ -27,6 +29,8 @@ const SearchPage = ({
   getLawyers: getLawyersAction,
   getSearchResult: getSearchResultAction,
   location,
+  searchTerm,
+  isSearchLoading,
 }) => {
   useEffect(() => {
     const { searchTermForNameOrFirm, searchTermForLocation } = location.state || {};
@@ -46,9 +50,10 @@ const SearchPage = ({
           <Row className="content">
             <Col md="7" className="card-container">
               <SearchSummary
-                numberOfResults={3}
-                specialization="Anwalt"
-                district="Düsseldorf"
+                numberOfResults={users ? users.length : 0}
+                specialization={activeFilters ? activeFilters.activeSpecializations : null}
+                searchTerm={searchTerm}
+                isSearchLoading={isSearchLoading}
               />
               <FilterBar activeFilters={activeFilters} />
               <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
@@ -69,6 +74,8 @@ const mapStateToProps = (state) => ({
   locations: state.search.locations,
   users: state.search.users,
   activeFilters: state.search.activeFilters,
+  searchTerm: state.search.searchTerm,
+  isSearchLoading: state.search.isSearchLoading,
 });
 
 SearchPage.propTypes = {
@@ -78,6 +85,9 @@ SearchPage.propTypes = {
   getLawyers: func.isRequired,
   getSearchResult: func.isRequired,
   location: shape({}).isRequired,
+  searchTerm: shape({}).isRequired,
+  isSearchLoading: bool.isRequired,
+
 };
 
 export default connect(mapStateToProps, { getLawyers, getSearchResult })(SearchPage);

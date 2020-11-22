@@ -109,9 +109,10 @@ export default {
   'app.homePage.bottomCardSectionCardThreeBtnText': 'Zu unseren Grundsätzen',
   'app.homePage.transitionText': 'IN MEINER NÄHE',
   'app.searchPage.searchSummary':
-    '{numberOfResults} {specialization} in {district}',
-  'app.searchPage.searchSummaryNotFound':
-    '0 gefundene {specialization} in {district}',
+    '{numberOfResults} Ergebnisse mit {nameOrFirm} in {district}',
+  'app.searchPage.searchSummaryGeneric': '{numberOfResults} gefundene Ergebnisse',
+  'app.searchPage.searchSummaryWithNameOrFirm': '{numberOfResults} Ergebnisse mit  {nameOrFirm}',
+  'app.searchPage.searchSummaryWithLocation': '{numberOfResults} Ergebnisse in {district}',
   'app.searchPage.changeSearchOption': 'Sucheinstellungen ändern',
   'app.searchPage.findMoreOptions':
     'Finden Sie mehr {specialization} indem Sie Ihre Sucheinstellungen ändern',

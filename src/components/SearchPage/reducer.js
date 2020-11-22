@@ -5,6 +5,7 @@ import {
   SET_ACTIVE_FILTERS,
   SET_LAWYER_AVAILABILITY,
   GET_LAWYER_AVAILABILITY,
+  SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
 } from './constants';
 
 const initialState = {
@@ -105,6 +106,11 @@ const initialState = {
   },
   availability: {},
   isAvailabilityLoading: false,
+  isSearchLoading: false,
+  searchTerm: {
+    location: null,
+    nameOrFirm: null,
+  },
 };
 
 const search = (state = initialState, action) => {
@@ -124,11 +130,18 @@ const search = (state = initialState, action) => {
             isHovered: false,
           }),
         ),
+        isSearchLoading: false,
       };
     case SET_ACTIVE_FILTERS:
       return {
         ...state,
         activeFilters: action.payload,
+      };
+    case SEARCH_BY_NAME_OR_FIRM_OR_LOCATION:
+      return {
+        ...state,
+        searchTerm: action.payload,
+        isSearchLoading: true,
       };
     case GET_LAWYER_AVAILABILITY:
       return {

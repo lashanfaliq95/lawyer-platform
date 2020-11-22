@@ -11,7 +11,7 @@ import './styles.scss';
 
 import HS from 'components/Shared/HorizontalSeparator';
 import Icon from 'components/Shared/Icon';
-import Loader from 'components/Shared/Loader';
+import Loader from 'components/SearchPage/components/Calender/components/Loader';
 import formatMessages from 'components/formatMessages';
 
 import {
