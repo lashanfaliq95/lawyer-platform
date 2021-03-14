@@ -2,12 +2,12 @@ import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
 
 import Card from 'components/Shared/CardComponent';
-import image from 'assets/images/imageSection.png';
+import image from 'assets/images/lawyer_second.png';
 import messages from '../../messages';
 
 const ImageSection = () => (
   <div className="image-section-wrapper">
-    <Container className="image-section">
+    <Container className="image-section" fluid>
       <Row>
         <Col className="image-card-section" md={{ size: 6, offset: 1 }}>
           <Card

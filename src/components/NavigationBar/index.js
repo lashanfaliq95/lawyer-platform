@@ -13,7 +13,7 @@ import {
 import './styles.scss';
 import formatMessages from 'components/formatMessages';
 import Icon from 'components/Shared/Icon';
-import SearchBar from 'components/Shared/SearchBar';
+import SearchBar from 'components/SearchPage/components/SearchBar';
 import messages from './messages';
 
 const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
@@ -25,28 +25,30 @@ const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
     <Navbar light expand="md" className={className}>
       <div className="nav-brand-link">
         <Link to="/">
-          {formatMessages(messages.brandName)}
+          <div className="brand-image" />
         </Link>
       </div>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
-          {showSearchInput
-          && (
-          <NavItem><SearchBar /></NavItem>
+          {showSearchInput && (
+            <NavItem>
+              <SearchBar />
+            </NavItem>
           )}
           <NavItem className="nav-button-group">
             {showLawyerLogin && (
-            <div className="nav-button-item">
-              <Button outline>
-                <span>
-                  {formatMessages(messages.areYouALawyer)}
-                </span>
-              </Button>
-            </div>
+              <div className="nav-button-item">
+                <Button color="link">
+                  {formatMessages(messages.advoplanPro)}
+                </Button>
+              </div>
             )}
             <div className="nav-button-item">
-              <Button className="nav-button">
+              <Button
+                color="link"
+                className="black-link"
+              >
                 <Icon name="question-circle" />
                 <span className="nav-text">
                   {formatMessages(messages.needHelp)}
@@ -55,7 +57,10 @@ const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
             </div>
             <div className="nav-button-item">
               <Link to="/auth/login" className="no-hover">
-                <Button className="nav-button">
+                <Button
+                  color="link"
+                  className="black-link"
+                >
                   <Icon name="user-alt" />
                   <span className="nav-text">
                     {formatMessages(messages.login)}

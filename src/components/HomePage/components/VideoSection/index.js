@@ -5,7 +5,7 @@ import Card from 'components/Shared/CardComponent';
 import messages from '../../messages';
 
 const VideoSection = () => (
-  <Container className="video-section">
+  <Container className="video-section" fluid>
     <Row>
       <Col className="video-card-section" md="6">
         <Card

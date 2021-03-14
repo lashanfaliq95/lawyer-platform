@@ -125,4 +125,8 @@ export default defineMessages({
     id: 'app.homePage.transitionText',
     defaultMessage: 'Nearby',
   },
+  recommendedLegalAreas: {
+    id: 'app.homePage.recommendedLegalAreas',
+    defaultMessage: 'Recommended Legal Areas',
+  },
 });

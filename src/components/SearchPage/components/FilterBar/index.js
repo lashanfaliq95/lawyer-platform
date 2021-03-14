@@ -1,17 +1,14 @@
 import React, { memo } from 'react';
-import {
-  bool, shape, arrayOf,
-} from 'prop-types';
+import { bool, shape, arrayOf } from 'prop-types';
 
 import FilterButton from 'components/Shared/FilterButton';
 import AvailabilityFilter from './AvailabilityFilter';
 import SpecializationFilter from './SpecializationFilter';
-import LanguageFilter from './LanguageFilter';
 import FreeFirstAppointmentFilter from './FreeFirstAppointmentFilter';
 import ImmediateConfirmationFilter from './ImmediateConfirmationFilter';
 
 import messages from '../../messages';
-import { specializations, languages } from '../../constants';
+import { specializations } from '../../constants';
 
 const FilterBar = ({
   activeFilters: {
@@ -19,7 +16,6 @@ const FilterBar = ({
     activeSpecializations,
     freeFirstAppointment,
     appointmentWithImmediateConfirmation,
-    activeLanguages,
   },
 }) => (
   <div className="filter-bar">
@@ -28,7 +24,9 @@ const FilterBar = ({
       className="filter-modal"
       isFilterActive={activeAvailability && activeAvailability.length > 0}
     >
-      <AvailabilityFilter isFilterActive={activeAvailability && activeAvailability.length > 0} />
+      <AvailabilityFilter
+        isFilterActive={activeAvailability && activeAvailability.length > 0}
+      />
     </FilterButton>
     <FilterButton
       name={messages.specializationFilter}
@@ -52,16 +50,8 @@ const FilterBar = ({
       className="filter-modal"
       isFilterActive={appointmentWithImmediateConfirmation}
     >
-      <ImmediateConfirmationFilter isFilterActive={appointmentWithImmediateConfirmation} />
-    </FilterButton>
-    <FilterButton
-      name={messages.languageFilter}
-      className="filter-modal"
-      isFilterActive={activeAvailability && activeLanguages.length > 0}
-    >
-      <LanguageFilter
-        languages={languages}
-        isFilterActive={activeAvailability && activeLanguages.length > 0}
+      <ImmediateConfirmationFilter
+        isFilterActive={appointmentWithImmediateConfirmation}
       />
     </FilterButton>
   </div>

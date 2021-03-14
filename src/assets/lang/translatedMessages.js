@@ -3,6 +3,7 @@ export default {
   'app.navbar.needHelp': 'Hilfe',
   'app.navbar.login': 'Anmelden',
   'app.navbar.brandName': 'Avoplan',
+  'app.navbar.advoplanPro': 'Avoplan Pro erleben',
   'app.footer.aboutUs': 'Über uns',
   'app.footer.companies': 'Unternehmen',
   'app.footer.career': 'Karriere',
@@ -108,11 +109,15 @@ export default {
   'app.homePage.bottomCardSectionCardTwoBtnText': 'Zum TÜV-Zertifikat',
   'app.homePage.bottomCardSectionCardThreeBtnText': 'Zu unseren Grundsätzen',
   'app.homePage.transitionText': 'IN MEINER NÄHE',
+  'app.homePage.recommendedLegalAreas': 'Vorgeschlagene Rechtsgebiete',
   'app.searchPage.searchSummary':
     '{numberOfResults} Ergebnisse mit {nameOrFirm} in {district}',
-  'app.searchPage.searchSummaryGeneric': '{numberOfResults} gefundene Ergebnisse',
-  'app.searchPage.searchSummaryWithNameOrFirm': '{numberOfResults} Ergebnisse mit  {nameOrFirm}',
-  'app.searchPage.searchSummaryWithLocation': '{numberOfResults} Ergebnisse in {district}',
+  'app.searchPage.searchSummaryGeneric':
+    '{numberOfResults} gefundene Ergebnisse',
+  'app.searchPage.searchSummaryWithNameOrFirm':
+    '{numberOfResults} Ergebnisse mit  {nameOrFirm}',
+  'app.searchPage.searchSummaryWithLocation':
+    '{numberOfResults} Ergebnisse in {district}',
   'app.searchPage.changeSearchOption': 'Sucheinstellungen ändern',
   'app.searchPage.findMoreOptions':
     'Finden Sie mehr {specialization} indem Sie Ihre Sucheinstellungen ändern',

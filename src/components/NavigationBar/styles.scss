@@ -1,59 +1,74 @@
-.navbar{
-   background-color: #0596de;
-   font-weight: bold;
-   line-height: 14px;
-   font-size: 14px;
-   font-family: "Roboto",arial,sans-serif;
-   a{
-      color: white !important;
-   }
-   ul{
-      width: 100%;
-      justify-content: flex-end;
-      li{
-         padding-left: 10px;
-         button{
-            font: inherit;
-            height: 40px;    
-            display: flex;
-            padding: 10px;
-         }
-          .btn-outline-secondary{
-            background-color: white;
-            color: #0596de;
-            max-width: 200px;
-            padding: 6px;
-            border-radius: 8px;
-            border-color: white;
-         }
-         .btn-outline-secondary:hover{
-            color: #0a5377;
-         }
-         .nav-button{
-            background-color: transparent;
-            border-color: transparent;
-            border-radius: 30px;
-            .nav-text{
-               margin-left: 5px;
-            }
-         }
-         .nav-button:hover{
-            background-color: rgba(238, 238, 238, 0.4);
-         }
-         .no-hover:hover{
-            text-decoration: none;
-         }
-         
+.navbar {
+  background-color: white;
+  font-weight: bold;
+  line-height: 14px;
+  font-size: 14px;
+  font-family: 'Roboto', arial, sans-serif;
+  color: #212529 !important;
+  border: 1px solid #d8d8d8;
+  a {
+    color: #212529 !important;
+  }
+  ul {
+    width: 100%;
+    justify-content: flex-end;
+    li {
+      padding-left: 10px;
+      button {
+        font: inherit;
+        height: 40px;
+        display: flex;
+        padding: 10px;
       }
-   }
+      .btn-secondary {
+        color: white;
+        max-width: 200px;
+        padding: 6px;
+        border-radius: 8px;
+      }
 
-   .nav-button-group{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      right: 10px;
-      .nav-button-item{
-         margin-left: 10px;
+      .nav-button {
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 30px;
       }
-   }
+      .nav-text {
+        margin-left: 5px;
+      }
+      .black-link {
+        color: #212529 !important;
+      }
+      .btn-link {
+        color: #2e6ca4;
+      }
+      button.btn-link:hover {
+        color: #004079;
+      }
+      .nav-button:hover {
+        background-color: rgba(238, 238, 238, 0.4);
+      }
+      .no-hover:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nav-button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    right: 10px;
+    .nav-button-item {
+      margin-left: 10px;
+    }
+  }
+
+  .brand-image {
+    background-image: url('../../assets/images/avoplan_logo.png');
+    height: 42px;
+    width: 140px;
+    background-size: 140px 42px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }

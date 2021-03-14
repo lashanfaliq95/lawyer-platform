@@ -10,17 +10,18 @@ export const SET_SPECIALIZATION_FILTERS = 'SET_SPECIALIZATION_FILTERS';
 export const SEARCH_BY_NAME_OR_FIRM_OR_LOCATION = 'SEARCH_BY_NAME_OR_FIRM_OR_LOCATION';
 export const GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM = 'GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM';
 export const GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS = 'GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS';
+export const SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM = 'SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM';
 export const GET_LAWYER_AVAILABILITY = 'GET_LAWYER_AVAILABILITY';
 export const SET_LAWYER_AVAILABILITY = 'SET_LAWYER_AVAILABILITY';
 export const LOAD_LAWYER_AVAILABILITY = 'LOAD_LAWYER_AVAILABILITY';
 
 export const specializations = {
   notarySpecializations: [
+    { id: 116, specilization: 'Familienrecht', type: 2 },
     { id: 112, specilization: 'Zivilprozessrecht', type: 2 },
     { id: 113, specilization: 'Zivilrecht', type: 2 },
     { id: 114, specilization: 'Zwangsvollstreckungsrecht', type: 2 },
     { id: 115, specilization: 'Erbrecht', type: 2 },
-    { id: 116, specilization: 'Familienrecht', type: 2 },
     { id: 117, specilization: 'Handelsrecht & Gesellschaftsrecht', type: 2 },
     { id: 118, specilization: 'Immobilienrecht', type: 2 },
     { id: 119, specilization: 'Vorsorgevollmacten', type: 2 },
@@ -31,10 +32,14 @@ export const specializations = {
     },
   ],
   lawSpecializations: [
+    { id: 4, specilization: 'Arbeitsrecht', type: 1 },
+    { id: 48, specilization: 'Steuerrecht', type: 1 },
+    { id: 106, specilization: 'Verkehrsrecht', type: 1 },
+    { id: 29, specilization: 'Mietrechts & Wohnungseigenturmsrecht', type: 1 },
+    { id: 49, specilization: 'StrafrechtAgrarrecht', type: 1 },
     { id: 1, specilization: 'Agrarrecht', type: 1 },
     { id: 2, specilization: 'Allgemeines Vertragsrecht', type: 1 },
     { id: 3, specilization: 'Anwaltshaftung', type: 1 },
-    { id: 4, specilization: 'Arbeitsrecht', type: 1 },
     { id: 5, specilization: 'Arzthaftungsrecht', type: 1 },
     { id: 6, specilization: 'Ausländerrecht & Asylrecht', type: 1 },
     { id: 7, specilization: 'Bankrecht & Kapitalmarktrecht', type: 1 },
@@ -44,8 +49,6 @@ export const specializations = {
     { id: 11, specilization: 'Betriebliche Altersversorgung', type: 1 },
     { id: 12, specilization: 'Datenschutzrecht', type: 1 },
     { id: 13, specilization: 'Designrecht', type: 1 },
-    { id: 14, specilization: 'Erbrecht', type: 1 },
-    { id: 15, specilization: 'Familienrecht', type: 1 },
     { id: 16, specilization: 'Forderungseinzug & Inkassorecht', type: 1 },
     { id: 17, specilization: 'Gewerblicher Rechtsschutz', type: 1 },
     { id: 18, specilization: 'Grundstücksrechts & Immobilienrecht', type: 1 },
@@ -59,7 +62,6 @@ export const specializations = {
     { id: 26, specilization: 'Markenrecht', type: 1 },
     { id: 27, specilization: 'Mediation', type: 1 },
     { id: 28, specilization: 'Medizinrecht', type: 1 },
-    { id: 29, specilization: 'Mietrechts & Wohnungseigenturmsrecht', type: 1 },
     { id: 30, specilization: 'Migrationsrecht', type: 1 },
     { id: 31, specilization: 'Öffentliches Baurecht', type: 1 },
     { id: 32, specilization: 'Öffentliches Rechts', type: 1 },
@@ -78,8 +80,6 @@ export const specializations = {
     { id: 45, specilization: 'Sozialrecht', type: 1 },
     { id: 46, specilization: 'Sozialversicherungsrecht', type: 1 },
     { id: 47, specilization: 'Sportrecht', type: 1 },
-    { id: 48, specilization: 'Steuerrecht', type: 1 },
-    { id: 49, specilization: 'StrafrechtAgrarrecht', type: 1 },
     { id: 50, specilization: 'Allgemeines Vertragsrecht', type: 1 },
     { id: 51, specilization: 'Anwaltshaftung', type: 1 },
     { id: 52, specilization: 'Arbeitsrecht', type: 1 },
@@ -92,11 +92,8 @@ export const specializations = {
     { id: 59, specilization: 'Betriebliche Altersversorgung', type: 1 },
     { id: 60, specilization: 'Datenschutzrecht', type: 1 },
     { id: 61, specilization: 'Designrecht', type: 1 },
-    { id: 62, specilization: 'Erbrecht', type: 1 },
-    { id: 63, specilization: 'Familienrecht', type: 1 },
     { id: 64, specilization: 'Forderungseinzug & Inkassorecht', type: 1 },
     { id: 65, specilization: 'Gewerblicher Rechtsschutz', type: 1 },
-    { id: 66, specilization: 'Grundstücksrechts & Immobilienrecht', type: 1 },
     { id: 67, specilization: 'Insolvenzrecht', type: 1 },
     { id: 68, specilization: 'Internationales Recht', type: 1 },
     { id: 69, specilization: 'Internationales Wirtschaftsrecht', type: 1 },
@@ -140,7 +137,6 @@ export const specializations = {
     { id: 103, specilization: 'Vereinsrecht & Verbandsrecht', type: 1 },
     { id: 104, specilization: 'Verfassungsrecht', type: 1 },
     { id: 105, specilization: 'Vergaberecht', type: 1 },
-    { id: 106, specilization: 'Verkehrsrecht', type: 1 },
     { id: 107, specilization: 'Versicherungsrecht', type: 1 },
     { id: 108, specilization: 'Verwaltungsrecht', type: 1 },
     { id: 109, specilization: 'Werkvertragsrecht', type: 1 },
@@ -215,11 +211,8 @@ export const specializationsMap = {
   59: { id: 59, specilization: 'Betriebliche Altersversorgung', type: 1 },
   60: { id: 60, specilization: 'Datenschutzrecht', type: 1 },
   61: { id: 61, specilization: 'Designrecht', type: 1 },
-  62: { id: 62, specilization: 'Erbrecht', type: 1 },
-  63: { id: 63, specilization: 'Familienrecht', type: 1 },
   64: { id: 64, specilization: 'Forderungseinzug & Inkassorecht', type: 1 },
   65: { id: 65, specilization: 'Gewerblicher Rechtsschutz', type: 1 },
-  66: { id: 66, specilization: 'Grundstücksrechts & Immobilienrecht', type: 1 },
   67: { id: 67, specilization: 'Insolvenzrecht', type: 1 },
   68: { id: 68, specilization: 'Internationales Recht', type: 1 },
   69: { id: 69, specilization: 'Internationales Wirtschaftsrecht', type: 1 },
@@ -276,8 +269,6 @@ export const specializationsMap = {
   112: { id: 112, specilization: 'Zivilprozessrecht', type: 2 },
   113: { id: 113, specilization: 'Zivilrecht', type: 2 },
   114: { id: 114, specilization: 'Zwangsvollstreckungsrecht', type: 2 },
-  115: { id: 115, specilization: 'Erbrecht', type: 2 },
-  116: { id: 116, specilization: 'Familienrecht', type: 2 },
   117: { id: 117, specilization: 'Handelsrecht & Gesellschaftsrecht', type: 2 },
   118: { id: 118, specilization: 'Immobilienrecht', type: 2 },
   119: { id: 119, specilization: 'Vorsorgevollmacten', type: 2 },

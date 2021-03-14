@@ -2,60 +2,65 @@
   height: auto;
   padding: 0;
   .top-image-container {
-    background-color: #0596de;
     background-repeat: no-repeat;
-    background-image: url('../../assets/images/lawyer1.png'),
-      url('../../assets/images/dots.png'); // For browsers without gradient support
-    background-image: url('../../assets/images/lawyer1.png'),
-      url('../../assets/images/dots.png'),
-      linear-gradient(180deg, #0596de 19%, #10adde 100%);
+    background-image: url('../../assets/images/header-home.png');
     background-position: right bottom, bottom left;
-    background-size: 679px 379px, 60% 186px, 100%;
+    background-size: 479px 379px;
     height: 456px;
     max-width: 100%;
     padding-top: 1px;
 
-  .search-input-group { 
-    width: 70%;
-  }
+    .search-input-group {
+      width: 70%;
+      margin-left: 5%;
+    }
 
-  .search-input{
-    padding-left: 15px;
-  }
+    .search-input-updated {
+      width: 100%;
+      margin: 0;
+      .first-search-input {
+        margin-left: 5%;
+      }
+    }
 
-  .search-title {
-    width: 70%;
-    margin: 10% 0 32px;
-    font-size: 32px;
-    line-height: 40px;
-    font-family: 'Montserrat', arial, sans-serif;
-    font-weight: 700;
-    color: #fff;
+    .search-title {
+      width: 70%;
+      margin: 10% 0 32px;
+      font-size: 32px;
+      line-height: 40px;
+      font-family: 'Montserrat', arial, sans-serif;
+      font-weight: 700;
+    }
   }
-  }
-
 
   .card-section {
     padding: 10px;
     padding-left: 0;
-    margin-top: 60px;
-    span {
-      padding-left: 0px;
-    }
-    h4 {
-      margin-top: 20px;
-      margin-bottom: 20px;
+    margin-top: 30px;
+    background-color: #f8f8fb;
+    height: 300px;
+
+    .inner-section {
+      margin: 5%;
+      height: 250px;
+      align-items: center;
+      display: flex;
+      span {
+        padding-left: 0px;
+      }
+      h4 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
     }
   }
 
   .video-section {
-    background-color: #f2fafd;
-    background-repeat: no-repeat;
-    background-image: url('../../assets/images/videoSection.png');
-    background-position: left bottom;
-    background-size: 347px 129px;
-    .row{
+    margin-top: 60px;
+    .row {
       justify-content: space-between;
+      margin: 0;
+      margin-left: 5%;
     }
     .col {
       width: 90%;
@@ -67,6 +72,12 @@
       }
       button {
         margin-top: 10px;
+        background-color: #2e6ca4;
+        border-color: #2e6ca4;
+      }
+      button:hover {
+        background-color: #004079;
+        border-color: #004079;
       }
     }
     .video-image {
@@ -74,22 +85,24 @@
       width: 100%;
       background-position: center;
       background-repeat: no-repeat;
-      background-image: url('../../assets/images/mobile.jpg');
+      background-image: url('../../assets/images/mobile_image.png');
     }
   }
   .image-section-wrapper {
-    background-color: #f8f8fb;
-    .row{
+    .row {
       justify-content: space-between;
     }
     .image-section {
+      .row {
+        margin: 0;
+      }
       img {
-        width: 300px;
+        width: 400px;
       }
       .image-card-section {
         padding-top: 30px;
-        margin-top: 20px;
-        margin-left: 0;
+        margin-top: 100px;
+        margin-left: 5%;
         padding-left: 0;
         span {
           padding-left: 0px;
@@ -98,19 +111,29 @@
           margin-top: 20px;
           margin-bottom: 20px;
         }
-        .col-md-4{
-          padding-left: 0 ;
-          .col{
+        .col-md-4 {
+          padding-left: 0;
+          .col {
             padding-left: 0;
           }
         }
       }
+      .image-wrapper {
+        margin-top: 10px;
+      }
     }
   }
   .bottom-card-section {
+    .row {
+      margin: 0;
+      width: 95%;
+      margin-left: 5%;
+    }
+
     .title {
       margin-bottom: 30px;
       font-weight: bold;
+      margin-left: 5%;
     }
   }
 

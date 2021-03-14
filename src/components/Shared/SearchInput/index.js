@@ -45,9 +45,7 @@ const SearchInput = ({
                 name: 'crosshairs',
                 color: 'grey',
                 onClick: () => {
-                  getLocation((position) => {
-                    console.log(position);
-                  });
+                  getLocation((position) => position);
                 },
               }
               : null

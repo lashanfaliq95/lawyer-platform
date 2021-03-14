@@ -17,4 +17,8 @@ export default defineMessages({
     id: 'app.navbar.login',
     defaultMessage: 'Login',
   },
+  advoplanPro: {
+    id: 'app.navbar.advoplanPro',
+    defaultMessage: 'Advoplan pro',
+  },
 });

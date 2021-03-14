@@ -9,6 +9,7 @@ import {
   SET_SPECIALIZATION_FILTERS,
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
+  SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
   GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
   GET_LAWYER_AVAILABILITY,
   SET_LAWYER_AVAILABILITY,
@@ -56,6 +57,11 @@ export const setActiveFilters = (data) => ({
 
 export const getSearchSuggestionsForNameOrFirm = (term) => ({
   type: GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
+  payload: term,
+});
+
+export const setSearchSuggestionsForNameOrFirm = (term) => ({
+  type: SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
   payload: term,
 });
 

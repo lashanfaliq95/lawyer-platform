@@ -31,3 +31,15 @@ export const getFilteredResultService = async ({
   const result = await get(`/search/lawyers?${query}`);
   return result;
 };
+
+export const getNameOrFirmSuggestions = async (nameOrFirm) => {
+  const nameOrFirmQuery = qs.stringify({ nameOrFirm });
+  const result = await get(`/search/suggestions?${nameOrFirmQuery}`);
+  return result;
+};
+
+export const getLocationSuggestions = async ({ location }) => {
+  const locationQuery = qs.stringify({ location });
+  const result = await get(`/search/suggestions?${locationQuery}`);
+  return result;
+};

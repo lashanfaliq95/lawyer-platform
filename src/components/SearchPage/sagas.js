@@ -1,5 +1,9 @@
 import {
-  put, takeLatest, select, debounce, takeEvery,
+  put,
+  takeLatest,
+  select,
+  debounce,
+  takeEvery,
 } from 'redux-saga/effects';
 
 import {
@@ -8,11 +12,11 @@ import {
 } from 'services/userService';
 import {
   getFilteredResultService,
+  getNameOrFirmSuggestions,
+  getLocationSuggestions,
 } from 'services/searchService';
 import {
-  setLawyers,
-  setActiveFilters,
-  setLawyerAvailability,
+  setLawyers, setActiveFilters, setLawyerAvailability, setSearchSuggestionsForNameOrFirm,
 } from './actions';
 import {
   GET_LAWYERS,
@@ -21,6 +25,8 @@ import {
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   GET_LAWYER_AVAILABILITY,
   LOAD_LAWYER_AVAILABILITY,
+  GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
+  GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
 } from './constants';
 
 const getActiveFilters = (state) => state.search.activeFilters;
@@ -65,6 +71,15 @@ function* getLawyerAvailability(action) {
   }
 }
 
+function* getSearchSuggestionsForNameOrFirm(action) {
+  const { result } = yield getNameOrFirmSuggestions(action.payload);
+  yield put(setSearchSuggestionsForNameOrFirm(result));
+}
+
+function* getSearchSuggestionsForLocation(action) {
+  const { result } = yield getLocationSuggestions({ ...action.payload });
+  yield result;
+}
 export default [
   takeLatest(GET_LAWYERS, getLawyers),
   takeEvery(LOAD_LAWYER_AVAILABILITY, getLawyerAvailability),
@@ -72,4 +87,14 @@ export default [
   debounce(500, SET_SPECIALIZATION_FILTERS, getFilteredSearchResult),
   debounce(500, SEARCH_BY_NAME_OR_FIRM_OR_LOCATION, getSearchResults),
   debounce(500, GET_LAWYER_AVAILABILITY, getLawyerAvailability),
+  debounce(
+    300,
+    GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
+    getSearchSuggestionsForNameOrFirm,
+  ),
+  debounce(
+    100,
+    GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
+    getSearchSuggestionsForLocation,
+  ),
 ];

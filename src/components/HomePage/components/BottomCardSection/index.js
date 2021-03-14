@@ -9,7 +9,7 @@ import formatMessages from 'components/formatMessages';
 import messages from '../../messages';
 
 const BottomCardSection = () => (
-  <Container className="bottom-card-section">
+  <Container className="bottom-card-section" fluid>
     <h2 className="title">{formatMessages(messages.bottomCardSectionTitle)}</h2>
     <Row>
       <Col md="4">

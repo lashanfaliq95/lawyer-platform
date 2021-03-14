@@ -18,12 +18,6 @@ const HomePage = () => (
     <Container className="home-page" fluid>
       <Search />
       <CardSection />
-      <HorizontalSeparator
-        color="#eef2f6"
-        height={1}
-        isContainer
-        className="separator-wrapper"
-      />
       <VideoSection />
       <HorizontalSeparator
         color="#eef2f6"
