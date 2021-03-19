@@ -29,13 +29,12 @@ const NavigationBar = ({ className, showLawyerLogin, showSearchInput }) => {
         </Link>
       </div>
       <NavbarToggler onClick={toggle} />
+      {showSearchInput && (
+        <SearchBar />
+      )}
       <Collapse isOpen={isOpen} navbar>
-        <Nav className="mr-auto" navbar>
-          {showSearchInput && (
-            <NavItem>
-              <SearchBar />
-            </NavItem>
-          )}
+        <Nav className="left-pane" navbar>
+
           <NavItem className="nav-button-group">
             {showLawyerLogin && (
               <div className="nav-button-item">

@@ -169,4 +169,24 @@ export default defineMessages({
     id: 'app.searchPage.searchSpecialization',
     defaultMessage: 'Search law specialization...',
   },
+  recommendedLegalAreas: {
+    id: 'app.searchPage.recommendedLegalAreas',
+    defaultMessage: 'Recommended Legal Areas',
+  },
+  expert: {
+    id: 'app.searchPage.expert',
+    defaultMessage: 'Expert',
+  },
+  location: {
+    id: 'app.searchPage.location',
+    defaultMessage: 'Location',
+  },
+  expertsNearby: {
+    id: 'app.searchPage.expertsNearby',
+    defaultMessage: 'find expert nearby your location',
+  },
+  suggestion: {
+    id: 'app.searchPage.suggestion',
+    defaultMessage: 'suggestion',
+  },
 });

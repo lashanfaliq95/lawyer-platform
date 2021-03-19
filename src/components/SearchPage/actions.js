@@ -11,6 +11,7 @@ import {
   GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
   SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
   GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
+  SET_SEARCH_SUGGESTIONS_FOR_LOCATION,
   GET_LAWYER_AVAILABILITY,
   SET_LAWYER_AVAILABILITY,
   LOAD_LAWYER_AVAILABILITY,
@@ -67,6 +68,11 @@ export const setSearchSuggestionsForNameOrFirm = (term) => ({
 
 export const getSearchSuggestionsForLocation = (term) => ({
   type: GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
+  payload: term,
+});
+
+export const setSearchSuggestionsForLocation = (term) => ({
+  type: SET_SEARCH_SUGGESTIONS_FOR_LOCATION,
   payload: term,
 });
 

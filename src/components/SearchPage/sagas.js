@@ -16,7 +16,11 @@ import {
   getLocationSuggestions,
 } from 'services/searchService';
 import {
-  setLawyers, setActiveFilters, setLawyerAvailability, setSearchSuggestionsForNameOrFirm,
+  setLawyers,
+  setActiveFilters,
+  setLawyerAvailability,
+  setSearchSuggestionsForNameOrFirm,
+  setSearchSuggestionsForLocation,
 } from './actions';
 import {
   GET_LAWYERS,
@@ -77,8 +81,8 @@ function* getSearchSuggestionsForNameOrFirm(action) {
 }
 
 function* getSearchSuggestionsForLocation(action) {
-  const { result } = yield getLocationSuggestions({ ...action.payload });
-  yield result;
+  const { result } = yield getLocationSuggestions(action.payload);
+  yield put(setSearchSuggestionsForLocation(result));
 }
 export default [
   takeLatest(GET_LAWYERS, getLawyers),

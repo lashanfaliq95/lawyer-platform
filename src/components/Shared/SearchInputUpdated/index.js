@@ -9,6 +9,7 @@ import Icon from 'components/Shared/Icon';
 import VL from 'components/Shared/VerticalSeparator';
 
 import { specializations } from '../../SearchPage/constants';
+import { getLocation } from '../utils';
 
 const combinedSpecializations = [
   ...specializations.lawSpecializations,
@@ -22,13 +23,23 @@ const SearchInput = () => {
     combinedSpecializations,
   );
   const [isPopupShown, setIsPopupShown] = useState(false);
+  const [isLocationPopupShown, setIsLocationPopupShown] = useState(false);
 
   const onSearchTermChange = (e) => {
     setIsPopupShown(true);
     setSearchTerm(e.target.value);
   };
   const onSearchLocationChange = (e) => {
+    if (e.target.value === '') {
+      setIsLocationPopupShown(true);
+    }
     setSearchLocation(e.target.value);
+  };
+
+  const onClickLocationPopup = () => {
+    getLocation((position) => position);
+    setSearchLocation('Experten in der Umgebung entdecken');
+    setIsLocationPopupShown(false);
   };
 
   useEffect(() => {
@@ -100,6 +111,14 @@ const SearchInput = () => {
           placeholder="z.B. Köln oder 50678"
           value={searchLocation}
           onChange={onSearchLocationChange}
+          onFocus={(e) => {
+            if (!e.target.value) {
+              setIsLocationPopupShown(true);
+            }
+          }}
+          onBlur={() => {
+            setIsLocationPopupShown(false);
+          }}
         />
         <div className="input-link">
           <Link to="/search">
@@ -108,6 +127,21 @@ const SearchInput = () => {
             </div>
           </Link>
         </div>
+        {isLocationPopupShown && (
+          <div className="custom-suggestions-popup location-popup">
+            <button
+              type="button"
+              className="location"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={onClickLocationPopup}
+            >
+              <div className="popup-image" />
+              <span>
+                {formatMessages(messages.discoverExpertsNearby)}
+              </span>
+            </button>
+          </div>
+        )}
       </Col>
     </Row>
   );

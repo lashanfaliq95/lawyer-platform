@@ -110,6 +110,7 @@ export default {
   'app.homePage.bottomCardSectionCardThreeBtnText': 'Zu unseren Grundsätzen',
   'app.homePage.transitionText': 'IN MEINER NÄHE',
   'app.homePage.recommendedLegalAreas': 'Vorgeschlagene Rechtsgebiete',
+  'app.homePage.discoverExpertsNearby': 'Experten in der Umgebung entdecken',
   'app.searchPage.searchSummary':
     '{numberOfResults} Ergebnisse mit {nameOrFirm} in {district}',
   'app.searchPage.searchSummaryGeneric':
@@ -160,4 +161,9 @@ export default {
   'app.searchPage.november': 'Nov.',
   'app.searchPage.december': 'Dez.',
   'app.searchPage.searchSpecialization': 'Rechtsgebiet durchsuchen...',
+  'app.searchPage.recommendedLegalAreas': 'Vorgeschlagene Rechtsgebiete',
+  'app.searchPage.expert': 'Experte',
+  'app.searchPage.location': 'Ort',
+  'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
+  'app.searchPage.suggestion': 'Vorschläge',
 };

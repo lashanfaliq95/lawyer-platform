@@ -129,4 +129,8 @@ export default defineMessages({
     id: 'app.homePage.recommendedLegalAreas',
     defaultMessage: 'Recommended Legal Areas',
   },
+  discoverExpertsNearby: {
+    id: 'app.homePage.discoverExpertsNearby',
+    defaultMessage: 'Discover experts nearby',
+  },
 });

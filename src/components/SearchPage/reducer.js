@@ -7,6 +7,7 @@ import {
   GET_LAWYER_AVAILABILITY,
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
+  SET_SEARCH_SUGGESTIONS_FOR_LOCATION,
 } from './constants';
 
 const initialState = {
@@ -165,7 +166,15 @@ const search = (state = initialState, action) => {
         ...state,
         suggestions: {
           nameOrFirm: action.payload,
-          location: null,
+          location: [],
+        },
+      };
+    case SET_SEARCH_SUGGESTIONS_FOR_LOCATION:
+      return {
+        ...state,
+        suggestions: {
+          location: action.payload,
+          nameOrFirm: [],
         },
       };
     case GET_LAWYER_AVAILABILITY:

@@ -38,7 +38,7 @@ export const getNameOrFirmSuggestions = async (nameOrFirm) => {
   return result;
 };
 
-export const getLocationSuggestions = async ({ location }) => {
+export const getLocationSuggestions = async (location) => {
   const locationQuery = qs.stringify({ location });
   const result = await get(`/search/suggestions?${locationQuery}`);
   return result;

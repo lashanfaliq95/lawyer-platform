@@ -4,11 +4,12 @@ import { bool, shape, arrayOf } from 'prop-types';
 import FilterButton from 'components/Shared/FilterButton';
 import AvailabilityFilter from './AvailabilityFilter';
 import SpecializationFilter from './SpecializationFilter';
+import LanguageFilter from './LanguageFilter';
 import FreeFirstAppointmentFilter from './FreeFirstAppointmentFilter';
 import ImmediateConfirmationFilter from './ImmediateConfirmationFilter';
 
 import messages from '../../messages';
-import { specializations } from '../../constants';
+import { specializations, languages } from '../../constants';
 
 const FilterBar = ({
   activeFilters: {
@@ -16,6 +17,7 @@ const FilterBar = ({
     activeSpecializations,
     freeFirstAppointment,
     appointmentWithImmediateConfirmation,
+    activeLanguages,
   },
 }) => (
   <div className="filter-bar">
@@ -31,11 +33,11 @@ const FilterBar = ({
     <FilterButton
       name={messages.specializationFilter}
       className="filter-modal"
-      isFilterActive={activeAvailability && activeSpecializations.length > 0}
+      isFilterActive={activeSpecializations && activeSpecializations.length > 0}
     >
       <SpecializationFilter
         {...specializations}
-        isFilterActive={activeAvailability && activeSpecializations.length > 0}
+        isFilterActive={activeSpecializations && activeSpecializations.length > 0}
       />
     </FilterButton>
     <FilterButton
@@ -52,6 +54,16 @@ const FilterBar = ({
     >
       <ImmediateConfirmationFilter
         isFilterActive={appointmentWithImmediateConfirmation}
+      />
+    </FilterButton>
+    <FilterButton
+      name={messages.languageFilter}
+      className="filter-modal"
+      isFilterActive={activeLanguages && activeLanguages.length > 0}
+    >
+      <LanguageFilter
+        languages={languages}
+        isFilterActive={activeLanguages && activeLanguages.length > 0}
       />
     </FilterButton>
   </div>

@@ -39,7 +39,7 @@
         color: #212529 !important;
       }
       .btn-link {
-        color: #2e6ca4;
+        color: #105FBB;
       }
       button.btn-link:hover {
         color: #004079;
@@ -70,5 +70,40 @@
     background-size: 140px 42px;
     background-position: center;
     background-repeat: no-repeat;
+  }
+  .nav-search {
+    margin-left: 20%;
+  }
+
+  .left-pane {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 1300px) {
+    .nav-search {
+      margin-left: 10%;
+    }
+  }
+
+  @media (max-width: 1111px) {
+    .nav-search {
+      margin-left: 5%;
+    }
+  }
+
+  @media (max-width: 1061px) {
+    .nav-search {
+      .first-search-input,
+      .second-search-input {
+        width: 200px;
+      }
+    }
+  }
+
+  @media (max-width: 765px) {
+    .nav-search {
+      display: none;
+    }
   }
 }

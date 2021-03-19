@@ -38,7 +38,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{js,jsx}'",
     "lint:fix": "eslint './src/**/*.{js,jsx}' --fix",
-    "deploy": "aws s3 sync build/ s3://lawyer-platform --acl public-read"
+    "deploy": "aws s3 sync build/ s3://avoplan --acl public-read"
   },
   "eslintConfig": {
     "extends": "react-app"
