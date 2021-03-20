@@ -3,6 +3,10 @@
   padding-right: 0px;
 }
 
+.row{
+  margin: 0;
+}
+
 .col-md-12 {
   padding-left: 0px;
   padding-right: 0px;
@@ -124,6 +128,10 @@
     border-radius: 50%;
     height: 80px;
     width: 80px;
+    border: 1px solid white;    
+    position: absolute;
+    top: 55px;
+    left: 40px;
   }
 
   .map-container {
@@ -145,6 +153,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
     .card-separator {
       margin-top: 24px;
       margin-bottom: 12px;
@@ -157,9 +166,10 @@
         text-align: left;
       }
       .name-section {
-        display: flex;
-        flex-direction: column;
-        margin-top: 15px;
+        margin-top: 40px;
+        font-size: 16px;
+        font-weight: bold;  
+        margin-left: 25px;
       }
       .job-description {
         font-weight: bold;
@@ -192,6 +202,7 @@
         margin-top: 10px;
         font-size: 14px;
         margin-bottom: 16px;
+        margin-left: 25px;
       }
       .agreement-type {
         font-size: 14px;
@@ -202,8 +213,18 @@
         background-color: #0596de;
         border-color: #0596de;
         font-size: 14px;
+        margin-left: 20px;
+      }
+      .row{
+        margin: 0;
       }
     }
+  }
+  
+  .pagination-wrapper{
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
   }
 }
 

@@ -294,3 +294,8 @@ export const languages = [
   { id: 11, language: 'Spanisch' },
   { id: 12, language: 'Türkisc' },
 ];
+
+export const LAWYER = 'Lawyer';
+export const NOTARY = 'Notary';
+export const CONSULTANT = 'Consultant';
+export const EXPERT = 'Expert';

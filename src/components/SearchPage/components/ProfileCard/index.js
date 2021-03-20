@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import {
-  func, string, number, arrayOf,
-} from 'prop-types';
+import { func, string, number } from 'prop-types';
 import {
   Col,
   Button,
@@ -12,7 +10,6 @@ import {
 
 import Calender from 'components/SearchPage/components/Calender';
 import formatMessages from 'components/formatMessages';
-import { specializationsMap } from 'components/SearchPage/constants';
 import messages from '../../messages';
 
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
@@ -22,8 +19,6 @@ const ProfileCard = ({
   name,
   address,
   imgUrl,
-  firm,
-  specializationIds,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
 }) => {
@@ -44,36 +39,17 @@ const ProfileCard = ({
       >
         <Row>
           <Col md="5">
-            <Row>
-              <Col md="4">
-                <img
-                  className="info-image"
-                  src={imgUrl}
-                  alt="Info images"
-                />
-              </Col>
-              <Col md="8" className="name-section">
-                <Button className="name-btn" color="link">
-                  {name}
-                </Button>
-                <span className="job-description">{firm}</span>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={{ size: 11, offset: 1 }} className="specialization-section">
-                <div className="specialization-Buttons">
-                  {specializationIds ? specializationIds.map(
-                    (specializationId) => (
-                      <Button color="primary" key={specializationId}>
-                        {specializationsMap[specializationId].specilization}
-                      </Button>
-                    ),
-                  ) : null}
-                </div>
-                <div className="address">{address}</div>
-                <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
-              </Col>
-            </Row>
+            <Row style={{ backgroundColor: '#105fbb', width: '100%', height: '100px' }} />
+            <img
+              className="info-image"
+              src={imgUrl}
+              alt="Info images"
+            />
+            <div className="name-section">
+              {name}
+            </div>
+            <div className="address">{address}</div>
+            <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
           </Col>
           <Col md="7">
             <Calender id={id} />
@@ -91,8 +67,7 @@ ProfileCard.propTypes = {
   name: string.isRequired,
   address: string.isRequired,
   imgUrl: string.isRequired,
-  firm: string.isRequired,
-  specializationIds: arrayOf(number).isRequired,
+  // specializationIds: arrayOf(number).isRequired,
 };
 
 export default connect(null, { onMouseEnterCard, onMouseLeaveCard })(

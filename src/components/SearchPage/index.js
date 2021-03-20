@@ -50,19 +50,21 @@ const SearchPage = ({
           <Row className="content">
             <Col md="7" className="card-container">
               <SearchSummary
+                users={users}
                 numberOfResults={users ? users.length : 0}
-                specialization={activeFilters ? activeFilters.activeSpecializations : null}
+                specializations={activeFilters ? activeFilters.activeSpecializations : null}
                 searchTerm={searchTerm}
                 isSearchLoading={isSearchLoading}
               />
               <FilterBar activeFilters={activeFilters} />
               <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
-              <ProfileCardList users={users} />
+              <ProfileCardList users={users} getSearchResult={getSearchResultAction} />
             </Col>
             <Col className="map-container" md="5">
               <GoogleMap locations={locations} zoomLevel={12} mapLocation={mapLocation} />
             </Col>
           </Row>
+
         </Col>
       </Container>
       <Footer className="search-footer" />

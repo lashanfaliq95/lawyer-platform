@@ -1,0 +1,10 @@
+.pagination{
+    .page-link{
+        border: none !important;
+        border-radius: 50%;
+    }
+    .active{
+        border: none;
+        box-shadow: none;
+    }
+}
