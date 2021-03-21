@@ -142,7 +142,7 @@ const SpecializationFilter = ({
                       checked={isChecked}
                       onChange={onChangeLawyerSpecializations}
                     />
-                    <span className="specialization-text">{specilization}</span>
+                    <div className="specialization-text">{specilization}</div>
                   </Label>
                 </div>
               ),

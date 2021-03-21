@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import { func, string, number } from 'prop-types';
+import {
+  func, string, number,
+} from 'prop-types';
 import {
   Col,
   Button,
@@ -21,6 +23,7 @@ const ProfileCard = ({
   imgUrl,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
+  type,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -38,8 +41,10 @@ const ProfileCard = ({
         }}
       >
         <Row>
+          <Row
+            className="cover-image"
+          />
           <Col md="5">
-            <Row style={{ backgroundColor: '#105fbb', width: '100%', height: '100px' }} />
             <img
               className="info-image"
               src={imgUrl}
@@ -47,6 +52,9 @@ const ProfileCard = ({
             />
             <div className="name-section">
               {name}
+            </div>
+            <div className="specialization-section">
+              {type}
             </div>
             <div className="address">{address}</div>
             <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
@@ -67,7 +75,7 @@ ProfileCard.propTypes = {
   name: string.isRequired,
   address: string.isRequired,
   imgUrl: string.isRequired,
-  // specializationIds: arrayOf(number).isRequired,
+  type: string.isRequired,
 };
 
 export default connect(null, { onMouseEnterCard, onMouseLeaveCard })(

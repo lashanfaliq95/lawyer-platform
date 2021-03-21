@@ -39,7 +39,7 @@ const ProfileCardList = ({ users, getSearchResult }) => {
             address={user.address}
             imgUrl={user.imgUrl}
             firm={user.firm}
-            specializationIds={user.specializationIds}
+            type={user.type}
           />
           <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
         </div>

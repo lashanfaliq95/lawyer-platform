@@ -6,6 +6,7 @@
   font-family: 'Roboto', arial, sans-serif;
   color: #212529 !important;
   border: 1px solid #d8d8d8;
+  text-decoration: none !important;
   a {
     color: #212529 !important;
   }
@@ -43,13 +44,22 @@
       }
       button.btn-link:hover {
         color: #004079;
+        text-decoration: none !important;
+      }
+      .logged-in{
+        color: #969ea5;
+      }
+      button.logged-in:hover {
+        color: #434647;
+        text-decoration: none !important;
       }
       .nav-button:hover {
         background-color: rgba(238, 238, 238, 0.4);
       }
-      .no-hover:hover {
+      a:hover{
         text-decoration: none;
-      }
+    }
+      
     }
   }
 

@@ -21,4 +21,20 @@ export default defineMessages({
     id: 'app.navbar.advoplanPro',
     defaultMessage: 'Advoplan pro',
   },
+  home: {
+    id: 'app.navbar.home',
+    defaultMessage: 'Home',
+  },
+  mail: {
+    id: 'app.navbar.mail',
+    defaultMessage: 'Mail',
+  },
+  appointments: {
+    id: 'app.navbar.appointments',
+    defaultMessage: 'Appointments',
+  },
+  myAccount: {
+    id: 'app.navbar.myAccount',
+    defaultMessage: 'My Account',
+  },
 });
