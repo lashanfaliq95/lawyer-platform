@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from 'components/HomePage';
 import SearchPage from 'components/SearchPage';
+import LawyerDetailsPage from 'components/LawyerDetailsPage';
 import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
 import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage';
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
@@ -30,14 +31,19 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Route
+        path="/"
+        exact
+        component={HomePage}
+      />
+      <Route
         path="/search"
         exact
         component={SearchPage}
       />
       <Route
-        path="/"
+        path="/search/lawyer-details/:id"
         exact
-        component={HomePage}
+        component={LawyerDetailsPage}
       />
       <Route
         path="/auth/login"

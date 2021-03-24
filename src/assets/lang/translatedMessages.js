@@ -170,4 +170,36 @@ export default {
   'app.searchPage.location': 'Ort',
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
+  'app.lawyerDetailsPage.infoText': 'Liebe Mandanten,{br} '
+  + 'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}'
+  + 'In meiner Kanzlei berate ich Startups, Emerging Companies sowie deren Investoren in{br}'
+  + 'wirtschaftlichen Angelegenheiten. {b}(WEN? WAS ALLGEMEIN?){bl}{br}'
+  + 'Für Startups und Emerging Companies agiere ich als erster Ansprechpartner und{br}'
+  + 'betreue diese umfassend von der Gründung, über die Finanzierung, bis hin zum Exit.{br}'
+  + 'Investoren beraten wir im Rahmen von Unternehmensbeteiligungen und Exits. {b}(WAS{br}'
+  + 'GENAU?){bl}{br}'
+  + 'Da die Grundlage für eine effektive Beratung ein möglichst umfangreiches Bild der{br}'
+  + 'rechtlichen Situation ist, lege ich großen Wert auf ein Vertrauensverhältnis zu meinen{br}'
+  + 'Mandanten.{br}'
+  + 'Und das stets mit dem Ziel, eine optimale Lösung für diese zu finden.{br}'
+  + 'Vereinbaren Sie Ihren Termin direkt online. Ich freue mich auf Ihre Terminbuchung!{br}'
+  + 'Ihre Pia Parez{br}',
+  'app.lawyerDetailsPage.specialization': 'Tätigkeitsbereiche',
+  'app.lawyerDetailsPage.access': 'Zugang',
+  'app.lawyerDetailsPage.address': 'Adresse',
+  'app.lawyerDetailsPage.firstFloor': '1. OG',
+  'app.lawyerDetailsPage.parkingSlots': 'Parkplätze',
+  'app.lawyerDetailsPage.contact': 'Kontakt',
+  'app.lawyerDetailsPage.Telephone': 'Telefon',
+  'app.lawyerDetailsPage.Fax': 'Fax',
+  'app.lawyerDetailsPage.email': 'E-Mail',
+  'app.lawyerDetailsPage.Language': 'Sprachen',
+  'app.lawyerDetailsPage.openHours': 'Offnungszeiten',
+  'app.lawyerDetailsPage.Monday': 'Montag',
+  'app.lawyerDetailsPage.Tuesday': 'Dienstag',
+  'app.lawyerDetailsPage.Wednesday': 'Mittwoch',
+  'app.lawyerDetailsPage.Thursday': 'Donnerstag',
+  'app.lawyerDetailsPage.Friday': 'Freitag',
+  'app.lawyerDetailsPage.Saturday': 'Samstag',
+  'app.lawyerDetailsPage.location': 'Standort',
 };

@@ -9,7 +9,7 @@ import {
 import './styles.scss';
 import NavigationBar from 'components/NavigationBar';
 import Footer from 'components/Footer';
-import GoogleMap from 'components/SearchPage/components/Maps';
+import GoogleMap from 'components/Shared/Maps';
 import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import ProfileCardList from './components/ProfileCardList';
 import SearchSummary from './components/SearchSummary';

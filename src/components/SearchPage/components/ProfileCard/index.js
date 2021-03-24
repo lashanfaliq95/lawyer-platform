@@ -12,6 +12,7 @@ import {
 
 import Calender from 'components/SearchPage/components/Calender';
 import formatMessages from 'components/formatMessages';
+import { Link } from 'react-router-dom';
 import messages from '../../messages';
 
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
@@ -45,18 +46,20 @@ const ProfileCard = ({
             className="cover-image"
           />
           <Col md="5">
-            <img
-              className="info-image"
-              src={imgUrl}
-              alt="Info images"
-            />
-            <div className="name-section">
-              {name}
-            </div>
-            <div className="specialization-section">
-              {type}
-            </div>
-            <div className="address">{address}</div>
+            <Link to={`/search/lawyer-details/${id}`}>
+              <img
+                className="info-image"
+                src={imgUrl}
+                alt="Info images"
+              />
+              <div className="name-section">
+                {name}
+              </div>
+              <div className="specialization-section">
+                {type}
+              </div>
+              <div className="address">{address}</div>
+            </Link>
             <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
           </Col>
           <Col md="7">

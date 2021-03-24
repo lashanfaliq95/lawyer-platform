@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Container } from 'reactstrap';
 
 import './styles.scss';
-import NavigationBar from 'components/NavigationBar';
 
+import NavigationBar from 'components/NavigationBar';
 import Footer from 'components/Footer';
 import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import { bool } from 'prop-types';
