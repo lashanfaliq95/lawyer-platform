@@ -5,37 +5,36 @@ import {
 } from 'prop-types';
 import formatMessages from 'components/formatMessages';
 import messages from '../../messages';
+import { MALE, CITY_OF_COLOGNE } from '../../constants';
 
 const SearchSummary = ({
-  numberOfResults, specialization, searchTerm, isSearchLoading,
+  numberOfResults,
+  specialization,
+  searchTerm,
+  isSearchLoading,
+  gender,
 }) => {
   const renderMessage = () => {
-    if (searchTerm.nameOrFirm && searchTerm.location) {
-      return formatMessages(messages.searchSummary,
-        {
-          numberOfResults,
-          nameOrFirm: searchTerm.nameOrFirm,
-          district: searchTerm.location,
+    if (numberOfResults === 1) {
+      if (gender === MALE) {
+        return formatMessages(messages.searchSummaryWithOneMale, {
+          location: searchTerm.location || CITY_OF_COLOGNE,
         });
+      }
+      return formatMessages(messages.searchSummaryWithOneFemale, {
+        location: searchTerm.location,
+      });
     }
-    if (searchTerm.nameOrFirm) {
-      return formatMessages(messages.searchSummaryWithNameOrFirm,
-        {
-          numberOfResults,
-          nameOrFirm: searchTerm.nameOrFirm,
-        });
-    }
-    if (searchTerm.location) {
-      return formatMessages(messages.searchSummaryWithLocation,
-        {
-          numberOfResults,
-          district: searchTerm.location,
-        });
-    }
-    return formatMessages(messages.searchSummaryGeneric,
-      {
+    if (numberOfResults < 100) {
+      return formatMessages(messages.SearchSummary, {
+        location: searchTerm.location || CITY_OF_COLOGNE,
         numberOfResults,
       });
+    }
+
+    return formatMessages(messages.SearchSummaryWithMoreResults, {
+      location: searchTerm.location || CITY_OF_COLOGNE,
+    });
   };
 
   const renderSearchSummary = () => {
@@ -54,17 +53,13 @@ const SearchSummary = ({
     if (numberOfResults > 0) {
       return (
         <div className="search-summary">
-          <h1>
-            {renderMessage()}
-          </h1>
+          <h1>{renderMessage()}</h1>
         </div>
       );
     }
     return (
       <div className="search-summary">
-        <h1>
-          {renderMessage()}
-        </h1>
+        <h1>{renderMessage()}</h1>
         <p>
           {formatMessages(messages.changeSearchOption)}
           <br />

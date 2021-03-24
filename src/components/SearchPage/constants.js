@@ -299,3 +299,6 @@ export const LAWYER = 'Lawyer';
 export const NOTARY = 'Notary';
 export const CONSULTANT = 'Consultant';
 export const EXPERT = 'Expert';
+export const MALE = 'Male';
+export const FEMALE = 'Female';
+export const CITY_OF_COLOGNE = 'Köln';

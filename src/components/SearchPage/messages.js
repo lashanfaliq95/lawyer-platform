@@ -1,21 +1,21 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  searchSummaryGeneric: {
-    id: 'app.searchPage.searchSummaryGeneric',
-    defaultMessage: '{numberOfResults} results found',
+  searchSummaryWithOneFemale: {
+    id: 'app.searchPage.searchSummaryWithOneFemale',
+    defaultMessage: '1 female expert in {location}',
   },
-  searchSummary: {
-    id: 'app.searchPage.searchSummary',
-    defaultMessage: '{numberOfResults} results with {nameOrFirm} in {district}',
+  searchSummaryWithOneMale: {
+    id: 'app.searchPage.searchSummaryWithOneMale',
+    defaultMessage: '1 male expert in {location}',
   },
-  searchSummaryWithNameOrFirm: {
-    id: 'app.searchPage.searchSummaryWithNameOrFirm',
-    defaultMessage: '{numberOfResults} results with {nameOrFirm}',
+  SearchSummary: {
+    id: 'app.searchPage.SearchSummary',
+    defaultMessage: '{numberOfResults} experts in {location}',
   },
-  searchSummaryWithLocation: {
-    id: 'app.searchPage.searchSummaryWithLocation',
-    defaultMessage: '{numberOfResults} results in {district}',
+  SearchSummaryWithMoreResults: {
+    id: 'app.searchPage.SearchSummaryWithMoreResults',
+    defaultMessage: 'More than 100 experts in {location}',
   },
   changeSearchOption: {
     id: 'app.searchPage.changeSearchOption',

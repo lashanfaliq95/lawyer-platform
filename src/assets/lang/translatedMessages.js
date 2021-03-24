@@ -115,14 +115,10 @@ export default {
   'app.homePage.transitionText': 'IN MEINER NÄHE',
   'app.homePage.recommendedLegalAreas': 'Vorgeschlagene Rechtsgebiete',
   'app.homePage.discoverExpertsNearby': 'Experten in der Umgebung entdecken',
-  'app.searchPage.searchSummary':
-    '{numberOfResults} Ergebnisse mit {nameOrFirm} in {district}',
-  'app.searchPage.searchSummaryGeneric':
-    '{numberOfResults} gefundene Ergebnisse',
-  'app.searchPage.searchSummaryWithNameOrFirm':
-    '{numberOfResults} Ergebnisse mit  {nameOrFirm}',
-  'app.searchPage.searchSummaryWithLocation':
-    '{numberOfResults} Ergebnisse in {district}',
+  'app.searchPage.searchSummaryWithOneFemale': '1 Expertin in {location}',
+  'app.searchPage.searchSummaryWithOneMale': '1 Experte in {location}',
+  'app.searchPage.SearchSummary': '{numberOfResults} Experten in {location}',
+  'app.searchPage.SearchSummaryWithMoreResults': 'Über 100 Experten in {location}',
   'app.searchPage.changeSearchOption': 'Sucheinstellungen ändern',
   'app.searchPage.findMoreOptions':
     'Finden Sie mehr {specialization} indem Sie Ihre Sucheinstellungen ändern',
