@@ -62,7 +62,7 @@ const ProfileCard = ({
             </Link>
             <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
           </Col>
-          <Col md="7">
+          <Col md="7" className="calender-section">
             <Calender id={id} />
           </Col>
         </Row>

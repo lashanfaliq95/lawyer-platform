@@ -12,13 +12,13 @@
   }
   .search-icon {
     position: absolute;
-    right: 24px;
-    top: 4px;
+    right: 26px;
+    top: 9px;
     background-color: #105fbb;
     color: white;
     border-radius: 50%;
-    height: 52px;
-    width: 52px;
+    height: 42px;
+    width: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,14 +43,15 @@
   }
 
   .first-search-input {
-    height: 60px;
+    margin-top: 5px;
+    height: 50px;
     border: 1px solid #dddddd;
-    border-radius: 24px 0 0 24px;
+    border-radius: 30px 0 0 30px;
     margin-right: -1px;
     width: 300px;
     border-right: none;
     text-align: left;
-    padding: 20px 10px 10px;
+    padding: 20px 10px 10px 25px;
     font-weight: bold;
     color: black;
     position: relative;
@@ -60,7 +61,7 @@
     position: absolute;
     top: 10px;
     font-weight: normal;
-    left: 50px;
+    left: 25px;
     color: grey;
     z-index: 10;
   }
@@ -68,13 +69,14 @@
     position: relative;
   }
   .second-search-input {
-    height: 60px;
+    margin-top: 5px;
+    height: 50px;
     border: 1px solid #dddddd;
-    border-radius: 0 24px 24px 0;
+    border-radius: 0 30px 30px 0;
     width: 300px;
     border-left: none;
     text-align: left;
-    padding: 20px 10px 10px;
+    padding: 20px 10px 10px 25px;
     font-weight: bold;
     color: black;
     position: relative;
@@ -82,8 +84,8 @@
 
   .vertical-separator {
     border-color: #d2d2d2 !important;
-    height: 45px;
-    margin-top: 7.5px;
+    height: 30px;
+    margin-top: 15px;
     z-index: 10;
   }
 
@@ -94,8 +96,8 @@
   .custom-suggestions-popup {
     position: absolute;
     z-index: 100;
-    border: 1px solid #ced4da;
     border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px ;
     width: 390px;
     left: 3%;
     top: 70px;

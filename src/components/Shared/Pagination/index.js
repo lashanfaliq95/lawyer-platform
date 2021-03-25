@@ -34,7 +34,7 @@ const PaginationComponent = (props) => {
     }
   }
   return (
-    <Pagination size="lg" aria-label="Page navigation">
+    <Pagination size="md" aria-label="Page navigation">
       <PaginationItem disabled={currentPage === 1}>
         <PaginationLink
           first

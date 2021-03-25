@@ -130,7 +130,7 @@ const SearchBar = ({
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={{
-          placeholder: 'Anwalt',
+          placeholder: 'z.B. Notar oder Frau Webder',
           value: searchTermForNameOrFirm,
           onChange: onNameOrFirmChange,
           onFocus: () => setIsPopupShown(true),
@@ -175,7 +175,7 @@ const SearchBar = ({
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
           inputProps={{
-            placeholder: 'Koln',
+            placeholder: 'z.B. Köln oder 50678',
             value: searchTermForLocation,
             onChange: onLocationChange,
             onFocus: (e) => {
