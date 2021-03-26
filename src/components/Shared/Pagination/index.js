@@ -37,16 +37,6 @@ const PaginationComponent = (props) => {
     <Pagination size="md" aria-label="Page navigation">
       <PaginationItem disabled={currentPage === 1}>
         <PaginationLink
-          first
-          onClick={() => {
-            setCurrentPage(1);
-            action(1);
-            setCurrentPageSection(1);
-          }}
-        />
-      </PaginationItem>
-      <PaginationItem disabled={currentPage === 1}>
-        <PaginationLink
           previous
           onClick={() => {
             setCurrentPage(currentPage - 1);
@@ -61,15 +51,6 @@ const PaginationComponent = (props) => {
           onClick={() => {
             setCurrentPage(currentPage + 1);
             action(currentPage + 1);
-          }}
-        />
-      </PaginationItem>
-      <PaginationItem disabled={currentPage === noOfPages}>
-        <PaginationLink
-          last
-          onClick={() => {
-            setCurrentPage(noOfPages);
-            action(noOfPages);
           }}
         />
       </PaginationItem>

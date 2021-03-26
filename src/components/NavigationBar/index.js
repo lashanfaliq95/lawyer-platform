@@ -14,7 +14,7 @@ import {
 import './styles.scss';
 import formatMessages from 'components/formatMessages';
 import Icon from 'components/Shared/Icon';
-import SearchBar from 'components/SearchPage/components/SearchBar';
+import SearchBar from 'components/Shared/SearchBar';
 import messages from './messages';
 
 const NavigationBar = ({
@@ -33,7 +33,9 @@ const NavigationBar = ({
       </div>
       <NavbarToggler onClick={toggle} />
       {showSearchInput && (
-        <SearchBar />
+        <div className="nav-search-wrapper">
+          <SearchBar />
+        </div>
       )}
       <Collapse isOpen={isOpen} navbar>
         {!isUserLoggedIn

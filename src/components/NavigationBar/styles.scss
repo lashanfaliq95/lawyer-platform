@@ -81,25 +81,15 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  .nav-search {
-    margin-left: 25%;
-  }
+  .nav-search-wrapper{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
 
   .left-pane {
     display: flex;
     justify-content: flex-end;
-  }
-
-  @media (max-width: 1300px) {
-    .nav-search {
-      margin-left: 10%;
-    }
-  }
-
-  @media (max-width: 1111px) {
-    .nav-search {
-      margin-left: 5%;
-    }
   }
 
   @media (max-width: 1061px) {

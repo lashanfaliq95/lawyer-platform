@@ -39,7 +39,6 @@
     z-index: 50;
     top: 70px;
     border-radius: 25px;
-    border: 1px solid #ced4da;
   }
 
   .first-search-input {
@@ -163,7 +162,7 @@
 
   .popup-image {
     background-repeat: no-repeat;
-    background-image: url('../../../../assets/images/map_location.webp');
+    background-image: url('../../../assets/images/map_location.webp');
     background-position: right bottom, bottom left;
     background-size: 50px 50px;
     height: 50px;

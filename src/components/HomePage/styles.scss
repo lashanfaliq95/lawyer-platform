@@ -10,6 +10,32 @@
     max-width: 100%;
     padding-top: 1px;
 
+    .home-page-search-bar {
+      width: fit-content;
+      width: intrinsic; /* Safari/WebKit uses a non-standard name */
+      width: -moz-max-content; /* Firefox/Gecko */
+      width: -webkit-max-content; /* Chrome */
+      margin-left: 5%;
+      font-weight: bold;
+
+      .nav-search {
+        padding-left: 0 !important;
+        input {
+          height: 60px;
+        }
+        a{
+          color: white;
+        }
+        .search-icon{
+          height: 52px;
+          width: 52px;
+        }
+        .vertical-separator{
+          margin-top: 20px;
+        }
+      }
+    }
+
     .search-input-group {
       width: 70%;
       margin-left: 5%;
@@ -72,8 +98,8 @@
       }
       button {
         margin-top: 10px;
-        background-color: #105FBB;
-        border-color: #105FBB;
+        background-color: #105fbb;
+        border-color: #105fbb;
       }
       button:hover {
         background-color: #004079;

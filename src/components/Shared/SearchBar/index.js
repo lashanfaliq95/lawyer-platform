@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { func, arrayOf, string } from 'prop-types';
+import {
+  func, arrayOf, string, bool,
+} from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 
 import {
@@ -14,7 +17,7 @@ import Icon from 'components/Shared/Icon';
 import VerticalSeparator from 'components/Shared/VerticalSeparator';
 import { getLocation } from 'components/Shared/utils';
 import formatMessages from 'components/formatMessages';
-import messages from '../../messages';
+import messages from '../../SearchPage/messages';
 
 const combinedSpecializations = [
   'Arbeitsrecht',
@@ -72,6 +75,7 @@ const SearchBar = ({
   getSearchResult: getSearchResultAction,
   nameOrFirmSuggestions,
   locationSuggestions: locationSuggestionsProp,
+  isLinkToSearch,
 }) => {
   const [searchTermForLocation, setSearchTermForLocation] = useState('');
   const [searchTermForNameOrFirm, setSearchTermForNameOrFirm] = useState('');
@@ -227,7 +231,11 @@ const SearchBar = ({
         )}
       </div>
       <div className="search-icon">
-        <Icon name="search" onClick={onClickSearch} size="large" />
+        {isLinkToSearch ? (
+          <Link to="/search">
+            <Icon name="search" size="large" />
+          </Link>
+        ) : <Icon name="search" onClick={onClickSearch} size="large" />}
       </div>
     </div>
   );
@@ -239,11 +247,13 @@ SearchBar.propTypes = {
   getSearchResult: func.isRequired,
   nameOrFirmSuggestions: arrayOf(string),
   locationSuggestions: arrayOf(string),
+  isLinkToSearch: bool,
 };
 
 SearchBar.defaultProps = {
   nameOrFirmSuggestions: [],
   locationSuggestions: [],
+  isLinkToSearch: false,
 };
 
 const mapStateToProps = (state) => ({

@@ -292,7 +292,7 @@ export const languages = [
   { id: 9, language: 'Rumänisch' },
   { id: 10, language: 'Russisch' },
   { id: 11, language: 'Spanisch' },
-  { id: 12, language: 'Türkisc' },
+  { id: 12, language: 'Türkisch' },
 ];
 
 export const LAWYER = 'Lawyer';
