@@ -8,6 +8,8 @@ import NavigationBar from 'components/NavigationBar';
 import Footer from 'components/Footer';
 import GoogleMap from 'components/Shared/Maps';
 import formatMessages from 'components/formatMessages';
+
+import BookAnAppointmentForm from './components/BookAnAppointmentForm';
 import messages from './messages';
 
 const coverImageUrl = 'https://www.zipjob.com/blog/wp-content/uploads/2020/08/linkedin-default-background-cover-photo-1.png';
@@ -141,7 +143,10 @@ const LawyerDetailsPage = ({ className }) => (
         </Col>
         <Col md="4">
           <div className="right section">
-            <div className="title">Termin</div>
+            <div className="title">{formatMessages(messages.bookAppointmentOnline)}</div>
+            <div className="form">
+              <BookAnAppointmentForm />
+            </div>
           </div>
         </Col>
       </Row>

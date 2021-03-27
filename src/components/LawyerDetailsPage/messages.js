@@ -90,4 +90,83 @@ export default defineMessages({
     id: 'app.lawyerDetailsPage.Saturday',
     defaultMessage: 'Saturday',
   },
+  bookAppointmentOnline: {
+    id: 'app.lawyerDetailsPage.bookAppointmentOnline',
+    defaultMessage: 'Book appointment online',
+  },
+  bookAppointmentInTwoMinutes: {
+    id: 'app.lawyerDetailsPage.bookAppointmentInTwoMinutes',
+    defaultMessage: 'book your appointment in 2 minutes',
+  },
+  areYouAlreadyAClient: {
+    id: 'app.lawyerDetailsPage.areYouAlreadyAClient',
+    defaultMessage: 'Are you already a client?',
+  },
+  no: {
+    id: 'app.lawyerDetailsPage.no',
+    defaultMessage: 'No',
+  },
+  iAmAlreadyAClient: {
+    id: 'app.lawyerDetailsPage.iAmAlreadyAClient',
+    defaultMessage: 'I am already a client',
+  },
+  whatTypeOfLegalIssueIsIt: {
+    id: 'app.lawyerDetailsPage.whatTypeOfLegalIssueIsIt',
+    defaultMessage: 'What type of legal issue is it?',
+  },
+  doYouHaveLegalInsurance: {
+    id: 'app.lawyerDetailsPage.doYouHaveLegalInsurance',
+    defaultMessage: 'do you have a legal insurance?',
+  },
+  yesIHaveLegalInsurance: {
+    id: 'app.lawyerDetailsPage.yesIHaveLegalInsurance',
+    defaultMessage: 'yes, I have a legal insurance',
+  },
+  selectTypeOfAppointment: {
+    id: 'app.lawyerDetailsPage.selectTypeOfAppointment',
+    defaultMessage: 'Select the type of appointment',
+  },
+  appointmentViaPhone: {
+    id: 'app.lawyerDetailsPage.appointmentViaPhone',
+    defaultMessage: 'appointment via phone calls',
+  },
+  personnelAppointments: {
+    id: 'app.lawyerDetailsPage.personnelAppointments',
+    defaultMessage: 'personal visit in lawyer‘s office',
+  },
+  whichExpertShouldAdviceYou: {
+    id: 'app.lawyerDetailsPage.whichExpertShouldAdviceYou',
+    defaultMessage: 'which expert should advise you',
+  },
+  summaryOfLegalIssue: {
+    id: 'app.lawyerDetailsPage.whichExpertShouldAdviceYou',
+    defaultMessage: 'please summary your legal issue',
+  },
+  selectTimeSlot: {
+    id: 'app.lawyerDetailsPage.selectTimeSlot',
+    defaultMessage: 'please select the date and time slot for the appointment',
+  },
+  bookTheAppointment: {
+    id: 'app.lawyerDetailsPage.bookTheAppointment',
+    defaultMessage: 'book the appointment',
+  },
+  noNewClientModalTitle: {
+    id: 'app.lawyerDetailsPage.noNewClientModalTitle',
+    defaultMessage: 'This expert does not take new clients',
+  },
+  noNewClientModalBody: {
+    id: 'app.lawyerDetailsPage.noNewClientModalBody',
+    defaultMessage: 'unfortunately, you cannot book'
+      + 'appointment as a new client. Alternatively you can reach the expert under'
+    + 'the phone number {phoneNumber} and try to get more info',
+  },
+  cancel: {
+    id: 'app.lawyerDetailsPage.cancel',
+    defaultMessage: 'Cancel',
+  },
+  call: {
+    id: 'app.lawyerDetailsPage.call',
+    defaultMessage: 'Call',
+  },
+
 });
