@@ -33,7 +33,7 @@ const getIsSearchTermLawyer = (searchTerm) => searchTerm.toLowerCase() === 'lawy
   || searchTerm.toLowerCase() === 'anwältinnen';
 
 const SpecializationFilter = ({
-  lawSpecializations,
+  specializations,
   setSpecializationFilters: setSpecializationFiltersAction,
   isFilterActive,
   intl,
@@ -41,7 +41,7 @@ const SpecializationFilter = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredLawSpecialization, setFilteredLawSpecialization] = useState([
-    ...lawSpecializations,
+    ...specializations,
   ]);
 
   const [
@@ -64,7 +64,7 @@ const SpecializationFilter = ({
       const lawResults = filteredLawSpecialization.map((specialization) => {
         const updatedSpecialization = { ...specialization };
         if (
-          !updatedSpecialization.specilization
+          !updatedSpecialization.specialization
             .toLowerCase()
             .includes(searchTerm.toLowerCase())
         ) {
@@ -105,7 +105,7 @@ const SpecializationFilter = ({
   };
 
   const onClickCancel = () => {
-    setFilteredLawSpecialization([...lawSpecializations]);
+    setFilteredLawSpecialization([...specializations]);
   };
 
   return (
@@ -132,7 +132,7 @@ const SpecializationFilter = ({
           {filteredLawSpecialization
             && filteredLawSpecialization.map(
               ({
-                specilization, id, isHidden, isChecked,
+                specialization, id, isHidden, isChecked,
               }) => !isHidden && (
                 <div className="specialization-element">
                   <Label check key={id}>
@@ -142,7 +142,7 @@ const SpecializationFilter = ({
                       checked={isChecked}
                       onChange={onChangeLawyerSpecializations}
                     />
-                    <div className="specialization-text">{specilization}</div>
+                    <div className="specialization-text">{specialization}</div>
                   </Label>
                 </div>
               ),
@@ -154,7 +154,7 @@ const SpecializationFilter = ({
 };
 
 SpecializationFilter.propTypes = {
-  lawSpecializations: arrayOf(shape({})).isRequired,
+  specializations: arrayOf(shape({})).isRequired,
   setSpecializationFilters: func.isRequired,
   isFilterActive: bool.isRequired,
   intl: shape.isRequired,

@@ -9,12 +9,11 @@ import messages from '../messages';
 
 const NoNewClientsModal = ({ showModal, phoneNumber }) => {
   const [modal, setModal] = useState(false);
-  console.log(modal);
   const toggle = () => setModal(!modal);
 
   useEffect(() => {
-    console.log(showModal, modal);
     setModal(showModal);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showModal]);
 
   return (

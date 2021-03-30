@@ -92,14 +92,14 @@ const NavigationBar = ({
                   </Link>
                 </div>
                 <div className="nav-button-item">
-                  <Link to="/auth/login" className="no-hover">
+                  <Link to="/appointments" className="no-hover">
                     <Button
                       color="link"
                       className="logged-in"
                     >
-                      <Icon name="envelope" />
+                      <Icon name="calendar-check" />
                       <span className="nav-text">
-                        {formatMessages(messages.mail)}
+                        {formatMessages(messages.appointments)}
                       </span>
                     </Button>
                   </Link>
@@ -110,9 +110,9 @@ const NavigationBar = ({
                       color="link"
                       className="logged-in"
                     >
-                      <Icon name="calendar-check" />
+                      <Icon name="question-circle" />
                       <span className="nav-text">
-                        {formatMessages(messages.appointments)}
+                        {formatMessages(messages.needHelp)}
                       </span>
                     </Button>
                   </Link>
@@ -152,5 +152,5 @@ NavigationBar.defaultProps = {
 };
 
 export default connect((state) => ({
-  isUserLoggedIn: !!state.login.userDetails && state.login.userDetails.id,
+  isUserLoggedIn: state.login.userDetails && !!state.login.userDetails.id,
 }))(NavigationBar);

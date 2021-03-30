@@ -8,6 +8,7 @@ import '../styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from 'components/HomePage';
+import AppointmentsPage from 'components/AppointmentsPage';
 import SearchPage from 'components/SearchPage';
 import LawyerDetailsPage from 'components/LawyerDetailsPage';
 import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
@@ -34,6 +35,11 @@ const App = () => (
         path="/"
         exact
         component={HomePage}
+      />
+      <Route
+        path="/appointments"
+        exact
+        component={AppointmentsPage}
       />
       <Route
         path="/search"

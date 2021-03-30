@@ -40,7 +40,7 @@ const HomePage = ({ isUserLoggedIn }) => (
       </>
       )}
     </Container>
-    <Footer isUserLoggedIn />
+    {!isUserLoggedIn && <Footer />}
   </>
 );
 

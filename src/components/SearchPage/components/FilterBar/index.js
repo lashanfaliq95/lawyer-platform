@@ -9,7 +9,7 @@ import FreeFirstAppointmentFilter from './FreeFirstAppointmentFilter';
 import ImmediateConfirmationFilter from './ImmediateConfirmationFilter';
 
 import messages from '../../messages';
-import { specializations, languages } from '../../constants';
+import { specializationsFilters, languages } from '../../constants';
 
 const FilterBar = ({
   activeFilters: {
@@ -36,7 +36,7 @@ const FilterBar = ({
       isFilterActive={activeSpecializations && activeSpecializations.length > 0}
     >
       <SpecializationFilter
-        {...specializations}
+        specializations={specializationsFilters}
         isFilterActive={activeSpecializations && activeSpecializations.length > 0}
       />
     </FilterButton>
