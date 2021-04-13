@@ -3,20 +3,21 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   infoText: {
     id: 'app.lawyerDetailsPage.infoText',
-    defaultMessage: 'Liebe Mandanten,{br} '
-    + 'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}'
-    + 'In meiner Kanzlei berate ich Startups, Emerging Companies sowie deren Investoren in{br}'
-    + 'wirtschaftlichen Angelegenheiten. (WEN? WAS ALLGEMEIN?){br}'
-    + 'Für Startups und Emerging Companies agiere ich als erster Ansprechpartner und{br}'
-    + 'betreue diese umfassend von der Gründung, über die Finanzierung, bis hin zum Exit.{br}'
-    + 'Investoren beraten wir im Rahmen von Unternehmensbeteiligungen und Exits. (WAS{br}'
-    + 'GENAU?){br}'
-    + 'Da die Grundlage für eine effektive Beratung ein möglichst umfangreiches Bild der{br}'
-    + 'rechtlichen Situation ist, lege ich großen Wert auf ein Vertrauensverhältnis zu meinen{br}'
-    + 'Mandanten.{br}'
-    + 'Und das stets mit dem Ziel, eine optimale Lösung für diese zu finden.{br}'
-    + 'Vereinbaren Sie Ihren Termin direkt online. Ich freue mich auf Ihre Terminbuchung!{br}'
-    + 'Ihre Pia Parez{br}',
+    defaultMessage:
+      'Liebe Mandanten,{br} {br} '
+      + 'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}{br}'
+      + 'In meiner Kanzlei berate ich Startups, Emerging Companies sowie deren Investoren in{br}'
+      + 'wirtschaftlichen Angelegenheiten. (WEN? WAS ALLGEMEIN?){br}{br}'
+      + 'Für Startups und Emerging Companies agiere ich als erster Ansprechpartner und{br}'
+      + 'betreue diese umfassend von der Gründung, über die Finanzierung, bis hin zum Exit.{br}{br}'
+      + 'Investoren beraten wir im Rahmen von Unternehmensbeteiligungen und Exits. (WAS'
+      + 'GENAU?){br}{br}'
+      + 'Da die Grundlage für eine effektive Beratung ein möglichst umfangreiches Bild der{br}'
+      + 'rechtlichen Situation ist, lege ich großen Wert auf ein Vertrauensverhältnis zu meinen{br}'
+      + 'Mandanten.{br}{br}'
+      + 'Und das stets mit dem Ziel, eine optimale Lösung für diese zu finden.{br}{br}'
+      + 'Vereinbaren Sie Ihren Termin direkt online. Ich freue mich auf Ihre Terminbuchung!{br}{br}'
+      + 'Ihre Pia Parez{br}',
   },
   specialization: {
     id: 'app.lawyerDetailsPage.specialization',
@@ -96,7 +97,7 @@ export default defineMessages({
   },
   bookAppointmentInTwoMinutes: {
     id: 'app.lawyerDetailsPage.bookAppointmentInTwoMinutes',
-    defaultMessage: 'book your appointment in 2 minutes',
+    defaultMessage: 'book your appointment in 2 minutes.',
   },
   areYouAlreadyAClient: {
     id: 'app.lawyerDetailsPage.areYouAlreadyAClient',
@@ -156,9 +157,10 @@ export default defineMessages({
   },
   noNewClientModalBody: {
     id: 'app.lawyerDetailsPage.noNewClientModalBody',
-    defaultMessage: 'unfortunately, you cannot book'
+    defaultMessage:
+      'unfortunately, you cannot book'
       + 'appointment as a new client. Alternatively you can reach the expert under'
-    + 'the phone number {phoneNumber} and try to get more info',
+      + 'the phone number {phoneNumber} and try to get more info',
   },
   cancel: {
     id: 'app.lawyerDetailsPage.cancel',
@@ -168,5 +170,4 @@ export default defineMessages({
     id: 'app.lawyerDetailsPage.call',
     defaultMessage: 'Call',
   },
-
 });

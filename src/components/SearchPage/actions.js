@@ -15,6 +15,8 @@ import {
   GET_LAWYER_AVAILABILITY,
   SET_LAWYER_AVAILABILITY,
   LOAD_LAWYER_AVAILABILITY,
+  GET_LAWYER_DETAILS,
+  SET_LAWYER_DETAILS,
 } from './constants';
 
 export const onMouseEnterCard = (values) => ({
@@ -93,5 +95,15 @@ export const setLawyerAvailability = (data) => ({
 
 export const loadLawyerAvailability = (data) => ({
   type: LOAD_LAWYER_AVAILABILITY,
+  payload: data,
+});
+
+export const getLawyerDetails = (data) => ({
+  type: GET_LAWYER_DETAILS,
+  payload: data,
+});
+
+export const setLawyerDetails = (data) => ({
+  type: SET_LAWYER_DETAILS,
   payload: data,
 });

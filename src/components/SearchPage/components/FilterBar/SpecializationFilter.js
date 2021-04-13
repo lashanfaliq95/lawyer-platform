@@ -124,6 +124,10 @@ const SpecializationFilter = ({
           onPaste={(e) => setSearchTerm(e.clipboardData.getData('Text'))}
           value={searchTerm}
           placeholder={intl.formatMessage(messages.searchSpecialization)}
+          onKeyDown={(e) => {
+            const key = e.keyCode || e.charCode;
+            if (key === 8 || key === 46) { setFilteredLawSpecialization([...specializations]); }
+          }}
           className="search-input"
         />
       </div>

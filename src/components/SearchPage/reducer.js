@@ -8,6 +8,7 @@ import {
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
   SET_SEARCH_SUGGESTIONS_FOR_LOCATION,
+  SET_LAWYER_DETAILS,
 } from './constants';
 
 const initialState = {
@@ -129,6 +130,7 @@ const initialState = {
     location: [],
     nameOrFirm: [],
   },
+  lawyerDetails: null,
 };
 
 const search = (state = initialState, action) => {
@@ -218,6 +220,11 @@ const search = (state = initialState, action) => {
           }
           return updatedLocation;
         }),
+      };
+    case SET_LAWYER_DETAILS:
+      return {
+        ...state,
+        lawyerDetails: action.payload[0],
       };
     default:
       return state;

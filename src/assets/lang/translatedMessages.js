@@ -199,7 +199,7 @@ export default {
   'app.lawyerDetailsPage.Saturday': 'Samstag',
   'app.lawyerDetailsPage.location': 'Standort',
   'app.lawyerDetailsPage.bookAppointmentOnline': 'Termin online buchen',
-  'app.lawyerDetailsPage.bookAppointmentInTwoMinutes': 'Buchen Sie Ihren Termin in zwei Minuten',
+  'app.lawyerDetailsPage.bookAppointmentInTwoMinutes': 'Buchen Sie Ihren Termin in zwei Minuten.',
   'app.lawyerDetailsPage.areYouAlreadyAClient': 'Sind Sie bereits Mandant?',
   'app.lawyerDetailsPage.no': 'Nein',
   'app.lawyerDetailsPage.iAmAlreadyAClient': 'Ja, ich bin bereits Mandant',
@@ -220,4 +220,12 @@ export default {
   + 'Information zu erhalten.',
   'app.lawyerDetailsPage.cancel': 'Abbrechen',
   'app.lawyerDetailsPage.call': 'Anrufen',
+  'app.appointmentsPage.appointments': 'Termine',
+  'app.appointmentsPage.pastAppointments': 'Vergangene',
+  'app.appointmentsPage.upComingAppointments': 'Anstehende',
+  'app.appointmentsPage.getSupport': 'Holen Sie sich Unterstützung',
+  'app.appointmentsPage.findSuitableExpertTxt': 'Finden Sie jetzt den passenden Experten für Ihre Angelegenheit und'
+  + ' vereinbaren Sie einen Termin. Und das, '
+  + 'ohne den Hörer in die Hand zu nehmen',
+  'app.appointmentsPage.findSuitableExpertBtn': 'Experten finden',
 };

@@ -7,6 +7,7 @@ import {
 } from 'redux-saga/effects';
 
 import {
+  getLawyerService,
   getLawyersService,
   getLawyerAvailabilityService,
 } from 'services/userService';
@@ -17,6 +18,7 @@ import {
 } from 'services/searchService';
 import {
   setLawyers,
+  setLawyerDetails,
   setActiveFilters,
   setLawyerAvailability,
   setSearchSuggestionsForNameOrFirm,
@@ -24,6 +26,7 @@ import {
 } from './actions';
 import {
   GET_LAWYERS,
+  GET_LAWYER_DETAILS,
   SET_LANGUAGE_FILTERS,
   SET_SPECIALIZATION_FILTERS,
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
@@ -84,9 +87,16 @@ function* getSearchSuggestionsForLocation(action) {
   const { result } = yield getLocationSuggestions(action.payload);
   yield put(setSearchSuggestionsForLocation(result));
 }
+
+function* getLawyerDetails(action) {
+  const { result } = yield getLawyerService(action.payload);
+  yield put(setLawyerDetails(result));
+}
+
 export default [
   takeLatest(GET_LAWYERS, getLawyers),
   takeEvery(LOAD_LAWYER_AVAILABILITY, getLawyerAvailability),
+  takeLatest(GET_LAWYER_DETAILS, getLawyerDetails),
   debounce(500, SET_LANGUAGE_FILTERS, getFilteredSearchResult),
   debounce(500, SET_SPECIALIZATION_FILTERS, getFilteredSearchResult),
   debounce(500, SEARCH_BY_NAME_OR_FIRM_OR_LOCATION, getSearchResults),

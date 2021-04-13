@@ -6,6 +6,32 @@
          font-size: 40px;
          font-weight: bold;
          margin-top: 10%;
-         margin-left: 5%;
+         margin-bottom: 5%;
+     }
+
+     .no-appointments-card{
+         margin-top: 50px;
+         margin-left: 20px;
+         border-radius: 25px;
+         .no-appointment-card-btn{
+             display: flex;
+             justify-content: flex-end;
+             margin-right: 28px;
+             button{
+                background-color: #105FBB;
+                border-color: #105FBB;
+             }
+             button:hover{
+                background-color: #004079;
+                border-color: #004079;  
+             }
+             a{
+                color:white;
+             }
+         }
+     }
+
+     .card-title{
+         font-weight:bold;
      }
 }
