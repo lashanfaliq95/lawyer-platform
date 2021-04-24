@@ -15,6 +15,7 @@ import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
 import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage';
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 import ResetPwdCardPage from 'components/LoginPage/components/ResetPwdCardPage';
+import UnprotectedRoute from 'components/Shared/UnprotectedRoute';
 
 import reducers from 'reducers';
 import sagas from 'sagas';
@@ -51,17 +52,17 @@ const App = () => (
         exact
         component={LawyerDetailsPage}
       />
-      <Route
+      <UnprotectedRoute
         path="/auth/login"
         exact
         component={LoginCardPage}
       />
-      <Route
+      <UnprotectedRoute
         path="/auth/forgot-pwd"
         exact
         component={ForgotPwdCardPage}
       />
-      <Route
+      <UnprotectedRoute
         path="/auth/register"
         exact
         component={RegisterCardPage}

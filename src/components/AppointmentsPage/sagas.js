@@ -7,9 +7,7 @@ import { setAppointment, toggleCancellationModal } from './action';
 const getUserAppointments = (state) => state.appointments.userAppointments;
 
 function* deleteAppointment() {
-  console.log('in');
   const userAppointments = yield select(getUserAppointments);
-
   yield delay(1000);
   yield put(setAppointment(userAppointments.splice(1, 1)));
   yield put(toggleCancellationModal(false));

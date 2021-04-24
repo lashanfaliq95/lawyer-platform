@@ -134,7 +134,7 @@ const SearchBar = ({
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={{
-          placeholder: 'z.B. Notar oder Frau Webder',
+          placeholder: 'z.B. Notar oder Frau Weber',
           value: searchTermForNameOrFirm,
           onChange: onNameOrFirmChange,
           onFocus: () => setIsPopupShown(true),
