@@ -3,7 +3,7 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
 import {
-  arrayOf, func, bool, shape,
+  arrayOf, func, bool, shape, number,
 } from 'prop-types';
 
 import Icon from 'components/Shared/Icon';
@@ -34,6 +34,7 @@ const getIsSearchTermLawyer = (searchTerm) => searchTerm.toLowerCase() === 'lawy
 
 const SpecializationFilter = ({
   specializations,
+  activeSpecializations,
   setSpecializationFilters: setSpecializationFiltersAction,
   isFilterActive,
   intl,
@@ -143,7 +144,7 @@ const SpecializationFilter = ({
                     <Input
                       type="checkbox"
                       value={id}
-                      checked={isChecked}
+                      checked={isChecked || activeSpecializations.includes(id)}
                       onChange={onChangeLawyerSpecializations}
                     />
                     <div className="specialization-text">{specialization}</div>
@@ -163,6 +164,7 @@ SpecializationFilter.propTypes = {
   isFilterActive: bool.isRequired,
   intl: shape.isRequired,
   onClose: func.isRequired,
+  activeSpecializations: arrayOf(shape(number)).isRequired,
 };
 
 export default injectIntl(

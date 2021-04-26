@@ -8,125 +8,130 @@
     margin-top: 10%;
     margin-bottom: 5%;
   }
-.content{
-  margin-bottom: 50px;
 
-  .no-appointments-card {
-    margin-top: 50px;
-    margin-left: 20px;
-    border-radius: 25px;
-    .no-appointment-card-btn {
+  ul.nav-tabs:hover {
+    cursor: pointer;
+  }
+
+  .content {
+    margin-bottom: 50px;
+
+    .no-appointments-card {
+      margin-top: 50px;
+      margin-left: 20px;
+      border-radius: 25px;
+      .no-appointment-card-btn {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 28px;
+        button {
+          background-color: #105fbb;
+          border-color: #105fbb;
+        }
+        button:hover {
+          background-color: #004079;
+          border-color: #004079;
+        }
+        a {
+          color: white;
+        }
+      }
+    }
+
+    .list-item {
       display: flex;
-      justify-content: flex-end;
-      margin-right: 28px;
-      button {
+      .initials-icon {
+        color: orange;
+        background-color: orangered;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 18px;
+        margin-top: 6px;
+        margin-right: 10px;
+      }
+    }
+
+    .list-group {
+      border-radius: 20px;
+    }
+
+    .list-item-title {
+      font-weight: bold;
+    }
+
+    .address {
+      display: flex;
+      justify-content: space-between;
+      .directions {
+        padding: 10px;
+        a {
+          color: #105fbb;
+        }
+      }
+    }
+
+    .list-footer {
+      display: flex;
+      justify-content: space-between;
+      .btn-secondary {
+        background-color: #f2f2f2;
+        border-color: #f2f2f2;
+        color: #105fbb;
+      }
+      button.btn-secondary:hover {
+        background-color: #cac6c6;
+        border-color: #cac6c6;
+      }
+
+      .btn-primary {
         background-color: #105fbb;
         border-color: #105fbb;
       }
-      button:hover {
+      button.btn-primary:hover {
         background-color: #004079;
         border-color: #004079;
       }
+    }
+
+    .past-appointments {
+      justify-content: flex-end;
       a {
         color: white;
+        text-decoration: none;
       }
     }
-  }
 
-  .list-item {
-    display: flex;
-    .initials-icon {
-      color: orange;
-      background-color: orangered;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      text-align: center;
-      padding-top: 18px;
-      margin-top: 6px;
-      margin-right: 10px;
-    }
-  }
-
-  .list-group{
-    border-radius: 20px;
-  }
-
-  .list-item-title{
-    font-weight: bold;
-  }
-
-  .address{
-    display: flex;
-    justify-content: space-between;
-    .directions{
-      padding: 10px;
-      a{
-      color: #105fbb;
-      }
-    }
-  }
-
-  .list-footer{
-    display: flex;
-    justify-content: space-between;
-    .btn-secondary{
-      background-color: #F2F2F2;
-      border-color: #F2F2F2;
-      color: #105fbb;
-    }
-    button.btn-secondary:hover{
-      background-color: #cac6c6;
-      border-color: #cac6c6;
-    }
-
-    .btn-primary {
-      background-color: #105fbb;
-      border-color: #105fbb;
-    }
-    button.btn-primary:hover {
-      background-color: #004079;
-      border-color: #004079;
-    }
-  }
-
-  .past-appointments{
-    justify-content: flex-end;
-    a{
-      color: white;
-      text-decoration: none;
-    }
-  }
-
-  .user-appointment-list {
-    a {
-      color: black;
-      margin-left: 10px;
-      font-size: 20px;
-      text-decoration: none;
-      .nav-text {
+    .user-appointment-list {
+      a {
+        color: black;
         margin-left: 10px;
+        font-size: 20px;
+        text-decoration: none;
+        .nav-text {
+          margin-left: 10px;
+        }
       }
     }
-  }
 
-  .list-title {
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  .card-title {
-    font-weight: bold;
+    .list-title {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .card-title {
+      font-weight: bold;
+    }
   }
 }
-}
 
-.modal{
-  .btn-secondary{
-    background-color: #F2F2F2;
-    border-color: #F2F2F2;
+.modal {
+  .btn-secondary {
+    background-color: #f2f2f2;
+    border-color: #f2f2f2;
     color: #105fbb;
   }
-  button.btn-secondary:hover{
+  button.btn-secondary:hover {
     background-color: #cac6c6;
     border-color: #cac6c6;
   }
@@ -139,5 +144,4 @@
     background-color: #004079;
     border-color: #004079;
   }
-  
 }

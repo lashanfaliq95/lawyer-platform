@@ -62,7 +62,7 @@ const App = () => (
         exact
         component={ForgotPwdCardPage}
       />
-      <UnprotectedRoute
+      <Route
         path="/auth/register"
         exact
         component={RegisterCardPage}
