@@ -15,9 +15,14 @@ import Loader from 'components/SearchPage/components/Calender/components/Loader'
 import formatMessages from 'components/formatMessages';
 
 import {
-  addWeeksToDate, subWeeksFromDate, getWeeksDayDateMonth,
+  addWeeksToDate,
+  subWeeksFromDate,
+  getWeeksDayDateMonth,
 } from 'utils/date';
-import { getLawyerAvailability, loadLawyerAvailability } from 'components/SearchPage/actions';
+import {
+  getLawyerAvailability,
+  loadLawyerAvailability,
+} from 'components/SearchPage/actions';
 import messages from '../../messages';
 import EmptySlot from './components/EmptySlot';
 import { MONTH_OF_YEAR, DAY_OF_WEEK } from './constants';
@@ -32,12 +37,14 @@ const Calender = ({
   currentId,
 }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [calenderHeader, setCalenderHeader] = useState(getWeeksDayDateMonth(currentDate, true));
+  const [calenderHeader, setCalenderHeader] = useState(
+    getWeeksDayDateMonth(currentDate, true),
+  );
   const [slotsShown, setSlotsShown] = useState(4);
 
   useEffect(() => {
     loadLawyerAvailabilityAction({ startDate: currentDate, id });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onClickNextWeek = () => {
@@ -53,7 +60,7 @@ const Calender = ({
     getLawyerAvailabilityAction({ startDate: updatedDate, id });
     setCurrentDate(updatedDate);
   };
-  const result = { };
+  const result = {};
   let isEmpty = false;
   if (availability) {
     Object.keys(availability).forEach((dayOfWeek) => {
@@ -61,11 +68,15 @@ const Calender = ({
         if (!result[dayOfWeek]) {
           result[dayOfWeek] = [];
         }
-        result[dayOfWeek].push(availability[dayOfWeek][i] ? (
-          <button className="slot" type="button">
-            10:30
-          </button>
-        ) : <EmptySlot />);
+        result[dayOfWeek].push(
+          availability[dayOfWeek][i] ? (
+            <button className='slot' type='button'>
+              10:30
+            </button>
+          ) : (
+            <EmptySlot />
+          ),
+        );
       }
     });
   } else {
@@ -75,48 +86,50 @@ const Calender = ({
   return (
     <Container className={className}>
       {isLoading && currentId === id ? (
-        <Loader isLoading={isLoading} className="calender-loader" />
+        <Loader isLoading={isLoading} className='calender-loader' />
       ) : (
         <>
-          <Row className="calender-header">
-            <Icon name="chevron-left" size="large" onClick={onClickPreviousWeek} />
-            {
-              calenderHeader.length > 0
+          <Row className='calender-header'>
+            <Icon
+              name='chevron-left'
+              size='large'
+              onClick={onClickPreviousWeek}
+            />
+            {calenderHeader.length > 0
               && calenderHeader.map(({ month, dayOfMonth, dayOfWeek }) => (
                 <Col key={`${month}${dayOfMonth}`}>
-                  <div className="day-name">{formatMessages(DAY_OF_WEEK[dayOfWeek])}</div>
-                  <div className="date">
+                  <div className='day-name'>
+                    {formatMessages(DAY_OF_WEEK[dayOfWeek])}
+                  </div>
+                  <div className='date'>
                     {`${dayOfMonth}. `}
                     {formatMessages(MONTH_OF_YEAR[month])}
                   </div>
                 </Col>
-              ))
-            }
-            <Icon name="chevron-right" size="large" onClick={onClickNextWeek} />
+              ))}
+            <Icon name='chevron-right' size='large' onClick={onClickNextWeek} />
           </Row>
-          <div className="separator">
-            <HS color="#ced4da" />
+          <div className='separator'>
+            <HS color='#ced4da' />
           </div>
 
-          <Row className="body">
+          <Row className='body'>
             {isEmpty ? (
-              <div className="no-appointments-overlay">
-                <div className="message">
-                  <div className="next-slot">
-                    <Button className="next-slot-btn" color="link">
-                      <p className="text">Nächster Termin am 25. Januar 2021</p>
+              <div className='no-appointments-overlay'>
+                <div className='message'>
+                  <div className='next-slot'>
+                    <Button className='next-slot-btn' color='link'>
+                      <p className='text'>Nächster Termin am 25. Januar 2021</p>
 
-                      <Icon name="chevron-right" />
+                      <Icon name='chevron-right' />
                     </Button>
                   </div>
                 </div>
               </div>
             ) : (
               <>
-                { Object.keys(result).map((dayOfWeek) => (
-                  <Col>
-                    {result[dayOfWeek]}
-                  </Col>
+                {Object.keys(result).map((dayOfWeek) => (
+                  <Col>{result[dayOfWeek]}</Col>
                 ))}
               </>
             )}
@@ -125,14 +138,31 @@ const Calender = ({
       )}
       {!isEmpty && !(isLoading && currentId === id) ? (
         <>
-          <div className="separator">
-            <HS color="#ced4da" />
+          <div className='separator'>
+            <HS color='#ced4da' />
           </div>
 
-          <Row className="bottom-button">
-            {slotsShown === 4 ? <Button color="link" onClick={() => { setSlotsShown(9); }}>{formatMessages(messages.displayMore)}</Button> : null}
-            {slotsShown === 9 ? <Button color="link" onClick={() => { setSlotsShown(4); }}>{formatMessages(messages.displayLess)}</Button>
-              : null}
+          <Row className='bottom-button'>
+            {slotsShown === 4 ? (
+              <Button
+                color='link'
+                onClick={() => {
+                  setSlotsShown(9);
+                }}
+              >
+                {formatMessages(messages.displayMore)}
+              </Button>
+            ) : null}
+            {slotsShown === 9 ? (
+              <Button
+                color='link'
+                onClick={() => {
+                  setSlotsShown(4);
+                }}
+              >
+                {formatMessages(messages.displayLess)}
+              </Button>
+            ) : null}
           </Row>
         </>
       ) : null}
@@ -163,6 +193,8 @@ const mapStateToProps = (state, props) => ({
   currentId: state.search.availability.currentId,
 });
 
-export default injectIntl(connect(
-  mapStateToProps, { getLawyerAvailability, loadLawyerAvailability },
-)(Calender));
+export default injectIntl(
+  connect(mapStateToProps, { getLawyerAvailability, loadLawyerAvailability })(
+    Calender,
+  ),
+);

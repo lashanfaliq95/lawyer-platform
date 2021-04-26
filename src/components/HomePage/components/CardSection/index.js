@@ -5,26 +5,26 @@ import Card from 'components/Shared/CardComponent';
 import messages from '../../messages';
 
 const CardSection = () => (
-  <Container className="card-section" fluid>
-    <div className="inner-section">
+  <Container className='card-section' fluid>
+    <div className='inner-section'>
       <Row>
-        <Col md="4">
+        <Col md='4'>
           <Card
-            iconName="search"
+            iconName='search'
             title={messages.cardOneTitle}
             description={messages.cardOneDescription}
           />
         </Col>
-        <Col md="4">
+        <Col md='4'>
           <Card
-            iconName="calendar-check"
+            iconName='calendar-check'
             title={messages.cardTwoTitle}
             description={messages.cardTwoDescription}
           />
         </Col>
-        <Col md="4">
+        <Col md='4'>
           <Card
-            iconName="bell"
+            iconName='bell'
             title={messages.cardThreeTitle}
             description={messages.cardThreeDescription}
           />

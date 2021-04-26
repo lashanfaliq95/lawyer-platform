@@ -44,7 +44,9 @@ const LanguageFilter = ({
   };
 
   const onClickSave = () => {
-    setLanguageFiltersAction({ activeLanguages: getSelectedLanguages(updatedLanguages) });
+    setLanguageFiltersAction({
+      activeLanguages: getSelectedLanguages(updatedLanguages),
+    });
     onClose();
   };
 
@@ -54,24 +56,28 @@ const LanguageFilter = ({
 
   return (
     <FilterModal
-      className="specialization-filter"
+      className='specialization-filter'
       onClickSave={onClickSave}
       onClickCancel={onClickCancel}
       isCancelBtnDisabled={isLanguageSelected ? false : !isFilterActive}
     >
-      <div className="specialization">
-        <div className="content">
+      <div className='specialization'>
+        <div className='content'>
           {updatedLanguages.map(({ id, language, isChecked }) => (
-            <div className="specialization-element">
+            <div className='specialization-element'>
               <Label check key={id}>
-                <Input value={id} type="checkbox" checked={isChecked} onChange={onChange} />
-                <div className="specialization-text">{language}</div>
+                <Input
+                  value={id}
+                  type='checkbox'
+                  checked={isChecked}
+                  onChange={onChange}
+                />
+                <div className='specialization-text'>{language}</div>
               </Label>
             </div>
           ))}
         </div>
       </div>
-
     </FilterModal>
   );
 };

@@ -45,13 +45,15 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "prettier": "./.prettierrc",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.js": "eslint --cache --fix",
+    "**/*": "prettier --write --ignore-unknown"
   },
   "browserslist": {
     "production": [

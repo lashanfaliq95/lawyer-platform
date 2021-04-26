@@ -13,12 +13,18 @@ const NoNewClientsModal = ({ showModal, phoneNumber }) => {
 
   useEffect(() => {
     setModal(showModal);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showModal]);
 
   return (
     <div>
-      <Modal isOpen={modal} toggle={toggle} onClose={() => { setModal(false); }}>
+      <Modal
+        isOpen={modal}
+        toggle={toggle}
+        onClose={() => {
+          setModal(false);
+        }}
+      >
         <ModalHeader toggle={toggle}>
           {formatMessage(messages.noNewClientModalTitle)}
         </ModalHeader>
@@ -26,13 +32,11 @@ const NoNewClientsModal = ({ showModal, phoneNumber }) => {
           {formatMessage(messages.noNewClientModalBody, { phoneNumber })}
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>
+          <Button color='primary' onClick={toggle}>
             {formatMessage(messages.cancel)}
           </Button>
-          <Button color="secondary" onClick={toggle}>
-            <a href={`tel:${phoneNumber}`}>
-              {formatMessage(messages.call)}
-            </a>
+          <Button color='secondary' onClick={toggle}>
+            <a href={`tel:${phoneNumber}`}>{formatMessage(messages.call)}</a>
           </Button>
         </ModalFooter>
       </Modal>

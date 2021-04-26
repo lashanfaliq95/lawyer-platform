@@ -11,8 +11,11 @@ const UnprotectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={(props) => (isUserLoggedIn
-        ? <Redirect to={{ pathname: '/', state: { from: props.location } }} /> : <Component {...props} />)}
+      render={(props) => (isUserLoggedIn ? (
+        <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+      ) : (
+        <Component {...props} />
+      ))}
     />
   );
 };

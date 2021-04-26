@@ -38,10 +38,10 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
   });
 
   return (
-    <Card className="register-card">
+    <Card className='register-card'>
       <CardBody>
-        <CardTitle className="title">
-          <Link to="/" className="link-text">
+        <CardTitle className='title'>
+          <Link to='/' className='link-text'>
             {formatMessage(messages.registerTitle)}
           </Link>
         </CardTitle>
@@ -51,9 +51,9 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               <FormGroup>
                 <FloatingInputLabel
                   label={messages.firstName}
-                  type="text"
-                  name="firstName"
-                  id="firstName"
+                  type='text'
+                  name='firstName'
+                  id='firstName'
                   required
                   {...formik.getFieldProps('firstName')}
                 />
@@ -63,9 +63,9 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
               <FormGroup>
                 <FloatingInputLabel
                   label={messages.lastName}
-                  type="text"
-                  name="lastName"
-                  id="lastName"
+                  type='text'
+                  name='lastName'
+                  id='lastName'
                   required
                   {...formik.getFieldProps('lastName')}
                 />
@@ -75,9 +75,9 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
           <FormGroup>
             <FloatingInputLabel
               label={messages.emailPlaceHolder}
-              type="email"
-              name="email"
-              id="email"
+              type='email'
+              name='email'
+              id='email'
               required
               {...formik.getFieldProps('email')}
             />
@@ -85,9 +85,9 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
           <FormGroup>
             <FloatingInputLabel
               label={messages.mobileOrLandLine}
-              type="text"
-              name="mobilePhone"
-              id="mobilePhone"
+              type='text'
+              name='mobilePhone'
+              id='mobilePhone'
               required
               {...formik.getFieldProps('mobilePhone')}
             />
@@ -95,21 +95,21 @@ const RegisterCard = ({ registerUser: registerUserAction }) => {
           <FormGroup>
             <FloatingLabelPwdInput
               label={messages.passwordPlaceHolder}
-              name="password"
-              id="password"
+              name='password'
+              id='password'
               showPwdStrength
               required
               {...formik.getFieldProps('password')}
             />
           </FormGroup>
           <FormGroup>
-            <Button type="submit" color="primary" className="login-btn">
+            <Button type='submit' color='primary' className='login-btn'>
               {formatMessage(messages.register)}
             </Button>
           </FormGroup>
         </Form>
-        <div className="outer-link">
-          <Link to="/auth/login">
+        <div className='outer-link'>
+          <Link to='/auth/login'>
             {formatMessage(messages.alreadyHaveAnAccount)}
           </Link>
         </div>

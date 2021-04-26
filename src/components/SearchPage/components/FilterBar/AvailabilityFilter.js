@@ -6,7 +6,11 @@ import formatMessages from 'components/formatMessages';
 import FilterModal from './FilterModal';
 import messages from '../../messages';
 
-const getIsCancelBtnDisabled = ({ isFilterActive, isFreeInComingThreeDays, isFreeToday }) => {
+const getIsCancelBtnDisabled = ({
+  isFilterActive,
+  isFreeInComingThreeDays,
+  isFreeToday,
+}) => {
   if (isFreeInComingThreeDays || isFreeToday) {
     return false;
   }
@@ -39,17 +43,21 @@ const AvailabilityFilter = ({ isFilterActive, onClose }) => {
     >
       <Label check>
         <Input
-          type="checkbox"
+          type='checkbox'
           checked={isFreeToday}
-          onChange={() => { setIsFreeToday(!isFreeToday); }}
+          onChange={() => {
+            setIsFreeToday(!isFreeToday);
+          }}
         />
         {formatMessages(messages.today)}
       </Label>
       <Label check>
         <Input
-          type="checkbox"
+          type='checkbox'
           checked={isFreeInComingThreeDays}
-          onChange={() => { setIsFreeInComingThreeDays(!isFreeInComingThreeDays); }}
+          onChange={() => {
+            setIsFreeInComingThreeDays(!isFreeInComingThreeDays);
+          }}
         />
         {formatMessages(messages.comingThreeDays)}
       </Label>

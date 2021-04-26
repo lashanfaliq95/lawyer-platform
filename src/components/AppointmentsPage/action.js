@@ -1,4 +1,8 @@
-import { DELETE_APPOINTMENT, SET_APPOINTMENT, TOGGLE_CANCELLATION_MODAL } from './constants';
+import {
+  DELETE_APPOINTMENT,
+  SET_APPOINTMENT,
+  TOGGLE_CANCELLATION_MODAL,
+} from './constants';
 
 export const deleteAppointment = (payload) => ({
   type: DELETE_APPOINTMENT,

@@ -17,7 +17,7 @@ const GoogleMaps = ({ mapLocation, locations, zoomLevel }) => {
       bounds.forEach((bound) => mapBounds.extend(bound));
       map.fitBounds(mapBounds);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locations]);
   const renderLocations = () => {
     if (!locations) {
@@ -41,8 +41,8 @@ const GoogleMaps = ({ mapLocation, locations, zoomLevel }) => {
   };
 
   return (
-    <div className="map">
-      <div className="google-map">
+    <div className='map'>
+      <div className='google-map'>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
           defaultCenter={mapLocation}

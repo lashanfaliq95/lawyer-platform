@@ -8,23 +8,25 @@ import messages from '../../messages';
 
 const SuccessCard = () => (
   <CardBody>
-    <CardTitle className="title">
-      <Link to="/" className="link-text">
+    <CardTitle className='title'>
+      <Link to='/' className='link-text'>
         {formatMessage(messages.loginTitle)}
       </Link>
     </CardTitle>
-    <div className="forgot-pwd-body">
-      <p className="sub-title">{formatMessage(messages.successCardTitle)}</p>
+    <div className='forgot-pwd-body'>
+      <p className='sub-title'>{formatMessage(messages.successCardTitle)}</p>
       <img
         src={SuccessImage}
-        alt="Email delivered successFully"
-        className="success-image"
+        alt='Email delivered successFully'
+        className='success-image'
       />
-      <p className="pwd-description">
+      <p className='pwd-description'>
         {formatMessage(messages.successCardDescription)}
       </p>
-      <p className="link-text">{formatMessage(messages.noMailReceivedText)}</p>
-      <Link to="/" className="success-card-link">{formatMessage(messages.switchToHelp)}</Link>
+      <p className='link-text'>{formatMessage(messages.noMailReceivedText)}</p>
+      <Link to='/' className='success-card-link'>
+        {formatMessage(messages.switchToHelp)}
+      </Link>
     </div>
   </CardBody>
 );

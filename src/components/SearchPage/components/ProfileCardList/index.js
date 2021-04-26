@@ -29,7 +29,7 @@ const ProfileCardList = ({ users, getSearchResult }) => {
   });
 
   return (
-    <div className="list-group">
+    <div className='list-group'>
       {users.map((user) => (
         <div key={user.id}>
           <ProfileCard
@@ -41,14 +41,16 @@ const ProfileCardList = ({ users, getSearchResult }) => {
             firm={user.firm}
             type={user.type}
           />
-          <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
+          <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
         </div>
       ))}
-      <div className="pagination-wrapper">
-        <Pagination noOfPages={6} action={(page) => getSearchResult({ page })} />
+      <div className='pagination-wrapper'>
+        <Pagination
+          noOfPages={6}
+          action={(page) => getSearchResult({ page })}
+        />
       </div>
     </div>
-
   );
 };
 

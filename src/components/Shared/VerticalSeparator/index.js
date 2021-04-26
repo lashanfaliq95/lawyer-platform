@@ -1,9 +1,7 @@
 import React from 'react';
 import { string, number } from 'prop-types';
 
-const VerticalSeparator = ({
-  color, width, className,
-}) => (
+const VerticalSeparator = ({ color, width, className }) => (
   <vl
     className={className}
     style={{

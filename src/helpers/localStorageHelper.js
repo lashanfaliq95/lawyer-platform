@@ -13,16 +13,18 @@ const setUserDetails = (data) => {
   return true;
 };
 
-const getUserDetails = () => (localStorage.getItem(USER_ID) ? {
-  id: localStorage.getItem(USER_ID),
-  roleId: localStorage.getItem(USER_ROLE),
-} : null);
+const getUserDetails = () => (localStorage.getItem(USER_ID)
+  ? {
+    id: localStorage.getItem(USER_ID),
+    roleId: localStorage.getItem(USER_ROLE),
+  }
+  : null);
 
-const getAccessToken = () => (localStorage.getItem(ACCESS_TOKEN));
+const getAccessToken = () => localStorage.getItem(ACCESS_TOKEN);
 
 const setAccessToken = (token) => localStorage.setItem(ACCESS_TOKEN, token);
 
-const getRefreshToken = () => (localStorage.getItem(REFRESH_TOKEN));
+const getRefreshToken = () => localStorage.getItem(REFRESH_TOKEN);
 
 const clearStorage = () => {
   localStorage.clear();

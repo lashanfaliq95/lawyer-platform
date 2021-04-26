@@ -25,10 +25,10 @@ const FilterButton = ({
     setIsBtnActive(false);
   };
   return (
-    <div className="filter-item-wrapper">
-      <div className="filter-button-wrapper">
+    <div className='filter-item-wrapper'>
+      <div className='filter-button-wrapper'>
         <button
-          type="button"
+          type='button'
           className={`filter-button ${isActive ? 'active' : ''}`}
           ref={buttonRef}
           onClick={onClick}
@@ -36,18 +36,17 @@ const FilterButton = ({
           {intl.formatMessage(name)}
         </button>
       </div>
-      <div className="content">
-        {isBtnActive
-          ? (
-            <WrapperCloseOnOutSideClick
-              className={className}
-              onClose={onClose}
-              isModalVisible={isModalVisible}
-              buttonRef={buttonRef}
-            >
-              {React.cloneElement(children, { onClose })}
-            </WrapperCloseOnOutSideClick>
-          ) : null}
+      <div className='content'>
+        {isBtnActive ? (
+          <WrapperCloseOnOutSideClick
+            className={className}
+            onClose={onClose}
+            isModalVisible={isModalVisible}
+            buttonRef={buttonRef}
+          >
+            {React.cloneElement(children, { onClose })}
+          </WrapperCloseOnOutSideClick>
+        ) : null}
       </div>
     </div>
   );

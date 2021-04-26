@@ -110,15 +110,15 @@ const SpecializationFilter = ({
 
   return (
     <FilterModal
-      className="specialization-filter"
+      className='specialization-filter'
       onClickSave={onClickSave}
       onClickCancel={onClickCancel}
       isCancelBtnDisabled={
         isLawyerSpecializationSelected ? false : !isFilterActive
       }
     >
-      <div className="search-input-specialization">
-        <Icon name="search" className="search-icon" color="grey" />
+      <div className='search-input-specialization'>
+        <Icon name='search' className='search-icon' color='grey' />
         <Input
           onChange={(e) => setSearchTerm(e.target.value)}
           onPaste={(e) => setSearchTerm(e.clipboardData.getData('Text'))}
@@ -126,29 +126,33 @@ const SpecializationFilter = ({
           placeholder={intl.formatMessage(messages.searchSpecialization)}
           onKeyDown={(e) => {
             const key = e.keyCode || e.charCode;
-            if (key === 8 || key === 46) { setFilteredLawSpecialization([...specializations]); }
+            if (key === 8 || key === 46) {
+              setFilteredLawSpecialization([...specializations]);
+            }
           }}
-          className="search-input"
+          className='search-input'
         />
       </div>
-      <div className="specialization">
-        <div className="content">
+      <div className='specialization'>
+        <div className='content'>
           {filteredLawSpecialization
             && filteredLawSpecialization.map(
               ({
                 specialization, id, isHidden, isChecked,
               }) => !isHidden && (
-                <div className="specialization-element">
-                  <Label check key={id}>
-                    <Input
-                      type="checkbox"
-                      value={id}
-                      checked={isChecked}
-                      onChange={onChangeLawyerSpecializations}
-                    />
-                    <div className="specialization-text">{specialization}</div>
-                  </Label>
-                </div>
+              <div className='specialization-element'>
+                <Label check key={id}>
+                  <Input
+                    type='checkbox'
+                    value={id}
+                    checked={isChecked}
+                    onChange={onChangeLawyerSpecializations}
+                  />
+                  <div className='specialization-text'>
+                    {specialization}
+                  </div>
+                </Label>
+              </div>
               ),
             )}
         </div>

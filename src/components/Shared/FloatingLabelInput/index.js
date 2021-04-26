@@ -17,15 +17,13 @@ const FloatingLabelInput = (props) => {
   };
 
   return (
-    <div className="floating-label-input">
+    <div className='floating-label-input'>
       <Input
         onChange={onInputChange}
         className={`${inputClassName} ${value ? 'has-input' : ''}`}
         {...rest}
       />
-      <span className="floating-label">
-        {intl.formatMessage(label) }
-      </span>
+      <span className='floating-label'>{intl.formatMessage(label)}</span>
       {error && <FormFeedback>{intl.formatMessage(error)}</FormFeedback>}
     </div>
   );

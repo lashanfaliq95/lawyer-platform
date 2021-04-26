@@ -4,19 +4,15 @@ import { Spinner } from 'reactstrap';
 
 import './styles.scss';
 
-const Loader = ({ isLoading, className }) => (
-  isLoading
-  && (
-  <div className={className}>
-    <div className="loader">
-      <Spinner type="grow" color="info" />
-      <Spinner type="grow" color="info" />
-      <Spinner type="grow" color="info" />
-      <Spinner type="grow" color="info" />
-    </div>
-
+const Loader = ({ isLoading, className }) => isLoading && (
+<div className={className}>
+  <div className='loader'>
+    <Spinner type='grow' color='info' />
+    <Spinner type='grow' color='info' />
+    <Spinner type='grow' color='info' />
+    <Spinner type='grow' color='info' />
   </div>
-  )
+</div>
 );
 
 Loader.propTypes = {

@@ -2,12 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { func, shape } from 'prop-types';
 import {
-  Form,
-  FormGroup,
-  Button,
-  Card,
-  CardBody,
-  CardTitle,
+  Form, FormGroup, Button, Card, CardBody, CardTitle,
 } from 'reactstrap';
 import { useFormik } from 'formik';
 import { string, ref, object } from 'yup';
@@ -26,25 +21,27 @@ const ResetPasswordForm = ({ user, resetPassword: resetPasswordAction }) => {
     },
     validationSchema: object({
       password: string(),
-      confirmPassword: string()
-        .oneOf([ref('password'), null]),
-
+      confirmPassword: string().oneOf([ref('password'), null]),
     }),
     onSubmit: (values) => {
-      resetPasswordAction({ password: values.password, id: user.id, email: user.email });
+      resetPasswordAction({
+        password: values.password,
+        id: user.id,
+        email: user.email,
+      });
     },
   });
 
   return (
-    <Card className="reset-card">
+    <Card className='reset-card'>
       <CardBody>
-        <CardTitle className="reset-title">
+        <CardTitle className='reset-title'>
           {formatMessage(messages.resetPwdTitle)}
         </CardTitle>
         <Form onSubmit={formik.handleSubmit}>
           <FormGroup>
             <FloatingLabelPwdInput
-              name="password"
+              name='password'
               label={messages.passwordPlaceHolder}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
@@ -53,16 +50,18 @@ const ResetPasswordForm = ({ user, resetPassword: resetPasswordAction }) => {
           </FormGroup>
           <FormGroup>
             <FloatingLabelPwdInput
-              name="confirmPassword"
+              name='confirmPassword'
               label={messages.confirmPasswordPlaceHolder}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               required
-              invalid={formik.touched.confirmPassword && formik.errors.confirmPassword}
+              invalid={
+                formik.touched.confirmPassword && formik.errors.confirmPassword
+              }
             />
           </FormGroup>
           <FormGroup>
-            <Button className="login-btn" type="submit" color="warning">
+            <Button className='login-btn' type='submit' color='warning'>
               {formatMessage(messages.confirmResetBtnText)}
             </Button>
           </FormGroup>

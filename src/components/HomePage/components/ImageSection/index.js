@@ -6,40 +6,40 @@ import image from 'assets/images/lawyer_second.png';
 import messages from '../../messages';
 
 const ImageSection = () => (
-  <div className="image-section-wrapper">
-    <Container className="image-section" fluid>
+  <div className='image-section-wrapper'>
+    <Container className='image-section' fluid>
       <Row>
-        <Col className="image-card-section" md={{ size: 6, offset: 1 }}>
+        <Col className='image-card-section' md={{ size: 6, offset: 1 }}>
           <Card
             title={messages.imageSectionCardTitle}
             description={messages.imageSectionCardDescription}
             btnText={messages.imageSectionBtnText}
-            btnClass="blue-btn-outline"
+            btnClass='blue-btn-outline'
             btnOutline
           />
         </Col>
-        <Col className="image-wrapper" md={{ size: 4, offset: 1 }}>
-          <img src={image} alt="test" />
+        <Col className='image-wrapper' md={{ size: 4, offset: 1 }}>
+          <img src={image} alt='test' />
         </Col>
       </Row>
-      <Row className="image-card-section">
-        <Col md="4">
+      <Row className='image-card-section'>
+        <Col md='4'>
           <Card
-            iconName="money-bill-alt"
+            iconName='money-bill-alt'
             title={messages.imageSectionCardOneTitle}
             description={messages.imageSectionCardOneDescription}
           />
         </Col>
-        <Col md="4">
+        <Col md='4'>
           <Card
-            iconName="clock"
+            iconName='clock'
             title={messages.imageSectionCardTwoTitle}
             description={messages.imageSectionCardTwoDescription}
           />
         </Col>
-        <Col md="4">
+        <Col md='4'>
           <Card
-            iconName="star"
+            iconName='star'
             title={messages.imageSectionCardThreeTitle}
             description={messages.imageSectionCardThreeDescription}
           />

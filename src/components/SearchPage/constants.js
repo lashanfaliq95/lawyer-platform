@@ -112,7 +112,8 @@ export const specializations = [
   'Handelsrecht & Gesellschaftsrecht',
   'Immobilienrecht',
   'Vorsorgevollmacten',
-  'Sonstige Beglaubigungen & Beurkundung'];
+  'Sonstige Beglaubigungen & Beurkundung',
+];
 
 export const specializationsFilters = [
   { id: 0, specialization: 'Agrarrecht' },
@@ -185,4 +186,5 @@ export const specializationsFilters = [
   { id: 67, specialization: 'Handelsrecht & Gesellschaftsrecht' },
   { id: 68, specialization: 'Immobilienrecht' },
   { id: 69, specialization: 'Vorsorgevollmacten' },
-  { id: 70, specialization: 'Sonstige Beglaubigungen & Beurkundung' }];
+  { id: 70, specialization: 'Sonstige Beglaubigungen & Beurkundung' },
+];
