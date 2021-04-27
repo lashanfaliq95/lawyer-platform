@@ -37,6 +37,7 @@ const FilterBar = ({
     >
       <SpecializationFilter
         specializations={specializationsFilters}
+        activeSpecializations={activeSpecializations}
         isFilterActive={activeSpecializations && activeSpecializations.length > 0}
       />
     </FilterButton>
@@ -63,6 +64,7 @@ const FilterBar = ({
     >
       <LanguageFilter
         languages={languages}
+        activeLanguages={activeLanguages}
         isFilterActive={activeLanguages && activeLanguages.length > 0}
       />
     </FilterButton>

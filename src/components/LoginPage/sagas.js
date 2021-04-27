@@ -14,6 +14,8 @@ import {
   loginUserSuccess,
   loginUserError,
   setUserIdFromResetToken,
+  registerUserSuccess,
+  registerUserError,
 } from './actions';
 import {
   LOGIN_USER,
@@ -43,7 +45,13 @@ function* forgotPassword(action) {
 }
 
 function* registerUser(action) {
-  yield registerUserService(action.payload);
+  const response = yield registerUserService(action.payload);
+  const { result, error } = response || {};
+  if (result) {
+    yield put(registerUserSuccess());
+  } else {
+    yield put(registerUserError(error));
+  }
 }
 
 function* getIdFromToken(action) {
