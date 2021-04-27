@@ -45,7 +45,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "prettier": "./.prettierrc",
+  "prettier": "./.prettierrc.json",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

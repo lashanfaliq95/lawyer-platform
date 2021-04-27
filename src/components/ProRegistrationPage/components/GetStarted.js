@@ -10,21 +10,33 @@ const Container = styled.div`
   flex-direction: column;
   flex: 1;
   background-color: #fbfbfb;
+  padding: 2rem;
 `;
 
-const Title = styled.span``;
+const Title = styled.span`
+  font-size: 2rem;
+  margin-top: 1rem;
+`;
 
-const SubTitle = styled.span``;
+const SubTitle = styled.span`
+  margin-top: 0.5rem;
+`;
 
 const StepsContainer = styled.div`
   display: flex;
   padding: 1rem 2rem;
   align-items: center;
+  margin-top: 0.5rem;
+`;
+
+const LabelContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const StepsSeparator = styled.div`
   flex: 1;
-  border: 1px solid red;
+  border: ${(props) => `1px solid ${props.color}`};
 `;
 
 const StepsItem = styled.div`
@@ -45,11 +57,13 @@ const StepsItemIconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5rem;
 `;
 
 const FooterContainer = styled.div`
   display: flex;
   justify-content: flex-start;
+  margin-top: 1rem;
 `;
 
 function GetStarted() {
@@ -63,26 +77,28 @@ function GetStarted() {
       </SubTitle>
       <StepsContainer>
         <StepsItem>
-          <StepsItemIconContainer backgroundColor={'red'}>
+          <StepsItemIconContainer backgroundColor='#F3EDE0'>
             <AiOutlineFile />
           </StepsItemIconContainer>
-          <StepsItemLabel>Hehe</StepsItemLabel>
         </StepsItem>
-        <StepsSeparator />
+        <StepsSeparator color='#F3EDE0' />
         <StepsItem>
-          <StepsItemIconContainer backgroundColor={'red'}>
+          <StepsItemIconContainer backgroundColor='#F2F4F6'>
             <AiOutlineFile />
           </StepsItemIconContainer>
-          <StepsItemLabel>Hehe</StepsItemLabel>
         </StepsItem>
-        <StepsSeparator />
+        <StepsSeparator color='#F2F4F6' />
         <StepsItem>
-          <StepsItemIconContainer backgroundColor={'red'}>
+          <StepsItemIconContainer backgroundColor='#F4E8E8'>
             <AiOutlineFile />
           </StepsItemIconContainer>
-          <StepsItemLabel>Hehe</StepsItemLabel>
         </StepsItem>
       </StepsContainer>
+      <LabelContainer>
+        <StepsItemLabel>Daten angeben</StepsItemLabel>
+        <StepsItemLabel>Schulung buchen</StepsItemLabel>
+        <StepsItemLabel>Avoplan Pro erleben</StepsItemLabel>
+      </LabelContainer>
       <FooterContainer>
         <PrimaryButton>Loslegen</PrimaryButton>
       </FooterContainer>

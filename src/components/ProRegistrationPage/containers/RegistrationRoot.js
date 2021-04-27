@@ -11,15 +11,13 @@ const Container = styled.div`
 
 const LeftPaneContainer = styled.div`
   flex: 1;
-  border: 5px solid blue;
 `;
 
 const RightPaneContainer = styled.div`
-  max-width: 500px;
+  max-width: 800px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 5px solid red;
 `;
 
 function RegistrationRoot({ children }) {

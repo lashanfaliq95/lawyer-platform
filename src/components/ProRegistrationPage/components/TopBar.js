@@ -3,23 +3,20 @@ import styled from 'styled-components';
 import { FaUser, FaQuestionCircle } from 'react-icons/fa';
 
 const Container = styled.div`
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
 `;
 
 const Title = styled.span`
-  border: 1px solid red;
   padding: 1rem;
 `;
 
 const LinksContainer = styled.div`
-  border: 1px solid red;
   display: flex;
 `;
 
 const CustomLink = styled.div`
-  border: 1px solid red;
   padding: 1rem;
   display: flex;
   justify-content: center;

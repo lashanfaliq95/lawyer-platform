@@ -6,10 +6,10 @@ import TopBar from './components/TopBar';
 import RegistrationRoot from './containers/RegistrationRoot';
 
 const Container = styled.div`
-  border: 5px solid red;
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 `;
 
 function ProRegistrationPage() {
