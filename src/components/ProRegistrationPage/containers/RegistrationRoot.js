@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import LeftPane from '../components/LeftPane';
+
 const Container = styled.div`
   display: flex;
   flex: 1;
@@ -23,7 +25,9 @@ const RightPaneContainer = styled.div`
 function RegistrationRoot({ children }) {
   return (
     <Container>
-      <LeftPaneContainer />
+      <LeftPaneContainer>
+        <LeftPane />
+      </LeftPaneContainer>
       <RightPaneContainer>{children}</RightPaneContainer>
     </Container>
   );

@@ -50,7 +50,7 @@ const UserAppointmentDetailSection = ({
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${userAppointmentDetails.lat},${userAppointmentDetails.lon}`}
             target='_blank'
-            rel='noreferrer'
+            rel='noopener noreferrer'
           >
             {formatMessages(messages.directions)}
           </a>

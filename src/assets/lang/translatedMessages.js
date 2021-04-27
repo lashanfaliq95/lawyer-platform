@@ -258,4 +258,7 @@ export default {
   'app.appointmentsPage.no': 'Abbrechen',
   'app.appointmentsPage.cancel': 'Termin absagen',
   'app.appointmentsPage.rebookAppointment': 'Neuen Termin vereinbaren',
+  'app.proRegisterPage.titleText': 'Die Zukunft der Rechtsberatung',
+  'app.proRegisterPage.descriptionText':
+    'Avoplan Pro ist die perfekte Softwarelösung für Rechtsanwälte, Notare und Berater Die innovative Technologie hilft Ihnen dabei Ihren Umsatz zu steigern, mehr Zeit zu gewinnen und Mandanten ein noch besseres Erlebnis zu ermöglichen.',
 };
