@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineFile } from 'react-icons/ai';
+import PropTypes from 'prop-types';
 
 import ProgressBar from './ProgressBar';
 import { PrimaryButton } from './Shared';
+import { REGISTRATION_STEPS } from '../constants';
 
 const Container = styled.div`
   display: flex;
@@ -66,7 +68,11 @@ const FooterContainer = styled.div`
   margin-top: 1rem;
 `;
 
-function GetStarted() {
+function GetStarted({ onStepChange }) {
+  function handleOnNextClick() {
+    onStepChange(REGISTRATION_STEPS.PERSONAL_DATA);
+  }
+
   return (
     <Container>
       <ProgressBar value={1} />
@@ -100,10 +106,14 @@ function GetStarted() {
         <StepsItemLabel>Avoplan Pro erleben</StepsItemLabel>
       </LabelContainer>
       <FooterContainer>
-        <PrimaryButton>Loslegen</PrimaryButton>
+        <PrimaryButton onClick={handleOnNextClick}>Loslegen</PrimaryButton>
       </FooterContainer>
     </Container>
   );
 }
+
+GetStarted.propTypes = {
+  onStepChange: PropTypes.func.isRequired,
+};
 
 export default GetStarted;
