@@ -39,35 +39,47 @@ const SearchPage = ({
     } else {
       getLawyersAction();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <NavigationBar className="search-navbar" showLawyerLogin={false} showSearchInput />
-      <Container className="search-page" fluid>
-        <Col md="12">
-          <Row className="content">
-            <Col md="7" className="card-container">
+      <NavigationBar
+        className='search-navbar'
+        showLawyerLogin={false}
+        showSearchInput
+      />
+      <Container className='search-page' fluid>
+        <Col md='12'>
+          <Row className='content'>
+            <Col md='7' className='card-container'>
               <SearchSummary
                 users={users}
                 numberOfResults={users ? users.length : 0}
-                specializations={activeFilters ? activeFilters.activeSpecializations : null}
+                specializations={
+                  activeFilters ? activeFilters.activeSpecializations : null
+                }
                 searchTerm={searchTerm}
                 isSearchLoading={isSearchLoading}
               />
               <FilterBar activeFilters={activeFilters} />
-              <HorizontalSeparator color="#EBEBEB" height={1} isContainer />
-              <ProfileCardList users={users} getSearchResult={getSearchResultAction} />
+              <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
+              <ProfileCardList
+                users={users}
+                getSearchResult={getSearchResultAction}
+              />
             </Col>
-            <Col className="map-container" md="5">
-              <GoogleMap locations={locations} zoomLevel={12} mapLocation={mapLocation} />
+            <Col className='map-container' md='5'>
+              <GoogleMap
+                locations={locations}
+                zoomLevel={12}
+                mapLocation={mapLocation}
+              />
             </Col>
           </Row>
-
         </Col>
       </Container>
-      <Footer className="search-footer" />
+      <Footer className='search-footer' />
     </>
   );
 };
@@ -89,7 +101,8 @@ SearchPage.propTypes = {
   location: shape({}).isRequired,
   searchTerm: shape({}).isRequired,
   isSearchLoading: bool.isRequired,
-
 };
 
-export default connect(mapStateToProps, { getLawyers, getSearchResult })(SearchPage);
+export default connect(mapStateToProps, { getLawyers, getSearchResult })(
+  SearchPage,
+);

@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import {
-  func, string, number,
-} from 'prop-types';
-import {
-  Col,
-  Button,
-  Row,
-} from 'reactstrap';
+import { func, string, number } from 'prop-types';
+import { Col, Button, Row } from 'reactstrap';
 
 import Calender from 'components/SearchPage/components/Calender';
 import formatMessages from 'components/formatMessages';
@@ -42,27 +36,19 @@ const ProfileCard = ({
         }}
       >
         <Row>
-          <Row
-            className="cover-image"
-          />
-          <Col md="5">
+          <Row className='cover-image' />
+          <Col md='5'>
             <Link to={`/search/lawyer-details/${id}`}>
-              <img
-                className="info-image"
-                src={imgUrl}
-                alt="Info images"
-              />
-              <div className="name-section">
-                {name}
-              </div>
-              <div className="specialization-section">
-                {type}
-              </div>
-              <div className="address">{address}</div>
+              <img className='info-image' src={imgUrl} alt='Info images' />
+              <div className='name-section'>{name}</div>
+              <div className='specialization-section'>{type}</div>
+              <div className='address'>{address}</div>
             </Link>
-            <Button className="appointment-btn">{formatMessages(messages.bookAppointment) }</Button>
+            <Button className='appointment-btn'>
+              {formatMessages(messages.bookAppointment)}
+            </Button>
           </Col>
-          <Col md="7" className="calender-section">
+          <Col md='7' className='calender-section'>
             <Calender id={id} />
           </Col>
         </Row>

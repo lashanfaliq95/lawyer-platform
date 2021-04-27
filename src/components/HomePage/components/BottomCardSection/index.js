@@ -9,10 +9,10 @@ import formatMessages from 'components/formatMessages';
 import messages from '../../messages';
 
 const BottomCardSection = () => (
-  <Container className="bottom-card-section" fluid>
-    <h2 className="title">{formatMessages(messages.bottomCardSectionTitle)}</h2>
+  <Container className='bottom-card-section' fluid>
+    <h2 className='title'>{formatMessages(messages.bottomCardSectionTitle)}</h2>
     <Row>
-      <Col md="4">
+      <Col md='4'>
         <ImageCard
           img={germanFlag}
           title={messages.bottomCardSectionCardOneTitle}
@@ -21,17 +21,17 @@ const BottomCardSection = () => (
           onClick={() => {}}
         />
       </Col>
-      <Col md="4">
+      <Col md='4'>
         <ImageCard
           img={tuv}
           title={messages.bottomCardSectionCardTwoTitle}
           description={messages.bottomCardSectionCardTwoDescription}
           btnText={messages.bottomCardSectionCardTwoBtnText}
           onClick={() => {}}
-          className="center-btn"
+          className='center-btn'
         />
       </Col>
-      <Col md="4">
+      <Col md='4'>
         <ImageCard
           img={lock}
           title={messages.bottomCardSectionCardThreeTitle}

@@ -9,7 +9,10 @@ import InfoSection from './components/InfoSection';
 const Footer = ({ hideInfoSection, className, isUserLoggedIn }) => {
   const classNameWhenUserLoggedIn = isUserLoggedIn ? 'no-margin' : '';
   return (
-    <Container className={`footer ${classNameWhenUserLoggedIn} ${className}`} fluid>
+    <Container
+      className={`footer ${classNameWhenUserLoggedIn} ${className}`}
+      fluid
+    >
       <Container>
         {!hideInfoSection && <InfoSection />}
         <BottomFooter />

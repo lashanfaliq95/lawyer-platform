@@ -118,7 +118,8 @@ export default {
   'app.searchPage.searchSummaryWithOneFemale': '1 Expertin in {location}',
   'app.searchPage.searchSummaryWithOneMale': '1 Experte in {location}',
   'app.searchPage.SearchSummary': '{numberOfResults} Experten in {location}',
-  'app.searchPage.SearchSummaryWithMoreResults': 'Über 100 Experten in {location}',
+  'app.searchPage.SearchSummaryWithMoreResults':
+    'Über 100 Experten in {location}',
   'app.searchPage.changeSearchOption': 'Sucheinstellungen ändern',
   'app.searchPage.findMoreOptions':
     'Finden Sie mehr {specialization} indem Sie Ihre Sucheinstellungen ändern',
@@ -166,20 +167,21 @@ export default {
   'app.searchPage.location': 'Ort',
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
-  'app.lawyerDetailsPage.infoText': 'Liebe Mandanten,{br} '
-  + 'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}'
-  + 'In meiner Kanzlei berate ich Startups, Emerging Companies sowie deren Investoren in{br}'
-  + 'wirtschaftlichen Angelegenheiten. {b}(WEN? WAS ALLGEMEIN?){bl}{br}'
-  + 'Für Startups und Emerging Companies agiere ich als erster Ansprechpartner und{br}'
-  + 'betreue diese umfassend von der Gründung, über die Finanzierung, bis hin zum Exit.{br}'
-  + 'Investoren beraten wir im Rahmen von Unternehmensbeteiligungen und Exits. {b}(WAS{br}'
-  + 'GENAU?){bl}{br}'
-  + 'Da die Grundlage für eine effektive Beratung ein möglichst umfangreiches Bild der{br}'
-  + 'rechtlichen Situation ist, lege ich großen Wert auf ein Vertrauensverhältnis zu meinen{br}'
-  + 'Mandanten.{br}'
-  + 'Und das stets mit dem Ziel, eine optimale Lösung für diese zu finden.{br}'
-  + 'Vereinbaren Sie Ihren Termin direkt online. Ich freue mich auf Ihre Terminbuchung!{br}'
-  + 'Ihre Pia Parez{br}',
+  'app.lawyerDetailsPage.infoText':
+    'Liebe Mandanten,{br} '
+    + 'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}'
+    + 'In meiner Kanzlei berate ich Startups, Emerging Companies sowie deren Investoren in{br}'
+    + 'wirtschaftlichen Angelegenheiten. {b}(WEN? WAS ALLGEMEIN?){bl}{br}'
+    + 'Für Startups und Emerging Companies agiere ich als erster Ansprechpartner und{br}'
+    + 'betreue diese umfassend von der Gründung, über die Finanzierung, bis hin zum Exit.{br}'
+    + 'Investoren beraten wir im Rahmen von Unternehmensbeteiligungen und Exits. {b}(WAS{br}'
+    + 'GENAU?){bl}{br}'
+    + 'Da die Grundlage für eine effektive Beratung ein möglichst umfangreiches Bild der{br}'
+    + 'rechtlichen Situation ist, lege ich großen Wert auf ein Vertrauensverhältnis zu meinen{br}'
+    + 'Mandanten.{br}'
+    + 'Und das stets mit dem Ziel, eine optimale Lösung für diese zu finden.{br}'
+    + 'Vereinbaren Sie Ihren Termin direkt online. Ich freue mich auf Ihre Terminbuchung!{br}'
+    + 'Ihre Pia Parez{br}',
   'app.lawyerDetailsPage.specialization': 'Tätigkeitsbereiche',
   'app.lawyerDetailsPage.access': 'Zugang',
   'app.lawyerDetailsPage.address': 'Adresse',
@@ -199,34 +201,45 @@ export default {
   'app.lawyerDetailsPage.Saturday': 'Samstag',
   'app.lawyerDetailsPage.location': 'Standort',
   'app.lawyerDetailsPage.bookAppointmentOnline': 'Termin online buchen',
-  'app.lawyerDetailsPage.bookAppointmentInTwoMinutes': 'Buchen Sie Ihren Termin in zwei Minuten.',
+  'app.lawyerDetailsPage.bookAppointmentInTwoMinutes':
+    'Buchen Sie Ihren Termin in zwei Minuten.',
   'app.lawyerDetailsPage.areYouAlreadyAClient': 'Sind Sie bereits Mandant?',
   'app.lawyerDetailsPage.no': 'Nein',
   'app.lawyerDetailsPage.iAmAlreadyAClient': 'Ja, ich bin bereits Mandant',
-  'app.lawyerDetailsPage.whatTypeOfLegalIssueIsIt': 'Um welche Angelegenheit geht es?',
-  'app.lawyerDetailsPage.doYouHaveLegalInsurance': 'Haben Sie eine Rechtsschutzversicherung?',
-  'app.lawyerDetailsPage.yesIHaveLegalInsurance': 'Ja, ich habe eine Rechtsschutzversicherung',
-  'app.lawyerDetailsPage.selectTypeOfAppointment': 'Wählen Sie eine Terminart aus.',
+  'app.lawyerDetailsPage.whatTypeOfLegalIssueIsIt':
+    'Um welche Angelegenheit geht es?',
+  'app.lawyerDetailsPage.doYouHaveLegalInsurance':
+    'Haben Sie eine Rechtsschutzversicherung?',
+  'app.lawyerDetailsPage.yesIHaveLegalInsurance':
+    'Ja, ich habe eine Rechtsschutzversicherung',
+  'app.lawyerDetailsPage.selectTypeOfAppointment':
+    'Wählen Sie eine Terminart aus.',
   'app.lawyerDetailsPage.appointmentViaPhone': 'Telefonische Beratung',
   'app.lawyerDetailsPage.personnelAppointments': 'Vor-Ort-Termin',
-  'app.lawyerDetailsPage.whichExpertShouldAdviceYou': 'Welcher Experte soll Sie beraten?',
-  'app.lawyerDetailsPage.summaryOfLegalIssue': 'Bitte fassen Sie Ihren Fall kurz zusammen, idealerweise mit dem Streitwert.',
-  'app.lawyerDetailsPage.selectTimeSlot': 'Bitte wählen Sie Datum und Uhrzeit Ihres ermins aus.',
+  'app.lawyerDetailsPage.whichExpertShouldAdviceYou':
+    'Welcher Experte soll Sie beraten?',
+  'app.lawyerDetailsPage.summaryOfLegalIssue':
+    'Bitte fassen Sie Ihren Fall kurz zusammen, idealerweise mit dem Streitwert.',
+  'app.lawyerDetailsPage.selectTimeSlot':
+    'Bitte wählen Sie Datum und Uhrzeit Ihres ermins aus.',
   'app.lawyerDetailsPage.bookTheAppointment': 'Termin vereinbaren',
-  'app.lawyerDetailsPage.noNewClientModalTitle': 'Experte nimmt keine neuen Mandanten an',
-  'app.lawyerDetailsPage.noNewClientModalBody': 'Leider können Sie als neuer Mandant aktuell keine'
-  + 'Termine mit diesem Experten online buchen. Alternativ können Sie'
-  + 'telefonisch unter {phoneNumber} Kontant aufnehmen und versuchen weitere'
-  + 'Information zu erhalten.',
+  'app.lawyerDetailsPage.noNewClientModalTitle':
+    'Experte nimmt keine neuen Mandanten an',
+  'app.lawyerDetailsPage.noNewClientModalBody':
+    'Leider können Sie als neuer Mandant aktuell keine'
+    + 'Termine mit diesem Experten online buchen. Alternativ können Sie'
+    + 'telefonisch unter {phoneNumber} Kontant aufnehmen und versuchen weitere'
+    + 'Information zu erhalten.',
   'app.lawyerDetailsPage.cancel': 'Abbrechen',
   'app.lawyerDetailsPage.call': 'Anrufen',
   'app.appointmentsPage.appointments': 'Termine',
   'app.appointmentsPage.pastAppointments': 'Vergangene',
   'app.appointmentsPage.upComingAppointments': 'Anstehende',
   'app.appointmentsPage.getSupport': 'Holen Sie sich Unterstützung',
-  'app.appointmentsPage.findSuitableExpertTxt': 'Finden Sie jetzt den passenden Experten für Ihre Angelegenheit und'
-  + ' vereinbaren Sie einen Termin. Und das, '
-  + 'ohne den Hörer in die Hand zu nehmen',
+  'app.appointmentsPage.findSuitableExpertTxt':
+    'Finden Sie jetzt den passenden Experten für Ihre Angelegenheit und'
+    + ' vereinbaren Sie einen Termin. Und das, '
+    + 'ohne den Hörer in die Hand zu nehmen',
   'app.appointmentsPage.findSuitableExpertBtn': 'Experten finden',
   'app.appointmentsPage.bookMoreAppointments': 'Neuen Termin buchen',
   'app.appointmentsPage.appointmentOverview': 'Übersicht',
@@ -240,8 +253,12 @@ export default {
   'app.appointmentsPage.changeAppointment': 'Verschieben',
   'app.appointmentsPage.directions': 'Wegbeschreibung',
   'app.appointmentsPage.cancellationModalTitle': 'Termin absagen',
-  'app.appointmentsPage.cancellationModalBody': 'Möchten Sie diesen Termin wirklich absagen?',
+  'app.appointmentsPage.cancellationModalBody':
+    'Möchten Sie diesen Termin wirklich absagen?',
   'app.appointmentsPage.no': 'Abbrechen',
   'app.appointmentsPage.cancel': 'Termin absagen',
   'app.appointmentsPage.rebookAppointment': 'Neuen Termin vereinbaren',
+  'app.proRegisterPage.titleText': 'Die Zukunft der Rechtsberatung',
+  'app.proRegisterPage.descriptionText':
+    'Avoplan Pro ist die perfekte Softwarelösung für Rechtsanwälte, Notare und Berater Die innovative Technologie hilft Ihnen dabei Ihren Umsatz zu steigern, mehr Zeit zu gewinnen und Mandanten ein noch besseres Erlebnis zu ermöglichen.',
 };

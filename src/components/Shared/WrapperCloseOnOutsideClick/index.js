@@ -1,19 +1,25 @@
-import React, {
-  useRef, useEffect, memo,
-} from 'react';
+import React, { useRef, useEffect, memo } from 'react';
 import {
   string, func, node, bool, shape,
 } from 'prop-types';
 
 const WrapperCloseOnOutsideClick = ({
-  children, className, onClose, isModalVisible, buttonRef,
+  children,
+  className,
+  onClose,
+  isModalVisible,
+  buttonRef,
 }) => {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)
-      && buttonRef.current && !buttonRef.current.contains(event.target)) {
+      if (
+        wrapperRef.current
+        && !wrapperRef.current.contains(event.target)
+        && buttonRef.current
+        && !buttonRef.current.contains(event.target)
+      ) {
         // When the button is clicked do nothing
         onClose();
       }
@@ -31,12 +37,14 @@ const WrapperCloseOnOutsideClick = ({
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', escFunction, false);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wrapperRef, buttonRef]);
 
-  return isModalVisible
-    ? <div className={className} ref={wrapperRef}>{children}</div>
-    : null;
+  return isModalVisible ? (
+    <div className={className} ref={wrapperRef}>
+      {children}
+    </div>
+  ) : null;
 };
 
 WrapperCloseOnOutsideClick.propTypes = {

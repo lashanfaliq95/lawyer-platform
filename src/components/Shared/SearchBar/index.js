@@ -39,32 +39,29 @@ const initialLocationSuggestions = [
 
 const getSuggestionValue = (suggestion) => suggestion;
 const renderSuggestion = (suggestion) => (
-  <div className="suggestion-list-element">
-    <div className="popup-image" />
-    <span>
-      {suggestion}
-    </span>
-
+  <div className='suggestion-list-element'>
+    <div className='popup-image' />
+    <span>{suggestion}</span>
   </div>
 );
 const renderInputComponent = (inputProps) => (
   <div>
-    <span className="search-input-label">
+    <span className='search-input-label'>
       {formatMessages(messages.expert)}
     </span>
-    <input {...inputProps} className="first-search-input" />
+    <input {...inputProps} className='first-search-input' />
   </div>
 );
 const renderSecondInputComponent = (inputProps) => (
-  <div className="search-input-wrapper">
-    <span className="search-input-label">
+  <div className='search-input-wrapper'>
+    <span className='search-input-label'>
       {formatMessages(messages.location)}
     </span>
-    <input {...inputProps} className="second-search-input" />
+    <input {...inputProps} className='second-search-input' />
   </div>
 );
 const renderSuggestionsContainer = ({ containerProps, children }) => (
-  <div {...containerProps} className="suggestions">
+  <div {...containerProps} className='suggestions'>
     {children}
   </div>
 );
@@ -126,7 +123,7 @@ const SearchBar = ({
   };
 
   return (
-    <div className="nav-search">
+    <div className='nav-search'>
       <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={() => {}}
@@ -147,14 +144,14 @@ const SearchBar = ({
         onSuggestionSelected={(e, { suggestion }) => setSearchTermForNameOrFirm(suggestion)}
       />
       {isPopupShown && (
-        <div className="custom-suggestions-popup">
-          <div className="header">
+        <div className='custom-suggestions-popup'>
+          <div className='header'>
             {formatMessages(messages.recommendedLegalAreas)}
           </div>
-          <div className="content">
+          <div className='content'>
             {combinedSpecializations.map((specialization) => (
               <button
-                className="element"
+                className='element'
                 key={specialization}
                 value={specialization}
                 onClick={() => {
@@ -162,7 +159,7 @@ const SearchBar = ({
                   setIsPopupShown(false);
                 }}
                 onMouseDown={(e) => e.preventDefault()}
-                type="button"
+                type='button'
               >
                 {specialization}
               </button>
@@ -170,7 +167,7 @@ const SearchBar = ({
           </div>
         </div>
       )}
-      <VerticalSeparator className="vertical-separator" />
+      <VerticalSeparator className='vertical-separator' />
       <div style={{ position: 'relative' }}>
         <Autosuggest
           suggestions={locationSuggestions}
@@ -197,45 +194,47 @@ const SearchBar = ({
         />
 
         {isLocationPopupShown && (
-        <div className="custom-suggestions-popup location-popup">
-          <div className="header">
-            <button
-              type="button"
-              className="location"
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={onClickLocationPopup}
-            >
-              <div className="popup-image" />
-              <span>{formatMessages(messages.expertsNearby)}</span>
-            </button>
-          </div>
-          <div className="header">{formatMessages(messages.suggestion)}</div>
-          <div className="content">
-            {initialLocationSuggestions.map((location) => (
+          <div className='custom-suggestions-popup location-popup'>
+            <div className='header'>
               <button
-                className="element"
-                key={location}
-                value={location}
-                onClick={() => {
-                  setSearchTermForLocation(location);
-                  setIsLocationPopupShown(false);
-                }}
+                type='button'
+                className='location'
                 onMouseDown={(e) => e.preventDefault()}
-                type="button"
+                onClick={onClickLocationPopup}
               >
-                {location}
+                <div className='popup-image' />
+                <span>{formatMessages(messages.expertsNearby)}</span>
               </button>
-            ))}
+            </div>
+            <div className='header'>{formatMessages(messages.suggestion)}</div>
+            <div className='content'>
+              {initialLocationSuggestions.map((location) => (
+                <button
+                  className='element'
+                  key={location}
+                  value={location}
+                  onClick={() => {
+                    setSearchTermForLocation(location);
+                    setIsLocationPopupShown(false);
+                  }}
+                  onMouseDown={(e) => e.preventDefault()}
+                  type='button'
+                >
+                  {location}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
         )}
       </div>
-      <div className="search-icon">
+      <div className='search-icon'>
         {isLinkToSearch ? (
-          <Link to="/search">
-            <Icon name="search" size="large" />
+          <Link to='/search'>
+            <Icon name='search' size='large' />
           </Link>
-        ) : <Icon name="search" onClick={onClickSearch} size="large" />}
+        ) : (
+          <Icon name='search' onClick={onClickSearch} size='large' />
+        )}
       </div>
     </div>
   );

@@ -26,10 +26,10 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
   });
 
   return (
-    <Card className="login-card">
+    <Card className='login-card'>
       <CardBody>
-        <CardTitle className="title">
-          <Link to="/" className="link-text">
+        <CardTitle className='title'>
+          <Link to='/' className='link-text'>
             {formatMessage(messages.loginTitle)}
           </Link>
         </CardTitle>
@@ -37,16 +37,16 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
           <FormGroup>
             <FloatingInputLabel
               label={messages.emailPlaceHolder}
-              type="email"
-              name="email"
-              id="exampleEmail"
+              type='email'
+              name='email'
+              id='exampleEmail'
               required
               {...formik.getFieldProps('email')}
             />
           </FormGroup>
           <FormGroup>
             <FloatingLabelPwdInput
-              name="password"
+              name='password'
               label={messages.passwordPlaceHolder}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
@@ -56,15 +56,15 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Button className="login-btn" type="submit" color="warning">
+            <Button className='login-btn' type='submit' color='warning'>
               {formatMessage(messages.loginBtnText)}
             </Button>
           </FormGroup>
         </Form>
-        <div className="outer-link">
+        <div className='outer-link'>
           {formatMessage(messages.registerBtnText)}
           &nbsp;
-          <Link to="/auth/register">{formatMessage(messages.register)}</Link>
+          <Link to='/auth/register'>{formatMessage(messages.register)}</Link>
         </div>
       </CardBody>
     </Card>

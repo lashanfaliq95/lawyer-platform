@@ -40,13 +40,13 @@
         color: #212529 !important;
       }
       .btn-link {
-        color: #105FBB;
+        color: #105fbb;
       }
       button.btn-link:hover {
         color: #004079;
         text-decoration: none !important;
       }
-      .logged-in{
+      .logged-in {
         color: #969ea5;
       }
       button.logged-in:hover {
@@ -56,10 +56,9 @@
       .nav-button:hover {
         background-color: rgba(238, 238, 238, 0.4);
       }
-      a:hover{
+      a:hover {
         text-decoration: none;
-    }
-      
+      }
     }
   }
 
@@ -81,11 +80,11 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  .nav-search-wrapper{
+  .nav-search-wrapper {
     width: 100%;
     justify-content: center;
     display: flex;
-}
+  }
 
   .left-pane {
     display: flex;

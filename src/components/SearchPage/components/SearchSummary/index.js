@@ -40,25 +40,25 @@ const SearchSummary = ({
   const renderSearchSummary = () => {
     if (isSearchLoading) {
       return (
-        <div className="search-summary">
-          <Spinner type="grow" color="primary" />
-          <Spinner type="grow" color="primary" />
-          <Spinner type="grow" color="primary" />
-          <Spinner type="grow" color="primary" />
-          <Spinner type="grow" color="primary" />
+        <div className='search-summary'>
+          <Spinner type='grow' color='primary' />
+          <Spinner type='grow' color='primary' />
+          <Spinner type='grow' color='primary' />
+          <Spinner type='grow' color='primary' />
+          <Spinner type='grow' color='primary' />
         </div>
       );
     }
 
     if (numberOfResults > 0) {
       return (
-        <div className="search-summary">
+        <div className='search-summary'>
           <h1>{renderMessage()}</h1>
         </div>
       );
     }
     return (
-      <div className="search-summary">
+      <div className='search-summary'>
         <h1>{renderMessage()}</h1>
         <p>
           {formatMessages(messages.changeSearchOption)}

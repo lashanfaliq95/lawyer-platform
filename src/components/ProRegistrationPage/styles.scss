@@ -1,0 +1,11 @@
+.left-pane-root {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  height: 100%;
+
+  h5 {
+    text-align: justify;
+    padding: 50px 0;
+  }
+}

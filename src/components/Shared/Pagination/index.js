@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  func, number,
-} from 'prop-types';
+import { func, number } from 'prop-types';
 import './styles.scss';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
@@ -12,20 +10,28 @@ const PaginationComponent = (props) => {
   const paginationItems = [];
 
   useEffect(() => {
-    if (currentPage < currentPageSection || currentPage >= currentPageSection + maxShownPages - 1) {
+    if (
+      currentPage < currentPageSection
+      || currentPage >= currentPageSection + maxShownPages - 1
+    ) {
       setCurrentPageSection(currentPage);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
-  for (let i = currentPageSection; i < currentPageSection + maxShownPages; i += 1) {
+  for (
+    let i = currentPageSection;
+    i < currentPageSection + maxShownPages;
+    i += 1
+  ) {
     if (i <= noOfPages) {
       paginationItems.push(
         <PaginationItem active={currentPage === i}>
-          <PaginationLink onClick={() => {
-            setCurrentPage(i);
-            action(i);
-          }}
+          <PaginationLink
+            onClick={() => {
+              setCurrentPage(i);
+              action(i);
+            }}
           >
             {i}
           </PaginationLink>
@@ -34,7 +40,7 @@ const PaginationComponent = (props) => {
     }
   }
   return (
-    <Pagination size="md" aria-label="Page navigation">
+    <Pagination size='md' aria-label='Page navigation'>
       <PaginationItem disabled={currentPage === 1}>
         <PaginationLink
           previous

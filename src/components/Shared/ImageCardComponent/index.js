@@ -11,9 +11,9 @@ const ImageCardComponent = (props) => {
   } = props;
   return (
     <div className={className}>
-      <img className="info-image" src={img} alt="Info images" />
-      <p className="info-title">{formatMessages(title)}</p>
-      <p className="info-image-description">{formatMessages(description)}</p>
+      <img className='info-image' src={img} alt='Info images' />
+      <p className='info-title'>{formatMessages(title)}</p>
+      <p className='info-image-description'>{formatMessages(description)}</p>
       <BTButton btnText={btnText} onClick={onClick} />
     </div>
   );

@@ -1,6 +1,9 @@
 import { getUserDetails } from 'helpers/localStorageHelper';
 import {
-  FORGOT_PASSWORD_SUCCESS, LOGIN_USER_SUCCESS, LOGIN_USER_ERROR, SET_USER_ID_FROM_TOKEN,
+  FORGOT_PASSWORD_SUCCESS,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_ERROR,
+  SET_USER_ID_FROM_TOKEN,
 } from './constants';
 
 const initialState = {

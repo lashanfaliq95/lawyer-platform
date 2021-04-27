@@ -26,7 +26,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   reducers,
-  composeEnhancer(applyMiddleware(sagaMiddleware))
+  composeEnhancer(applyMiddleware(sagaMiddleware)),
 );
 sagaMiddleware.run(sagas);
 

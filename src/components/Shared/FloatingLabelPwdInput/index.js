@@ -12,7 +12,14 @@ import Icon from 'components/Shared/Icon';
 
 const FloatingLabelPwdInput = (props) => {
   const {
-    onChange, label, forgotPwdBtnText, showForgotPwdBtn, showPwdStrength, intl, invalid, ...rest
+    onChange,
+    label,
+    forgotPwdBtnText,
+    showForgotPwdBtn,
+    showPwdStrength,
+    intl,
+    invalid,
+    ...rest
   } = props;
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
@@ -28,7 +35,7 @@ const FloatingLabelPwdInput = (props) => {
 
   return (
     <>
-      <div className="floating-label-input">
+      <div className='floating-label-input'>
         <Input
           type={isPasswordVisible ? 'text' : 'password'}
           onChange={onPasswordInputChange}
@@ -36,42 +43,46 @@ const FloatingLabelPwdInput = (props) => {
           invalid={!!invalid}
           {...rest}
         />
-        <span className="floating-label">
-          {intl.formatMessage(label) }
-        </span>
+        <span className='floating-label'>{intl.formatMessage(label)}</span>
         {showForgotPwdBtn && !password && (
-          <div className="inner-link">
-            <Link to="/auth/forgot-pwd">
+          <div className='inner-link'>
+            <Link to='/auth/forgot-pwd'>
               {intl.formatMessage(forgotPwdBtnText)}
             </Link>
           </div>
         )}
         {password && !isPasswordVisible && (
           <button
-            className="pwd-btn"
+            className='pwd-btn'
             onClick={togglePasswordVisibility}
-            type="button"
+            type='button'
           >
-            <Icon className="pwd-icon" name="eye" />
+            <Icon className='pwd-icon' name='eye' />
           </button>
         )}
         {password && isPasswordVisible && (
           <button
-            className="pwd-btn"
+            className='pwd-btn'
             onClick={togglePasswordVisibility}
-            type="button"
+            type='button'
           >
-            <Icon className="pwd-icon" name="eye-slash" />
+            <Icon className='pwd-icon' name='eye-slash' />
           </button>
         )}
       </div>
       {showPwdStrength && (
-        <div className="pwd-bar-wrapper">
+        <div className='pwd-bar-wrapper'>
           <PasswordStrengthBar
             password={password}
-            scoreWordClassName="score-word-style"
-            scoreWords={['Sicherheit', 'Sicherheit: sehr schlecht', 'Sicherheit: schlecht', 'Sicherheit: gut', 'Sicherheit: sehr gut']}
-            shortScoreWord="Sicherheit"
+            scoreWordClassName='score-word-style'
+            scoreWords={[
+              'Sicherheit',
+              'Sicherheit: sehr schlecht',
+              'Sicherheit: schlecht',
+              'Sicherheit: gut',
+              'Sicherheit: sehr gut',
+            ]}
+            shortScoreWord='Sicherheit'
           />
         </div>
       )}

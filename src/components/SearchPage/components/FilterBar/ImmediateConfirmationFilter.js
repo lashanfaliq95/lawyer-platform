@@ -26,7 +26,9 @@ const ImmediateConfirmationFilter = ({ isFilterActive, onClose }) => {
       <ToggleSwitch
         label={messages.immediateConfirmation}
         isChecked={isImmediateConfirmation}
-        onChange={() => { setIsImmediateConfirmation(!isImmediateConfirmation); }}
+        onChange={() => {
+          setIsImmediateConfirmation(!isImmediateConfirmation);
+        }}
       />
     </FilterModal>
   );
