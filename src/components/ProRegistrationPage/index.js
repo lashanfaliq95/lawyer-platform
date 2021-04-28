@@ -15,7 +15,7 @@ import {
   RegistrationRoot,
   TopBar,
 } from './components';
-import { REGISTRATION_STEPS } from './constants';
+import { GENDERS, REGISTRATION_STEPS } from './constants';
 
 const Container = styled.div`
   height: 100%;
@@ -29,12 +29,26 @@ const Container = styled.div`
 `;
 
 function ProRegistrationPage() {
-  const [{ step }, setState] = useSetState({
+  const [
+    { step, [REGISTRATION_STEPS.PERSONAL_DATA]: personalData },
+    setState,
+  ] = useSetState({
     step: REGISTRATION_STEPS.PERSONAL_DATA,
+    [REGISTRATION_STEPS.PERSONAL_DATA]: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      telephoneNumber: '',
+      gender: GENDERS.MALE,
+    },
   });
 
   function handleStepChange(nextStep) {
     setState({ step: nextStep });
+  }
+
+  function handleOnStepSubmit(nextState) {
+    setState({ ...nextState });
   }
 
   return (
@@ -46,15 +60,27 @@ function ProRegistrationPage() {
         switch (step) {
           case REGISTRATION_STEPS.PERSONAL_DATA:
             componentToRender = (
-              <PersonalData onStepChange={handleStepChange} />
+              <PersonalData
+                current={personalData}
+                onStepChange={handleStepChange}
+                onSubmit={handleOnStepSubmit}
+              />
             );
             break;
           case REGISTRATION_STEPS.JOB_TITLE:
-            componentToRender = <JobTitle onStepChange={handleStepChange} />;
+            componentToRender = (
+              <JobTitle
+                onStepChange={handleStepChange}
+                onSubmit={handleOnStepSubmit}
+              />
+            );
             break;
           case REGISTRATION_STEPS.ADDRESS_ENTRY:
             componentToRender = (
-              <AddressEntry onStepChange={handleStepChange} />
+              <AddressEntry
+                onStepChange={handleStepChange}
+                onSubmit={handleOnStepSubmit}
+              />
             );
             break;
           case REGISTRATION_STEPS.PASSWORD_SETTING:

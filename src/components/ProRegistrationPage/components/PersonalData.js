@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as Yup from 'yup';
@@ -12,7 +12,7 @@ import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import RadioButtonList from './RadioButtonList';
 import ProgressBar from './ProgressBar';
 import { PrimaryButton, SecondaryButton } from './Shared';
-import { REGISTRATION_STEPS } from '../constants';
+import { GENDERS, REGISTRATION_STEPS } from '../constants';
 
 const messages = defineMessages({
   title: {
@@ -132,19 +132,22 @@ const BackIcon = styled(IoMdArrowBack)`
   margin-right: 0.5rem;
 `;
 
-function PersonalData({ onStepChange }) {
+function PersonalData({ current, onStepChange, onSubmit }) {
   const genders = [
     {
-      value: 0,
+      value: GENDERS.MALE,
       label: formatMessages(messages.male),
     },
     {
-      value: 1,
+      value: GENDERS.FEMALE,
       label: formatMessages(messages.female),
     },
   ];
 
-  function handleOnPersonalDataSubmit() {
+  function handleOnPersonalDataSubmit({ gender, ...rest }) {
+    onSubmit({
+      [REGISTRATION_STEPS.PERSONAL_DATA]: { ...rest, gender: gender.value },
+    });
     onStepChange(REGISTRATION_STEPS.JOB_TITLE);
   }
 
@@ -161,7 +164,7 @@ function PersonalData({ onStepChange }) {
       lastName: '',
       email: '',
       telephoneNumber: '',
-      gender: genders[0],
+      gender: null,
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required(messages.invalidFirstName),
@@ -176,6 +179,20 @@ function PersonalData({ onStepChange }) {
     }),
     onSubmit: handleOnPersonalDataSubmit,
   });
+
+  useEffect(() => {
+    Object.keys(current).forEach((key) => {
+      if (key === 'gender') {
+        setFieldValue(
+          key,
+          genders.find(({ value }) => value === current[key]),
+        );
+      } else {
+        setFieldValue(key, current[key]);
+      }
+    });
+    //  eslint-disable-next-line
+  }, []);
 
   function handleOnGenderOptionChange(option) {
     setFieldValue('gender', option);
@@ -258,6 +275,14 @@ function PersonalData({ onStepChange }) {
 
 PersonalData.propTypes = {
   onStepChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  current: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    gender: PropTypes.number.isRequired,
+    telephoneNumber: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default PersonalData;

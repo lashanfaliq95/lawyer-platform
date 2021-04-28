@@ -43,12 +43,12 @@ function RadioButtonListItem({ option, selectedOption, onOptionChange }) {
 
 RadioButtonListItem.propTypes = {
   option: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
   }).isRequired,
   selectedOption: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
   }),
   onOptionChange: PropTypes.func.isRequired,
 };
@@ -86,13 +86,13 @@ function RadioButtonList({ options, selectedOption, onOptionChange }) {
 
 RadioButtonList.propTypes = {
   selectedOption: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
   }),
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
     }),
   ),
   onOptionChange: PropTypes.func.isRequired,

@@ -28,12 +28,13 @@ const StepsContainer = styled.div`
   display: flex;
   padding: 1rem 2rem;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 `;
 
 const LabelContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 `;
 
 const StepsSeparator = styled.div`
