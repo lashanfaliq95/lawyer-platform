@@ -1,9 +1,16 @@
 import React, { useState, memo } from 'react';
 import { injectIntl } from 'react-intl';
 import { func, string, shape } from 'prop-types';
-import { Input, FormFeedback } from 'reactstrap';
+import styled from 'styled-components';
+import { Input } from 'reactstrap';
 
 import './styles.scss';
+
+const ErrorMessage = styled.div`
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+`;
 
 const FloatingLabelInput = (props) => {
   const {
@@ -24,7 +31,7 @@ const FloatingLabelInput = (props) => {
         {...rest}
       />
       <span className='floating-label'>{intl.formatMessage(label)}</span>
-      {error && <FormFeedback>{intl.formatMessage(error)}</FormFeedback>}
+      {error && <ErrorMessage>{intl.formatMessage(error)}</ErrorMessage>}
     </div>
   );
 };

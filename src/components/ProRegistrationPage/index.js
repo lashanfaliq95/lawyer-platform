@@ -30,7 +30,7 @@ const Container = styled.div`
 
 function ProRegistrationPage() {
   const [{ step }, setState] = useSetState({
-    step: REGISTRATION_STEPS.GET_STARTED,
+    step: REGISTRATION_STEPS.PERSONAL_DATA,
   });
 
   function handleStepChange(nextStep) {

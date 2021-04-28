@@ -11,6 +11,7 @@ import PersonalData from './PersonalData';
 import ProgressBar from './ProgressBar';
 import RegistrationRoot from './RegistrationRoot';
 import TopBar from './TopBar';
+import RadioButtonList from './RadioButtonList';
 
 export {
   AccountConfirmed,
@@ -26,6 +27,7 @@ export {
   ProgressBar,
   RegistrationRoot,
   TopBar,
+  RadioButtonList,
 };
 
 export default {};
