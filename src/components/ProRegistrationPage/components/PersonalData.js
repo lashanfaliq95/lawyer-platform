@@ -144,6 +144,10 @@ function PersonalData({ onStepChange }) {
     },
   ];
 
+  function handleOnPersonalDataSubmit() {
+    onStepChange(REGISTRATION_STEPS.JOB_TITLE);
+  }
+
   const {
     handleSubmit,
     errors,
@@ -170,7 +174,7 @@ function PersonalData({ onStepChange }) {
         .min(5, messages.invalidNumber)
         .max(15, messages.invalidNumber),
     }),
-    onSubmit: () => {},
+    onSubmit: handleOnPersonalDataSubmit,
   });
 
   function handleOnGenderOptionChange(option) {
