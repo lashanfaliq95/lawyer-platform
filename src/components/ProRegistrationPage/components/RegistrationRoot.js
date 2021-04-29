@@ -32,7 +32,14 @@ function RegistrationRoot({ children }) {
 }
 
 RegistrationRoot.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.elementType),
+    PropTypes.shape({}),
+  ]),
+};
+
+RegistrationRoot.defaultProps = {
+  children: [],
 };
 
 export default RegistrationRoot;

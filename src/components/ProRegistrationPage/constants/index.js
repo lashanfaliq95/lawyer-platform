@@ -10,4 +10,9 @@ export const REGISTRATION_STEPS = {
   ACCOUNT_CONFIRMED: 'ACCOUNT_CONFIRMED',
 };
 
+export const GENDERS = {
+  MALE: 0,
+  FEMALE: 1,
+};
+
 export default {};
