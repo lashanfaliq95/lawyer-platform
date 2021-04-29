@@ -30,16 +30,26 @@ const Container = styled.div`
 
 function ProRegistrationPage() {
   const [
-    { step, [REGISTRATION_STEPS.PERSONAL_DATA]: personalData },
+    {
+      step,
+      [REGISTRATION_STEPS.PERSONAL_DATA]: personalData,
+      [REGISTRATION_STEPS.ADDRESS_ENTRY]: addressData,
+    },
     setState,
   ] = useSetState({
-    step: REGISTRATION_STEPS.PERSONAL_DATA,
+    step: REGISTRATION_STEPS.ADDRESS_ENTRY,
     [REGISTRATION_STEPS.PERSONAL_DATA]: {
       firstName: '',
       lastName: '',
       email: '',
       telephoneNumber: '',
       gender: GENDERS.MALE,
+    },
+    [REGISTRATION_STEPS.ADDRESS_ENTRY]: {
+      road: '',
+      houseNumber: '',
+      postalCode: '',
+      city: '',
     },
   });
 
@@ -78,6 +88,7 @@ function ProRegistrationPage() {
           case REGISTRATION_STEPS.ADDRESS_ENTRY:
             componentToRender = (
               <AddressEntry
+                current={addressData}
                 onStepChange={handleStepChange}
                 onSubmit={handleOnStepSubmit}
               />
