@@ -33,6 +33,7 @@ function ProRegistrationPage() {
     {
       step,
       [REGISTRATION_STEPS.PERSONAL_DATA]: personalData,
+      [REGISTRATION_STEPS.JOB_TITLE]: jobTitle,
       [REGISTRATION_STEPS.ADDRESS_ENTRY]: addressData,
     },
     setState,
@@ -44,6 +45,9 @@ function ProRegistrationPage() {
       email: '',
       telephoneNumber: '',
       gender: GENDERS.MALE,
+    },
+    [REGISTRATION_STEPS.JOB_TITLE]: {
+      jobTitle: 0,
     },
     [REGISTRATION_STEPS.ADDRESS_ENTRY]: {
       road: '',
@@ -80,6 +84,7 @@ function ProRegistrationPage() {
           case REGISTRATION_STEPS.JOB_TITLE:
             componentToRender = (
               <JobTitle
+                current={{ ...jobTitle, gender: personalData.gender }}
                 onStepChange={handleStepChange}
                 onSubmit={handleOnStepSubmit}
               />

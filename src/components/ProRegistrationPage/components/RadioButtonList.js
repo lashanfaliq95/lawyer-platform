@@ -6,8 +6,9 @@ import classnames from 'classnames';
 const ListItemContainer = styled.div`
   display: flex;
   background-color: #ffffff;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 0rem;
   cursor: pointer;
+  margin-left: 1.5rem;
 `;
 
 const Selection = styled.div`
@@ -60,6 +61,7 @@ RadioButtonListItem.defaultProps = {
 const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
   border: 1px solid #ced4da;
   border-radius: 10px;
   overflow: hidden;

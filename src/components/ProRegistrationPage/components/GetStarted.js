@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { AiOutlineFile } from 'react-icons/ai';
-import PropTypes from 'prop-types';
+import { defineMessages } from 'react-intl';
 
+import formatMessages from 'components/formatMessages';
 import ProgressBar from './ProgressBar';
 import { PrimaryButton } from './Shared';
 import { REGISTRATION_STEPS } from '../constants';
@@ -69,6 +71,34 @@ const FooterContainer = styled.div`
   margin-top: 1rem;
 `;
 
+const messages = defineMessages({
+  title: {
+    id: 'app.proRegisterPage.getStartedTitle',
+    defaultMessage: 'Avoplan Pro makes a difference.',
+  },
+  subtitle: {
+    id: 'app.proRegisterPage.getStartedSubtitle',
+    defaultMessage:
+      'Open your Avoplan Pro account now and experience the difference.',
+  },
+  enterData: {
+    id: 'app.proRegisterPage.getStartedEnterData',
+    defaultMessage: 'Enter data',
+  },
+  bookTutorial: {
+    id: 'app.proRegisterPage.getStartedBookTutorial',
+    defaultMessage: 'Book a tutorial',
+  },
+  experienceAvoplanPro: {
+    id: 'app.proRegisterPage.getStartedExperienceAvoplanPro',
+    defaultMessage: 'Experience Avoplan Pro',
+  },
+  btnGetStarted: {
+    id: 'app.proRegisterPage.getStartedBtnGetStarted',
+    defaultMessage: 'Get Started',
+  },
+});
+
 function GetStarted({ onStepChange }) {
   function handleOnNextClick() {
     onStepChange(REGISTRATION_STEPS.PERSONAL_DATA);
@@ -77,11 +107,8 @@ function GetStarted({ onStepChange }) {
   return (
     <Container>
       <ProgressBar value={1} />
-      <Title>Avoplan Pro macht einen Unterschied.</Title>
-      <SubTitle>
-        Eröffnen Sie jetzt Ihr Avoplan Pro Konto und erleben Sie den
-        Unterscheid.
-      </SubTitle>
+      <Title>{formatMessages(messages.title)}</Title>
+      <SubTitle>{formatMessages(messages.subtitle)}</SubTitle>
       <StepsContainer>
         <StepsItem>
           <StepsItemIconContainer backgroundColor='#F3EDE0'>
@@ -102,12 +129,16 @@ function GetStarted({ onStepChange }) {
         </StepsItem>
       </StepsContainer>
       <LabelContainer>
-        <StepsItemLabel>Daten angeben</StepsItemLabel>
-        <StepsItemLabel>Schulung buchen</StepsItemLabel>
-        <StepsItemLabel>Avoplan Pro erleben</StepsItemLabel>
+        <StepsItemLabel>{formatMessages(messages.enterData)}</StepsItemLabel>
+        <StepsItemLabel>{formatMessages(messages.bookTutorial)}</StepsItemLabel>
+        <StepsItemLabel>
+          {formatMessages(messages.experienceAvoplanPro)}
+        </StepsItemLabel>
       </LabelContainer>
       <FooterContainer>
-        <PrimaryButton onClick={handleOnNextClick}>Loslegen</PrimaryButton>
+        <PrimaryButton onClick={handleOnNextClick}>
+          {formatMessages(messages.btnGetStarted)}
+        </PrimaryButton>
       </FooterContainer>
     </Container>
   );
