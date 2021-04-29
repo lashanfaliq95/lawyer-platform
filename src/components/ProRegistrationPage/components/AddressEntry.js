@@ -5,12 +5,11 @@ import * as Yup from 'yup';
 import { Form } from 'reactstrap';
 import { useFormik } from 'formik';
 import { defineMessages } from 'react-intl';
-import { IoMdArrowBack } from 'react-icons/io';
 
 import formatMessages from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import ProgressBar from './ProgressBar';
-import { PrimaryButton, SecondaryButton } from './Shared';
+import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
 
 const messages = defineMessages({
@@ -23,7 +22,7 @@ const messages = defineMessages({
     defaultMessage: 'Please enter the address of your law firm.',
   },
   road: {
-    id: 'app.proRegisterPage.addressEntry.address',
+    id: 'app.proRegisterPage.addressEntry.road',
     defaultMessage: 'Road',
   },
   houseNumber: {
@@ -37,14 +36,6 @@ const messages = defineMessages({
   city: {
     id: 'app.proRegisterPage.addressEntry.city',
     defaultMessage: 'City',
-  },
-  back: {
-    id: 'app.proRegisterPage.personalData.back',
-    defaultMessage: 'Back',
-  },
-  next: {
-    id: 'app.proRegisterPage.personalData.next',
-    defaultMessage: 'Next',
   },
   invalidRoad: {
     id: 'app.proRegisterPage.addressEntry.invalidRoad',
@@ -100,15 +91,6 @@ const RowInputContainerLarge = styled.div`
 
 const RowInputSeparator = styled.div`
   width: 10px;
-`;
-
-const FooterContainer = styled.div`
-  display: flex;
-  margin-top: 1rem;
-`;
-
-const BackIcon = styled(IoMdArrowBack)`
-  margin-right: 0.5rem;
 `;
 
 function AddressEntry({ current, onStepChange, onSubmit }) {
@@ -204,16 +186,7 @@ function AddressEntry({ current, onStepChange, onSubmit }) {
             />
           </RowInputContainerLarge>
         </RowInputContainer>
-        <FooterContainer>
-          <SecondaryButton type='button' onClick={handleOnPrevious}>
-            <BackIcon />
-            {formatMessages(messages.back)}
-          </SecondaryButton>
-          <RowInputSeparator />
-          <PrimaryButton type='submit'>
-            {formatMessages(messages.next)}
-          </PrimaryButton>
-        </FooterContainer>
+        <FooterContainer onPrevious={handleOnPrevious} />
       </Form>
     </Container>
   );

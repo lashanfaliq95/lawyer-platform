@@ -295,4 +295,11 @@ export default {
   'app.proRegisterPage.notaryFemale': 'Notarin',
   'app.proRegisterPage.taxConsultantFemale': 'Steuerberaterin',
   'app.proRegisterPage.consultantFemale': 'Beraterin',
+  'app.proRegisterPage.addressEntry.title': 'Adresse',
+  'app.proRegisterPage.addressEntry.subTitle':
+    'Bitte geben Sie die Adresse Ihrer Kanzleian.',
+  'app.proRegisterPage.addressEntry.road': 'Straße',
+  'app.proRegisterPage.addressEntry.houseNumber': 'Hausnummer',
+  'app.proRegisterPage.addressEntry.postalCode': 'Postleitzahl',
+  'app.proRegisterPage.addressEntry.city': 'Stadt',
 };

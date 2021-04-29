@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
@@ -92,15 +92,12 @@ const JobTitleSelectionContainer = styled.div`
   margin-top: 1rem;
 `;
 
-function JobTitle({ onStepChange }) {
-  // selected gender from previous step
-  const gender = 'male';
-
+function JobTitle({ current, onStepChange, onSubmit }) {
   const jobTitles = [
     {
       value: 0,
       label: formatMessages(
-        gender === 'male'
+        current.gender === 0
           ? messages.specializedLawyerMale
           : messages.specializedLawyerFemale,
       ),
@@ -108,13 +105,13 @@ function JobTitle({ onStepChange }) {
     {
       value: 1,
       label: formatMessages(
-        gender === 'male' ? messages.lawyerMale : messages.lawyerFemale,
+        current.gender === 0 ? messages.lawyerMale : messages.lawyerFemale,
       ),
     },
     {
       value: 2,
       label: formatMessages(
-        gender === 'male'
+        current.gender === 0
           ? messages.patentLawyerMale
           : messages.patentLawyerFemale,
       ),
@@ -122,13 +119,13 @@ function JobTitle({ onStepChange }) {
     {
       value: 3,
       label: formatMessages(
-        gender === 'male' ? messages.notaryMale : messages.notaryFemale,
+        current.gender === 0 ? messages.notaryMale : messages.notaryFemale,
       ),
     },
     {
       value: 4,
       label: formatMessages(
-        gender === 'male'
+        current.gender === 0
           ? messages.taxConsultantMale
           : messages.taxConsultantFemale,
       ),
@@ -136,12 +133,17 @@ function JobTitle({ onStepChange }) {
     {
       value: 5,
       label: formatMessages(
-        gender === 'male' ? messages.consultantMale : messages.consultantFemale,
+        current.gender === 0
+          ? messages.consultantMale
+          : messages.consultantFemale,
       ),
     },
   ];
 
-  function handleOnJobTitleSubmit() {
+  function handleOnJobTitleSubmit({ jobTitle }) {
+    onSubmit({
+      [REGISTRATION_STEPS.JOB_TITLE]: { jobTitle: jobTitle.value },
+    });
     onStepChange(REGISTRATION_STEPS.ADDRESS_ENTRY);
   }
 
@@ -150,9 +152,17 @@ function JobTitle({ onStepChange }) {
     setFieldValue,
     values: { jobTitle },
   } = useFormik({
-    initialValues: { jobTitle: jobTitles[0] },
+    initialValues: { jobTitle: null },
     onSubmit: handleOnJobTitleSubmit,
   });
+
+  useEffect(() => {
+    setFieldValue(
+      'jobTitle',
+      jobTitles.find(({ value }) => value === current.jobTitle),
+    );
+    //  eslint-disable-next-line
+  }, []);
 
   function handleOnJobTitleOptionChange(option) {
     setFieldValue('jobTitle', option);
@@ -183,6 +193,11 @@ function JobTitle({ onStepChange }) {
 
 JobTitle.propTypes = {
   onStepChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  current: PropTypes.shape({
+    jobTitle: PropTypes.number.isRequired,
+    gender: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default JobTitle;
