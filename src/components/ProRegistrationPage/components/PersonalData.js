@@ -5,62 +5,53 @@ import * as Yup from 'yup';
 import { Form } from 'reactstrap';
 import { useFormik } from 'formik';
 import { defineMessages } from 'react-intl';
-import { IoMdArrowBack } from 'react-icons/io';
 
 import formatMessages from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import RadioButtonList from './RadioButtonList';
 import ProgressBar from './ProgressBar';
-import { PrimaryButton, SecondaryButton } from './Shared';
+import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
 
 const messages = defineMessages({
   title: {
-    id: 'app.proRegisterPage.personalData.title',
+    id: 'app.proRegisterPage.personalDataTitle',
     defaultMessage: 'Personal Data',
   },
   subTitle: {
-    id: 'app.proRegisterPage.personalData.subTitle',
+    id: 'app.proRegisterPage.personalDataSubtitle',
     defaultMessage: 'Enter your contact details.',
   },
   firstName: {
-    id: 'app.proRegisterPage.personalData.firstName',
+    id: 'app.proRegisterPage.personalDataFirstName',
     defaultMessage: 'First name',
   },
   lastName: {
-    id: 'app.proRegisterPage.personalData.lastName',
+    id: 'app.proRegisterPage.personalDataLastName',
     defaultMessage: 'Last name',
   },
   email: {
-    id: 'app.proRegisterPage.personalData.email',
+    id: 'app.proRegisterPage.personalDataEmail',
     defaultMessage: 'E-Mail',
   },
   telephoneNumber: {
-    id: 'app.proRegisterPage.personalData.telephoneNumber',
+    id: 'app.proRegisterPage.personalDataPhoneNumber',
     defaultMessage: 'Telephone',
   },
   male: {
-    id: 'app.proRegisterPage.personalData.male',
+    id: 'app.proRegisterPage.personalDataMale',
     defaultMessage: 'Male',
   },
   female: {
-    id: 'app.proRegisterPage.personalData.female',
+    id: 'app.proRegisterPage.personalDataFemale',
     defaultMessage: 'Female',
   },
-  back: {
-    id: 'app.proRegisterPage.personalData.back',
-    defaultMessage: 'Back',
-  },
-  next: {
-    id: 'app.proRegisterPage.personalData.next',
-    defaultMessage: 'Next',
-  },
   genderTitle: {
-    id: 'app.proRegisterPage.personalData.genderTitle',
+    id: 'app.proRegisterPage.personalDataSubtitleGender',
     defaultMessage: 'What is your gender?',
   },
   genderDescription: {
-    id: 'app.proRegisterPage.personalData.genderDescription',
+    id: 'app.proRegisterPage.personalDataSubSubtitleGender',
     defaultMessage:
       'We need it so that the job title in your Avoplan profile is gender-appropriate.',
   },
@@ -121,15 +112,6 @@ const GenderSelectionDescription = styled.span`
 
 const GenderSelectionContainer = styled.div`
   margin-top: 1rem;
-`;
-
-const FooterContainer = styled.div`
-  display: flex;
-  margin-top: 1rem;
-`;
-
-const BackIcon = styled(IoMdArrowBack)`
-  margin-right: 0.5rem;
 `;
 
 function PersonalData({ onStepChange }) {
@@ -241,16 +223,7 @@ function PersonalData({ onStepChange }) {
             onOptionChange={handleOnGenderOptionChange}
           />
         </GenderSelectionContainer>
-        <FooterContainer>
-          <SecondaryButton type='button' onClick={handleOnPrevious}>
-            <BackIcon />
-            {formatMessages(messages.back)}
-          </SecondaryButton>
-          <RowInputSeparator />
-          <PrimaryButton type='submit'>
-            {formatMessages(messages.next)}
-          </PrimaryButton>
-        </FooterContainer>
+        <FooterContainer onPrevious={handleOnPrevious} />
       </Form>
     </Container>
   );

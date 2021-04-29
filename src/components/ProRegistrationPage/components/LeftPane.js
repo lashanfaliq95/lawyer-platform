@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { defineMessages } from 'react-intl';
 
 import formatMessages from 'components/formatMessages';
 import headerImage from 'assets/images/header-home.png';
-import messages from '../messages';
 
 const Container = styled.div`
   display: flex;
@@ -14,6 +14,7 @@ const Container = styled.div`
 
 const SubTitle = styled.span`
   text-align: justify;
+  padding: 50px 0;
 `;
 
 const Image = styled.img`
@@ -26,6 +27,18 @@ const ImageContainer = styled.div`
   align-items: flex-end;
   max-width: 100%;
 `;
+
+const messages = defineMessages({
+  title: {
+    id: 'app.proRegisterPage.titleText',
+    defaultMessage: 'Future of Legal Consultation',
+  },
+  description: {
+    id: 'app.proRegisterPage.descriptionText',
+    defaultMessage:
+      'Avoplan Pro is an innovative solution for lawyers to get more clients and money',
+  },
+});
 
 function LeftPane() {
   return (

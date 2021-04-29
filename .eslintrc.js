@@ -20,6 +20,12 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // added "react-hooks/rules-of-hooks"
     'react-hooks/exhaustive-deps': 'warn',
     'jsx-quotes': 'off',
+    'linebreak-style': ['error', 'windows'],
+    'operator-linebreak': [
+      'error',
+      'after',
+      { overrides: { '?': 'ignore', ':': 'ignore', '+': 'ignore' } },
+    ],
   },
   settings: {
     'import/resolver': {
