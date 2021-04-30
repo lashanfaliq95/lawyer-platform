@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import formatMessages from 'components/formatMessages';
 import NavigationBar from 'components/NavigationBar';
@@ -61,23 +60,4 @@ const HelpPage = () => (
   </>
 );
 
-HelpPage.propTypes = {
-
-};
-
-const mapStateToProps = (state) => (
-  {
-    userAppointments: state.appointments.userAppointments,
-    activeUserAppointment: state.appointments.activeUserAppointment,
-    activePastAppointment: state.appointments.activePastAppointment,
-    activeUserColorIndex: state.appointments.activeUserColorIndex,
-    activePastColorIndex: state.appointments.activePastColorIndex,
-    pastAppointments: state.appointments.pastAppointments,
-    id: state.login.userDetails && state.login.userDetails.id,
-    isAppointmentsLoading: state.appointments.isAppointmentsLoading,
-  }
-);
-
-export default connect(
-  mapStateToProps, { },
-)(HelpPage);
+export default HelpPage;
