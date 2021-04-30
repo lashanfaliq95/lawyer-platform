@@ -24,8 +24,4 @@ const ListSection = () => (
   </>
 );
 
-ListSection.propTypes = {
-
-};
-
 export default ListSection;
