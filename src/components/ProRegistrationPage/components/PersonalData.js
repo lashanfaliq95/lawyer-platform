@@ -73,6 +73,17 @@ const messages = defineMessages({
   },
 });
 
+const genders = [
+  {
+    value: GENDERS.MALE,
+    label: formatMessages(messages.male),
+  },
+  {
+    value: GENDERS.FEMALE,
+    label: formatMessages(messages.female),
+  },
+];
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -115,17 +126,6 @@ const GenderSelectionContainer = styled.div`
 `;
 
 function PersonalData({ current, onStepChange, onSubmit }) {
-  const genders = [
-    {
-      value: GENDERS.MALE,
-      label: formatMessages(messages.male),
-    },
-    {
-      value: GENDERS.FEMALE,
-      label: formatMessages(messages.female),
-    },
-  ];
-
   function handleOnPersonalDataSubmit({ gender, ...rest }) {
     onSubmit({
       [REGISTRATION_STEPS.PERSONAL_DATA]: { ...rest, gender: gender.value },
