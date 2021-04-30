@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from 'components/HomePage';
 import AppointmentsPage from 'components/AppointmentsPage';
+import HelpPage from 'components/HelpPage';
+import HelpPageContactForm from 'components/HelpPage/components/ContatctForm';
 import SearchPage from 'components/SearchPage';
 import LawyerDetailsPage from 'components/LawyerDetailsPage';
 import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
@@ -41,6 +43,16 @@ const App = () => (
         path="/appointments"
         exact
         component={AppointmentsPage}
+      />
+      <Route
+        path="/help"
+        exact
+        component={HelpPage}
+      />
+      <Route
+        path="/help/contact"
+        exact
+        component={HelpPageContactForm}
       />
       <Route
         path="/search"
