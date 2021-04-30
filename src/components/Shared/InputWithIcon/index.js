@@ -38,13 +38,13 @@ const InputWithIcon = (props) => {
   const transitionDivClass = !transition ? 'transition-text' : 'transitioned';
 
   return (
-    <div className="input-icons" style={{ width }}>
-      {prependImgIcon && <ImageIcon img={LawyerBook} top="15px" left="10px" />}
+    <div className='input-icons' style={{ width }}>
+      {prependImgIcon && <ImageIcon img={LawyerBook} top='15px' left='10px' />}
       {prependIcon && (
         <Icon
           name={prependIcon.name}
-          className="icon"
-          size="large"
+          className='icon'
+          size='large'
           color={prependIcon.color}
         />
       )}
@@ -57,7 +57,7 @@ const InputWithIcon = (props) => {
       {transitionText && (
         <button
           className={`transition-button ${transitionDivClass}`}
-          type="button"
+          type='button'
           onClick={() => {
             setTransition(!transition);
           }}
@@ -65,9 +65,9 @@ const InputWithIcon = (props) => {
           <div>
             {appendIcon && (
               <Icon
-                name="crosshairs"
-                size="large"
-                color="grey"
+                name='crosshairs'
+                size='large'
+                color='grey'
                 onClick={() => {
                   setTransition(!transition);
                 }}
@@ -75,9 +75,9 @@ const InputWithIcon = (props) => {
             )}
             <p>{formatMessage(transitionText)}</p>
             <Icon
-              name="times-circle"
-              className="icon"
-              size="large"
+              name='times-circle'
+              className='icon'
+              size='large'
               color={prependIcon.color}
             />
           </div>
@@ -86,8 +86,8 @@ const InputWithIcon = (props) => {
       {appendIcon && (
         <Icon
           name={appendIcon.name}
-          className="icon right"
-          size="large"
+          className='icon right'
+          size='large'
           color={appendIcon.color}
           onClick={() => {
             setTransition(!transition);

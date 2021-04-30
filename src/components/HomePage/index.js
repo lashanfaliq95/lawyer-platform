@@ -17,27 +17,27 @@ import BottomCardSection from './components/BottomCardSection';
 const HomePage = ({ isUserLoggedIn }) => (
   <>
     <NavigationBar />
-    <Container className="home-page" fluid>
+    <Container className='home-page' fluid>
       <Search />
       <CardSection />
       {!isUserLoggedIn && (
-      <>
-        <VideoSection />
-        <HorizontalSeparator
-          color="#eef2f6"
-          height={1}
-          isContainer
-          className="separator-wrapper"
-        />
-        <ImageSection />
-        <HorizontalSeparator
-          color="#eef2f6"
-          height={1}
-          isContainer
-          className="separator-wrapper"
-        />
-        <BottomCardSection />
-      </>
+        <>
+          <VideoSection />
+          <HorizontalSeparator
+            color='#eef2f6'
+            height={1}
+            isContainer
+            className='separator-wrapper'
+          />
+          <ImageSection />
+          <HorizontalSeparator
+            color='#eef2f6'
+            height={1}
+            isContainer
+            className='separator-wrapper'
+          />
+          <BottomCardSection />
+        </>
       )}
     </Container>
     {!isUserLoggedIn && <Footer />}

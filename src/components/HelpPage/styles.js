@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import {
-  Container,
-  ListGroupItem,
-  Label,
-  Button,
-  Input,
+  Container, ListGroupItem, Label, Button, Input,
 } from 'reactstrap';
 
 const HelpPageContainer = styled(Container)`

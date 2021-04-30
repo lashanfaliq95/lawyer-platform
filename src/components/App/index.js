@@ -18,6 +18,7 @@ import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 import ResetPwdCardPage from 'components/LoginPage/components/ResetPwdCardPage';
 import UnprotectedRoute from 'components/Shared/UnprotectedRoute';
+import ProRegistrationPage from 'components/ProRegistrationPage';
 
 import reducers from 'reducers';
 import sagas from 'sagas';
@@ -34,59 +35,34 @@ sagaMiddleware.run(sagas);
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
+      <Route path='/' exact component={HomePage} />
+      <Route path='/appointments' exact component={AppointmentsPage} />
+      <Route path='/search' exact component={SearchPage} />
+      <Route path='/' exact component={HomePage} />
+      <Route path='/appointments' exact component={AppointmentsPage} />
+      <Route path='/help' exact component={HelpPage} />
+      <Route path='/help/contact' exact component={HelpPageContactForm} />
+      <Route path='/search' exact component={SearchPage} />
       <Route
-        path="/"
-        exact
-        component={HomePage}
-      />
-      <Route
-        path="/appointments"
-        exact
-        component={AppointmentsPage}
-      />
-      <Route
-        path="/help"
-        exact
-        component={HelpPage}
-      />
-      <Route
-        path="/help/contact"
-        exact
-        component={HelpPageContactForm}
-      />
-      <Route
-        path="/search"
-        exact
-        component={SearchPage}
-      />
-      <Route
-        path="/search/lawyer-details/:id"
+        path='/search/lawyer-details/:id'
         exact
         component={LawyerDetailsPage}
       />
+      <UnprotectedRoute path='/auth/login' exact component={LoginCardPage} />
       <UnprotectedRoute
-        path="/auth/login"
-        exact
-        component={LoginCardPage}
-      />
-      <UnprotectedRoute
-        path="/auth/forgot-pwd"
+        path='/auth/forgot-pwd'
         exact
         component={ForgotPwdCardPage}
       />
-      <Route
-        path="/auth/register"
+      <UnprotectedRoute
+        path='/auth/register'
         exact
         component={RegisterCardPage}
       />
-      <Route
-        path="/auth/reset/:token"
-        exact
-        component={ResetPwdCardPage}
-      />
+      <Route path='/auth/reset/:token' exact component={ResetPwdCardPage} />
+      <Route path='/pro' exact component={ProRegistrationPage} />
     </BrowserRouter>
   </Provider>
-
 );
 
 export default App;

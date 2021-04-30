@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bool, func, shape } from 'prop-types';
 import {
-  Form, FormGroup, Button, Card, CardBody, CardTitle, Alert,
+  Form,
+  FormGroup,
+  Button,
+  Card,
+  CardBody,
+  CardTitle,
+  Alert,
 } from 'reactstrap';
 import { useFormik } from 'formik';
 
@@ -26,10 +32,10 @@ const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
   });
 
   return (
-    <Card className="login-card">
+    <Card className='login-card'>
       <CardBody>
-        <CardTitle className="title">
-          <Link to="/" className="link-text">
+        <CardTitle className='title'>
+          <Link to='/' className='link-text'>
             {formatMessage(messages.loginTitle)}
           </Link>
         </CardTitle>
@@ -37,16 +43,16 @@ const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
           <FormGroup>
             <FloatingInputLabel
               label={messages.emailPlaceHolder}
-              type="email"
-              name="email"
-              id="exampleEmail"
+              type='email'
+              name='email'
+              id='exampleEmail'
               required
               {...formik.getFieldProps('email')}
             />
           </FormGroup>
           <FormGroup>
             <FloatingLabelPwdInput
-              name="password"
+              name='password'
               label={messages.passwordPlaceHolder}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
@@ -56,21 +62,19 @@ const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Button className="login-btn" type="submit" color="warning">
+            <Button className='login-btn' type='submit' color='warning'>
               {formatMessage(messages.loginBtnText)}
             </Button>
           </FormGroup>
         </Form>
-        <div className="outer-link">
+        <div className='outer-link'>
           {formatMessage(messages.registerBtnText)}
           &nbsp;
-          <Link to="/auth/register">
-            {formatMessage(messages.register)}
-          </Link>
+          <Link to='/auth/register'>{formatMessage(messages.register)}</Link>
         </div>
       </CardBody>
       {isLoginError && (
-        <Alert color="danger" className="login-error">
+        <Alert color='danger' className='login-error'>
           Login failed
         </Alert>
       )}
@@ -84,6 +88,6 @@ LoginForm.propTypes = {
   isLoginError: bool.isRequired,
 };
 
-export default connect(
-  (state) => ({ isLoginError: state.login.loginError }), { loginUser },
-)(LoginForm);
+export default connect((state) => ({ isLoginError: state.login.loginError }), {
+  loginUser,
+})(LoginForm);

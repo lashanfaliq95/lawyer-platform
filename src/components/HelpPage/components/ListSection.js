@@ -10,8 +10,9 @@ const ListSection = ({ title, list }) => (
   <ListWrapper>
     <ListTitle>{formatMessages(title)}</ListTitle>
     <ListGroup>
-      {
-        list && list.length !== 0 && list.map((element) => (
+      {list &&
+        list.length !== 0 &&
+        list.map((element) => (
           <ListElement
             description={element.description}
             subDescription={element.subDescription}
@@ -19,8 +20,7 @@ const ListSection = ({ title, list }) => (
             suffixIconName={element.suffixIconName}
             redirectUrl={element.redirectUrl}
           />
-        ))
-        }
+        ))}
     </ListGroup>
   </ListWrapper>
 );

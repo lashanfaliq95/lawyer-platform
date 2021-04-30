@@ -9,15 +9,28 @@ import formatMessages from 'components/formatMessages';
 import messages from '../../../messages';
 
 const FilterModal = ({
-  children, className, onClickSave, onClickCancel, isCancelBtnDisabled, isSaveBtnDisabled,
+  children,
+  className,
+  onClickSave,
+  onClickCancel,
+  isCancelBtnDisabled,
+  isSaveBtnDisabled,
 }) => (
   <>
     <div className={className}>{children}</div>
-    <div className="bottom-section">
-      <Button color="link" onClick={onClickCancel} disabled={isCancelBtnDisabled}>
+    <div className='bottom-section'>
+      <Button
+        color='link'
+        onClick={onClickCancel}
+        disabled={isCancelBtnDisabled}
+      >
         {formatMessages(messages.delete)}
       </Button>
-      <Button color="primary" onClick={onClickSave} disabled={isSaveBtnDisabled}>
+      <Button
+        color='primary'
+        onClick={onClickSave}
+        disabled={isSaveBtnDisabled}
+      >
         {formatMessages(messages.save)}
       </Button>
     </div>

@@ -8,17 +8,22 @@ import Icon from 'components/Shared/Icon';
 import { ListItem, ListItemDescription } from '../styles';
 
 const ListElement = ({
-  prefixIconName, description, subDescription, suffixIconName, redirectUrl,
+  prefixIconName,
+  description,
+  subDescription,
+  suffixIconName,
+  redirectUrl,
 }) => (
   <ListItem>
     <Link to={redirectUrl}>
       {prefixIconName && <Icon name={prefixIconName} />}
-      <ListItemDescription>
-        {formatMessages(description)}
-      </ListItemDescription>
+      <ListItemDescription>{formatMessages(description)}</ListItemDescription>
       {suffixIconName && <Icon name={suffixIconName} />}
-      {subDescription
-      && <span style={{ display: 'flex' }}>{formatMessages(subDescription)}</span>}
+      {subDescription && (
+        <span style={{ display: 'flex' }}>
+          {formatMessages(subDescription)}
+        </span>
+      )}
     </Link>
   </ListItem>
 );

@@ -44,92 +44,92 @@ const RegisterCard = ({
 
   return (
     <>
-      {isRegisterUserSuccess
-        ? <Redirect to={{ pathname: '/auth/login' }} />
-        : (
-          <Card className="register-card">
-            <CardBody>
-              <CardTitle className="title">
-                <Link to="/" className="link-text">
-                  {formatMessage(messages.registerTitle)}
-                </Link>
-              </CardTitle>
-              <Form onSubmit={formik.handleSubmit}>
-                <Row form>
-                  <Col md={6}>
-                    <FormGroup>
-                      <FloatingInputLabel
-                        label={messages.firstName}
-                        type="text"
-                        name="firstName"
-                        id="firstName"
-                        required
-                        {...formik.getFieldProps('firstName')}
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md={6}>
-                    <FormGroup>
-                      <FloatingInputLabel
-                        label={messages.lastName}
-                        type="text"
-                        name="lastName"
-                        id="lastName"
-                        required
-                        {...formik.getFieldProps('lastName')}
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <FormGroup>
-                  <FloatingInputLabel
-                    label={messages.emailPlaceHolder}
-                    type="email"
-                    name="email"
-                    id="email"
-                    required
-                    {...formik.getFieldProps('email')}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <FloatingInputLabel
-                    label={messages.mobileOrLandLine}
-                    type="text"
-                    name="mobilePhone"
-                    id="mobilePhone"
-                    required
-                    {...formik.getFieldProps('mobilePhone')}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <FloatingLabelPwdInput
-                    label={messages.passwordPlaceHolder}
-                    name="password"
-                    id="password"
-                    showPwdStrength
-                    required
-                    {...formik.getFieldProps('password')}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Button type="submit" color="primary" className="login-btn">
-                    {formatMessage(messages.register)}
-                  </Button>
-                </FormGroup>
-              </Form>
-              <div className="outer-link">
-                <Link to="/auth/login">
-                  {formatMessage(messages.alreadyHaveAnAccount)}
-                </Link>
-              </div>
-            </CardBody>
-            {isRegisterUserError && (
-            <Alert color="danger" className="login-error">
+      {isRegisterUserSuccess ? (
+        <Redirect to={{ pathname: '/auth/login' }} />
+      ) : (
+        <Card className='register-card'>
+          <CardBody>
+            <CardTitle className='title'>
+              <Link to='/' className='link-text'>
+                {formatMessage(messages.registerTitle)}
+              </Link>
+            </CardTitle>
+            <Form onSubmit={formik.handleSubmit}>
+              <Row form>
+                <Col md={6}>
+                  <FormGroup>
+                    <FloatingInputLabel
+                      label={messages.firstName}
+                      type='text'
+                      name='firstName'
+                      id='firstName'
+                      required
+                      {...formik.getFieldProps('firstName')}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6}>
+                  <FormGroup>
+                    <FloatingInputLabel
+                      label={messages.lastName}
+                      type='text'
+                      name='lastName'
+                      id='lastName'
+                      required
+                      {...formik.getFieldProps('lastName')}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <FormGroup>
+                <FloatingInputLabel
+                  label={messages.emailPlaceHolder}
+                  type='email'
+                  name='email'
+                  id='email'
+                  required
+                  {...formik.getFieldProps('email')}
+                />
+              </FormGroup>
+              <FormGroup>
+                <FloatingInputLabel
+                  label={messages.mobileOrLandLine}
+                  type='text'
+                  name='mobilePhone'
+                  id='mobilePhone'
+                  required
+                  {...formik.getFieldProps('mobilePhone')}
+                />
+              </FormGroup>
+              <FormGroup>
+                <FloatingLabelPwdInput
+                  label={messages.passwordPlaceHolder}
+                  name='password'
+                  id='password'
+                  showPwdStrength
+                  required
+                  {...formik.getFieldProps('password')}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Button type='submit' color='primary' className='login-btn'>
+                  {formatMessage(messages.register)}
+                </Button>
+              </FormGroup>
+            </Form>
+            <div className='outer-link'>
+              <Link to='/auth/login'>
+                {formatMessage(messages.alreadyHaveAnAccount)}
+              </Link>
+            </div>
+          </CardBody>
+          {isRegisterUserError && (
+            <Alert color='danger' className='login-error'>
               Registration failed
             </Alert>
-            )}
-          </Card>
-        )}
+          )}
+        </Card>
+      )}
     </>
   );
 };
@@ -141,9 +141,12 @@ RegisterCard.propTypes = {
   isRegisterUserError: bool.isRequired,
 };
 
-export default injectIntl(connect(
-  (state) => ({
-    isRegisterUserSuccess: state.login.isRegisterUserSuccess,
-    isRegisterUserError: !!state.login.registerUserError,
-  }), { registerUser },
-)(RegisterCard));
+export default injectIntl(
+  connect(
+    (state) => ({
+      isRegisterUserSuccess: state.login.isRegisterUserSuccess,
+      isRegisterUserError: !!state.login.registerUserError,
+    }),
+    { registerUser },
+  )(RegisterCard),
+);

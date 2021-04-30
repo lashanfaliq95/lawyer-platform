@@ -17,8 +17,8 @@ const CardComponent = ({
   btnOutline,
   isTitleBold,
 }) => (
-  <div className="col">
-    <Icon name={iconName} size="extraLarge" />
+  <div className='col'>
+    <Icon name={iconName} size='extraLarge' />
     <h4 style={{ fontWeight: `${isTitleBold ? 'bold' : 'inherit'}` }}>
       {formatMessages(title)}
     </h4>

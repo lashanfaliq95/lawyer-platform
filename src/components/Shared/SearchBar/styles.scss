@@ -27,7 +27,7 @@
   .suggestion-list-element {
     display: flex;
     width: 100%;
-    span{
+    span {
       margin-top: 15px;
     }
   }
@@ -96,7 +96,7 @@
     position: absolute;
     z-index: 100;
     border-radius: 25px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px ;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
     width: 390px;
     left: 3%;
     top: 70px;
@@ -150,10 +150,7 @@
       cursor: pointer;
       outline: inherit;
       width: 100%;
-
-   
     }
-
 
     button.location:hover {
       background-color: rgb(240, 240, 240);
@@ -209,7 +206,6 @@
     padding: 10px 20px;
     border-radius: 25px;
     display: flex;
-
   }
 
   .react-autosuggest__suggestion--highlighted {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bool, string } from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -18,121 +18,110 @@ import SearchBar from 'components/Shared/SearchBar';
 import messages from './messages';
 
 const NavigationBar = ({
-  className, showLawyerLogin, showSearchInput, isUserLoggedIn,
+  className,
+  showLawyerLogin,
+  showSearchInput,
+  isUserLoggedIn,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const history = useHistory();
 
   const toggle = () => setIsOpen(!isOpen);
 
+  function handleOnProClick() {
+    history.push('/pro');
+  }
+
   return (
-    <Navbar light expand="md" className={className}>
-      <div className="nav-brand-link">
-        <Link to="/">
-          <div className="brand-image" />
+    <Navbar light expand='md' className={className}>
+      <div className='nav-brand-link'>
+        <Link to='/'>
+          <div className='brand-image' />
         </Link>
       </div>
       <NavbarToggler onClick={toggle} />
       {showSearchInput && (
-        <div className="nav-search-wrapper">
+        <div className='nav-search-wrapper'>
           <SearchBar />
         </div>
       )}
       <Collapse isOpen={isOpen} navbar>
-        {!isUserLoggedIn
-          ? (
-            <Nav className="left-pane" navbar>
-              <NavItem className="nav-button-group">
-                {showLawyerLogin && (
-                <div className="nav-button-item">
-                  <Button color="link">
+        {!isUserLoggedIn ? (
+          <Nav className='left-pane' navbar>
+            <NavItem className='nav-button-group'>
+              {showLawyerLogin && (
+                <div className='nav-button-item'>
+                  <Button color='link' onClick={handleOnProClick}>
                     {formatMessages(messages.advoplanPro)}
                   </Button>
                 </div>
-                )}
-                <div className="nav-button-item">
-                  <Button
-                    color="link"
-                    className="black-link"
-                  >
-                    <Icon name="question-circle" />
-                    <span className="nav-text">
+              )}
+              <div className='nav-button-item'>
+                <Button color='link' className='black-link'>
+                  <Icon name='question-circle' />
+                  <span className='nav-text'>
+                    {formatMessages(messages.needHelp)}
+                  </span>
+                </Button>
+              </div>
+              <div className='nav-button-item'>
+                <Link to='/auth/login' className='no-hover'>
+                  <Button color='link' className='black-link'>
+                    <Icon name='user-alt' />
+                    <span className='nav-text'>
+                      {formatMessages(messages.login)}
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+            </NavItem>
+          </Nav>
+        ) : (
+          <Nav className='left-pane' navbar>
+            <NavItem className='nav-button-group'>
+              <div className='nav-button-item'>
+                <Link to='/' className='no-hover'>
+                  <Button color='link' className='logged-in'>
+                    <Icon name='home' />
+                    <span className='nav-text'>
+                      {formatMessages(messages.home)}
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+              <div className='nav-button-item'>
+                <Link to='/appointments' className='no-hover'>
+                  <Button color='link' className='logged-in'>
+                    <Icon name='calendar-check' />
+                    <span className='nav-text'>
+                      {formatMessages(messages.appointments)}
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+              <div className='nav-button-item'>
+                <Link to='/auth/login' className='no-hover'>
+                  <Button color='link' className='logged-in'>
+                    <Icon name='question-circle' />
+                    <span className='nav-text'>
                       {formatMessages(messages.needHelp)}
                     </span>
                   </Button>
-                </div>
-                <div className="nav-button-item">
-                  <Link to="/auth/login" className="no-hover">
-                    <Button
-                      color="link"
-                      className="black-link"
-                    >
-                      <Icon name="user-alt" />
-                      <span className="nav-text">
-                        {formatMessages(messages.login)}
-                      </span>
-                    </Button>
-                  </Link>
-                </div>
-              </NavItem>
-            </Nav>
-          ) : (
-            <Nav className="left-pane" navbar>
-              <NavItem className="nav-button-group">
-                <div className="nav-button-item">
-                  <Link to="/" className="no-hover">
-                    <Button
-                      color="link"
-                      className="logged-in"
-                    >
-                      <Icon name="home" />
-                      <span className="nav-text">
-                        {formatMessages(messages.home)}
-                      </span>
-                    </Button>
-                  </Link>
-                </div>
-                <div className="nav-button-item">
-                  <Link to="/appointments" className="no-hover">
-                    <Button
-                      color="link"
-                      className="logged-in"
-                    >
-                      <Icon name="calendar-check" />
-                      <span className="nav-text">
-                        {formatMessages(messages.appointments)}
-                      </span>
-                    </Button>
-                  </Link>
-                </div>
-                <div className="nav-button-item">
-                  <Link to="/help" className="no-hover">
-                    <Button
-                      color="link"
-                      className="logged-in"
-                    >
-                      <Icon name="question-circle" />
-                      <span className="nav-text">
-                        {formatMessages(messages.needHelp)}
-                      </span>
-                    </Button>
-                  </Link>
-                </div>
-                <div className="nav-button-item">
-                  <Link to="/auth/login" className="no-hover">
-                    <Button
-                      color="link"
-                      className="logged-in"
-                    >
-                      <Icon name="user-alt" />
-                      <span className="nav-text">
-                        {formatMessages(messages.myAccount)}
-                      </span>
-                    </Button>
-                  </Link>
-                </div>
-              </NavItem>
-            </Nav>
-          )}
+                </Link>
+              </div>
+              <div className='nav-button-item'>
+                <Link to='/auth/login' className='no-hover'>
+                  <Button color='link' className='logged-in'>
+                    <Icon name='user-alt' />
+                    <span className='nav-text'>
+                      {formatMessages(messages.myAccount)}
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+            </NavItem>
+          </Nav>
+        )}
       </Collapse>
     </Navbar>
   );

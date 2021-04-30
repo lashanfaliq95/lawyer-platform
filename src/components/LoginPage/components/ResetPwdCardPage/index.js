@@ -23,9 +23,9 @@ const ResetPwdCardPage = ({
     return error;
   }
   return (
-    <Container fluid className="login-page">
+    <Container fluid className='login-page'>
       <ResetCartPage user={user} />
-      <div className="login-footer">
+      <div className='login-footer'>
         <BottomFooter />
       </div>
     </Container>

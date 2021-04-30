@@ -20,10 +20,10 @@ const FilterBar = ({
     activeLanguages,
   },
 }) => (
-  <div className="filter-bar">
+  <div className='filter-bar'>
     <FilterButton
       name={messages.availabilityFilter}
-      className="filter-modal"
+      className='filter-modal'
       isFilterActive={activeAvailability && activeAvailability.length > 0}
     >
       <AvailabilityFilter
@@ -32,25 +32,27 @@ const FilterBar = ({
     </FilterButton>
     <FilterButton
       name={messages.specializationFilter}
-      className="filter-modal"
+      className='filter-modal'
       isFilterActive={activeSpecializations && activeSpecializations.length > 0}
     >
       <SpecializationFilter
         specializations={specializationsFilters}
         activeSpecializations={activeSpecializations}
-        isFilterActive={activeSpecializations && activeSpecializations.length > 0}
+        isFilterActive={
+          activeSpecializations && activeSpecializations.length > 0
+        }
       />
     </FilterButton>
     <FilterButton
       name={messages.firstAppointmentFilter}
-      className="filter-modal"
+      className='filter-modal'
       isFilterActive={freeFirstAppointment}
     >
       <FreeFirstAppointmentFilter isFilterActive={freeFirstAppointment} />
     </FilterButton>
     <FilterButton
       name={messages.appointmentWithConfirmationFilter}
-      className="filter-modal"
+      className='filter-modal'
       isFilterActive={appointmentWithImmediateConfirmation}
     >
       <ImmediateConfirmationFilter
@@ -59,7 +61,7 @@ const FilterBar = ({
     </FilterButton>
     <FilterButton
       name={messages.languageFilter}
-      className="filter-modal"
+      className='filter-modal'
       isFilterActive={activeLanguages && activeLanguages.length > 0}
     >
       <LanguageFilter

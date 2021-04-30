@@ -15,7 +15,7 @@ library.add(fab, fas);
 
 ReactDOM.render(
   <React.StrictMode>
-    <IntlProvider messages={translatedMessages} locale="de" defaultLocale="en">
+    <IntlProvider messages={translatedMessages} locale='de' defaultLocale='en'>
       <App />
     </IntlProvider>
   </React.StrictMode>,

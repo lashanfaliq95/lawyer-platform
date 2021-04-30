@@ -6,9 +6,9 @@ import BottomFooter from 'components/Footer/components/BottomFooter';
 import ForgotPwdCard from './ForgotPwdCard';
 
 const ForgotPwdCardPage = () => (
-  <Container fluid className="login-page">
+  <Container fluid className='login-page'>
     <ForgotPwdCard />
-    <div className="login-footer">
+    <div className='login-footer'>
       <BottomFooter />
     </div>
   </Container>
