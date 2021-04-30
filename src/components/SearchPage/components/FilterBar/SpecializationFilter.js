@@ -3,7 +3,7 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
 import {
-  arrayOf, func, bool, shape,
+  arrayOf, func, bool, shape, number,
 } from 'prop-types';
 
 import Icon from 'components/Shared/Icon';
@@ -26,14 +26,15 @@ const resetSpecialization = (specializations) => specializations.map((specializa
   isHidden: false,
 }));
 
-const getIsSearchTermLawyer = (searchTerm) => searchTerm.toLowerCase() === 'lawyer'
-  || searchTerm.toLowerCase() === 'anwalt'
-  || searchTerm.toLowerCase() === 'anwälte'
-  || searchTerm.toLowerCase() === 'anwältin'
-  || searchTerm.toLowerCase() === 'anwältinnen';
+const getIsSearchTermLawyer = (searchTerm) => searchTerm.toLowerCase() === 'lawyer' ||
+  searchTerm.toLowerCase() === 'anwalt' ||
+  searchTerm.toLowerCase() === 'anwälte' ||
+  searchTerm.toLowerCase() === 'anwältin' ||
+  searchTerm.toLowerCase() === 'anwältinnen';
 
 const SpecializationFilter = ({
   specializations,
+  activeSpecializations,
   setSpecializationFilters: setSpecializationFiltersAction,
   isFilterActive,
   intl,
@@ -135,26 +136,22 @@ const SpecializationFilter = ({
       </div>
       <div className='specialization'>
         <div className='content'>
-          {filteredLawSpecialization
-            && filteredLawSpecialization.map(
-              ({
-                specialization, id, isHidden, isChecked,
-              }) => !isHidden && (
-              <div className='specialization-element'>
-                <Label check key={id}>
-                  <Input
-                    type='checkbox'
-                    value={id}
-                    checked={isChecked}
-                    onChange={onChangeLawyerSpecializations}
-                  />
-                  <div className='specialization-text'>
-                    {specialization}
-                  </div>
-                </Label>
-              </div>
-              ),
-            )}
+          {filteredLawSpecialization &&
+            filteredLawSpecialization
+              .filter(({ isHidden }) => !isHidden)
+              .map(({ specialization, id, isChecked }) => (
+                <div className='specialization-element'>
+                  <Label check key={id}>
+                    <Input
+                      type='checkbox'
+                      value={id}
+                      checked={isChecked || activeSpecializations.includes(id)}
+                      onChange={onChangeLawyerSpecializations}
+                    />
+                    <div className='specialization-text'>{specialization}</div>
+                  </Label>
+                </div>
+              ))}
         </div>
       </div>
     </FilterModal>
@@ -167,6 +164,7 @@ SpecializationFilter.propTypes = {
   isFilterActive: bool.isRequired,
   intl: shape.isRequired,
   onClose: func.isRequired,
+  activeSpecializations: arrayOf(shape(number)).isRequired,
 };
 
 export default injectIntl(

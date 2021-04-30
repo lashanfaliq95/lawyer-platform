@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { func, shape } from 'prop-types';
+import { bool, func, shape } from 'prop-types';
 import {
-  Form, FormGroup, Button, Card, CardBody, CardTitle,
+  Form,
+  FormGroup,
+  Button,
+  Card,
+  CardBody,
+  CardTitle,
+  Alert,
 } from 'reactstrap';
 import { useFormik } from 'formik';
 
@@ -14,7 +20,7 @@ import messages from '../../messages';
 
 import { loginUser } from '../../actions';
 
-const LoginForm = ({ loginUser: loginUserAction }) => {
+const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -67,6 +73,11 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
           <Link to='/auth/register'>{formatMessage(messages.register)}</Link>
         </div>
       </CardBody>
+      {isLoginError && (
+        <Alert color='danger' className='login-error'>
+          Login failed
+        </Alert>
+      )}
     </Card>
   );
 };
@@ -74,6 +85,9 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
 LoginForm.propTypes = {
   intl: shape.isRequired,
   loginUser: func.isRequired,
+  isLoginError: bool.isRequired,
 };
 
-export default connect(null, { loginUser })(LoginForm);
+export default connect((state) => ({ isLoginError: state.login.loginError }), {
+  loginUser,
+})(LoginForm);

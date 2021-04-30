@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
 import {
-  arrayOf, func, bool, shape,
+  arrayOf, func, bool, shape, number,
 } from 'prop-types';
 
 import { setLanguageFilters } from '../../actions';
@@ -20,6 +20,7 @@ const getSelectedLanguages = (languages) => {
 
 const LanguageFilter = ({
   languages,
+  activeLanguages,
   setLanguageFilters: setLanguageFiltersAction,
   isFilterActive,
   onClose,
@@ -69,7 +70,7 @@ const LanguageFilter = ({
                 <Input
                   value={id}
                   type='checkbox'
-                  checked={isChecked}
+                  checked={isChecked || activeLanguages.includes(id)}
                   onChange={onChange}
                 />
                 <div className='specialization-text'>{language}</div>
@@ -87,6 +88,7 @@ LanguageFilter.propTypes = {
   setLanguageFilters: func.isRequired,
   isFilterActive: bool.isRequired,
   onClose: func.isRequired,
+  activeLanguages: arrayOf(shape(number)).isRequired,
 };
 
 export default connect(null, { setLanguageFilters })(LanguageFilter);

@@ -302,4 +302,15 @@ export default {
   'app.proRegisterPage.addressEntry.houseNumber': 'Hausnummer',
   'app.proRegisterPage.addressEntry.postalCode': 'Postleitzahl',
   'app.proRegisterPage.addressEntry.city': 'Stadt',
+  'app.helpPage.title': 'Hilfe',
+  'app.helpPage.topics': 'Themen',
+  'app.helpPage.searchAndBook': 'Suchen und Buchen',
+  'app.helpPage.appointments': 'Termine',
+  'app.helpPage.security': 'Sicherheit',
+  'app.helpPage.account': 'Nutzerkonto',
+  'app.helpPage.contact': 'Kontakt',
+  'app.helpPage.getSupport':
+    'Holen Sie sich Unterstützung oder senden Sie uns Feedback.',
+  'app.helpPage.contactUs': 'Kontaktieren Sie uns!',
+  'app.helpPage.send': 'Absenden',
 };

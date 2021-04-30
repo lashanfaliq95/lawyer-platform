@@ -21,13 +21,20 @@ import NoAppointmentsCard from './components/NoAppointmentsCard';
 
 import messages from './messages';
 import './styles.scss';
-import { toggleCancellationModal } from './action';
+import {
+  toggleCancellationModal,
+  setActiveUserAppointment,
+  setActivePastAppointment,
+} from './action';
 
 const AppointmentsPage = ({
-  selectedAppointmentDetails,
+  activeUserAppointment,
+  activePastAppointment,
   userAppointments,
   pastAppointments,
   toggleCancellationModal: toggleCancellationModalAction,
+  setActiveUserAppointment: setActiveUserAppointmentAction,
+  setActivePastAppointment: setActivePastAppointmentAction,
 }) => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -76,6 +83,8 @@ const AppointmentsPage = ({
                     <UserAppointmentsList
                       formatMessages={formatMessages}
                       userAppointments={userAppointments}
+                      activeAppointment={activeUserAppointment}
+                      setActiveAppointment={setActiveUserAppointmentAction}
                     />
                   </Col>
                   <Col md='6'>
@@ -84,7 +93,7 @@ const AppointmentsPage = ({
                     </div>
                     <UserAppointmentDetailSection
                       formatMessages={formatMessages}
-                      userAppointmentDetails={selectedAppointmentDetails}
+                      userAppointmentDetails={activeUserAppointment}
                       toggleCancellationModal={toggleCancellationModalAction}
                     />
                   </Col>
@@ -103,6 +112,8 @@ const AppointmentsPage = ({
                     <UserAppointmentsList
                       formatMessages={formatMessages}
                       userAppointments={pastAppointments}
+                      activeAppointment={activePastAppointment}
+                      setActiveAppointment={setActivePastAppointmentAction}
                     />
                   </Col>
                   <Col md='6'>
@@ -111,7 +122,7 @@ const AppointmentsPage = ({
                     </div>
                     <UserAppointmentDetailSection
                       formatMessages={formatMessages}
-                      userAppointmentDetails={selectedAppointmentDetails}
+                      userAppointmentDetails={activePastAppointment}
                       toggleCancellationModal={toggleCancellationModalAction}
                       isPastAppointments
                     />
@@ -127,18 +138,24 @@ const AppointmentsPage = ({
 };
 
 AppointmentsPage.propTypes = {
-  selectedAppointmentDetails: shape({}).isRequired,
+  activeUserAppointment: shape({}).isRequired,
+  activePastAppointment: shape({}).isRequired,
   userAppointments: shape({}).isRequired,
   pastAppointments: shape({}).isRequired,
   toggleCancellationModal: func.isRequired,
+  setActiveUserAppointment: func.isRequired,
+  setActivePastAppointment: func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   userAppointments: state.appointments.userAppointments,
-  selectedAppointmentDetails: state.appointments.selectedAppointmentDetails,
+  activeUserAppointment: state.appointments.activeUserAppointment,
+  activePastAppointment: state.appointments.activePastAppointment,
   pastAppointments: state.appointments.pastAppointments,
 });
 
-export default connect(mapStateToProps, { toggleCancellationModal })(
-  AppointmentsPage,
-);
+export default connect(mapStateToProps, {
+  toggleCancellationModal,
+  setActiveUserAppointment,
+  setActivePastAppointment,
+})(AppointmentsPage);
