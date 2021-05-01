@@ -79,3 +79,13 @@
     text-align: left !important;
   }
 }
+
+.hide-score-word {
+  max-width: 50%;
+  margin-bottom: 0px;
+  p {
+    visibility: hidden !important;
+    margin: 0px !important;
+    font-size: 0rem;
+  }
+}

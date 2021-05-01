@@ -304,6 +304,13 @@ export default {
   'app.proRegisterPage.addressEntry.houseNumber': 'Hausnummer',
   'app.proRegisterPage.addressEntry.postalCode': 'Postleitzahl',
   'app.proRegisterPage.addressEntry.city': 'Stadt',
+  'app.proRegisterPage.passwordSetting.title': 'Passwort',
+  'app.proRegisterPage.passwordSetting.subtitle':
+    'Bitte wählen Sie ein langes Passwort, das für andere schwierig zu erraten ist.',
+  'app.proRegisterPage.passwordSetting.hint': 'Passwort',
+  'app.proRegisterPage.passwordSetting.security': 'Sicherheit',
+  'app.proRegisterPage.passwordSetting.hintDescription':
+    'Fast geschafft: Noch etwas länger oder ein paar Sonderzeichen mehr und Ihr Passwort ist sicher.',
   'app.proRegisterPage.howToUse.title': 'Schulung',
   'app.proRegisterPage.howToUse.subTitle':
     'Möchten Sie einen Termin für eine kostenlose Schulung vereinbaren?',
