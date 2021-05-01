@@ -16,7 +16,7 @@ const BackIcon = styled(IoMdArrowBack)`
   margin-right: 0.5rem;
 `;
 
-const RowInputSeparator = styled.div`
+const Separator = styled.div`
   width: 10px;
 `;
 
@@ -31,23 +31,49 @@ const messages = defineMessages({
   },
 });
 
-function FooterContainer({ onPrevious }) {
+function FooterContainer({
+  hideNext,
+  onPrevious,
+  onNext,
+  previousLabel,
+  nextDisabled,
+  nextLabel,
+}) {
   return (
     <Container>
       <SecondaryButton type='button' onClick={onPrevious}>
         <BackIcon />
-        {formatMessages(messages.back)}
+        {previousLabel || formatMessages(messages.back)}
       </SecondaryButton>
-      <RowInputSeparator />
-      <PrimaryButton type='submit'>
-        {formatMessages(messages.next)}
-      </PrimaryButton>
+      <Separator />
+      {!hideNext && (
+        <PrimaryButton
+          disabled={nextDisabled}
+          onClick={onNext}
+          type={onNext ? 'button' : 'submit'}
+        >
+          {nextLabel || formatMessages(messages.next)}
+        </PrimaryButton>
+      )}
     </Container>
   );
 }
 
 FooterContainer.propTypes = {
+  hideNext: PropTypes.bool,
   onPrevious: PropTypes.func.isRequired,
+  onNext: PropTypes.func,
+  previousLabel: PropTypes.oneOf([PropTypes.string, PropTypes.shape({})]),
+  nextDisabled: PropTypes.bool,
+  nextLabel: PropTypes.oneOf([PropTypes.string, PropTypes.shape({})]),
+};
+
+FooterContainer.defaultProps = {
+  hideNext: false,
+  onNext: undefined,
+  previousLabel: null,
+  nextDisabled: false,
+  nextLabel: null,
 };
 
 export default FooterContainer;

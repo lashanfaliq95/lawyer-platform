@@ -298,10 +298,39 @@ export default {
   'app.proRegisterPage.addressEntry.title': 'Adresse',
   'app.proRegisterPage.addressEntry.subTitle':
     'Bitte geben Sie die Adresse Ihrer Kanzleian.',
+  'app.proRegisterPage.addressEntry.notarySubTitle':
+    'Bitte geben Sie die Adresse Ihres Notariats an.',
   'app.proRegisterPage.addressEntry.road': 'Straße',
   'app.proRegisterPage.addressEntry.houseNumber': 'Hausnummer',
   'app.proRegisterPage.addressEntry.postalCode': 'Postleitzahl',
   'app.proRegisterPage.addressEntry.city': 'Stadt',
+  'app.proRegisterPage.howToUse.title': 'Schulung',
+  'app.proRegisterPage.howToUse.subTitle':
+    'Möchten Sie einen Termin für eine kostenlose Schulung vereinbaren?',
+  'app.proRegisterPage.howToUse.description':
+    'Sie findet gemeinsam mit einem persönlichen Ansprechpartner statt und beinhaltet:',
+  'app.proRegisterPage.howToUse.firstStep': 'Erstellung Ihres Avoplan-Profils',
+  'app.proRegisterPage.howToUse.secondStep': 'Anpassung Ihres Terminkalenders',
+  'app.proRegisterPage.howToUse.thirdStep': 'Google My Business Eintrag',
+  'app.proRegisterPage.howToUse.bookAppointment': 'Termin vereinbaren',
+  'app.proRegisterPage.howToUse.back': 'Jetzt nicht',
+  'app.proRegisterPage.tutorial.title': 'Schulung buchen',
+  'app.proRegisterPage.tutorial.subTitle':
+    'Bitte wählen Sie Datum und Uhrzeit Ihrer kostenlosen Schulung aus.',
+  'app.proRegisterPage.tutorial.description':
+    'Nehmen Sie sich am besten eine Stunde Zeit.',
+  'app.proRegisterPage.confirmation.title': 'Konto eröffnen',
+  'app.proRegisterPage.confirmation.subTitle':
+    'Bitte stimmen Sie noch den allgemeinen Geschäftsbedingungen zu, um Ihr Avoplan Pro Konto zu eröffnen.',
+  'app.proRegisterPage.confirmation.description':
+    'Keine Sorge, Die ersten zwei Monate sind kostenlos und werden nur verlängert, wenn Sie es möchten.',
+  'app.proRegisterPage.confirmation.generalTerms':
+    'Allgemeine Geschäftsbedingungen',
+  'app.proRegisterPage.confirmation.generalTermsDescription':
+    'Ich habe die Allgemeinen Geschäftsbedingungen gelesen und akzeptiere diese.',
+  'app.proRegisterPage.confirmation.updates': 'Updates (optional)',
+  'app.proRegisterPage.confirmation.updatesDescription':
+    'Ich möchte über neue Produkte und Funktionen von Avoplan informiert werden.',
   'app.helpPage.title': 'Hilfe',
   'app.helpPage.topics': 'Themen',
   'app.helpPage.searchAndBook': 'Suchen und Buchen',

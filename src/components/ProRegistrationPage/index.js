@@ -14,8 +14,9 @@ import {
   HowToUse,
   RegistrationRoot,
   TopBar,
+  Tutorial,
 } from './components';
-import { GENDERS, REGISTRATION_STEPS } from './constants';
+import { GENDERS, JOBS, REGISTRATION_STEPS } from './constants';
 
 const Container = styled.div`
   height: 100%;
@@ -35,10 +36,11 @@ function ProRegistrationPage() {
       [REGISTRATION_STEPS.PERSONAL_DATA]: personalData,
       [REGISTRATION_STEPS.JOB_TITLE]: jobTitle,
       [REGISTRATION_STEPS.ADDRESS_ENTRY]: addressData,
+      [REGISTRATION_STEPS.HOW_TO_USE]: howToUse,
     },
     setState,
   ] = useSetState({
-    step: REGISTRATION_STEPS.ADDRESS_ENTRY,
+    step: REGISTRATION_STEPS.JOB_TITLE,
     [REGISTRATION_STEPS.PERSONAL_DATA]: {
       firstName: '',
       lastName: '',
@@ -47,7 +49,7 @@ function ProRegistrationPage() {
       gender: GENDERS.MALE,
     },
     [REGISTRATION_STEPS.JOB_TITLE]: {
-      jobTitle: 0,
+      jobTitle: JOBS.SPECIALIZED_LAWYER,
     },
     [REGISTRATION_STEPS.ADDRESS_ENTRY]: {
       road: '',
@@ -55,7 +57,12 @@ function ProRegistrationPage() {
       postalCode: '',
       city: '',
     },
+    [REGISTRATION_STEPS.HOW_TO_USE]: {
+      tutorial: false,
+    },
   });
+
+  const { jobTitle: selectedJobTitle } = jobTitle;
 
   function handleStepChange(nextStep) {
     setState({ step: nextStep });
@@ -94,6 +101,7 @@ function ProRegistrationPage() {
             componentToRender = (
               <AddressEntry
                 current={addressData}
+                jobTitle={selectedJobTitle}
                 onStepChange={handleStepChange}
                 onSubmit={handleOnStepSubmit}
               />
@@ -105,11 +113,22 @@ function ProRegistrationPage() {
             );
             break;
           case REGISTRATION_STEPS.HOW_TO_USE:
-            componentToRender = <HowToUse onStepChange={handleStepChange} />;
+            componentToRender = (
+              <HowToUse
+                onStepChange={handleStepChange}
+                onSubmit={handleOnStepSubmit}
+              />
+            );
+            break;
+          case REGISTRATION_STEPS.TUTORIAL:
+            componentToRender = <Tutorial onStepChange={handleStepChange} />;
             break;
           case REGISTRATION_STEPS.CONFIRMATION:
             componentToRender = (
-              <Confirmation onStepChange={handleStepChange} />
+              <Confirmation
+                current={howToUse}
+                onStepChange={handleStepChange}
+              />
             );
             break;
           case REGISTRATION_STEPS.ACCOUNT_PENDING:
