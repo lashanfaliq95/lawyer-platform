@@ -331,6 +331,16 @@ export default {
   'app.proRegisterPage.confirmation.updates': 'Updates (optional)',
   'app.proRegisterPage.confirmation.updatesDescription':
     'Ich möchte über neue Produkte und Funktionen von Avoplan informiert werden.',
+  'app.proRegisterPage.accountPending.title': 'E-Mail-Adresse bestätigen',
+  'app.proRegisterPage.accountPending.subTitle':
+    'Bitte bestätigen Sie Ihre E-Mail-Adresse, indem Sie auf den Link klicken, den wir Ihnen gesendet haben.',
+  'app.proRegisterPage.accountConfirmed.title':
+    'E-Mail-Adresse bereits bestätigt!',
+  'app.proRegisterPage.accountConfirmed.subTitle':
+    'Legen Sie den Hörer weg und erleben Sie, wie einfach Ihr Alltag sein kann.',
+  'app.proRegisterPage.accountConfirmed.emailPlaceholder':
+    'Erleben Sie Avoplan Pro',
+  'app.proRegisterPage.accountConfirmed.button': 'Einloggen',
   'app.helpPage.title': 'Hilfe',
   'app.helpPage.topics': 'Themen',
   'app.helpPage.searchAndBook': 'Suchen und Buchen',

@@ -63,6 +63,7 @@ function ProRegistrationPage() {
   });
 
   const { jobTitle: selectedJobTitle } = jobTitle;
+  const { email } = personalData;
 
   function handleStepChange(nextStep) {
     setState({ step: nextStep });
@@ -132,9 +133,7 @@ function ProRegistrationPage() {
             );
             break;
           case REGISTRATION_STEPS.ACCOUNT_PENDING:
-            componentToRender = (
-              <AccountPending onStepChange={handleStepChange} />
-            );
+            componentToRender = <AccountPending email={email} />;
             break;
           case REGISTRATION_STEPS.ACCOUNT_CONFIRMED:
             componentToRender = (

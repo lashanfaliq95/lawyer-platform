@@ -63,6 +63,7 @@ function Tutorial({ onStepChange }) {
       <Title>{formatMessages(messages.title)}</Title>
       <SubTitle>{formatMessages(messages.subTitle)}</SubTitle>
       <Description>{formatMessages(messages.description)}</Description>
+      {/* TODO: Implement calendar here */}
       <FooterContainer
         onPrevious={handleOnPreviousClick}
         onNext={handleOnNextClick}

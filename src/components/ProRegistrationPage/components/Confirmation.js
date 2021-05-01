@@ -87,6 +87,7 @@ function Confirmation({ current, onStepChange }) {
 
   function handleOnNext() {
     //  TODO: API integration
+    onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
   }
 
   function handleOnPrevious() {
