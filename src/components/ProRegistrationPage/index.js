@@ -40,7 +40,7 @@ function ProRegistrationPage() {
     },
     setState,
   ] = useSetState({
-    step: REGISTRATION_STEPS.JOB_TITLE,
+    step: REGISTRATION_STEPS.GET_STARTED,
     [REGISTRATION_STEPS.PERSONAL_DATA]: {
       firstName: '',
       lastName: '',

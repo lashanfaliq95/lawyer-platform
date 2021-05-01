@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { AiOutlineFile } from 'react-icons/ai';
 import { defineMessages } from 'react-intl';
+import {
+  FaRegCalendar,
+  FaRegFolderOpen,
+  FaRegCreditCard,
+} from 'react-icons/fa';
 
 import formatMessages from 'components/formatMessages';
 import ProgressBar from './ProgressBar';
@@ -28,37 +32,45 @@ const SubTitle = styled.span`
 
 const StepsContainer = styled.div`
   display: flex;
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
   align-items: center;
   margin-top: 1rem;
 `;
 
-const LabelContainer = styled.div`
+const StepsSeparator = styled.div`
+  flex: 1;
+  border: ${({ color }) => `1px solid ${color || 'transparent'}`};
+`;
+
+const StepsUpperContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
 `;
 
-const StepsSeparator = styled.div`
-  flex: 1;
-  border: ${(props) => `1px solid ${props.color}`};
-`;
-
 const StepsItem = styled.div`
-  width: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1rem 0rem;
 `;
 
 const StepsItemLabel = styled.span`
   text-align: center;
+  max-width: 100%;
+  font-size: 14px;
 `;
 
 const StepsItemIconContainer = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   padding: 1rem;
-  height: 50px;
+  height: 80px;
+  width: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,30 +123,40 @@ function GetStarted({ onStepChange }) {
       <SubTitle>{formatMessages(messages.subtitle)}</SubTitle>
       <StepsContainer>
         <StepsItem>
-          <StepsItemIconContainer backgroundColor='#F3EDE0'>
-            <AiOutlineFile />
-          </StepsItemIconContainer>
+          <StepsUpperContainer>
+            <StepsSeparator />
+            <StepsItemIconContainer backgroundColor='#F3EDE0'>
+              <FaRegFolderOpen size={30} />
+            </StepsItemIconContainer>
+            <StepsSeparator color='#F3EDE0' />
+          </StepsUpperContainer>
+          <StepsItemLabel>{formatMessages(messages.enterData)}</StepsItemLabel>
         </StepsItem>
-        <StepsSeparator color='#F3EDE0' />
         <StepsItem>
-          <StepsItemIconContainer backgroundColor='#F2F4F6'>
-            <AiOutlineFile />
-          </StepsItemIconContainer>
+          <StepsUpperContainer>
+            <StepsSeparator color='#F3EDE0' />
+            <StepsItemIconContainer backgroundColor='#F2F4F6'>
+              <FaRegCreditCard size={30} />
+            </StepsItemIconContainer>
+            <StepsSeparator color='#F2F4F6' />
+          </StepsUpperContainer>
+          <StepsItemLabel>
+            {formatMessages(messages.bookTutorial)}
+          </StepsItemLabel>
         </StepsItem>
-        <StepsSeparator color='#F2F4F6' />
         <StepsItem>
-          <StepsItemIconContainer backgroundColor='#F4E8E8'>
-            <AiOutlineFile />
-          </StepsItemIconContainer>
+          <StepsUpperContainer>
+            <StepsSeparator color='#F2F4F6' />
+            <StepsItemIconContainer backgroundColor='#F4E8E8'>
+              <FaRegCalendar size={30} />
+            </StepsItemIconContainer>
+            <StepsSeparator />
+          </StepsUpperContainer>
+          <StepsItemLabel>
+            {formatMessages(messages.experienceAvoplanPro)}
+          </StepsItemLabel>
         </StepsItem>
       </StepsContainer>
-      <LabelContainer>
-        <StepsItemLabel>{formatMessages(messages.enterData)}</StepsItemLabel>
-        <StepsItemLabel>{formatMessages(messages.bookTutorial)}</StepsItemLabel>
-        <StepsItemLabel>
-          {formatMessages(messages.experienceAvoplanPro)}
-        </StepsItemLabel>
-      </LabelContainer>
       <FooterContainer>
         <PrimaryButton onClick={handleOnNextClick}>
           {formatMessages(messages.btnGetStarted)}
