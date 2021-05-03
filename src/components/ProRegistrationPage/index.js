@@ -36,11 +36,12 @@ function ProRegistrationPage() {
       [REGISTRATION_STEPS.PERSONAL_DATA]: personalData,
       [REGISTRATION_STEPS.JOB_TITLE]: jobTitle,
       [REGISTRATION_STEPS.ADDRESS_ENTRY]: addressData,
+      [REGISTRATION_STEPS.PASSWORD_SETTING]: passwordSetting,
       [REGISTRATION_STEPS.HOW_TO_USE]: howToUse,
     },
     setState,
   ] = useSetState({
-    step: REGISTRATION_STEPS.GET_STARTED,
+    step: REGISTRATION_STEPS.PASSWORD_SETTING,
     [REGISTRATION_STEPS.PERSONAL_DATA]: {
       firstName: '',
       lastName: '',
@@ -56,6 +57,9 @@ function ProRegistrationPage() {
       houseNumber: '',
       postalCode: '',
       city: '',
+    },
+    [REGISTRATION_STEPS.PASSWORD_SETTING]: {
+      password: '',
     },
     [REGISTRATION_STEPS.HOW_TO_USE]: {
       tutorial: false,
@@ -110,7 +114,11 @@ function ProRegistrationPage() {
             break;
           case REGISTRATION_STEPS.PASSWORD_SETTING:
             componentToRender = (
-              <PasswordSetting onStepChange={handleStepChange} />
+              <PasswordSetting
+                current={passwordSetting}
+                onStepChange={handleStepChange}
+                onSubmit={handleOnStepSubmit}
+              />
             );
             break;
           case REGISTRATION_STEPS.HOW_TO_USE:
