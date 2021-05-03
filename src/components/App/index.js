@@ -38,8 +38,6 @@ const App = () => (
       <Route path='/' exact component={HomePage} />
       <Route path='/appointments' exact component={AppointmentsPage} />
       <Route path='/search' exact component={SearchPage} />
-      <Route path='/' exact component={HomePage} />
-      <Route path='/appointments' exact component={AppointmentsPage} />
       <Route path='/help' exact component={HelpPage} />
       <Route path='/help/contact' exact component={HelpPageContactForm} />
       <Route path='/search' exact component={SearchPage} />

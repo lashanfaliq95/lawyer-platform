@@ -57,12 +57,14 @@ const NavigationBar = ({
                 </div>
               )}
               <div className='nav-button-item'>
-                <Button color='link' className='black-link'>
-                  <Icon name='question-circle' />
-                  <span className='nav-text'>
-                    {formatMessages(messages.needHelp)}
-                  </span>
-                </Button>
+                <Link to='/help' className='no-hover'>
+                  <Button color='link' className='black-link'>
+                    <Icon name='question-circle' />
+                    <span className='nav-text'>
+                      {formatMessages(messages.needHelp)}
+                    </span>
+                  </Button>
+                </Link>
               </div>
               <div className='nav-button-item'>
                 <Link to='/auth/login' className='no-hover'>
@@ -100,7 +102,7 @@ const NavigationBar = ({
                 </Link>
               </div>
               <div className='nav-button-item'>
-                <Link to='/auth/login' className='no-hover'>
+                <Link to='/help' className='no-hover'>
                   <Button color='link' className='logged-in'>
                     <Icon name='question-circle' />
                     <span className='nav-text'>
