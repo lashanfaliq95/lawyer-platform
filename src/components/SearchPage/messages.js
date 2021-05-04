@@ -189,4 +189,8 @@ export default defineMessages({
     id: 'app.searchPage.suggestion',
     defaultMessage: 'suggestion',
   },
+  clearFilers: {
+    id: 'app.searchPage.clearFilers',
+    defaultMessage: 'Clear filters',
+  },
 });

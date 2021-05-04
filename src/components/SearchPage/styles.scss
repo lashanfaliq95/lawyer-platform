@@ -28,6 +28,17 @@
     border: 1px solid #0596de;
   }
 
+  .clear-filter-button {
+    background-color: #105fbb;
+    border-color: #105fbb;
+    border-radius: 30px;
+  }
+
+  button.clear-filter-button:hover {
+    background-color: #082b53;
+    border-color: #082b53;
+  }
+
   .search-bar {
     margin-top: 10px;
     margin-left: 7px;
@@ -54,7 +65,8 @@
   }
 
   .search-summary {
-    margin: 35px 24px 20px;
+    margin: 0 24px 20px;
+
     p {
       color: grey;
     }
@@ -62,7 +74,7 @@
 
   .filter-bar {
     display: flex;
-    margin: 0 24px 20px;
+    margin: 35px 24px 20px;
 
     .filter-modal {
       position: absolute;

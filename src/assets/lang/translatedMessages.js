@@ -167,6 +167,7 @@ export default {
   'app.searchPage.location': 'Ort',
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
+  'app.searchPage.clearFilers': 'Filter löschen',
   'app.lawyerDetailsPage.infoText':
     'Liebe Mandanten,{br} ' +
     'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}' +
@@ -313,4 +314,9 @@ export default {
     'Holen Sie sich Unterstützung oder senden Sie uns Feedback.',
   'app.helpPage.contactUs': 'Kontaktieren Sie uns!',
   'app.helpPage.send': 'Absenden',
+  'app.shared.notary': 'Notar',
+  'app.shared.taxConsultants': 'Steuerberater',
+  'app.shared.consultants': 'Berater',
+  'app.shared.lawSpecializations': 'Rechtsgebiete',
+  'app.shared.patentLawyer': 'Patentanwalt',
 };

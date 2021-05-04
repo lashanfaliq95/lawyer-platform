@@ -140,9 +140,7 @@ const search = (state = initialState, action) => {
         ...state,
         users: action.payload,
         locations: action.payload.map(
-          ({
-            id, latitude, longitude, address,
-          }) => ({
+          ({ id, latitude, longitude, address }) => ({
             id,
             address,
             latitude,

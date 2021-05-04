@@ -26,6 +26,7 @@ module.exports = {
       'after',
       { overrides: { '?': 'ignore', ':': 'ignore', '+': 'ignore' } },
     ],
+    'object-curly-newline': 'off',
   },
   settings: {
     'import/resolver': {

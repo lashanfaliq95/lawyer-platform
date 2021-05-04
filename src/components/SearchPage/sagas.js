@@ -34,6 +34,7 @@ import {
   LOAD_LAWYER_AVAILABILITY,
   GET_SEARCH_SUGGESTIONS_FOR_LOCATIONS,
   GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
+  CLEAR_FILTERS,
 } from './constants';
 
 const getActiveFilters = (state) => state.search.activeFilters;
@@ -95,6 +96,7 @@ function* getLawyerDetails(action) {
 
 export default [
   takeLatest(GET_LAWYERS, getLawyers),
+  takeLatest(CLEAR_FILTERS, getFilteredSearchResult),
   takeEvery(LOAD_LAWYER_AVAILABILITY, getLawyerAvailability),
   takeLatest(GET_LAWYER_DETAILS, getLawyerDetails),
   debounce(500, SET_LANGUAGE_FILTERS, getFilteredSearchResult),
