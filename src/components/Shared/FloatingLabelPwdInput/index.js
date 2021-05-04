@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import {
-  func, string, shape, bool,
+  func, string, shape, bool, oneOfType,
 } from 'prop-types';
 import { Input } from 'reactstrap';
 import styled from 'styled-components';
@@ -16,6 +16,12 @@ const SecurityTitle = styled.span`
   font-size: 18px;
 `;
 
+const ErrorMessage = styled.div`
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+`;
+
 const FloatingLabelPwdInput = (props) => {
   const {
     onChange,
@@ -27,6 +33,7 @@ const FloatingLabelPwdInput = (props) => {
     securityTitle,
     intl,
     invalid,
+    error,
     ...rest
   } = props;
   const { value: propValue } = rest;
@@ -61,6 +68,7 @@ const FloatingLabelPwdInput = (props) => {
           {...rest}
         />
         <span className='floating-label'>{intl.formatMessage(label)}</span>
+        {error && <ErrorMessage>{intl.formatMessage(error)}</ErrorMessage>}
         {showForgotPwdBtn && !password && (
           <div className='inner-link'>
             <Link to='/auth/forgot-pwd'>
@@ -126,6 +134,7 @@ FloatingLabelPwdInput.propTypes = {
   securityTitle: shape({}),
   invalid: bool,
   value: string,
+  error: oneOfType([string, shape({})]),
 };
 
 FloatingLabelPwdInput.defaultProps = {
@@ -136,6 +145,7 @@ FloatingLabelPwdInput.defaultProps = {
   securityTitle: {},
   invalid: false,
   value: '',
+  error: null,
 };
 
 export default injectIntl(FloatingLabelPwdInput);

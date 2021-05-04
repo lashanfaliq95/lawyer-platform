@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import * as Yup from 'yup';
 import { Form } from 'reactstrap';
 import { useFormik } from 'formik';
 import { defineMessages } from 'react-intl';
@@ -36,7 +37,7 @@ const messages = defineMessages({
   },
   invalidPassword: {
     id: 'app.proRegisterPage.passwordSetting.invalidPassword',
-    defaultMessage: "Password can't be empty",
+    defaultMessage: 'Password should contain minimum 6 characters',
   },
 });
 
@@ -80,10 +81,21 @@ function PasswordSetting({ current, onStepChange, onSubmit }) {
     onStepChange(REGISTRATION_STEPS.ADDRESS_ENTRY);
   }
 
-  const { handleSubmit, getFieldProps, setFieldValue } = useFormik({
+  const {
+    handleSubmit,
+    getFieldProps,
+    setFieldValue,
+    errors,
+    touched,
+  } = useFormik({
     initialValues: {
       password: '',
     },
+    validationSchema: Yup.object({
+      password: Yup.string()
+        .min(6, messages.invalidPassword)
+        .required(messages.invalidPassword),
+    }),
     onSubmit: handleOnPasswordSettingSubmit,
   });
 
@@ -108,7 +120,7 @@ function PasswordSetting({ current, onStepChange, onSubmit }) {
             showPwdStrength
             hideScoreWord
             securityTitle={messages.security}
-            required
+            error={touched.password && errors.password}
             {...getFieldProps('password')}
           />
           <HintDescription>
