@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
 
 import formatMessages from 'components/formatMessages';
+import TimeSlots from 'components/Shared/TimeSlots/TimeSlots';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
@@ -48,13 +49,35 @@ const Description = styled.span`
   margin-top: 0.5rem;
 `;
 
-function Tutorial({ onStepChange }) {
+const CalendarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0rem;
+`;
+
+function Tutorial({
+  onStepChange,
+  current: { selectedDateTime: parentSelectedDateTime },
+  onSubmit,
+}) {
+  const [selectedDateTime, setSelectedDateTime] = useState(null);
+
+  useEffect(() => {
+    setSelectedDateTime(parentSelectedDateTime);
+    //  eslint-disable-next-line
+  }, []);
+
   function handleOnPreviousClick() {
     onStepChange(REGISTRATION_STEPS.HOW_TO_USE);
   }
 
   function handleOnNextClick() {
-    onStepChange(REGISTRATION_STEPS.CONFIRMATION);
+    onSubmit({
+      step: REGISTRATION_STEPS.CONFIRMATION,
+      [REGISTRATION_STEPS.TUTORIAL]: {
+        selectedDateTime,
+      },
+    });
   }
 
   return (
@@ -63,18 +86,27 @@ function Tutorial({ onStepChange }) {
       <Title>{formatMessages(messages.title)}</Title>
       <SubTitle>{formatMessages(messages.subTitle)}</SubTitle>
       <Description>{formatMessages(messages.description)}</Description>
-      {/* TODO: Implement calendar here */}
+      <CalendarContainer>
+        <TimeSlots
+          selected={selectedDateTime}
+          onSelectedDateTimeChange={setSelectedDateTime}
+        />
+      </CalendarContainer>
       <FooterContainer
         onPrevious={handleOnPreviousClick}
         onNext={handleOnNextClick}
-        nextDisabled={false}
+        nextDisabled={!selectedDateTime}
       />
     </Container>
   );
 }
 
 Tutorial.propTypes = {
+  current: PropTypes.shape({
+    selectedDateTime: PropTypes.instanceOf(Date),
+  }).isRequired,
   onStepChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Tutorial;

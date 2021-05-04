@@ -135,6 +135,9 @@ function HowToUse({ onStepChange, onSubmit }) {
       [REGISTRATION_STEPS.HOW_TO_USE]: {
         tutorial: false,
       },
+      [REGISTRATION_STEPS.TUTORIAL]: {
+        selectedDateTime: null,
+      },
       step: REGISTRATION_STEPS.CONFIRMATION,
     });
   }

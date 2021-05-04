@@ -38,10 +38,11 @@ function ProRegistrationPage() {
       [REGISTRATION_STEPS.ADDRESS_ENTRY]: addressData,
       [REGISTRATION_STEPS.PASSWORD_SETTING]: passwordSetting,
       [REGISTRATION_STEPS.HOW_TO_USE]: howToUse,
+      [REGISTRATION_STEPS.TUTORIAL]: tutorial,
     },
     setState,
   ] = useSetState({
-    step: REGISTRATION_STEPS.PASSWORD_SETTING,
+    step: REGISTRATION_STEPS.TUTORIAL,
     [REGISTRATION_STEPS.PERSONAL_DATA]: {
       firstName: '',
       lastName: '',
@@ -63,6 +64,9 @@ function ProRegistrationPage() {
     },
     [REGISTRATION_STEPS.HOW_TO_USE]: {
       tutorial: false,
+    },
+    [REGISTRATION_STEPS.TUTORIAL]: {
+      selectedDateTime: null,
     },
   });
 
@@ -130,7 +134,13 @@ function ProRegistrationPage() {
             );
             break;
           case REGISTRATION_STEPS.TUTORIAL:
-            componentToRender = <Tutorial onStepChange={handleStepChange} />;
+            componentToRender = (
+              <Tutorial
+                current={tutorial}
+                onStepChange={handleStepChange}
+                onSubmit={handleOnStepSubmit}
+              />
+            );
             break;
           case REGISTRATION_STEPS.CONFIRMATION:
             componentToRender = (
