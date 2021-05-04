@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Col, Row } from 'reactstrap';
 
 import { connect } from 'react-redux';
-import {
-  arrayOf, shape, func, bool,
-} from 'prop-types';
+import { arrayOf, shape, func, bool } from 'prop-types';
 
 import './styles.scss';
 import NavigationBar from 'components/NavigationBar';
@@ -15,7 +13,7 @@ import ProfileCardList from './components/ProfileCardList';
 import SearchSummary from './components/SearchSummary';
 import FilterBar from './components/FilterBar';
 
-import { getLawyers, getSearchResult } from './actions';
+import { getLawyers, getSearchResult, clearFilters } from './actions';
 
 const mapLocation = {
   lat: 51.24192,
@@ -31,9 +29,11 @@ const SearchPage = ({
   location,
   searchTerm,
   isSearchLoading,
+  clearFilters: clearFiltersAction,
 }) => {
   useEffect(() => {
-    const { searchTermForNameOrFirm, searchTermForLocation } = location.state || {};
+    const { searchTermForNameOrFirm, searchTermForLocation } =
+      location.state || {};
     if (searchTermForNameOrFirm !== '' || searchTermForLocation !== '') {
       getSearchResultAction({ nameOrFirm: searchTermForNameOrFirm });
     } else {
@@ -62,7 +62,10 @@ const SearchPage = ({
                 searchTerm={searchTerm}
                 isSearchLoading={isSearchLoading}
               />
-              <FilterBar activeFilters={activeFilters} />
+              <FilterBar
+                activeFilters={activeFilters}
+                clearFilters={clearFiltersAction}
+              />
               <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
               <ProfileCardList
                 users={users}
@@ -101,8 +104,11 @@ SearchPage.propTypes = {
   location: shape({}).isRequired,
   searchTerm: shape({}).isRequired,
   isSearchLoading: bool.isRequired,
+  clearFilters: func.isRequired,
 };
 
-export default connect(mapStateToProps, { getLawyers, getSearchResult })(
-  SearchPage,
-);
+export default connect(mapStateToProps, {
+  getLawyers,
+  getSearchResult,
+  clearFilters,
+})(SearchPage);

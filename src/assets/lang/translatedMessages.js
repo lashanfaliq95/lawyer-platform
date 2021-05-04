@@ -167,6 +167,7 @@ export default {
   'app.searchPage.location': 'Ort',
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
+  'app.searchPage.clearFilers': 'Filter löschen',
   'app.lawyerDetailsPage.infoText':
     'Liebe Mandanten,{br} ' +
     'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}' +
