@@ -6,10 +6,10 @@ import { Form } from 'reactstrap';
 import { defineMessages } from 'react-intl';
 
 import formatMessages from 'components/formatMessages';
+import RadioButtonList from 'components/Shared/RadioButtonList/RadioButtonList';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
 import { JOBS, REGISTRATION_STEPS } from '../constants';
-import RadioButtonList from './RadioButtonList';
 
 const messages = defineMessages({
   title: {

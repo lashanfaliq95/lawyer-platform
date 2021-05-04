@@ -7,8 +7,8 @@ import { useFormik } from 'formik';
 import { defineMessages } from 'react-intl';
 
 import formatMessages from 'components/formatMessages';
+import RadioButtonList from 'components/Shared/RadioButtonList/RadioButtonList';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
-import RadioButtonList from './RadioButtonList';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
 import { GENDERS, REGISTRATION_STEPS } from '../constants';

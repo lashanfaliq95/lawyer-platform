@@ -73,7 +73,7 @@ function PasswordSetting({ current, onStepChange, onSubmit }) {
     onSubmit({
       [REGISTRATION_STEPS.PASSWORD_SETTING]: { password },
     });
-    onStepChange(REGISTRATION_STEPS.TUTORIAL);
+    onStepChange(REGISTRATION_STEPS.HOW_TO_USE);
   }
 
   function handleOnPrevious() {

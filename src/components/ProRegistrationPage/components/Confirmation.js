@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
 import formatMessages from 'components/formatMessages';
 
+import { CheckBoxLabel } from 'components/Shared/CheckBox/CheckBox';
 import ProgressBar from './ProgressBar';
-import { CheckBoxLabel } from './CheckBox';
 import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
 

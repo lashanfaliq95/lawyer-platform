@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import {
@@ -29,6 +29,8 @@ const FloatingLabelPwdInput = (props) => {
     invalid,
     ...rest
   } = props;
+  const { value: propValue } = rest;
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
 
@@ -41,13 +43,20 @@ const FloatingLabelPwdInput = (props) => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
+  useEffect(() => {
+    if (password !== propValue) {
+      setPassword(propValue);
+    }
+    //  eslint-disable-next-line
+  }, [propValue]);
+
   return (
     <>
       <div className='floating-label-input'>
         <Input
           type={isPasswordVisible ? 'text' : 'password'}
           onChange={onPasswordInputChange}
-          className={`pwd-input ${password ? 'has-input' : ''}`}
+          className={`pwd-input ${password || propValue ? 'has-input' : ''}`}
           invalid={!!invalid}
           {...rest}
         />
@@ -116,6 +125,7 @@ FloatingLabelPwdInput.propTypes = {
   hideScoreWord: bool,
   securityTitle: shape({}),
   invalid: bool,
+  value: string,
 };
 
 FloatingLabelPwdInput.defaultProps = {
@@ -125,6 +135,7 @@ FloatingLabelPwdInput.defaultProps = {
   hideScoreWord: false,
   securityTitle: {},
   invalid: false,
+  value: '',
 };
 
 export default injectIntl(FloatingLabelPwdInput);
