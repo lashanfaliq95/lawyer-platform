@@ -359,4 +359,11 @@ export default {
     'Holen Sie sich Unterstützung oder senden Sie uns Feedback.',
   'app.helpPage.contactUs': 'Kontaktieren Sie uns!',
   'app.helpPage.send': 'Absenden',
+  'app.timeslots.sunday': 'Sonntag',
+  'app.timeslots.monday': 'Montag',
+  'app.timeslots.tuesday': 'Dienstag',
+  'app.timeslots.wednesday': 'Mittwoch',
+  'app.timeslots.thursday': 'Donnerstag',
+  'app.timeslots.friday': 'Freitag',
+  'app.timeslots.saturday': 'Samstag',
 };

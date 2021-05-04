@@ -4,6 +4,39 @@ import styled from 'styled-components';
 import moment from 'moment';
 import classnames from 'classnames';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { defineMessages } from 'react-intl';
+import formatMessages from 'components/formatMessages';
+
+const messages = defineMessages({
+  sunday: {
+    id: 'app.timeslots.sunday',
+    defaultMessage: 'Sunday',
+  },
+  monday: {
+    id: 'app.timeslots.monday',
+    defaultMessage: 'Monday',
+  },
+  tuesday: {
+    id: 'app.timeslots.tuesday',
+    defaultMessage: 'Tuesday',
+  },
+  wednesday: {
+    id: 'app.timeslots.wednesday',
+    defaultMessage: 'Wednesday',
+  },
+  thursday: {
+    id: 'app.timeslots.thursday',
+    defaultMessage: 'Thursday',
+  },
+  friday: {
+    id: 'app.timeslots.friday',
+    defaultMessage: 'Friday',
+  },
+  saturday: {
+    id: 'app.timeslots.saturday',
+    defaultMessage: 'Saturday',
+  },
+});
 
 const Container = styled.div`
   display: flex;
@@ -184,7 +217,9 @@ function TimeSlots({ selected, onSelectedDateTimeChange }) {
       <Calendar>
         {dates.map(({ id, date, slots }) => {
           const dateMoment = moment(date);
-          const dayOfWeek = dateMoment.format('dddd');
+          const dayOfWeek = formatMessages(
+            messages[dateMoment.format('dddd').toLowerCase()],
+          );
           const dayOfMonth = dateMoment.format('D. MMM');
           const remainderComponents = getRemainderTimeSlotsComponents(
             maximumTimeslots - slots.length,
