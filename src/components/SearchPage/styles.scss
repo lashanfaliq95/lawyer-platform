@@ -65,7 +65,8 @@
   }
 
   .search-summary {
-    margin: 35px 24px 20px;
+    margin: 0 24px 20px;
+
     p {
       color: grey;
     }
@@ -73,7 +74,7 @@
 
   .filter-bar {
     display: flex;
-    margin: 0 24px 20px;
+    margin: 35px 24px 20px;
 
     .filter-modal {
       position: absolute;

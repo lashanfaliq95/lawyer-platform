@@ -314,4 +314,9 @@ export default {
     'Holen Sie sich Unterstützung oder senden Sie uns Feedback.',
   'app.helpPage.contactUs': 'Kontaktieren Sie uns!',
   'app.helpPage.send': 'Absenden',
+  'app.shared.notary': 'Notar',
+  'app.shared.taxConsultants': 'Steuerberater',
+  'app.shared.consultants': 'Berater',
+  'app.shared.lawSpecializations': 'Rechtsgebiete',
+  'app.shared.patentLawyer': 'Patentanwalt',
 };

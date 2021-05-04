@@ -53,6 +53,10 @@ const SearchPage = ({
         <Col md='12'>
           <Row className='content'>
             <Col md='7' className='card-container'>
+              <FilterBar
+                activeFilters={activeFilters}
+                clearFilters={clearFiltersAction}
+              />
               <SearchSummary
                 users={users}
                 numberOfResults={users ? users.length : 0}
@@ -61,10 +65,6 @@ const SearchPage = ({
                 }
                 searchTerm={searchTerm}
                 isSearchLoading={isSearchLoading}
-              />
-              <FilterBar
-                activeFilters={activeFilters}
-                clearFilters={clearFiltersAction}
               />
               <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
               <ProfileCardList
