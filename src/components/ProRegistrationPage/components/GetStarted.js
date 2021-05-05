@@ -9,8 +9,8 @@ import {
 } from 'react-icons/fa';
 
 import formatMessages from 'components/formatMessages';
+import { PrimaryButton } from 'components/Shared/Buttons';
 import ProgressBar from './ProgressBar';
-import { PrimaryButton } from './Shared';
 import { REGISTRATION_STEPS } from '../constants';
 
 const Container = styled.div`

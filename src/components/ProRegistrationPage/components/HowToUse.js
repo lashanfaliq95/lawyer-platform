@@ -6,8 +6,8 @@ import { IoStorefrontOutline } from 'react-icons/io5';
 import { FaRegCalendar, FaRegFolderOpen } from 'react-icons/fa';
 
 import formatMessages from 'components/formatMessages';
+import { PrimaryButton, SecondaryButton } from 'components/Shared/Buttons';
 import ProgressBar from './ProgressBar';
-import { PrimaryButton, SecondaryButton } from './Shared';
 import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
 

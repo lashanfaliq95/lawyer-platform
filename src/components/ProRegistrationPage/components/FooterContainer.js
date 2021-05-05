@@ -5,7 +5,7 @@ import { defineMessages } from 'react-intl';
 import { IoMdArrowBack } from 'react-icons/io';
 
 import formatMessages from 'components/formatMessages';
-import { PrimaryButton, SecondaryButton } from './Shared';
+import { PrimaryButton, SecondaryButton } from 'components/Shared/Buttons';
 
 const Container = styled.div`
   display: flex;

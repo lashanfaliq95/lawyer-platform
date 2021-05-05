@@ -4,8 +4,8 @@ import { defineMessages } from 'react-intl';
 import { GoMailRead } from 'react-icons/go';
 
 import formatMessages from 'components/formatMessages';
+import { PrimaryButton } from 'components/Shared/Buttons';
 import ProgressBar from './ProgressBar';
-import { PrimaryButton } from './Shared';
 
 const messages = defineMessages({
   title: {

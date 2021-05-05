@@ -58,7 +58,7 @@ const FloatingLabelPwdInput = (props) => {
   }, [propValue]);
 
   return (
-    <>
+    <div className='floating-input-parent'>
       <div className='floating-label-input'>
         <Input
           type={isPasswordVisible ? 'text' : 'password'}
@@ -68,7 +68,6 @@ const FloatingLabelPwdInput = (props) => {
           {...rest}
         />
         <span className='floating-label'>{intl.formatMessage(label)}</span>
-        {error && <ErrorMessage>{intl.formatMessage(error)}</ErrorMessage>}
         {showForgotPwdBtn && !password && (
           <div className='inner-link'>
             <Link to='/auth/forgot-pwd'>
@@ -95,6 +94,7 @@ const FloatingLabelPwdInput = (props) => {
           </button>
         )}
       </div>
+      {error && <ErrorMessage>{intl.formatMessage(error)}</ErrorMessage>}
       {showPwdStrength && (
         <div
           className={[
@@ -119,7 +119,7 @@ const FloatingLabelPwdInput = (props) => {
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
