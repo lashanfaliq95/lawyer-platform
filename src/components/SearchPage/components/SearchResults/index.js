@@ -1,15 +1,12 @@
 import React, { memo } from 'react';
 import { Spinner } from 'reactstrap';
-import {
-  number, shape, string, bool,
-} from 'prop-types';
+import { number, shape, string, bool } from 'prop-types';
 import formatMessages from 'components/formatMessages';
 import messages from '../../messages';
 import { MALE, CITY_OF_COLOGNE } from '../../constants';
 
-const SearchSummary = ({
+const SearchResults = ({
   numberOfResults,
-  specialization,
   searchTerm,
   isSearchLoading,
   gender,
@@ -49,22 +46,9 @@ const SearchSummary = ({
         </div>
       );
     }
-
-    if (numberOfResults > 0) {
-      return (
-        <div className='search-summary'>
-          <h1>{renderMessage()}</h1>
-        </div>
-      );
-    }
     return (
       <div className='search-summary'>
         <h1>{renderMessage()}</h1>
-        <p>
-          {formatMessages(messages.changeSearchOption)}
-          <br />
-          {formatMessages(messages.findMoreOptions, { specialization })}
-        </p>
       </div>
     );
   };
@@ -72,11 +56,11 @@ const SearchSummary = ({
   return renderSearchSummary();
 };
 
-SearchSummary.propTypes = {
+SearchResults.propTypes = {
   numberOfResults: number.isRequired,
   specialization: string.isRequired,
   searchTerm: shape({}).isRequired,
   isSearchLoading: bool.isRequired,
 };
 
-export default memo(SearchSummary);
+export default memo(SearchResults);

@@ -1,9 +1,7 @@
 import React, { memo } from 'react';
-import { Button } from 'reactstrap';
-import { bool, shape, arrayOf, func } from 'prop-types';
+import { bool, shape, arrayOf } from 'prop-types';
 
 import FilterButton from 'components/Shared/FilterButton';
-import formatMessages from 'components/formatMessages';
 import AvailabilityFilter from './AvailabilityFilter';
 import SpecializationFilter from './SpecializationFilter';
 import LanguageFilter from './LanguageFilter';
@@ -21,7 +19,6 @@ const FilterBar = ({
     appointmentWithImmediateConfirmation,
     activeLanguages,
   },
-  clearFilters,
 }) => (
   <div className='filter-bar'>
     <FilterButton
@@ -73,13 +70,6 @@ const FilterBar = ({
         isFilterActive={activeLanguages && activeLanguages.length > 0}
       />
     </FilterButton>
-    <Button
-      color='primary'
-      className='clear-filter-button'
-      onClick={clearFilters}
-    >
-      {formatMessages(messages.clearFilers)}
-    </Button>
   </div>
 );
 
@@ -91,7 +81,6 @@ FilterBar.propTypes = {
     appointmentWithImmediateConfirmation: bool.isRequired,
     activeLanguages: arrayOf(shape({})).isRequired,
   }).isRequired,
-  clearFilters: func.isRequired,
 };
 
 export default memo(FilterBar);
