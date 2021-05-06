@@ -48,10 +48,21 @@ const messages = defineMessages({
     id: 'app.proLogin.register',
     defaultMessage: 'Register',
   },
+  imprint: {
+    id: 'app.proLogin.imprint',
+    defaultMessage: 'Imprint',
+  },
+  privacy: {
+    id: 'app.proLogin.privacy',
+    defaultMessage: 'Privacy',
+  },
+  conditions: {
+    id: 'app.proLogin.conditions',
+    defaultMessage: 'Conditions',
+  },
 });
 
 const Container = styled.div`
-  border: 1px solid red;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -80,9 +91,10 @@ const LoginForm = styled.form`
 `;
 
 const Title = styled.span`
-  font-size: 20px;
+  font-size: 23px;
   text-align: center;
   margin: 1rem;
+  font-weight: 600;
 `;
 
 const FormInputContainer = styled.div`
@@ -98,7 +110,8 @@ const ButtonContainer = styled.div`
 const RegisterContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 1rem 0rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const Label = styled.span`
@@ -241,9 +254,15 @@ function ProLoginPage() {
             </IconContainer>
           </IconsPane>
           <RightPane>
-            <FooterLabelItem>Impressum</FooterLabelItem>
-            <FooterLabelItem>Datenschutz</FooterLabelItem>
-            <FooterLabelItem>AGB</FooterLabelItem>
+            <FooterLabelItem>
+              {formatMessages(messages.imprint)}
+            </FooterLabelItem>
+            <FooterLabelItem>
+              {formatMessages(messages.privacy)}
+            </FooterLabelItem>
+            <FooterLabelItem>
+              {formatMessages(messages.conditions)}
+            </FooterLabelItem>
           </RightPane>
         </Footer>
       </FooterContainer>
