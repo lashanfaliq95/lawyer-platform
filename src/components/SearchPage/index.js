@@ -10,7 +10,8 @@ import Footer from 'components/Footer';
 import GoogleMap from 'components/Shared/Maps';
 import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import ProfileCardList from './components/ProfileCardList';
-import SearchSummary from './components/SearchSummary';
+import SearchResults from './components/SearchResults';
+import SearchSummary from './components/SearchResults/SearchSummary';
 import FilterBar from './components/FilterBar';
 
 import { getLawyers, getSearchResult, clearFilters } from './actions';
@@ -53,18 +54,20 @@ const SearchPage = ({
         <Col md='12'>
           <Row className='content'>
             <Col md='7' className='card-container'>
-              <FilterBar
-                activeFilters={activeFilters}
-                clearFilters={clearFiltersAction}
-              />
-              <SearchSummary
+              <SearchResults
                 users={users}
+                numberOfResults={users ? users.length : 0}
+                searchTerm={searchTerm}
+                isSearchLoading={isSearchLoading}
+              />
+              <FilterBar activeFilters={activeFilters} />
+              <SearchSummary
                 numberOfResults={users ? users.length : 0}
                 specializations={
                   activeFilters ? activeFilters.activeSpecializations : null
                 }
-                searchTerm={searchTerm}
                 isSearchLoading={isSearchLoading}
+                clearFilters={clearFiltersAction}
               />
               <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
               <ProfileCardList
