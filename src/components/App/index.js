@@ -11,6 +11,7 @@ import HomePage from 'components/HomePage';
 import AppointmentsPage from 'components/AppointmentsPage';
 import HelpPage from 'components/HelpPage';
 import HelpPageContactForm from 'components/HelpPage/components/ContatctForm';
+import MyAccountPage from 'components/MyAccountPage';
 import SearchPage from 'components/SearchPage';
 import LawyerDetailsPage from 'components/LawyerDetailsPage';
 import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
@@ -39,6 +40,7 @@ const App = () => (
       <Route path='/appointments' exact component={AppointmentsPage} />
       <Route path='/help' exact component={HelpPage} />
       <Route path='/help/contact' exact component={HelpPageContactForm} />
+      <Route path='/account' exact component={MyAccountPage} />
       <Route path='/search' exact component={SearchPage} />
       <Route
         path='/search/lawyer-details/:id'
