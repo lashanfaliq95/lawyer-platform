@@ -16,6 +16,8 @@ export const SET_USER_ID_FROM_TOKEN = 'SET_USER_ID_FROM_TOKEN';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS';
 export const LOGOUT_USER_ERROR = 'LOGOUT_USER_ERROR';
+export const UPDATE_USER_PASSWORD = 'UPDATE_USER_PASSWORD';
+export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 
 export const roleMap = {
   users: 1,

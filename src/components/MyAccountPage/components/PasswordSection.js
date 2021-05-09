@@ -1,25 +1,30 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import { string, ref, object } from 'yup';
+import { string, object } from 'yup';
 import { Form, FormGroup } from 'reactstrap';
 
 import PasswordInput from 'components/Shared/FloatingLabelPwdInput';
 import formatMessages from 'components/formatMessages';
+import { updateUserPassword } from 'components/LoginPage/actions';
 
 import { Card, CardExternalTitle, CardBtn } from '../styles';
 import messages from '../messages';
 
 const PasswordSectionContainer = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      password: '',
-      confirmPassword: '',
+      currentPassword: '',
+      newPassword: '',
     },
     validationSchema: object({
-      password: string(),
-      confirmPassword: string().oneOf([ref('password'), null]),
+      currentPassword: string(),
+      newPassword: string(),
     }),
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      dispatch(updateUserPassword(values));
+    },
   });
 
   return (
@@ -27,10 +32,10 @@ const PasswordSectionContainer = () => {
       <CardExternalTitle>
         {formatMessages(messages.settingsForSecurity)}
       </CardExternalTitle>
-      <Form>
+      <Form onSubmit={formik.handleSubmit}>
         <FormGroup>
           <PasswordInput
-            name='password'
+            name='currentPassword'
             label={messages.currentPassword}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
@@ -39,7 +44,7 @@ const PasswordSectionContainer = () => {
         </FormGroup>
         <FormGroup>
           <PasswordInput
-            name='confirmPassword'
+            name='newPassword'
             label={messages.newPassword}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}

@@ -112,7 +112,7 @@ const NavigationBar = ({
                 </Link>
               </div>
               <div className='nav-button-item'>
-                <Link to='/auth/login' className='no-hover'>
+                <Link to='/account' className='no-hover'>
                   <Button color='link' className='logged-in'>
                     <Icon name='user-alt' />
                     <span className='nav-text'>

@@ -38,7 +38,7 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Route path='/' exact component={HomePage} />
-      <Route path='/appointments' exact component={AppointmentsPage} />
+      <ProtectedRoute path='/appointments' exact component={AppointmentsPage} />
       <Route path='/help' exact component={HelpPage} />
       <Route path='/help/contact' exact component={HelpPageContactForm} />
       <ProtectedRoute path='/account' exact component={MyAccountPage} />

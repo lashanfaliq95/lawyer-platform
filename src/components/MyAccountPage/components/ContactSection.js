@@ -1,23 +1,27 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { Form, FormGroup, Row, Col } from 'reactstrap';
 
 import Input from 'components/Shared/FloatingLabelInput';
 import formatMessages from 'components/formatMessages';
+import { updateUserInfo } from 'components/LoginPage/actions';
 
 import messages from '../messages';
 import { Card, CardBtn, CardExternalTitle } from '../styles';
 
 const ContactSection = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
-      mobilePhone: '',
+      phoneNumber: '',
       email: '',
-      password: '',
     },
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      dispatch(updateUserInfo(values));
+    },
   });
 
   return (
@@ -66,10 +70,10 @@ const ContactSection = () => {
           <Input
             label={messages.mobileOrLandLine}
             type='text'
-            name='mobilePhone'
-            id='mobilePhone'
+            name='phoneNumber'
+            id='phoneNumber'
             required
-            {...formik.getFieldProps('mobilePhone')}
+            {...formik.getFieldProps('phoneNumber')}
           />
         </FormGroup>
         <FormGroup>

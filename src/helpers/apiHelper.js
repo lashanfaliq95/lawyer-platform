@@ -38,6 +38,15 @@ export const post = async (path, body) => {
   }
 };
 
+export const put = async (path, body) => {
+  try {
+    const result = await instance.put(path, body);
+    return { result: result.data };
+  } catch (error) {
+    return { error };
+  }
+};
+
 export const get = async (path) => {
   try {
     const result = await instance.get(path);

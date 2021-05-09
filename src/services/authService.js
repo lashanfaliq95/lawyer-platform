@@ -25,11 +25,6 @@ export const resetPasswordService = async (values) => {
   return result;
 };
 
-export const registerUserService = async (values) => {
-  const result = await post('/users', values);
-  return result;
-};
-
 export const renewAccessToken = async (refreshToken) => {
   const result = await post('/auth/token/', { refreshToken });
   return result;

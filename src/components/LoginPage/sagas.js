@@ -2,12 +2,17 @@ import { takeLatest, put, select } from 'redux-saga/effects';
 import {
   loginUserService,
   forgotPasswordService,
-  registerUserService,
   resetTokenService,
   resetPasswordService,
   logoutUserService,
   deleteUserService,
 } from 'services/authService';
+import {
+  registerUserService,
+  updateUserPasswordService,
+  updateUserInfoService,
+} from 'services/userService';
+
 import {
   setUserDetails,
   getAccessToken,
@@ -29,6 +34,8 @@ import {
   LOGIN_USER,
   FORGOT_PASSWORD,
   REGISTER_USER,
+  UPDATE_USER_PASSWORD,
+  UPDATE_USER_INFO,
   DELETE_USER,
   GET_USER_ID_FROM_TOKEN,
   RESET_PASSWORD,
@@ -98,8 +105,8 @@ function* logoutUser() {
 }
 
 function* deleteUser() {
-  const useId = yield select(getUserId);
-  const response = yield deleteUserService(useId);
+  const userId = yield select(getUserId);
+  const response = yield deleteUserService(userId);
   const { result, error } = response || {};
   if (result) {
     clearStorage();
@@ -109,9 +116,30 @@ function* deleteUser() {
   }
 }
 
+function* updateUserPassword(action) {
+  const userId = yield select(getUserId);
+  const response = yield updateUserPasswordService(userId, action.payload);
+  const { result, error } = response || {};
+  if (result) {
+    clearStorage();
+    yield put(logoutUserSuccess());
+  } else {
+    yield put(logoutUserError(error));
+  }
+}
+
+function* updateUserInfo(action) {
+  const userId = yield select(getUserId);
+  const response = yield updateUserInfoService(userId, action.payload);
+  // TODO : Show success / failure messages
+  yield response;
+}
+
 export default [
   takeLatest(LOGIN_USER, loginUser),
   takeLatest(REGISTER_USER, registerUser),
+  takeLatest(UPDATE_USER_PASSWORD, updateUserPassword),
+  takeLatest(UPDATE_USER_INFO, updateUserInfo),
   takeLatest(DELETE_USER, deleteUser),
   takeLatest(FORGOT_PASSWORD, forgotPassword),
   takeLatest(GET_USER_ID_FROM_TOKEN, getIdFromToken),

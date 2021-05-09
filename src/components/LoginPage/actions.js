@@ -15,6 +15,8 @@ import {
   LOGOUT_USER,
   LOGOUT_USER_SUCCESS,
   LOGOUT_USER_ERROR,
+  UPDATE_USER_PASSWORD,
+  UPDATE_USER_INFO,
 } from './constants';
 
 export const loginUser = (values) => ({
@@ -93,4 +95,14 @@ export const logoutUserError = (error) => ({
 
 export const deleteUser = () => ({
   type: DELETE_USER,
+});
+
+export const updateUserPassword = (data) => ({
+  type: UPDATE_USER_PASSWORD,
+  payload: data,
+});
+
+export const updateUserInfo = (data) => ({
+  type: UPDATE_USER_INFO,
+  payload: data,
 });
