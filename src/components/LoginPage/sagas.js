@@ -1,12 +1,18 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, put, select } from 'redux-saga/effects';
 import {
   loginUserService,
   forgotPasswordService,
   registerUserService,
   resetTokenService,
   resetPasswordService,
+  logoutUserService,
+  deleteUserService,
 } from 'services/authService';
-import { setUserDetails } from 'helpers/localStorageHelper';
+import {
+  setUserDetails,
+  getAccessToken,
+  clearStorage,
+} from 'helpers/localStorageHelper';
 import { setAccessTokenToRequest } from 'helpers/apiHelper';
 
 import {
@@ -16,14 +22,20 @@ import {
   setUserIdFromResetToken,
   registerUserSuccess,
   registerUserError,
+  logoutUserSuccess,
+  logoutUserError,
 } from './actions';
 import {
   LOGIN_USER,
   FORGOT_PASSWORD,
   REGISTER_USER,
+  DELETE_USER,
   GET_USER_ID_FROM_TOKEN,
   RESET_PASSWORD,
+  LOGOUT_USER,
 } from './constants';
+
+const getUserId = (state) => state.login.userDetails && state.login.userDetails.id;
 
 function* loginUser(action) {
   const response = yield loginUserService(action.payload);
@@ -74,10 +86,35 @@ function* resetPassword(action) {
   }
 }
 
+function* logoutUser() {
+  const response = yield logoutUserService(getAccessToken());
+  const { result, error } = response || {};
+  if (result) {
+    clearStorage();
+    yield put(logoutUserSuccess());
+  } else {
+    yield put(logoutUserError(error));
+  }
+}
+
+function* deleteUser() {
+  const useId = yield select(getUserId);
+  const response = yield deleteUserService(useId);
+  const { result, error } = response || {};
+  if (result) {
+    clearStorage();
+    yield put(logoutUserSuccess());
+  } else {
+    yield put(logoutUserError(error));
+  }
+}
+
 export default [
   takeLatest(LOGIN_USER, loginUser),
   takeLatest(REGISTER_USER, registerUser),
+  takeLatest(DELETE_USER, deleteUser),
   takeLatest(FORGOT_PASSWORD, forgotPassword),
   takeLatest(GET_USER_ID_FROM_TOKEN, getIdFromToken),
   takeLatest(RESET_PASSWORD, resetPassword),
+  takeLatest(LOGOUT_USER, logoutUser),
 ];

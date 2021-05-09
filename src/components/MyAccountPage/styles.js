@@ -24,8 +24,8 @@ const LogoutIcon = styled(Icon)`
   margin-right: -10%;
 
   > svg {
-    margin-left: 7px;
-    margin-top: 9px;
+    margin-left: 8px;
+    margin-top: 7px;
   }
 `;
 

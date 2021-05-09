@@ -1,7 +1,12 @@
-import { post, get } from 'helpers/apiHelper';
+import { post, get, deleteRequest } from 'helpers/apiHelper';
 
 export const loginUserService = async (values) => {
   const result = await post('/auth/login', values);
+  return result;
+};
+
+export const logoutUserService = async (values) => {
+  const result = await post('/auth/logout', values);
   return result;
 };
 
@@ -27,5 +32,10 @@ export const registerUserService = async (values) => {
 
 export const renewAccessToken = async (refreshToken) => {
   const result = await post('/auth/token/', { refreshToken });
+  return result;
+};
+
+export const deleteUserService = async (id) => {
+  const result = await deleteRequest(`/users/${id}`);
   return result;
 };

@@ -47,3 +47,13 @@ export const get = async (path) => {
     return { error: errorDetails || error };
   }
 };
+
+export const deleteRequest = async (path) => {
+  try {
+    const result = await instance.delete(path);
+    return { result: result.data };
+  } catch (error) {
+    const errorDetails = error && error.response && error.response.data;
+    return { error: errorDetails || error };
+  }
+};

@@ -2,6 +2,7 @@ import {
   LOGIN_USER,
   FORGOT_PASSWORD,
   REGISTER_USER,
+  DELETE_USER,
   FORGOT_PASSWORD_SUCCESS,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
@@ -11,6 +12,9 @@ import {
   GET_USER_ID_FROM_TOKEN,
   SET_USER_ID_FROM_TOKEN,
   RESET_PASSWORD,
+  LOGOUT_USER,
+  LOGOUT_USER_SUCCESS,
+  LOGOUT_USER_ERROR,
 } from './constants';
 
 export const loginUser = (values) => ({
@@ -72,4 +76,21 @@ export const setUserIdFromResetToken = (data) => ({
 export const resetPassword = (data) => ({
   type: RESET_PASSWORD,
   payload: data,
+});
+
+export const logoutUser = () => ({
+  type: LOGOUT_USER,
+});
+
+export const logoutUserSuccess = () => ({
+  type: LOGOUT_USER_SUCCESS,
+});
+
+export const logoutUserError = (error) => ({
+  type: LOGOUT_USER_ERROR,
+  payload: error,
+});
+
+export const deleteUser = () => ({
+  type: DELETE_USER,
 });

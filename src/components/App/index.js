@@ -19,6 +19,7 @@ import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 import ResetPwdCardPage from 'components/LoginPage/components/ResetPwdCardPage';
 import UnprotectedRoute from 'components/Shared/UnprotectedRoute';
+import ProtectedRoute from 'components/Shared/ProtectedRoute';
 import ProRegistrationPage from 'components/ProRegistrationPage';
 
 import reducers from 'reducers';
@@ -40,7 +41,7 @@ const App = () => (
       <Route path='/appointments' exact component={AppointmentsPage} />
       <Route path='/help' exact component={HelpPage} />
       <Route path='/help/contact' exact component={HelpPageContactForm} />
-      <Route path='/account' exact component={MyAccountPage} />
+      <ProtectedRoute path='/account' exact component={MyAccountPage} />
       <Route path='/search' exact component={SearchPage} />
       <Route
         path='/search/lawyer-details/:id'
