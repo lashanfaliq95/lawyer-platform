@@ -11,6 +11,7 @@ import HomePage from 'components/HomePage';
 import AppointmentsPage from 'components/AppointmentsPage';
 import HelpPage from 'components/HelpPage';
 import HelpPageContactForm from 'components/HelpPage/components/ContatctForm';
+import MyAccountPage from 'components/MyAccountPage';
 import SearchPage from 'components/SearchPage';
 import LawyerDetailsPage from 'components/LawyerDetailsPage';
 import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
@@ -18,6 +19,7 @@ import ForgotPwdCardPage from 'components/LoginPage/components/ForgotPwdCardPage
 import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 import ResetPwdCardPage from 'components/LoginPage/components/ResetPwdCardPage';
 import UnprotectedRoute from 'components/Shared/UnprotectedRoute';
+import ProtectedRoute from 'components/Shared/ProtectedRoute';
 import ProRegistrationPage from 'components/ProRegistrationPage';
 
 import reducers from 'reducers';
@@ -36,9 +38,10 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Route path='/' exact component={HomePage} />
-      <Route path='/appointments' exact component={AppointmentsPage} />
+      <ProtectedRoute path='/appointments' exact component={AppointmentsPage} />
       <Route path='/help' exact component={HelpPage} />
       <Route path='/help/contact' exact component={HelpPageContactForm} />
+      <ProtectedRoute path='/account' exact component={MyAccountPage} />
       <Route path='/search' exact component={SearchPage} />
       <Route
         path='/search/lawyer-details/:id'

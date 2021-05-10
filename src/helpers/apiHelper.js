@@ -38,9 +38,28 @@ export const post = async (path, body) => {
   }
 };
 
+export const put = async (path, body) => {
+  try {
+    const result = await instance.put(path, body);
+    return { result: result.data };
+  } catch (error) {
+    return { error };
+  }
+};
+
 export const get = async (path) => {
   try {
     const result = await instance.get(path);
+    return { result: result.data };
+  } catch (error) {
+    const errorDetails = error && error.response && error.response.data;
+    return { error: errorDetails || error };
+  }
+};
+
+export const deleteRequest = async (path) => {
+  try {
+    const result = await instance.delete(path);
     return { result: result.data };
   } catch (error) {
     const errorDetails = error && error.response && error.response.data;
