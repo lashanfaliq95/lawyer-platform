@@ -42,7 +42,7 @@ function ProRegistrationPage() {
     },
     setState,
   ] = useSetState({
-    step: REGISTRATION_STEPS.TUTORIAL,
+    step: REGISTRATION_STEPS.GET_STARTED,
     [REGISTRATION_STEPS.PERSONAL_DATA]: {
       firstName: '',
       lastName: '',
