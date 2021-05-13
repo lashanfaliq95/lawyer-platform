@@ -15,7 +15,7 @@ import {
 
 import {
   setUserDetails,
-  getAccessToken,
+  getRefreshToken,
   clearStorage,
 } from 'helpers/localStorageHelper';
 import { setAccessTokenToRequest } from 'helpers/apiHelper';
@@ -94,7 +94,7 @@ function* resetPassword(action) {
 }
 
 function* logoutUser() {
-  const response = yield logoutUserService(getAccessToken());
+  const response = yield logoutUserService({ refreshToken: getRefreshToken() });
   const { result, error } = response || {};
   if (result) {
     clearStorage();
