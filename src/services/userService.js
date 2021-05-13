@@ -33,3 +33,8 @@ export const updateUserInfoService = async (id, values) => {
   const result = await put(`/users/${id}`, values);
   return result;
 };
+
+export const saveUserMessageService = async (id, values) => {
+  const result = await post(`/users/${id}/message`, values);
+  return result;
+};

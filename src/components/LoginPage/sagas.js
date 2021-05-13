@@ -11,6 +11,7 @@ import {
   registerUserService,
   updateUserPasswordService,
   updateUserInfoService,
+  saveUserMessageService,
 } from 'services/userService';
 
 import {
@@ -36,6 +37,7 @@ import {
   REGISTER_USER,
   UPDATE_USER_PASSWORD,
   UPDATE_USER_INFO,
+  SET_USER_MESSAGE,
   DELETE_USER,
   GET_USER_ID_FROM_TOKEN,
   RESET_PASSWORD,
@@ -135,11 +137,19 @@ function* updateUserInfo(action) {
   yield response;
 }
 
+function* saveUserMessage(action) {
+  const userId = yield select(getUserId);
+  const response = yield saveUserMessageService(userId, action.payload);
+  // TODO : Show success / failure messages
+  yield response;
+}
+
 export default [
   takeLatest(LOGIN_USER, loginUser),
   takeLatest(REGISTER_USER, registerUser),
   takeLatest(UPDATE_USER_PASSWORD, updateUserPassword),
   takeLatest(UPDATE_USER_INFO, updateUserInfo),
+  takeLatest(SET_USER_MESSAGE, saveUserMessage),
   takeLatest(DELETE_USER, deleteUser),
   takeLatest(FORGOT_PASSWORD, forgotPassword),
   takeLatest(GET_USER_ID_FROM_TOKEN, getIdFromToken),

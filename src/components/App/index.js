@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from 'components/HomePage';
 import AppointmentsPage from 'components/AppointmentsPage';
 import HelpPage from 'components/HelpPage';
-import HelpPageContactForm from 'components/HelpPage/components/ContatctForm';
+import HelpPageContactForm from 'components/HelpPage/components/ContactForm';
 import MyAccountPage from 'components/MyAccountPage';
 import SearchPage from 'components/SearchPage';
 import LawyerDetailsPage from 'components/LawyerDetailsPage';
