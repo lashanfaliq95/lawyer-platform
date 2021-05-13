@@ -14,7 +14,7 @@ export const getLawyersService = async () => {
 export const getLawyerAvailabilityService = async ({ id, startDate }) => {
   const startDateQuery = qs.stringify({ startDate });
   const result = await get(
-    `/users/lawyers/availability/${id}?${startDateQuery}`,
+    `/users/lawyers/${id}/availability?${startDateQuery}`,
   );
   return result;
 };
