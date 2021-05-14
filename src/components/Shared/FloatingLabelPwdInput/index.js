@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
-import {
-  func, string, shape, bool, oneOfType,
-} from 'prop-types';
+import { func, string, shape, bool, oneOfType } from 'prop-types';
 import { Input } from 'reactstrap';
 import styled from 'styled-components';
 

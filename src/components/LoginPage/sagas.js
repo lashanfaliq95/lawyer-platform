@@ -1,12 +1,23 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, put, select } from 'redux-saga/effects';
 import {
   loginUserService,
   forgotPasswordService,
-  registerUserService,
   resetTokenService,
   resetPasswordService,
+  logoutUserService,
+  deleteUserService,
 } from 'services/authService';
-import { setUserDetails } from 'helpers/localStorageHelper';
+import {
+  registerUserService,
+  updateUserPasswordService,
+  updateUserInfoService,
+} from 'services/userService';
+
+import {
+  setUserDetails,
+  getRefreshToken,
+  clearStorage,
+} from 'helpers/localStorageHelper';
 import { setAccessTokenToRequest } from 'helpers/apiHelper';
 
 import {
@@ -16,14 +27,23 @@ import {
   setUserIdFromResetToken,
   registerUserSuccess,
   registerUserError,
+  logoutUserSuccess,
+  logoutUserError,
 } from './actions';
 import {
   LOGIN_USER,
   FORGOT_PASSWORD,
   REGISTER_USER,
+  UPDATE_USER_PASSWORD,
+  UPDATE_USER_INFO,
+  DELETE_USER,
   GET_USER_ID_FROM_TOKEN,
   RESET_PASSWORD,
+  LOGOUT_USER,
 } from './constants';
+
+const getUserId = (state) =>
+  state.login.userDetails && state.login.userDetails.id;
 
 function* loginUser(action) {
   const response = yield loginUserService(action.payload);
@@ -74,10 +94,56 @@ function* resetPassword(action) {
   }
 }
 
+function* logoutUser() {
+  const response = yield logoutUserService({ refreshToken: getRefreshToken() });
+  const { result, error } = response || {};
+  if (result) {
+    clearStorage();
+    yield put(logoutUserSuccess());
+  } else {
+    yield put(logoutUserError(error));
+  }
+}
+
+function* deleteUser() {
+  const userId = yield select(getUserId);
+  const response = yield deleteUserService(userId);
+  const { result, error } = response || {};
+  if (result) {
+    clearStorage();
+    yield put(logoutUserSuccess());
+  } else {
+    yield put(logoutUserError(error));
+  }
+}
+
+function* updateUserPassword(action) {
+  const userId = yield select(getUserId);
+  const response = yield updateUserPasswordService(userId, action.payload);
+  const { result, error } = response || {};
+  if (result) {
+    clearStorage();
+    yield put(logoutUserSuccess());
+  } else {
+    yield put(logoutUserError(error));
+  }
+}
+
+function* updateUserInfo(action) {
+  const userId = yield select(getUserId);
+  const response = yield updateUserInfoService(userId, action.payload);
+  // TODO : Show success / failure messages
+  yield response;
+}
+
 export default [
   takeLatest(LOGIN_USER, loginUser),
   takeLatest(REGISTER_USER, registerUser),
+  takeLatest(UPDATE_USER_PASSWORD, updateUserPassword),
+  takeLatest(UPDATE_USER_INFO, updateUserInfo),
+  takeLatest(DELETE_USER, deleteUser),
   takeLatest(FORGOT_PASSWORD, forgotPassword),
   takeLatest(GET_USER_ID_FROM_TOKEN, getIdFromToken),
   takeLatest(RESET_PASSWORD, resetPassword),
+  takeLatest(LOGOUT_USER, logoutUser),
 ];

@@ -17,6 +17,7 @@ import {
   LOAD_LAWYER_AVAILABILITY,
   GET_LAWYER_DETAILS,
   SET_LAWYER_DETAILS,
+  CLEAR_FILTERS,
 } from './constants';
 
 export const onMouseEnterCard = (values) => ({
@@ -106,4 +107,15 @@ export const getLawyerDetails = (data) => ({
 export const setLawyerDetails = (data) => ({
   type: SET_LAWYER_DETAILS,
   payload: data,
+});
+
+export const clearFilters = () => ({
+  type: CLEAR_FILTERS,
+  payload: {
+    activeAvailability: [],
+    activeSpecializations: [],
+    freeFirstAppointment: false,
+    appointmentWithImmediateConfirmation: false,
+    activeLanguages: [],
+  },
 });

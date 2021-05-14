@@ -97,9 +97,7 @@ const RowInputSeparator = styled.div`
   width: 10px;
 `;
 
-function AddressEntry({
-  current, jobTitle, onStepChange, onSubmit,
-}) {
+function AddressEntry({ current, jobTitle, onStepChange, onSubmit }) {
   function handleOnAddressDataSubmit(values) {
     onSubmit({
       [REGISTRATION_STEPS.ADDRESS_ENTRY]: { ...values },

@@ -167,6 +167,7 @@ export default {
   'app.searchPage.location': 'Ort',
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
+  'app.searchPage.clearFilers': 'Filter löschen',
   'app.lawyerDetailsPage.infoText':
     'Liebe Mandanten,{br} ' +
     'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}' +
@@ -377,4 +378,30 @@ export default {
   'app.proLogin.imprint': 'Impressum',
   'app.proLogin.privacy': 'Datenschutz',
   'app.proLogin.conditions': 'AGB',
+  'app.shared.notary': 'Notar',
+  'app.shared.taxConsultants': 'Steuerberater',
+  'app.shared.consultants': 'Berater',
+  'app.shared.lawSpecializations': 'Rechtsgebiete',
+  'app.shared.patentLawyer': 'Patentanwalt',
+  'app.accountPage.title': 'Mein Konto',
+  'app.accountPage.currentPassword': 'Aktuelles Passwort',
+  'app.accountPage.newPassword': 'Neues Passwort',
+  'app.accountPage.firstName': 'Vorname',
+  'app.accountPage.lastName': 'Nachname',
+  'app.accountPage.mobileOrLandLine': 'Handynummer',
+  'app.accountPage.emailPlaceHolder': 'E-Mail',
+  'app.accountPage.saveChanges': 'Änderungen speichern',
+  'app.accountPage.infoTitle': 'Sicherheit bei Avoplan',
+  'app.accountPage.infoContent':
+    'Ihre Kontaktdaten werden nicht weitergegeben und nur von  Avoplan verwendet, um eine zuverlässige und sichere Nutzung unserer Plattform zu ermöglichen.',
+  'app.accountPage.learnMore': 'Mehr erfahren',
+  'app.accountPage.settingsForSecurity': 'Sicherheitseinstellungen',
+  'app.accountPage.changePassword': 'Passwort ändern',
+  'app.accountPage.admin': 'Verwalten',
+  'app.accountPage.deleteAccount': 'Konto löschen',
+  'app.accountPage.adminContent': 'Möchten Sie wirklich Ihr Konto löschen?',
+  'app.accountPage.contactInfo': 'Kontaktdaten',
+  'app.accountPage.deleteAccountModalContent':
+    'Möchten Sie wirklich Ihr Avoplan-Konto löschen? Bitte beachten Sie: Das Löschen Ihres Kontos ist dauerhaft und kann nicht rückgängig gemacht werden. Sämtliche Termine werden abgesagt.',
+  'app.accountPage.no': 'Abbrechen',
 };

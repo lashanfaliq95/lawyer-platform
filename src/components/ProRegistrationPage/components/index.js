@@ -12,6 +12,7 @@ import ProgressBar from './ProgressBar';
 import RegistrationRoot from './RegistrationRoot';
 import TopBar from './TopBar';
 import Tutorial from './Tutorial';
+import RadioButtonList from './RadioButtonList';
 
 export {
   AccountConfirmed,
@@ -28,6 +29,7 @@ export {
   RegistrationRoot,
   TopBar,
   Tutorial,
+  RadioButtonList,
 };
 
 export default {};

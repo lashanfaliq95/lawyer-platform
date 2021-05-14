@@ -6,6 +6,8 @@ import {
   SET_USER_ID_FROM_TOKEN,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_ERROR,
+  LOGOUT_USER_SUCCESS,
+  LOGOUT_USER_ERROR,
 } from './constants';
 
 const initialState = {
@@ -15,6 +17,7 @@ const initialState = {
   resetUser: {},
   isRegisterUserSuccess: false,
   registerUserError: null,
+  logoutUserError: null,
 };
 
 const login = (state = initialState, action) => {
@@ -30,6 +33,7 @@ const login = (state = initialState, action) => {
         userDetails: action.payload,
         isRegisterUserSuccess: false,
         registerUserError: null,
+        isLogoutUserSuccess: false,
       };
     case LOGIN_USER_ERROR:
       return {
@@ -52,6 +56,16 @@ const login = (state = initialState, action) => {
       return {
         ...state,
         registerUserError: action.payload,
+      };
+    case LOGOUT_USER_SUCCESS:
+      return {
+        ...state,
+        userDetails: null,
+      };
+    case LOGOUT_USER_ERROR:
+      return {
+        ...state,
+        logoutUserError: action.payload,
       };
     default:
       return state;

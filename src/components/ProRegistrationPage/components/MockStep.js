@@ -31,9 +31,7 @@ const SubTitle = styled.span`
   margin-top: 2rem;
 `;
 
-function MockStep({
-  title, previous, next, onStepChange,
-}) {
+function MockStep({ title, previous, next, onStepChange }) {
   function handleNextChange() {
     onStepChange(next);
   }

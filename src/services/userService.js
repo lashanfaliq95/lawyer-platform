@@ -1,4 +1,4 @@
-import { get } from 'helpers/apiHelper';
+import { get, post, put } from 'helpers/apiHelper';
 import qs from 'qs';
 
 export const getLawyerService = async (id) => {
@@ -14,7 +14,22 @@ export const getLawyersService = async () => {
 export const getLawyerAvailabilityService = async ({ id, startDate }) => {
   const startDateQuery = qs.stringify({ startDate });
   const result = await get(
-    `/users/lawyers/availability/${id}?${startDateQuery}`,
+    `/users/lawyers/${id}/availability?${startDateQuery}`,
   );
+  return result;
+};
+
+export const registerUserService = async (values) => {
+  const result = await post('/users', values);
+  return result;
+};
+
+export const updateUserPasswordService = async (id, values) => {
+  const result = await put(`/users/${id}/password`, values);
+  return result;
+};
+
+export const updateUserInfoService = async (id, values) => {
+  const result = await put(`/users/${id}`, values);
   return result;
 };

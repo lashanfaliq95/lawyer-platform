@@ -13,6 +13,7 @@ import HomePage from 'components/HomePage';
 import AppointmentsPage from 'components/AppointmentsPage';
 import HelpPage from 'components/HelpPage';
 import HelpPageContactForm from 'components/HelpPage/components/ContatctForm';
+import MyAccountPage from 'components/MyAccountPage';
 import SearchPage from 'components/SearchPage';
 import LawyerDetailsPage from 'components/LawyerDetailsPage';
 import LoginCardPage from 'components/LoginPage/components/LoginCardPage';
@@ -25,6 +26,7 @@ import ProLoginPage from 'components/ProLoginPage';
 import ProHomePage from 'components/ProHomePage';
 import ProUserAppointments from 'components/ProUserAppointments';
 import ProAppointment from 'components/ProAppointment';
+import ProtectedRoute from 'components/Shared/ProtectedRoute';
 
 import reducers from 'reducers';
 import sagas from 'sagas';
@@ -46,10 +48,10 @@ const App = () => (
         <Route path='/' exact component={HomePage} />
         <Route path='/appointments' exact component={AppointmentsPage} />
         <Route path='/search' exact component={SearchPage} />
-        <Route path='/' exact component={HomePage} />
         <Route path='/appointments' exact component={AppointmentsPage} />
         <Route path='/help' exact component={HelpPage} />
         <Route path='/help/contact' exact component={HelpPageContactForm} />
+        <ProtectedRoute path='/account' exact component={MyAccountPage} />
         <Route path='/search' exact component={SearchPage} />
         <Route
           path='/search/lawyer-details/:id'

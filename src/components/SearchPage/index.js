@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Col, Row } from 'reactstrap';
 
 import { connect } from 'react-redux';
-import {
-  arrayOf, shape, func, bool,
-} from 'prop-types';
+import { arrayOf, shape, func, bool } from 'prop-types';
 
 import './styles.scss';
 import NavigationBar from 'components/NavigationBar';
@@ -12,10 +10,11 @@ import Footer from 'components/Footer';
 import GoogleMap from 'components/Shared/Maps';
 import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 import ProfileCardList from './components/ProfileCardList';
-import SearchSummary from './components/SearchSummary';
+import SearchResults from './components/SearchResults';
+import SearchSummary from './components/SearchResults/SearchSummary';
 import FilterBar from './components/FilterBar';
 
-import { getLawyers, getSearchResult } from './actions';
+import { getLawyers, getSearchResult, clearFilters } from './actions';
 
 const mapLocation = {
   lat: 51.24192,
@@ -31,9 +30,11 @@ const SearchPage = ({
   location,
   searchTerm,
   isSearchLoading,
+  clearFilters: clearFiltersAction,
 }) => {
   useEffect(() => {
-    const { searchTermForNameOrFirm, searchTermForLocation } = location.state || {};
+    const { searchTermForNameOrFirm, searchTermForLocation } =
+      location.state || {};
     if (searchTermForNameOrFirm !== '' || searchTermForLocation !== '') {
       getSearchResultAction({ nameOrFirm: searchTermForNameOrFirm });
     } else {
@@ -53,16 +54,21 @@ const SearchPage = ({
         <Col md='12'>
           <Row className='content'>
             <Col md='7' className='card-container'>
-              <SearchSummary
+              <SearchResults
                 users={users}
                 numberOfResults={users ? users.length : 0}
-                specializations={
-                  activeFilters ? activeFilters.activeSpecializations : null
-                }
                 searchTerm={searchTerm}
                 isSearchLoading={isSearchLoading}
               />
               <FilterBar activeFilters={activeFilters} />
+              <SearchSummary
+                numberOfResults={users ? users.length : 0}
+                specializations={
+                  activeFilters ? activeFilters.activeSpecializations : null
+                }
+                isSearchLoading={isSearchLoading}
+                clearFilters={clearFiltersAction}
+              />
               <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
               <ProfileCardList
                 users={users}
@@ -101,8 +107,11 @@ SearchPage.propTypes = {
   location: shape({}).isRequired,
   searchTerm: shape({}).isRequired,
   isSearchLoading: bool.isRequired,
+  clearFilters: func.isRequired,
 };
 
-export default connect(mapStateToProps, { getLawyers, getSearchResult })(
-  SearchPage,
-);
+export default connect(mapStateToProps, {
+  getLawyers,
+  getSearchResult,
+  clearFilters,
+})(SearchPage);
