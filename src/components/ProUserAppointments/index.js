@@ -4,18 +4,65 @@ import { IoExitOutline } from 'react-icons/io5';
 import moment from 'moment';
 import { useSetState } from 'react-use';
 import { useHistory } from 'react-router-dom';
+import { defineMessages, useIntl } from 'react-intl';
 
-import { getAppointmentsFiltered } from 'components/Shared/utils';
+import {
+  getAppointmentsFiltered,
+  getLocalizedMonth,
+} from 'components/Shared/utils';
 import { APPOINTMENTS } from 'helpers/data';
 import {
   APPOINTMENT_RANGES,
   APPOINTMENT_TYPES,
-  APPOINTMENT_SECTION,
-} from 'helpers/constants';
+} from 'components/Shared/constants';
 import ProTopBar from 'components/Shared/ProTopBar/ProTopBar';
 import FilterPane from './components/FilterPane';
 import AppointmentInquiries from './components/AppointmentInquiries';
 import Appointments from './components/Appointments';
+
+const messages = defineMessages({
+  emptyTitle: {
+    id: 'app.proUserAppointments.emptyTitle',
+    defaultMessage: 'Houston, we have a problem!',
+  },
+  emptyDescription: {
+    id: 'app.proUserAppointments.emptyDescription',
+    defaultMessage:
+      'We could not find any appointment regarding inquiry. Try to change the search filter and pay attention that you did not misspell anything during typing.',
+  },
+  from: {
+    id: 'app.proUserAppointments.from',
+    defaultMessage: 'From',
+  },
+  appointments: {
+    id: 'app.proUserAppointments.appointments',
+    defaultMessage: 'Appointments',
+  },
+  noAppointmentsFound: {
+    id: 'app.proUserAppointments.noAppointmentsFound',
+    defaultMessage: 'No Appointments Found',
+  },
+  today: {
+    id: 'app.proUserAppointments.today',
+    defaultMessage: 'Today',
+  },
+  yesterday: {
+    id: 'app.proUserAppointments.yesterday',
+    defaultMessage: 'Yesterday',
+  },
+  thisWeek: {
+    id: 'app.proUserAppointments.thisWeek',
+    defaultMessage: 'This Week',
+  },
+  thisMonth: {
+    id: 'app.proUserAppointments.thisMonth',
+    defaultMessage: 'This Month',
+  },
+  thisYear: {
+    id: 'app.proUserAppointments.thisYear',
+    defaultMessage: 'This Year',
+  },
+});
 
 const Container = styled.div`
   height: 100%;
@@ -107,18 +154,46 @@ const EmptyDescription = styled.span`
   font-weight: 500;
 `;
 
-function getStructuredAppointments(appointments) {
-  return [
-    ...APPOINTMENT_SECTION.map(({ type, ...rest }) => ({
-      ...rest,
-      appointments: getAppointmentsFiltered(appointments, type),
-    })),
-    ...getAppointmentsFiltered(appointments, APPOINTMENT_RANGES.CUSTOM),
-  ];
-}
-
 function ProUserAppointments() {
   const history = useHistory();
+  const intl = useIntl();
+
+  const APPOINTMENT_SECTION = [
+    {
+      type: APPOINTMENT_RANGES.TODAY,
+      title: intl.formatMessage(messages.today),
+    },
+    {
+      type: APPOINTMENT_RANGES.YESTERDAY,
+      title: intl.formatMessage(messages.yesterday),
+    },
+    {
+      type: APPOINTMENT_RANGES.THIS_WEEK,
+      title: intl.formatMessage(messages.thisWeek),
+    },
+    {
+      type: APPOINTMENT_RANGES.THIS_MONTH,
+      title: intl.formatMessage(messages.thisMonth),
+    },
+    {
+      type: APPOINTMENT_RANGES.THIS_YEAR,
+      title: intl.formatMessage(messages.thisYear),
+    },
+  ];
+
+  function getStructuredAppointments(appointments) {
+    return [
+      ...APPOINTMENT_SECTION.map(({ type, ...rest }) => ({
+        ...rest,
+        appointments: getAppointmentsFiltered(appointments, type),
+      })),
+      ...getAppointmentsFiltered(
+        appointments,
+        APPOINTMENT_RANGES.CUSTOM,
+        intl.formatMessage,
+      ),
+    ];
+  }
 
   const [
     { filterStartDate, filterEndDate, selectedTypes },
@@ -155,8 +230,8 @@ function ProUserAppointments() {
   const hasAppointmentsOrInquiries = APPOINTMENTS.length !== 0;
 
   const title = !hasAppointmentsOrInquiries
-    ? 'Keine Termine gefunden'
-    : `${APPOINTMENTS.length} Termine`;
+    ? intl.formatMessage(messages.noAppointmentsFound)
+    : `${APPOINTMENTS.length} ${intl.formatMessage(messages.appointments)}`;
 
   return (
     <Container>
@@ -167,9 +242,15 @@ function ProUserAppointments() {
             <TitleLeftPane>
               <Title>{title}</Title>
               <TitleDescription>
-                {`Von ${filterStartDate.format(
-                  'DD. MMMM YYYY',
-                )} - ${filterEndDate.format('DD. MMMM YYYY')}`}
+                {`${intl.formatMessage(messages.from)} ${filterStartDate.format(
+                  'DD.',
+                )} ${intl.formatMessage(
+                  getLocalizedMonth(filterStartDate),
+                )} ${filterStartDate.format('YYYY')} - ${filterEndDate.format(
+                  'DD.',
+                )} ${intl.formatMessage(
+                  getLocalizedMonth(filterStartDate),
+                )} ${filterEndDate.format('YYYY')}`}
               </TitleDescription>
             </TitleLeftPane>
             <TitleRightPane>
@@ -205,11 +286,9 @@ function ProUserAppointments() {
           </>
         ) : (
           <EmptyContainer>
-            <EmptyTitle>Houston, wir haben ein Problem!</EmptyTitle>
+            <EmptyTitle>{intl.formatMessage(messages.emptyTitle)}</EmptyTitle>
             <EmptyDescription>
-              Wir konnten leider keine Termine zu Ihrer Suchanfrage finden.
-              Versuchen Sie Ihre Sucheinstellungen zu ändern und achten Sie
-              darauf, dass alles richtig geschrieben ist.
+              {intl.formatMessage(messages.emptyDescription)}
             </EmptyDescription>
           </EmptyContainer>
         )}

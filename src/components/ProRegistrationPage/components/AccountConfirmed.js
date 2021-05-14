@@ -85,6 +85,4 @@ function AccountConfirmed() {
   );
 }
 
-AccountConfirmed.propTypes = {};
-
 export default AccountConfirmed;

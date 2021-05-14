@@ -60,6 +60,4 @@ Appointments.defaultProps = {
   onAppointmentClick: () => {},
 };
 
-Appointments.defaultProps = {};
-
 export default Appointments;

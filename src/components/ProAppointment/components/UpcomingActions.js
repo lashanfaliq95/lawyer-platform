@@ -97,8 +97,4 @@ function UpcomingActions() {
   );
 }
 
-UpcomingActions.propTypes = {};
-
-UpcomingActions.defaultProps = {};
-
 export default UpcomingActions;

@@ -2,8 +2,13 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { APPOINTMENT_COLORS } from 'helpers/constants';
+import { APPOINTMENT_COLORS } from 'components/Shared/constants';
 import { AppointmentPropType } from 'helpers/types';
+import { useIntl } from 'react-intl';
+import {
+  getLocalizedDayOfWeek,
+  getLocalizedMonth,
+} from 'components/Shared/utils';
 
 const Container = styled.div`
   display: flex;
@@ -56,14 +61,25 @@ const Title = styled(Label)`
 `;
 
 function Appointment({ appointment, index, onAppointmentClick }) {
+  const intl = useIntl();
+
   const {
-    id,
     user: { firstName, lastName },
     date,
   } = appointment;
 
   function handleOnClick() {
     onAppointmentClick(appointment);
+  }
+
+  function getFormattedDate() {
+    const momentObj = moment(date);
+
+    return `${intl.formatMessage(
+      getLocalizedDayOfWeek(momentObj),
+    )}, ${momentObj.format('DD')}. ${intl.formatMessage(
+      getLocalizedMonth(momentObj),
+    )}, ${momentObj.format('YYYY, HH:mm')}`;
   }
 
   return (
@@ -73,7 +89,7 @@ function Appointment({ appointment, index, onAppointmentClick }) {
       </IconContainer>
       <DetailsContainer>
         <Title>{`${firstName} ${lastName}`}</Title>
-        <Label>{moment(date).format('dddd, DD. MMMM, YYYY, HH:mm')}</Label>
+        <Label>{getFormattedDate()}</Label>
       </DetailsContainer>
     </Container>
   );

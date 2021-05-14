@@ -5,6 +5,30 @@ import { useSetState, usePrevious } from 'react-use';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import styled, { css } from 'styled-components';
+import { defineMessages, useIntl } from 'react-intl';
+
+const messages = defineMessages({
+  title: {
+    id: 'app.proUserAppointments.filterPaneDatePicker.title',
+    defaultMessage: 'Select date range',
+  },
+  clear: {
+    id: 'app.proUserAppointments.filterPaneDatePicker.clear',
+    defaultMessage: 'Clear',
+  },
+  save: {
+    id: 'app.proUserAppointments.filterPaneDatePicker.save',
+    defaultMessage: 'Save',
+  },
+  last: {
+    id: 'app.proUserAppointments.filterPaneDatePicker.last',
+    defaultMessage: 'Last',
+  },
+  days: {
+    id: 'app.proUserAppointments.filterPaneDatePicker.days',
+    defaultMessage: 'days',
+  },
+});
 
 const Container = styled.div`
   display: flex;
@@ -68,29 +92,6 @@ const Button = styled.button`
   }}
 `;
 
-const PRESET_OPTIONS = [
-  {
-    title: 'Letzten 7 Tage',
-    start: moment().subtract(7, 'days'),
-    end: moment(),
-  },
-  {
-    title: 'Letzten 14 Tage',
-    start: moment().subtract(14, 'days'),
-    end: moment(),
-  },
-  {
-    title: 'Letzten 30 Tage',
-    start: moment().subtract(30, 'days'),
-    end: moment(),
-  },
-  {
-    title: 'Letzten 90 Tage',
-    start: moment().subtract(90, 'days'),
-    end: moment(),
-  },
-];
-
 function FilterPaneDatePicker({
   filterStartDate,
   filterEndDate,
@@ -98,6 +99,39 @@ function FilterPaneDatePicker({
   onFilterDateSelect,
   toggleIsOpen,
 }) {
+  const intl = useIntl();
+
+  const PRESET_OPTIONS = [
+    {
+      title: `${intl.formatMessage(messages.last)} 7 ${intl.formatMessage(
+        messages.days,
+      )}`,
+      start: moment().subtract(7, 'days'),
+      end: moment(),
+    },
+    {
+      title: `${intl.formatMessage(messages.last)} 14 ${intl.formatMessage(
+        messages.days,
+      )}`,
+      start: moment().subtract(14, 'days'),
+      end: moment(),
+    },
+    {
+      title: `${intl.formatMessage(messages.last)} 30 ${intl.formatMessage(
+        messages.days,
+      )}`,
+      start: moment().subtract(30, 'days'),
+      end: moment(),
+    },
+    {
+      title: `${intl.formatMessage(messages.last)} 90 ${intl.formatMessage(
+        messages.days,
+      )}`,
+      start: moment().subtract(90, 'days'),
+      end: moment(),
+    },
+  ];
+
   const [{ startDate, endDate, focusedInput }, setState] = useSetState({
     startDate: null,
     endDate: null,
@@ -161,7 +195,7 @@ function FilterPaneDatePicker({
 
   return (
     <Container>
-      <Title>Datumsbereich wählen</Title>
+      <Title>{intl.formatMessage(messages.title)}</Title>
       <DayPickerRangeController
         startDate={startDate}
         endDate={endDate}
@@ -172,7 +206,9 @@ function FilterPaneDatePicker({
         initialVisibleMonth={() => moment().subtract(1, 'month')}
       />
       <Footer>
-        <Button onClick={handleOnClearDates}>Löschen</Button>
+        <Button onClick={handleOnClearDates}>
+          {intl.formatMessage(messages.clear)}
+        </Button>
         <FooterRightPane>
           {PRESET_OPTIONS.map(({ title, start, end }) => {
             const isSelected =
@@ -198,7 +234,7 @@ function FilterPaneDatePicker({
             );
           })}
           <Button primary onClick={handleOnFilterDateChanged}>
-            Speichern
+            {intl.formatMessage(messages.save)}
           </Button>
         </FooterRightPane>
       </Footer>

@@ -3,9 +3,41 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FaRegCalendar } from 'react-icons/fa';
 import { useSetState } from 'react-use';
+import { defineMessages, useIntl } from 'react-intl';
 
 import { getExpiryDate, prependZero } from 'components/Shared/utils';
 import { AppointmentPropType } from 'helpers/types';
+
+const messages = defineMessages({
+  title: {
+    id: 'app.proUserAppointments.appointmentInquiry.title',
+    defaultMessage: 'Inquiry',
+  },
+  hours: {
+    id: 'app.proUserAppointments.appointmentInquiry.hours',
+    defaultMessage: 'hours',
+  },
+  hour: {
+    id: 'app.proUserAppointments.appointmentInquiry.hour',
+    defaultMessage: 'hour',
+  },
+  minutes: {
+    id: 'app.proUserAppointments.appointmentInquiry.minutes',
+    defaultMessage: 'minutes',
+  },
+  minute: {
+    id: 'app.proUserAppointments.appointmentInquiry.minute',
+    defaultMessage: 'minute',
+  },
+  descriptionPrefix: {
+    id: 'app.proUserAppointments.appointmentInquiry.descriptionPrefix',
+    defaultMessage: 'You still have',
+  },
+  descriptionSuffix: {
+    id: 'app.proUserAppointments.appointmentInquiry.descriptionSuffix',
+    defaultMessage: 'to confirm the appointment',
+  },
+});
 
 const Container = styled.div`
   display: flex;
@@ -49,30 +81,36 @@ const Title = styled(Label)`
   font-size: 1.2rem;
 `;
 
-function getTimeStamps(hours, minutes) {
-  const prependedMinutes = prependZero(minutes);
-
-  if (hours > 1) {
-    return `${hours}:${prependedMinutes} Stunden`;
-  }
-  if (hours > 0) {
-    return `${hours}:${prependedMinutes} Stunde`;
-  }
-  if (minutes > 1) {
-    return `${prependedMinutes} Minuten`;
-  }
-  return `${prependedMinutes} Minute`;
-}
-
 function AppointmentInquiry({ inquiry, onInquiryClick }) {
-  const { id, createdAt } = inquiry;
+  const intl = useIntl();
 
-  const [{ hours, minutes }, setState] = useSetState({
+  const { createdAt } = inquiry;
+
+  const [{ hours, minutes }] = useSetState({
     ...getExpiryDate(createdAt),
   });
 
   function handleOnClick() {
     onInquiryClick(inquiry);
+  }
+
+  function getTimeStamps() {
+    const prependedMinutes = prependZero(minutes);
+
+    if (hours > 1) {
+      return `${hours}:${prependedMinutes} ${intl.formatMessage(
+        messages.hours,
+      )}`;
+    }
+    if (hours > 0) {
+      return `${hours}:${prependedMinutes} ${intl.formatMessage(
+        messages.hour,
+      )}`;
+    }
+    if (minutes > 1) {
+      return `${prependedMinutes} ${intl.formatMessage(messages.minutes)}`;
+    }
+    return `${prependedMinutes} ${intl.formatMessage(messages.minute)}`;
   }
 
   return (
@@ -81,12 +119,12 @@ function AppointmentInquiry({ inquiry, onInquiryClick }) {
         <FaRegCalendar size={20} />
       </IconContainer>
       <DetailsContainer>
-        <Title>Anfrage</Title>
+        <Title>{intl.formatMessage(messages.title)}</Title>
         <Label>
-          {`Sei haben noch ${getTimeStamps(
+          {`${intl.formatMessage(messages.descriptionPrefix)} ${getTimeStamps(
             hours,
             minutes,
-          )}, um den termin zu bestatigen`}
+          )}, ${intl.formatMessage(messages.descriptionSuffix)}`}
         </Label>
       </DetailsContainer>
     </Container>

@@ -4,7 +4,7 @@ import { useSetState } from 'react-use';
 import styled from 'styled-components';
 
 import { APPOINTMENTS } from 'helpers/data';
-import { APPOINTMENT_TYPES } from 'helpers/constants';
+import { APPOINTMENT_TYPES } from 'components/Shared/constants';
 import Appointment from 'components/ProUserAppointments/components/Appointment';
 import AppointmentInquiry from 'components/ProUserAppointments/components/AppointmentInquiry';
 import DetailsPane from './components/DetailsPane';

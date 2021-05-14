@@ -88,8 +88,4 @@ function ExpiredActions() {
   );
 }
 
-ExpiredActions.propTypes = {};
-
-ExpiredActions.defaultProps = {};
-
 export default ExpiredActions;

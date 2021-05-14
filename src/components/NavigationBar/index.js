@@ -101,7 +101,7 @@ const NavigationBar = ({
               </div>
               <div className='nav-button-item'>
                 <Link to='/help' className='no-hover'>
-                  <Button color='link' className='black-link'>
+                  <Button color='link' className='logged-in'>
                     <Icon name='question-circle' />
                     <span className='nav-text'>
                       {formatMessages(messages.needHelp)}

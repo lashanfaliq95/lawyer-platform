@@ -1,10 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { defineMessages, useIntl } from 'react-intl';
 
 import useDropdown, { Dropdown } from 'hooks/useDropdown';
 import FilterPaneDatePicker from './FilterPaneDatePicker';
 import FilterPaneStatusPicker from './FilterPaneStatusPicker';
+
+const messages = defineMessages({
+  period: {
+    id: 'app.proUserAppointments.filterPane.period',
+    defaultMessage: 'Period',
+  },
+  status: {
+    id: 'app.proUserAppointments.filterPane.status',
+    defaultMessage: 'Appointment Status',
+  },
+  matter: {
+    id: 'app.proUserAppointments.filterPane.matter',
+    defaultMessage: 'Matters',
+  },
+  experts: {
+    id: 'app.proUserAppointments.filterPane.experts',
+    defaultMessage: 'Experts',
+  },
+  typeOfAppointment: {
+    id: 'app.proUserAppointments.filterPane.typeOfAppointment',
+    defaultMessage: 'Type of Appointment',
+  },
+  locations: {
+    id: 'app.proUserAppointments.filterPane.locations',
+    defaultMessage: 'Locations',
+  },
+});
 
 const Container = styled.div`
   margin-top: 0.5rem;
@@ -33,6 +61,8 @@ function FilterPane({
   onFilterDateSelect,
   onFilterTypeChange,
 }) {
+  const intl = useIntl();
+
   const {
     ref: datePickerRef,
     isOpen: datePickerOpen,
@@ -50,7 +80,9 @@ function FilterPane({
   return (
     <Container>
       <FilterButtonContainer>
-        <FilterButton onClick={toggleDatePickerOpen}>Zeitraum</FilterButton>
+        <FilterButton onClick={toggleDatePickerOpen}>
+          {intl.formatMessage(messages.period)}
+        </FilterButton>
         <Dropdown
           ref={datePickerRef}
           isOpen={datePickerOpen}
@@ -67,7 +99,7 @@ function FilterPane({
       </FilterButtonContainer>
       <FilterButtonContainer>
         <FilterButton onClick={toggleStatusPickerOpen}>
-          Terminstatus
+          {intl.formatMessage(messages.status)}
         </FilterButton>
         <Dropdown ref={statusPickerRef} isOpen={statusPickerOpen}>
           <FilterPaneStatusPicker
@@ -78,10 +110,12 @@ function FilterPane({
           />
         </Dropdown>
       </FilterButtonContainer>
-      <FilterButton>Angelegenheit</FilterButton>
-      <FilterButton>Experte</FilterButton>
-      <FilterButton>Terminart</FilterButton>
-      <FilterButton>Standort</FilterButton>
+      <FilterButton>{intl.formatMessage(messages.matter)}</FilterButton>
+      <FilterButton>{intl.formatMessage(messages.experts)}</FilterButton>
+      <FilterButton>
+        {intl.formatMessage(messages.typeOfAppointment)}
+      </FilterButton>
+      <FilterButton>{intl.formatMessage(messages.locations)}</FilterButton>
     </Container>
   );
 }

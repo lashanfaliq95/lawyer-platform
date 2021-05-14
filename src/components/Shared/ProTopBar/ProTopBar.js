@@ -9,9 +9,41 @@ import {
 } from 'react-icons/fa';
 import { useSetState } from 'react-use';
 import { useHistory } from 'react-router-dom';
+import { defineMessages, useIntl } from 'react-intl';
 
 import { CLIENTS } from 'helpers/data';
 import SearchClient from '../SearchClient/SearchClient';
+
+const messages = defineMessages({
+  search: {
+    id: 'app.proTopBar.search',
+    defaultMessage: 'Search Clients...',
+  },
+  calendar: {
+    id: 'app.proTopBar.calendar',
+    defaultMessage: 'Calendar',
+  },
+  clients: {
+    id: 'app.proTopBar.clients',
+    defaultMessage: 'Clients',
+  },
+  messages: {
+    id: 'app.proTopBar.messages',
+    defaultMessage: 'Messages',
+  },
+  myAccount: {
+    id: 'app.proTopBar.myAccount',
+    defaultMessage: 'My Account',
+  },
+  inquiries: {
+    id: 'app.proTopBar.inquiries',
+    defaultMessage: 'Inquiries',
+  },
+  upcomingAppointments: {
+    id: 'app.proTopBar.upcomingAppointments',
+    defaultMessage: 'Upcoming Appointments',
+  },
+});
 
 const Container = styled.div`
   display: flex;
@@ -29,6 +61,11 @@ const Title = styled.div`
 const NavigationContainer = styled.div`
   display: flex;
   margin: auto 5px auto auto;
+`;
+
+const EmptyMessage = styled.div`
+  padding: 1rem;
+  text-align: center;
 `;
 
 const NavigationItem = styled.button`
@@ -173,6 +210,8 @@ const ListContainer = styled.div`
 
 function ProTopBar() {
   const history = useHistory();
+  const intl = useIntl();
+
   const searchContainerRef = useRef(null);
 
   const [
@@ -198,7 +237,7 @@ function ProTopBar() {
     }, 500);
   }
 
-  function handleOnClientClick(client) {
+  function handleOnClientClick() {
     history.push('/pro/appointments');
   }
 
@@ -218,7 +257,7 @@ function ProTopBar() {
           <FaSearch />
           <SearchInput
             onChange={handleOnSearchTermChange}
-            placeholder='Mandenten durchsuchen'
+            placeholder={intl.formatMessage(messages.search)}
             onFocus={handleOnFocus}
             onBlur={handleOnFocus}
             value={searchTerm}
@@ -228,52 +267,54 @@ function ProTopBar() {
               <LoadingContainer>Loading</LoadingContainer>
             ) : (
               <ListContainer>
-                {filteredClients.map((c) => (
-                  <ListItemContainer key={c.id}>
-                    <SearchClient
-                      client={c}
-                      search={searchTerm}
-                      onClick={handleOnClientClick}
-                    />
-                  </ListItemContainer>
-                ))}
+                {filteredClients.length === 0 ? (
+                  <EmptyMessage>No results found</EmptyMessage>
+                ) : (
+                  filteredClients.map((c) => (
+                    <ListItemContainer key={c.id}>
+                      <SearchClient
+                        client={c}
+                        search={searchTerm}
+                        onClick={handleOnClientClick}
+                      />
+                    </ListItemContainer>
+                  ))
+                )}
               </ListContainer>
             )}
           </Dropdown>
         </SearchInputContainer>
         <SearchFilterButtonContainer>
           <SearchFilterButton primary>
-            Anfrage
+            {intl.formatMessage(messages.inquiries)}
             <Badge>69</Badge>
           </SearchFilterButton>
-          <SearchFilterButton>Anstehend</SearchFilterButton>
+          <SearchFilterButton>
+            {intl.formatMessage(messages.upcomingAppointments)}
+          </SearchFilterButton>
         </SearchFilterButtonContainer>
       </SearchContainer>
       <Separator />
       <NavigationContainer>
         <NavigationItem selected>
           <FaRegCalendar />
-          Terminkalender
+          {intl.formatMessage(messages.calendar)}
         </NavigationItem>
         <NavigationItem>
           <FaUsers />
-          Mandaten
+          {intl.formatMessage(messages.clients)}
         </NavigationItem>
         <NavigationItem>
           <FaEnvelope />
-          Nachrichten
+          {intl.formatMessage(messages.messages)}
         </NavigationItem>
         <NavigationItem>
           <FaUser />
-          Mein Konto
+          {intl.formatMessage(messages.myAccount)}
         </NavigationItem>
       </NavigationContainer>
     </Container>
   );
 }
-
-ProTopBar.propTypes = {};
-
-ProTopBar.defaultProps = {};
 
 export default ProTopBar;

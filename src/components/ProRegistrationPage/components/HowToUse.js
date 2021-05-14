@@ -203,6 +203,4 @@ HowToUse.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-HowToUse.defaultProps = {};
-
 export default HowToUse;

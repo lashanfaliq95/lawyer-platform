@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { APPOINTMENT_TYPES } from './constants';
+import { APPOINTMENT_TYPES } from 'components/Shared/constants';
 
 export const CLIENTS = [
   { id: 1, firstName: 'Mike', lastName: 'Wazowski' },
@@ -68,7 +68,7 @@ export const APPOINTMENTS = [
       lastName: 'Naruto',
     },
     type: APPOINTMENT_TYPES.UPCOMING,
-    date: moment().subtract(1, 'year').toDate(),
+    date: moment().subtract(1, 'year').subtract(2, 'month').toDate(),
     createdAt: moment().subtract(10, 'hours').toDate(),
   },
   {

@@ -97,8 +97,4 @@ function InquiryActions() {
   );
 }
 
-InquiryActions.propTypes = {};
-
-InquiryActions.defaultProps = {};
-
 export default InquiryActions;

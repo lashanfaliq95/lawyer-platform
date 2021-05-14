@@ -3,8 +3,36 @@ import { FaCheck } from 'react-icons/fa';
 import { usePrevious, useSetState } from 'react-use';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import { defineMessages, useIntl } from 'react-intl';
 
-import { APPOINTMENT_TYPES } from 'helpers/constants';
+import { APPOINTMENT_TYPES } from 'components/Shared/constants';
+
+const messages = defineMessages({
+  inquiries: {
+    id: 'app.proUserAppointments.filterPaneStatusPicker.inquiries',
+    defaultMessage: 'Inquiries',
+  },
+  upcoming: {
+    id: 'app.proUserAppointments.filterPaneStatusPicker.upcoming',
+    defaultMessage: 'Upcoming',
+  },
+  cancelled: {
+    id: 'app.proUserAppointments.filterPaneStatusPicker.cancelled',
+    defaultMessage: 'Cancelled',
+  },
+  past: {
+    id: 'app.proUserAppointments.filterPaneStatusPicker.past',
+    defaultMessage: 'Past',
+  },
+  save: {
+    id: 'app.proUserAppointments.filterPaneStatusPicker.save',
+    defaultMessage: 'Save',
+  },
+  clear: {
+    id: 'app.proUserAppointments.filterPaneStatusPicker.clear',
+    defaultMessage: 'Clear',
+  },
+});
 
 const SelectItemContainer = styled.div`
   display: flex;
@@ -76,31 +104,33 @@ const Button = styled.button`
   }}
 `;
 
-const OPTIONS = [
-  {
-    label: 'Anfrage',
-    value: APPOINTMENT_TYPES.INQUIRIES,
-  },
-  {
-    label: 'Anstehend',
-    value: APPOINTMENT_TYPES.UPCOMING,
-  },
-  {
-    label: 'Abgesagt',
-    value: APPOINTMENT_TYPES.CANCELLED,
-  },
-  {
-    label: 'Vergangen',
-    value: APPOINTMENT_TYPES.PAST,
-  },
-];
-
 function FilterPaneStatusPicker({
   selectedTypes,
   isOpen,
   onFilterTypeChange,
   toggleIsOpen,
 }) {
+  const intl = useIntl();
+
+  const OPTIONS = [
+    {
+      label: intl.formatMessage(messages.inquiries),
+      value: APPOINTMENT_TYPES.INQUIRIES,
+    },
+    {
+      label: intl.formatMessage(messages.upcoming),
+      value: APPOINTMENT_TYPES.UPCOMING,
+    },
+    {
+      label: intl.formatMessage(messages.cancelled),
+      value: APPOINTMENT_TYPES.CANCELLED,
+    },
+    {
+      label: intl.formatMessage(messages.past),
+      value: APPOINTMENT_TYPES.PAST,
+    },
+  ];
+
   const [{ selectedOptions }, setState] = useSetState({
     selectedOptions: [...OPTIONS],
   });
@@ -161,10 +191,12 @@ function FilterPaneStatusPicker({
         );
       })}
       <ButtonContainer>
-        <Button onClick={handleOnFilterReset}>Löschen</Button>
+        <Button onClick={handleOnFilterReset}>
+          {intl.formatMessage(messages.clear)}
+        </Button>
         <Separator />
         <Button primary onClick={handleOnFilterChange}>
-          Speichern
+          {intl.formatMessage(messages.save)}
         </Button>
       </ButtonContainer>
     </Container>

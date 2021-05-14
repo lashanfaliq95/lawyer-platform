@@ -1,5 +1,7 @@
-import { APPOINTMENT_RANGES } from 'helpers/constants';
 import moment from 'moment';
+
+import { APPOINTMENT_RANGES } from 'components/Shared/constants';
+import { DAYS, MONTHS } from './messages';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getLocation = (setPosition) => {
@@ -43,7 +45,15 @@ export function getExpiryDate(createdAt) {
   };
 }
 
-export function mapCustomAppointments(arr) {
+export function getLocalizedMonth(momentObj) {
+  return MONTHS[moment(momentObj).format('MMMM').toLowerCase()];
+}
+
+export function getLocalizedDayOfWeek(momentObj) {
+  return DAYS[moment(momentObj).format('dddd').toLowerCase()];
+}
+
+export function mapCustomAppointments(arr, format) {
   const items = {};
 
   arr.forEach((appointment) => {
@@ -57,10 +67,14 @@ export function mapCustomAppointments(arr) {
 
   return Object.keys(items)
     .sort((a, b) => moment(a).diff(moment(b.date)))
-    .map((date) => ({
-      title: moment(date).format('MMMM YYYY'),
-      appointments: items[date],
-    }));
+    .map((date) => {
+      return {
+        title: `${format(getLocalizedMonth(date))} ${moment(date).format(
+          'YYYY',
+        )}`,
+        appointments: items[date],
+      };
+    });
 }
 
 export function isSameOrAfterAndIsBefore(
@@ -74,7 +88,7 @@ export function isSameOrAfterAndIsBefore(
   );
 }
 
-export function getAppointmentsFiltered(arr, type) {
+export function getAppointmentsFiltered(arr, type, format = () => {}) {
   switch (type) {
     case APPOINTMENT_RANGES.TODAY:
       return arr.filter((d) => moment(d.date).isSame(moment(), 'day'));
@@ -111,7 +125,7 @@ export function getAppointmentsFiltered(arr, type) {
       const filteredAppointments = arr.filter((d) =>
         moment(d.date).isBefore(moment().startOf('year'), 'day'),
       );
-      return mapCustomAppointments(filteredAppointments);
+      return mapCustomAppointments(filteredAppointments, format);
     default:
       return [];
   }

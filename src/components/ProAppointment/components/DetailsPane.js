@@ -111,6 +111,4 @@ DetailsPane.propTypes = {
   appointment: AppointmentPropType.isRequired,
 };
 
-DetailsPane.defaultProps = {};
-
 export default DetailsPane;

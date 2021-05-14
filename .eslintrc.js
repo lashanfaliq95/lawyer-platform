@@ -24,6 +24,7 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     'function-paren-newline': 'off',
     'object-curly-newline': 'off',
+    'arrow-body-style': 'off',
     'operator-linebreak': [
       'error',
       'after',
