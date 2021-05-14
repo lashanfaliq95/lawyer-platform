@@ -21,6 +21,9 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'jsx-quotes': 'off',
     'linebreak-style': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
+    'object-curly-newline': 'off',
     'operator-linebreak': [
       'error',
       'after',
