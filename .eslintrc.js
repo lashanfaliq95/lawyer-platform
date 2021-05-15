@@ -21,12 +21,15 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'jsx-quotes': 'off',
     'linebreak-style': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
+    'object-curly-newline': 'off',
+    'arrow-body-style': 'off',
     'operator-linebreak': [
       'error',
       'after',
       { overrides: { '?': 'ignore', ':': 'ignore', '+': 'ignore' } },
     ],
-    'object-curly-newline': 'off',
   },
   settings: {
     'import/resolver': {

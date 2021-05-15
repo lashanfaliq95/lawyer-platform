@@ -42,7 +42,8 @@ import {
   LOGOUT_USER,
 } from './constants';
 
-const getUserId = (state) => state.login.userDetails && state.login.userDetails.id;
+const getUserId = (state) =>
+  state.login.userDetails && state.login.userDetails.id;
 
 function* loginUser(action) {
   const response = yield loginUserService(action.payload);

@@ -59,6 +59,7 @@ const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
               forgotPwdBtnText={messages.forgotPwdBtnText}
               required
               showForgotPwdBtn
+              {...formik.getFieldProps('password')}
             />
           </FormGroup>
           <FormGroup>

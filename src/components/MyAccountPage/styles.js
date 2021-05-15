@@ -45,7 +45,8 @@ const Card = styled.div`
   width: 25%;
   height: fit-content;
   border: 1px solid;
-  border-color: ${(props) => (props.secondary ? '#ccecfa' : 'rgba(0, 0, 0, 0.125)')};
+  border-color: ${(props) =>
+    (props.secondary ? '#ccecfa' : 'rgba(0, 0, 0, 0.125)')};
 `;
 
 const CardExternalTitle = styled.span`

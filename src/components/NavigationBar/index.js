@@ -29,7 +29,7 @@ const NavigationBar = ({
   const toggle = () => setIsOpen(!isOpen);
 
   function handleOnProClick() {
-    history.push('/pro');
+    history.push('/pro/register');
   }
 
   return (

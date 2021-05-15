@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
-import {
-  func, string, shape, bool,
-} from 'prop-types';
+import { func, string, shape, bool, oneOfType } from 'prop-types';
 import { Input } from 'reactstrap';
+import styled from 'styled-components';
+
 import PasswordStrengthBar from 'react-password-strength-bar';
+import Icon from 'components/Shared/Icon';
 
 import './styles.scss';
-import Icon from 'components/Shared/Icon';
+
+const SecurityTitle = styled.span`
+  font-size: 18px;
+`;
+
+const ErrorMessage = styled.div`
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+`;
 
 const FloatingLabelPwdInput = (props) => {
   const {
@@ -17,10 +27,15 @@ const FloatingLabelPwdInput = (props) => {
     forgotPwdBtnText,
     showForgotPwdBtn,
     showPwdStrength,
+    hideScoreWord,
+    securityTitle,
     intl,
     invalid,
+    error,
     ...rest
   } = props;
+  const { value: propValue } = rest;
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
 
@@ -33,13 +48,20 @@ const FloatingLabelPwdInput = (props) => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
+  useEffect(() => {
+    if (password !== propValue) {
+      setPassword(propValue);
+    }
+    //  eslint-disable-next-line
+  }, [propValue]);
+
   return (
-    <>
+    <div className='floating-input-parent'>
       <div className='floating-label-input'>
         <Input
           type={isPasswordVisible ? 'text' : 'password'}
           onChange={onPasswordInputChange}
-          className={`pwd-input ${password ? 'has-input' : ''}`}
+          className={`pwd-input ${password || propValue ? 'has-input' : ''}`}
           invalid={!!invalid}
           {...rest}
         />
@@ -70,8 +92,17 @@ const FloatingLabelPwdInput = (props) => {
           </button>
         )}
       </div>
+      {error && <ErrorMessage>{intl.formatMessage(error)}</ErrorMessage>}
       {showPwdStrength && (
-        <div className='pwd-bar-wrapper'>
+        <div
+          className={[
+            'pwd-bar-wrapper',
+            hideScoreWord ? 'hide-score-word' : '',
+          ].join(' ')}
+        >
+          {hideScoreWord && (
+            <SecurityTitle>{intl.formatMessage(securityTitle)}</SecurityTitle>
+          )}
           <PasswordStrengthBar
             password={password}
             scoreWordClassName='score-word-style'
@@ -86,7 +117,7 @@ const FloatingLabelPwdInput = (props) => {
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
@@ -97,14 +128,22 @@ FloatingLabelPwdInput.propTypes = {
   forgotPwdBtnText: string,
   showForgotPwdBtn: bool,
   showPwdStrength: bool,
+  hideScoreWord: bool,
+  securityTitle: shape({}),
   invalid: bool,
+  value: string,
+  error: oneOfType([string, shape({})]),
 };
 
 FloatingLabelPwdInput.defaultProps = {
   forgotPwdBtnText: '',
   showForgotPwdBtn: false,
   showPwdStrength: false,
+  hideScoreWord: false,
+  securityTitle: {},
   invalid: false,
+  value: '',
+  error: null,
 };
 
 export default injectIntl(FloatingLabelPwdInput);

@@ -10,7 +10,7 @@ import formatMessages from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
-import { REGISTRATION_STEPS } from '../constants';
+import { JOBS, REGISTRATION_STEPS } from '../constants';
 
 const messages = defineMessages({
   title: {
@@ -20,6 +20,10 @@ const messages = defineMessages({
   subTitle: {
     id: 'app.proRegisterPage.addressEntry.subTitle',
     defaultMessage: 'Please enter the address of your law firm.',
+  },
+  notarySubTitle: {
+    id: 'app.proRegisterPage.addressEntry.notarySubTitle',
+    defaultMessage: 'Please enter the address of your notary firm.',
   },
   road: {
     id: 'app.proRegisterPage.addressEntry.road',
@@ -93,7 +97,7 @@ const RowInputSeparator = styled.div`
   width: 10px;
 `;
 
-function AddressEntry({ current, onStepChange, onSubmit }) {
+function AddressEntry({ current, jobTitle, onStepChange, onSubmit }) {
   function handleOnAddressDataSubmit(values) {
     onSubmit({
       [REGISTRATION_STEPS.ADDRESS_ENTRY]: { ...values },
@@ -138,7 +142,11 @@ function AddressEntry({ current, onStepChange, onSubmit }) {
     <Container>
       <ProgressBar value={4} />
       <Title>{formatMessages(messages.title)}</Title>
-      <SubTitle>{formatMessages(messages.subTitle)}</SubTitle>
+      <SubTitle>
+        {jobTitle === JOBS.NOTARY
+          ? formatMessages(messages.notarySubTitle)
+          : formatMessages(messages.subTitle)}
+      </SubTitle>
       <Form onSubmit={handleSubmit}>
         <RowInputContainer>
           <RowInputContainerLarge>
@@ -202,6 +210,7 @@ AddressEntry.propTypes = {
     telephoneNumber: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,
+  jobTitle: PropTypes.number.isRequired,
 };
 
 export default AddressEntry;

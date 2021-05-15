@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaUser, FaQuestionCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -16,11 +17,17 @@ const LinksContainer = styled.div`
   display: flex;
 `;
 
-const CustomLink = styled.div`
+const CustomLink = styled(Link)`
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000000;
+
+  &:hover {
+    color: #000000;
+    text-decoration: none;
+  }
 `;
 
 const CustomLinkText = styled.span`
@@ -36,7 +43,7 @@ function TopBar() {
           <FaQuestionCircle />
           <CustomLinkText>Hilfe</CustomLinkText>
         </CustomLink>
-        <CustomLink>
+        <CustomLink to='/pro/login'>
           <FaUser />
           <CustomLinkText>Anmelden</CustomLinkText>
         </CustomLink>

@@ -6,10 +6,10 @@ import { Form } from 'reactstrap';
 import { defineMessages } from 'react-intl';
 
 import formatMessages from 'components/formatMessages';
+import RadioButtonList from 'components/Shared/RadioButtonList/RadioButtonList';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
-import { REGISTRATION_STEPS } from '../constants';
-import RadioButtonList from './RadioButtonList';
+import { JOBS, REGISTRATION_STEPS } from '../constants';
 
 const messages = defineMessages({
   title: {
@@ -95,7 +95,7 @@ const JobTitleSelectionContainer = styled.div`
 function JobTitle({ current, onStepChange, onSubmit }) {
   const jobTitles = [
     {
-      value: 0,
+      value: JOBS.SPECIALIZED_LAWYER,
       label: formatMessages(
         current.gender === 0
           ? messages.specializedLawyerMale
@@ -103,13 +103,13 @@ function JobTitle({ current, onStepChange, onSubmit }) {
       ),
     },
     {
-      value: 1,
+      value: JOBS.LAWYER,
       label: formatMessages(
         current.gender === 0 ? messages.lawyerMale : messages.lawyerFemale,
       ),
     },
     {
-      value: 2,
+      value: JOBS.PATENT_LAWYER,
       label: formatMessages(
         current.gender === 0
           ? messages.patentLawyerMale
@@ -117,13 +117,13 @@ function JobTitle({ current, onStepChange, onSubmit }) {
       ),
     },
     {
-      value: 3,
+      value: JOBS.NOTARY,
       label: formatMessages(
         current.gender === 0 ? messages.notaryMale : messages.notaryFemale,
       ),
     },
     {
-      value: 4,
+      value: JOBS.TAX_CONSULTANT,
       label: formatMessages(
         current.gender === 0
           ? messages.taxConsultantMale
@@ -131,7 +131,7 @@ function JobTitle({ current, onStepChange, onSubmit }) {
       ),
     },
     {
-      value: 5,
+      value: JOBS.CONSULTANT,
       label: formatMessages(
         current.gender === 0
           ? messages.consultantMale

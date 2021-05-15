@@ -11,6 +11,7 @@ import PersonalData from './PersonalData';
 import ProgressBar from './ProgressBar';
 import RegistrationRoot from './RegistrationRoot';
 import TopBar from './TopBar';
+import Tutorial from './Tutorial';
 import RadioButtonList from './RadioButtonList';
 
 export {
@@ -27,6 +28,7 @@ export {
   ProgressBar,
   RegistrationRoot,
   TopBar,
+  Tutorial,
   RadioButtonList,
 };
 

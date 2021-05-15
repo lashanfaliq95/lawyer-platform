@@ -46,6 +46,14 @@ const SearchResults = ({
         </div>
       );
     }
+
+    if (numberOfResults > 0) {
+      return (
+        <div className='search-summary'>
+          <h1>{renderMessage()}</h1>
+        </div>
+      );
+    }
     return (
       <div className='search-summary'>
         <h1>{renderMessage()}</h1>
