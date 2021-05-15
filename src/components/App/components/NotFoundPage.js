@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -20,8 +19,6 @@ const NotFoundMessage = styled.span`
 `;
 
 function NotFoundPage() {
-  const history = useHistory();
-
   return (
     <Container>
       <NotFoundMessage>404 Not Found</NotFoundMessage>
