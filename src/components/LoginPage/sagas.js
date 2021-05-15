@@ -20,11 +20,11 @@ import {
   clearStorage,
 } from 'helpers/localStorageHelper';
 import { setAccessTokenToRequest } from 'helpers/apiHelper';
+import { getErrorToast, getSuccessToast } from 'helpers/toastHelper';
 
 import {
   forgotPasswordSuccess,
   loginUserSuccess,
-  loginUserError,
   setUserIdFromResetToken,
   registerUserSuccess,
   registerUserError,
@@ -43,19 +43,20 @@ import {
   RESET_PASSWORD,
   LOGOUT_USER,
 } from './constants';
+import messages from './messages';
 
 const getUserId = (state) =>
   state.login.userDetails && state.login.userDetails.id;
 
 function* loginUser(action) {
   const response = yield loginUserService(action.payload);
-  const { result, error } = response || {};
+  const { result } = response || {};
   if (result) {
     setUserDetails(result);
     yield put(loginUserSuccess(result));
     setAccessTokenToRequest(result.accessToken);
   } else {
-    yield put(loginUserError(error));
+    yield getErrorToast(messages.loginError);
   }
 }
 
@@ -63,6 +64,8 @@ function* forgotPassword(action) {
   const { result } = yield forgotPasswordService(action.payload);
   if (result && result.data) {
     yield put(forgotPasswordSuccess());
+  } else {
+    yield getErrorToast(messages.forgotPwdError);
   }
 }
 
@@ -73,26 +76,27 @@ function* registerUser(action) {
     yield put(registerUserSuccess());
   } else {
     yield put(registerUserError(error));
+    yield getErrorToast(messages.registerError);
   }
 }
 
 function* getIdFromToken(action) {
   const response = yield resetTokenService(action.payload);
-  const { result, error } = response || {};
+  const { result } = response || {};
   if (result && result.id) {
     yield put(setUserIdFromResetToken(result));
   } else {
-    yield put(setUserIdFromResetToken({ error }));
+    yield getErrorToast(messages.loginError);
   }
 }
 
 function* resetPassword(action) {
   const response = yield resetPasswordService(action.payload);
-  const { result, error } = response || {};
+  const { result } = response || {};
   if (result && result.id) {
     yield put(setUserIdFromResetToken(result));
   } else {
-    yield put(setUserIdFromResetToken({ error }));
+    yield getErrorToast(messages.resetPwdError);
   }
 }
 
@@ -104,45 +108,54 @@ function* logoutUser() {
     yield put(logoutUserSuccess());
   } else {
     yield put(logoutUserError(error));
+    yield getErrorToast(messages.logoutError);
   }
 }
 
 function* deleteUser() {
   const userId = yield select(getUserId);
   const response = yield deleteUserService(userId);
-  const { result, error } = response || {};
+  const { result } = response || {};
   if (result) {
     clearStorage();
     yield put(logoutUserSuccess());
   } else {
-    yield put(logoutUserError(error));
+    yield getErrorToast(messages.deleteUsrError);
   }
 }
 
 function* updateUserPassword(action) {
   const userId = yield select(getUserId);
   const response = yield updateUserPasswordService(userId, action.payload);
-  const { result, error } = response || {};
+  const { result } = response || {};
   if (result) {
     clearStorage();
     yield put(logoutUserSuccess());
   } else {
-    yield put(logoutUserError(error));
+    yield getErrorToast(messages.updateUserPwdError);
   }
 }
 
 function* updateUserInfo(action) {
   const userId = yield select(getUserId);
   const response = yield updateUserInfoService(userId, action.payload);
-  // TODO : Show success / failure messages
-  yield response;
+  const { result } = response || {};
+  if (result) {
+    yield getSuccessToast(messages.updateUserInfoSuccess);
+  } else {
+    yield getErrorToast(messages.saveUsrMsgError);
+  }
 }
 
 function* saveUserMessage(action) {
   const userId = yield select(getUserId);
   const response = yield saveUserMessageService(userId, action.payload);
-  // TODO : Show success / failure messages
-  yield response;
+  const { result } = response || {};
+  if (result) {
+    yield getSuccessToast(messages.updateUserInfoSuccess);
+  } else {
+    yield getErrorToast(messages.loginError);
+  }
 }
 
 export default [

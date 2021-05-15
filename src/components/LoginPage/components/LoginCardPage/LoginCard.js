@@ -1,16 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bool, func, shape } from 'prop-types';
-import {
-  Form,
-  FormGroup,
-  Button,
-  Card,
-  CardBody,
-  CardTitle,
-  Alert,
-} from 'reactstrap';
+import { func } from 'prop-types';
+import { Form, FormGroup, Button, Card, CardBody, CardTitle } from 'reactstrap';
 import { useFormik } from 'formik';
 
 import formatMessage from 'components/formatMessages';
@@ -20,7 +12,7 @@ import messages from '../../messages';
 
 import { loginUser } from '../../actions';
 
-const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
+const LoginForm = ({ loginUser: loginUserAction }) => {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -74,19 +66,12 @@ const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
           <Link to='/auth/register'>{formatMessage(messages.register)}</Link>
         </div>
       </CardBody>
-      {isLoginError && (
-        <Alert color='danger' className='login-error'>
-          Login failed
-        </Alert>
-      )}
     </Card>
   );
 };
 
 LoginForm.propTypes = {
-  intl: shape.isRequired,
   loginUser: func.isRequired,
-  isLoginError: bool.isRequired,
 };
 
 export default connect((state) => ({ isLoginError: state.login.loginError }), {

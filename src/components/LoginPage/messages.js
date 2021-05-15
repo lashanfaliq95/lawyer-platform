@@ -148,4 +148,40 @@ export default defineMessages({
     id: 'app.loginPage.switchToHelp',
     defaultMessage: 'Go the the help page',
   },
+  loginError: {
+    id: 'app.loginPage.loginError',
+    defaultMessage: 'Error trying to login',
+  },
+  registerError: {
+    id: 'app.loginPage.registerError',
+    defaultMessage: 'Error trying to register',
+  },
+  forgotPwdError: {
+    id: 'app.loginPage.forgotPwdError',
+    defaultMessage: 'Error trying to send email',
+  },
+  updateUserInfoError: {
+    id: 'app.loginPage.updateUserInfoError',
+    defaultMessage: 'Error trying to update user info',
+  },
+  updateUserPwdError: {
+    id: 'app.loginPage.updateUserPwdError',
+    defaultMessage: 'Error trying to change password',
+  },
+  saveUsrMsgError: {
+    id: 'app.loginPage.saveUsrMsgError',
+    defaultMessage: 'Error trying to save message',
+  },
+  deleteUsrError: {
+    id: 'app.loginPage.deleteUsrError',
+    defaultMessage: 'Error trying to delete user',
+  },
+  logoutError: {
+    id: 'app.loginPage.logoutError',
+    defaultMessage: 'Error trying to logout',
+  },
+  resetPwdError: {
+    id: 'app.loginPage.resetPwdError',
+    defaultMessage: 'Error trying to reset password',
+  },
 });
