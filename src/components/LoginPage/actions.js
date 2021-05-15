@@ -17,6 +17,7 @@ import {
   LOGOUT_USER_ERROR,
   UPDATE_USER_PASSWORD,
   UPDATE_USER_INFO,
+  SET_USER_MESSAGE,
 } from './constants';
 
 export const loginUser = (values) => ({
@@ -104,5 +105,10 @@ export const updateUserPassword = (data) => ({
 
 export const updateUserInfo = (data) => ({
   type: UPDATE_USER_INFO,
+  payload: data,
+});
+
+export const setUserMessage = (data) => ({
+  type: SET_USER_MESSAGE,
   payload: data,
 });
