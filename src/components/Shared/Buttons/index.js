@@ -7,6 +7,10 @@ export const Button = styled.button`
   align-items: center;
   border: none;
   border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const PrimaryButton = styled(Button)`
@@ -21,14 +25,11 @@ export const PrimaryButton = styled(Button)`
 export const SecondaryButton = styled(Button)`
   background-color: transparent;
   color: #0061c0;
-  ${({ hasBorder }) => hasBorder &&
+  ${({ hasBorder }) =>
+    hasBorder &&
     css`
       border: 2px solid #0061c0;
     `}
-
-  &:focus {
-    outline: none;
-  }
 `;
 
 export default {};
