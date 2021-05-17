@@ -468,4 +468,9 @@ export default {
   'app.common.days.friday': 'Freitag',
   'app.common.days.saturday': 'Samstag',
   'app.common.days.sunday': 'Sonntag',
+  'app.proHomePage.viewOptions.title': 'Ansichtsoptionen',
+  'app.proHomePage.viewOptions.legalIssues': 'Angelegenheit',
+  'app.proHomePage.viewOptions.typeOfAppointment': 'Terminart',
+  'app.proHomePage.viewOptions.expert': 'Experte',
+  'app.proHomePage.viewOptions.location': 'Standort',
 };
