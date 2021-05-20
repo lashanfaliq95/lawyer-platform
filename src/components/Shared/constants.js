@@ -36,3 +36,8 @@ export const APPOINTMENT_COLORS = [
     textColor: '#FFFFFF',
   },
 ];
+
+export const roleMap = {
+  users: 1,
+  experts: 2,
+};

@@ -19,8 +19,4 @@ export const LOGOUT_USER_ERROR = 'LOGOUT_USER_ERROR';
 export const UPDATE_USER_PASSWORD = 'UPDATE_USER_PASSWORD';
 export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const SET_USER_MESSAGE = 'SET_USER_MESSAGE';
-
-export const roleMap = {
-  users: 1,
-  lawyers: 2,
-};
+export const REGISTER_EXPERT = 'REGISTER_EXPERT';

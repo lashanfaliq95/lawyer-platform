@@ -33,8 +33,8 @@ const messages = defineMessages({
     id: 'app.proRegisterPage.addressEntry.houseNumber',
     defaultMessage: 'House Number',
   },
-  postalCode: {
-    id: 'app.proRegisterPage.addressEntry.postalCode',
+  zipCode: {
+    id: 'app.proRegisterPage.addressEntry.zipCode',
     defaultMessage: 'Postal Code',
   },
   city: {
@@ -49,8 +49,8 @@ const messages = defineMessages({
     id: 'app.proRegisterPage.addressEntry.invalidHouseNumber',
     defaultMessage: 'Please enter valid house number',
   },
-  invalidPostalCode: {
-    id: 'app.proRegisterPage.addressEntry.invalidPostalCode',
+  invalidZipCode: {
+    id: 'app.proRegisterPage.addressEntry.invalidZipCode',
     defaultMessage: 'Please enter valid postal code',
   },
   invalidCity: {
@@ -115,13 +115,13 @@ function AddressEntry({ current, jobTitle, onStepChange, onSubmit }) {
     initialValues: {
       road: '',
       houseNumber: '',
-      postalCode: '',
+      zipCode: '',
       city: '',
     },
     validationSchema: Yup.object({
       road: Yup.string().required(messages.invalidRoad),
       houseNumber: Yup.string().required(messages.invalidHouseNumber),
-      postalCode: Yup.string().required(messages.invalidPostalCode),
+      zipCode: Yup.string().required(messages.invalidzipCode),
       city: Yup.string().required(messages.invalidCity),
     }),
     onSubmit: handleOnAddressDataSubmit,
@@ -174,12 +174,12 @@ function AddressEntry({ current, jobTitle, onStepChange, onSubmit }) {
         <RowInputContainer>
           <RowInputContainerSmall>
             <FloatingInputLabel
-              label={messages.postalCode}
+              label={messages.zipCode}
               type='text'
-              name='postalCode'
-              id='postalCode'
-              error={touched.postalCode && errors.postalCode}
-              {...getFieldProps('postalCode')}
+              name='zipCode'
+              id='zipCode'
+              error={touched.zipCode && errors.zipCode}
+              {...getFieldProps('zipCode')}
             />
           </RowInputContainerSmall>
           <RowInputSeparator />

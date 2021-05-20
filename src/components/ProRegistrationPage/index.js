@@ -56,7 +56,7 @@ function ProRegistrationPage() {
     [REGISTRATION_STEPS.ADDRESS_ENTRY]: {
       road: '',
       houseNumber: '',
-      postalCode: '',
+      zipCode: '',
       city: '',
     },
     [REGISTRATION_STEPS.PASSWORD_SETTING]: {
@@ -147,6 +147,14 @@ function ProRegistrationPage() {
               <Confirmation
                 current={howToUse}
                 onStepChange={handleStepChange}
+                data={{
+                  ...personalData,
+                  ...jobTitle,
+                  ...addressData,
+                  ...passwordSetting,
+                  ...howToUse,
+                  ...tutorial,
+                }}
               />
             );
             break;

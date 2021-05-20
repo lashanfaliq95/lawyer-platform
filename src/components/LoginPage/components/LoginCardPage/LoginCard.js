@@ -8,8 +8,8 @@ import { useFormik } from 'formik';
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
+import { roleMap } from 'components/Shared/constants';
 import messages from '../../messages';
-
 import { loginUser } from '../../actions';
 
 const LoginForm = ({ loginUser: loginUserAction }) => {
@@ -19,7 +19,7 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
       password: '',
     },
     onSubmit: (values) => {
-      loginUserAction(values);
+      loginUserAction({ ...values, roleId: roleMap.users });
     },
   });
 

@@ -17,8 +17,8 @@ import { useFormik } from 'formik';
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
+import { roleMap } from 'components/Shared/constants';
 import messages from '../../messages';
-import { roleMap } from '../../constants';
 import { registerUser } from '../../actions';
 
 const RegisterCard = ({

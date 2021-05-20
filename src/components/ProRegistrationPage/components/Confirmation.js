@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
 import formatMessages from 'components/formatMessages';
 
 import { CheckBoxLabel } from 'components/Shared/CheckBox/CheckBox';
+import { registerExpert } from 'components/LoginPage/actions';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
@@ -79,15 +81,16 @@ const CheckBoxContainer = styled.div`
   margin-top: 1rem;
 `;
 
-function Confirmation({ current, onStepChange }) {
+function Confirmation({ current, onStepChange, data }) {
+  const dispatch = useDispatch();
   const [generalTermsChecked, setGeneralTermsChecked] = useState(false);
   const [updatesChecked, setUpdatesChecked] = useState(false);
-
   const { tutorial } = current;
 
   function handleOnNext() {
+    dispatch(registerExpert(data));
     //  TODO: API integration
-    onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
+    // onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
   }
 
   function handleOnPrevious() {
@@ -142,6 +145,7 @@ Confirmation.propTypes = {
     tutorial: PropTypes.bool,
   }).isRequired,
   onStepChange: PropTypes.func.isRequired,
+  data: PropTypes.shape({}).isRequired,
 };
 
 export default Confirmation;

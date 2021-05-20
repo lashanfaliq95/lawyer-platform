@@ -12,17 +12,17 @@ export const REGISTRATION_STEPS = {
 };
 
 export const GENDERS = {
-  MALE: 0,
-  FEMALE: 1,
+  MALE: 'male',
+  FEMALE: 'female',
 };
 
 export const JOBS = {
-  SPECIALIZED_LAWYER: 0,
-  LAWYER: 1,
-  PATENT_LAWYER: 2,
-  NOTARY: 3,
-  TAX_CONSULTANT: 4,
-  CONSULTANT: 5,
+  SPECIALIZED_LAWYER: 1,
+  LAWYER: 2,
+  PATENT_LAWYER: 3,
+  NOTARY: 4,
+  TAX_CONSULTANT: 5,
+  CONSULTANT: 6,
 };
 
 export default {};

@@ -68,7 +68,7 @@ const App = () => (
           component={RegisterCardPage}
         />
         <Route path='/auth/reset/:token' exact component={ResetPwdCardPage} />
-        <Route path='/pro/login' exact component={ProLoginPage} />
+        <UnprotectedRoute path='/pro/login' exact component={ProLoginPage} />
         <Route path='/pro/register' exact component={ProRegistrationPage} />
         <Route path='/pro/appointments' exact component={ProUserAppointments} />
         <Route path='/pro/appointments/:id' exact component={ProAppointment} />

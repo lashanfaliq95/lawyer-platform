@@ -18,6 +18,7 @@ import {
   UPDATE_USER_PASSWORD,
   UPDATE_USER_INFO,
   SET_USER_MESSAGE,
+  REGISTER_EXPERT,
 } from './constants';
 
 export const loginUser = (values) => ({
@@ -110,5 +111,10 @@ export const updateUserInfo = (data) => ({
 
 export const setUserMessage = (data) => ({
   type: SET_USER_MESSAGE,
+  payload: data,
+});
+
+export const registerExpert = (data) => ({
+  type: REGISTER_EXPERT,
   payload: data,
 });
