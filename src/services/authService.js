@@ -34,3 +34,8 @@ export const deleteUserService = async (id) => {
   const result = await deleteRequest(`/users/${id}`);
   return result;
 };
+
+export const getValidityOfConfirmationTokenService = async (token) => {
+  const result = await post('/auth/confirmation-token/', { token });
+  return result;
+};

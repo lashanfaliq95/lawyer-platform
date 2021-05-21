@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { shape, bool, func, string, number } from 'prop-types';
 import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
 import formatMessages from 'components/formatMessages';
@@ -89,8 +89,7 @@ function Confirmation({ current, onStepChange, data }) {
 
   function handleOnNext() {
     dispatch(registerExpert(data));
-    //  TODO: API integration
-    // onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
+    onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
   }
 
   function handleOnPrevious() {
@@ -141,11 +140,25 @@ function Confirmation({ current, onStepChange, data }) {
 }
 
 Confirmation.propTypes = {
-  current: PropTypes.shape({
-    tutorial: PropTypes.bool,
+  current: shape({
+    tutorial: bool,
   }).isRequired,
-  onStepChange: PropTypes.func.isRequired,
-  data: PropTypes.shape({}).isRequired,
+  onStepChange: func.isRequired,
+  data: shape({
+    city: string,
+    email: string,
+    firstName: string,
+    gender: string,
+    houseNumber: string,
+    jobTitle: number,
+    lastName: string,
+    password: string,
+    road: string,
+    selectedDateTime: string,
+    telephoneNumber: string,
+    tutorial: bool,
+    zipCode: string,
+  }).isRequired,
 };
 
 export default Confirmation;

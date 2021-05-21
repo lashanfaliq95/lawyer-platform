@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ProTopBar from 'components/Shared/ProTopBar/ProTopBar';
+import ProTopBar from 'components/Shared/ProTopBar';
 import MainCalendar from './components/MainCalendar';
 import MiniCalendar from './components/MiniCalendar';
 import ViewOption from './components/ViewOption';

@@ -1,4 +1,3 @@
-import AccountConfirmed from './AccountConfirmed';
 import AccountPending from './AccountPending';
 import AddressEntry from './AddressEntry';
 import Confirmation from './Confirmation';
@@ -15,7 +14,6 @@ import Tutorial from './Tutorial';
 import RadioButtonList from './RadioButtonList';
 
 export {
-  AccountConfirmed,
   AccountPending,
   AddressEntry,
   Confirmation,

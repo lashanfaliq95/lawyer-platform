@@ -8,7 +8,6 @@ import {
   JobTitle,
   AddressEntry,
   PasswordSetting,
-  AccountConfirmed,
   AccountPending,
   Confirmation,
   HowToUse,
@@ -160,11 +159,6 @@ function ProRegistrationPage() {
             break;
           case REGISTRATION_STEPS.ACCOUNT_PENDING:
             componentToRender = <AccountPending email={email} />;
-            break;
-          case REGISTRATION_STEPS.ACCOUNT_CONFIRMED:
-            componentToRender = (
-              <AccountConfirmed onStepChange={handleStepChange} />
-            );
             break;
           default:
             componentToRender = <GetStarted onStepChange={handleStepChange} />;

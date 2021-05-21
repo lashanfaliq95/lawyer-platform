@@ -19,6 +19,8 @@ import {
   UPDATE_USER_INFO,
   SET_USER_MESSAGE,
   REGISTER_EXPERT,
+  GET_VALIDITY_OF_CONFIRMATION_TOKEN,
+  SET_VALIDITY_OF_CONFIRMATION_TOKEN,
 } from './constants';
 
 export const loginUser = (values) => ({
@@ -116,5 +118,15 @@ export const setUserMessage = (data) => ({
 
 export const registerExpert = (data) => ({
   type: REGISTER_EXPERT,
+  payload: data,
+});
+
+export const getValidityOfConfirmationToken = (token) => ({
+  type: GET_VALIDITY_OF_CONFIRMATION_TOKEN,
+  payload: token,
+});
+
+export const setValidityOfConfirmationToken = (data) => ({
+  type: SET_VALIDITY_OF_CONFIRMATION_TOKEN,
   payload: data,
 });
