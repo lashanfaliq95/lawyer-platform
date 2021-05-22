@@ -35,11 +35,14 @@ const ProfileCardList = ({ users, getSearchResult }) => {
           <ProfileCard
             id={user.id}
             name={user.name}
-            jobDescription={user.jobDescription}
-            address={user.address}
-            imgUrl={user.imgUrl}
+            expertId={user.expertId}
+            road={user.road}
+            houseNumber={user.houseNumber}
+            zipCode={user.zipCode}
+            imageUrl={user.imageUrl}
             firm={user.firm}
-            type={user.type}
+            city={user.city}
+            gender={user.gender}
           />
           <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
         </div>

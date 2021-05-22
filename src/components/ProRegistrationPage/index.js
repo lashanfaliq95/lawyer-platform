@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSetState } from 'react-use';
 
+import { JOBS } from 'components/Shared/constants';
 import {
   GetStarted,
   PersonalData,
@@ -15,7 +16,7 @@ import {
   TopBar,
   Tutorial,
 } from './components';
-import { GENDERS, JOBS, REGISTRATION_STEPS } from './constants';
+import { GENDERS, REGISTRATION_STEPS } from './constants';
 
 const Container = styled.div`
   height: 100%;

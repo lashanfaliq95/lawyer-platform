@@ -1,7 +1,9 @@
 import moment from 'moment';
+import intl from 'helpers/intlHelper';
 
 import { APPOINTMENT_RANGES } from 'components/Shared/constants';
-import { DAYS, MONTHS } from './messages';
+import { DAYS, MONTHS, JOB_TITLES } from './messages';
+import { JOBS, GENDER } from './constants';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getLocation = (setPosition) => {
@@ -130,3 +132,45 @@ export function getAppointmentsFiltered(arr, type, format = () => {}) {
       return [];
   }
 }
+
+export const getJobTitle = (expertId, gender) => {
+  const { formatMessage } = intl;
+  const { MALE } = GENDER;
+
+  switch (expertId) {
+    case JOBS.SPECIALIZED_LAWYER:
+      return formatMessage(
+        gender === MALE
+          ? JOB_TITLES.specializedLawyerMale
+          : JOB_TITLES.specializedLawyerFemale,
+      );
+    case JOBS.LAWYER:
+      return formatMessage(
+        gender === MALE ? JOB_TITLES.lawyerMale : JOB_TITLES.lawyerFemale,
+      );
+    case JOBS.PATENT_LAWYER:
+      return formatMessage(
+        gender === MALE
+          ? JOB_TITLES.patentLawyerMale
+          : JOB_TITLES.patentLawyerFemale,
+      );
+    case JOBS.NOTARY:
+      return formatMessage(
+        gender === MALE ? JOB_TITLES.notaryMale : JOB_TITLES.notaryFemale,
+      );
+    case JOBS.TAX_CONSULTANT:
+      return formatMessage(
+        gender === MALE
+          ? JOB_TITLES.taxConsultantMale
+          : JOB_TITLES.taxConsultantFemale,
+      );
+    case JOBS.CONSULTANT:
+      return formatMessage(
+        gender === MALE
+          ? JOB_TITLES.consultantMale
+          : JOB_TITLES.consultantFemale,
+      );
+    default:
+      return null;
+  }
+};

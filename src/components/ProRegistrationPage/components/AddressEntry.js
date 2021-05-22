@@ -8,9 +8,10 @@ import { defineMessages } from 'react-intl';
 
 import formatMessages from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
+import { JOBS } from 'components/Shared/constants';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
-import { JOBS, REGISTRATION_STEPS } from '../constants';
+import { REGISTRATION_STEPS } from '../constants';
 
 const messages = defineMessages({
   title: {

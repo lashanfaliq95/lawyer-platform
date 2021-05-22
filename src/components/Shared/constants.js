@@ -41,3 +41,17 @@ export const roleMap = {
   users: 1,
   experts: 2,
 };
+
+export const JOBS = {
+  SPECIALIZED_LAWYER: 1,
+  LAWYER: 2,
+  PATENT_LAWYER: 3,
+  NOTARY: 4,
+  TAX_CONSULTANT: 5,
+  CONSULTANT: 6,
+};
+
+export const GENDER = {
+  MALE: 'male',
+  FEMALE: 'female',
+};
