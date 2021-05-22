@@ -180,7 +180,7 @@ function* getValidityOfConfirmationToken(action) {
   if (result && result.isConfirmationTokenValid) {
     yield put(setValidityOfConfirmationToken(result.isConfirmationTokenValid));
   } else {
-    yield getErrorToast(messages.loginError);
+    yield getErrorToast(messages.confirmationError);
   }
 }
 

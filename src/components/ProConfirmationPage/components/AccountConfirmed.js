@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
 import { GoMailRead } from 'react-icons/go';
@@ -67,6 +68,12 @@ const FooterContainer = styled.div`
 `;
 
 function AccountConfirmed() {
+  const history = useHistory();
+
+  const handleLoginClick = () => {
+    history.push('/pro/login');
+  };
+
   return (
     <Container>
       <ProgressBar value={10} />
@@ -77,7 +84,7 @@ function AccountConfirmed() {
       <EmailAddress>{formatMessages(messages.emailPlaceholder)}</EmailAddress>
       <SubTitle>{formatMessages(messages.subTitle)}</SubTitle>
       <FooterContainer>
-        <PrimaryButton onClick={() => {}}>
+        <PrimaryButton onClick={handleLoginClick}>
           {formatMessages(messages.button)}
         </PrimaryButton>
       </FooterContainer>

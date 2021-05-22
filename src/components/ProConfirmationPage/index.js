@@ -39,9 +39,6 @@ const ProRegistrationPage = ({ match }) => {
 
 ProRegistrationPage.propTypes = {
   match: shape({ params: shape() }).isRequired,
-  // getUserIdFromResetToken: func.isRequired,
-  // user: shape({}),
-  // error: shape({}),
 };
 
 export default ProRegistrationPage;
