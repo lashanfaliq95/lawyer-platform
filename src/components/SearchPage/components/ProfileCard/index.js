@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import { func, string, number } from 'prop-types';
+import { func, string, number, shape } from 'prop-types';
 import { Col, Button, Row } from 'reactstrap';
 
 import Calender from 'components/SearchPage/components/Calender';
@@ -13,19 +13,23 @@ import messages from '../../messages';
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
 const ProfileCard = ({
-  id,
-  name,
-  road,
-  houseNumber,
-  zipCode,
-  city,
-  expertId,
-  imageUrl,
-  gender,
+  user,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const {
+    id,
+    name,
+    road,
+    houseNumber,
+    zipCode,
+    city,
+    expertId,
+    imageUrl,
+    gender,
+  } = user || {};
 
   return (
     <Element name={`profile-card-${id}`}>
@@ -69,15 +73,17 @@ const ProfileCard = ({
 ProfileCard.propTypes = {
   onMouseEnterCard: func.isRequired,
   onMouseLeaveCard: func.isRequired,
-  id: number.isRequired,
-  name: string.isRequired,
-  road: string.isRequired,
-  houseNumber: string.isRequired,
-  city: string.isRequired,
-  zipCode: string.isRequired,
-  imageUrl: string.isRequired,
-  expertId: number.isRequired,
-  gender: string.isRequired,
+  user: shape({
+    id: number.isRequired,
+    name: string.isRequired,
+    road: string.isRequired,
+    houseNumber: string.isRequired,
+    city: string.isRequired,
+    zipCode: string.isRequired,
+    imageUrl: string.isRequired,
+    expertId: number.isRequired,
+    gender: string.isRequired,
+  }).isRequired,
 };
 
 export default connect(null, { onMouseEnterCard, onMouseLeaveCard })(

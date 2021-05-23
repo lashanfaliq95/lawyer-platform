@@ -86,9 +86,3 @@ export const languageMap = {
   11: { language: 'Spanisch' },
   12: { language: 'Türkisch' },
 };
-
-export const genderMap = {
-  0: 'male',
-  1: 'female',
-  2: 'other',
-};
