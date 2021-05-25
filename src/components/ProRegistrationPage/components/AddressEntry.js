@@ -122,7 +122,7 @@ function AddressEntry({ current, jobTitle, onStepChange, onSubmit }) {
     validationSchema: Yup.object({
       road: Yup.string().required(messages.invalidRoad),
       houseNumber: Yup.string().required(messages.invalidHouseNumber),
-      zipCode: Yup.string().required(messages.invalidzipCode),
+      zipCode: Yup.string().required(messages.invalidZipCode),
       city: Yup.string().required(messages.invalidCity),
     }),
     onSubmit: handleOnAddressDataSubmit,

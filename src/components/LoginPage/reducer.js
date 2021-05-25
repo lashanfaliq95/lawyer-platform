@@ -9,6 +9,7 @@ import {
   LOGOUT_USER_SUCCESS,
   LOGOUT_USER_ERROR,
   SET_VALIDITY_OF_CONFIRMATION_TOKEN,
+  CLEAR_REGISTER_USER_DATA,
 } from './constants';
 
 const initialState = {
@@ -74,6 +75,13 @@ const login = (state = initialState, action) => {
         ...state,
         isConfirmationTokenValid: action.payload,
       };
+    case CLEAR_REGISTER_USER_DATA: {
+      return {
+        ...state,
+        isRegisterUserSuccess: false,
+        registerUserError: null,
+      };
+    }
     default:
       return state;
   }

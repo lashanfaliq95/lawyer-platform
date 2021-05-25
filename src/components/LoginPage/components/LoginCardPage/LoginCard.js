@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
@@ -10,9 +10,16 @@ import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
 import { roleMap } from 'components/Shared/constants';
 import messages from '../../messages';
-import { loginUser } from '../../actions';
+import { loginUser, clearRegisterUserSuccess } from '../../actions';
 
-const LoginForm = ({ loginUser: loginUserAction }) => {
+const LoginForm = ({
+  loginUser: loginUserAction,
+  clearRegisterUserSuccess: clearRegisterUserSuccessAction,
+}) => {
+  useEffect(() => {
+    clearRegisterUserSuccessAction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -72,8 +79,10 @@ const LoginForm = ({ loginUser: loginUserAction }) => {
 
 LoginForm.propTypes = {
   loginUser: func.isRequired,
+  clearRegisterUserSuccess: func.isRequired,
 };
 
 export default connect((state) => ({ isLoginError: state.login.loginError }), {
   loginUser,
+  clearRegisterUserSuccess,
 })(LoginForm);

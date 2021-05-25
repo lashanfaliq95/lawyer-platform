@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { shape, bool, func, string, number } from 'prop-types';
 import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
@@ -81,18 +81,24 @@ const CheckBoxContainer = styled.div`
   margin-top: 1rem;
 `;
 
-function Confirmation({ current, onStepChange, data }) {
+const Confirmation = ({ current, onStepChange, data }) => {
   const dispatch = useDispatch();
+  const isRegisterUserSuccess = useSelector(
+    (state) => state.login.isRegisterUserSuccess,
+  );
+
   const [generalTermsChecked, setGeneralTermsChecked] = useState(false);
   const [updatesChecked, setUpdatesChecked] = useState(false);
   const { tutorial } = current;
 
-  function handleOnNext() {
+  const handleOnNext = () => {
     dispatch(registerExpert(data));
-    onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
-  }
+    if (isRegisterUserSuccess) {
+      onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
+    }
+  };
 
-  function handleOnPrevious() {
+  const handleOnPrevious = () => {
     let nextStep;
 
     if (tutorial) {
@@ -101,7 +107,7 @@ function Confirmation({ current, onStepChange, data }) {
       nextStep = REGISTRATION_STEPS.HOW_TO_USE;
     }
     onStepChange(nextStep);
-  }
+  };
 
   return (
     <Container>
@@ -137,7 +143,7 @@ function Confirmation({ current, onStepChange, data }) {
       />
     </Container>
   );
-}
+};
 
 Confirmation.propTypes = {
   current: shape({

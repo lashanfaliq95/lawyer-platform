@@ -21,6 +21,7 @@ import {
   REGISTER_EXPERT,
   GET_VALIDITY_OF_CONFIRMATION_TOKEN,
   SET_VALIDITY_OF_CONFIRMATION_TOKEN,
+  CLEAR_REGISTER_USER_DATA,
 } from './constants';
 
 export const loginUser = (values) => ({
@@ -129,4 +130,8 @@ export const getValidityOfConfirmationToken = (token) => ({
 export const setValidityOfConfirmationToken = (data) => ({
   type: SET_VALIDITY_OF_CONFIRMATION_TOKEN,
   payload: data,
+});
+
+export const clearRegisterUserSuccess = () => ({
+  type: CLEAR_REGISTER_USER_DATA,
 });

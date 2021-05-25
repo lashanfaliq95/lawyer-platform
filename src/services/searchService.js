@@ -1,11 +1,6 @@
 import { get } from 'helpers/apiHelper';
 import qs from 'qs';
 
-export const getFiltersService = async () => {
-  const result = await get('/search/filters');
-  return result;
-};
-
 export const getFilteredResultService = async ({
   activeFilters,
   nameOrFirm,
