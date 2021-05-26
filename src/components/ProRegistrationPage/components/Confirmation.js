@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { shape, bool, func, string, number } from 'prop-types';
 import styled from 'styled-components';
@@ -91,11 +91,14 @@ const Confirmation = ({ current, onStepChange, data }) => {
   const [updatesChecked, setUpdatesChecked] = useState(false);
   const { tutorial } = current;
 
-  const handleOnNext = () => {
-    dispatch(registerExpert(data));
+  useEffect(() => {
     if (isRegisterUserSuccess) {
       onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
     }
+  });
+
+  const handleOnNext = () => {
+    dispatch(registerExpert(data));
   };
 
   const handleOnPrevious = () => {
