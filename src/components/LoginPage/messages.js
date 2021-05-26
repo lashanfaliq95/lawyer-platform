@@ -184,4 +184,8 @@ export default defineMessages({
     id: 'app.loginPage.resetPwdError',
     defaultMessage: 'Error trying to reset password',
   },
+  confirmationError: {
+    id: 'app.loginPage.confirmationError',
+    defaultMessage: 'Error confirming your account',
+  },
 });

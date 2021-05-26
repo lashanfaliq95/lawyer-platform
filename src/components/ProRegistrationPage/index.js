@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSetState } from 'react-use';
 
+import { JOBS } from 'components/Shared/constants';
 import {
   GetStarted,
   PersonalData,
   JobTitle,
   AddressEntry,
   PasswordSetting,
-  AccountConfirmed,
   AccountPending,
   Confirmation,
   HowToUse,
@@ -16,7 +16,7 @@ import {
   TopBar,
   Tutorial,
 } from './components';
-import { GENDERS, JOBS, REGISTRATION_STEPS } from './constants';
+import { GENDERS, REGISTRATION_STEPS } from './constants';
 
 const Container = styled.div`
   height: 100%;
@@ -56,7 +56,7 @@ function ProRegistrationPage() {
     [REGISTRATION_STEPS.ADDRESS_ENTRY]: {
       road: '',
       houseNumber: '',
-      postalCode: '',
+      zipCode: '',
       city: '',
     },
     [REGISTRATION_STEPS.PASSWORD_SETTING]: {
@@ -147,16 +147,19 @@ function ProRegistrationPage() {
               <Confirmation
                 current={howToUse}
                 onStepChange={handleStepChange}
+                data={{
+                  ...personalData,
+                  ...jobTitle,
+                  ...addressData,
+                  ...passwordSetting,
+                  ...howToUse,
+                  ...tutorial,
+                }}
               />
             );
             break;
           case REGISTRATION_STEPS.ACCOUNT_PENDING:
             componentToRender = <AccountPending email={email} />;
-            break;
-          case REGISTRATION_STEPS.ACCOUNT_CONFIRMED:
-            componentToRender = (
-              <AccountConfirmed onStepChange={handleStepChange} />
-            );
             break;
           default:
             componentToRender = <GetStarted onStepChange={handleStepChange} />;

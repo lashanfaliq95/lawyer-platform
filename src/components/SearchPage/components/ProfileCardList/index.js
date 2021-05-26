@@ -32,15 +32,7 @@ const ProfileCardList = ({ users, getSearchResult }) => {
     <div className='list-group'>
       {users.map((user) => (
         <div key={user.id}>
-          <ProfileCard
-            id={user.id}
-            name={user.name}
-            jobDescription={user.jobDescription}
-            address={user.address}
-            imgUrl={user.imgUrl}
-            firm={user.firm}
-            type={user.type}
-          />
+          <ProfileCard user={user} />
           <HorizontalSeparator color='#EBEBEB' height={1} isContainer />
         </div>
       ))}

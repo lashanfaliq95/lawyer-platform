@@ -8,21 +8,11 @@ export const REGISTRATION_STEPS = {
   TUTORIAL: 'TUTORIAL',
   CONFIRMATION: 'CONFIRMATION',
   ACCOUNT_PENDING: 'ACCOUNT_PENDING',
-  ACCOUNT_CONFIRMED: 'ACCOUNT_CONFIRMED',
 };
 
 export const GENDERS = {
-  MALE: 0,
-  FEMALE: 1,
-};
-
-export const JOBS = {
-  SPECIALIZED_LAWYER: 0,
-  LAWYER: 1,
-  PATENT_LAWYER: 2,
-  NOTARY: 3,
-  TAX_CONSULTANT: 4,
-  CONSULTANT: 5,
+  MALE: 'male',
+  FEMALE: 'female',
 };
 
 export default {};

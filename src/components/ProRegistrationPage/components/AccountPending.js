@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
 import { GoMailRead } from 'react-icons/go';
 
 import formatMessages from 'components/formatMessages';
+import { clearRegisterUserSuccess } from 'components/LoginPage/actions';
 import ProgressBar from './ProgressBar';
 
 const messages = defineMessages({
@@ -54,6 +56,13 @@ const EmailAddress = styled.span`
 `;
 
 function AccountPending({ email }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearRegisterUserSuccess());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Container>
       <ProgressBar value={10} />

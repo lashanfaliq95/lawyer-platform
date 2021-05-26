@@ -3,72 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
 import { Form } from 'reactstrap';
-import { defineMessages } from 'react-intl';
 
 import formatMessages from 'components/formatMessages';
 import RadioButtonList from 'components/Shared/RadioButtonList/RadioButtonList';
+import { JOB_TITLES } from 'components/Shared/messages';
+import { JOBS } from 'components/Shared/constants';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
-import { JOBS, REGISTRATION_STEPS } from '../constants';
-
-const messages = defineMessages({
-  title: {
-    id: 'app.proRegisterPage.jobTitleTitle',
-    defaultMessage: 'Job Title',
-  },
-  description: {
-    id: 'app.proRegisterPage.jobTitleDescription',
-    defaultMessage: 'What is your job title?',
-  },
-  specializedLawyerMale: {
-    id: 'app.proRegisterPage.specializedLawyerMale',
-    defaultMessage: 'Specialized Lawyer',
-  },
-  lawyerMale: {
-    id: 'app.proRegisterPage.lawyerMale',
-    defaultMessage: 'Lawyer',
-  },
-  patentLawyerMale: {
-    id: 'app.proRegisterPage.patentLawyerMale',
-    defaultMessage: 'Patent Lawyer',
-  },
-  notaryMale: {
-    id: 'app.proRegisterPage.notaryMale',
-    defaultMessage: 'Notary',
-  },
-  taxConsultantMale: {
-    id: 'app.proRegisterPage.taxConsultantMale',
-    defaultMessage: 'Tax Consultant',
-  },
-  consultantMale: {
-    id: 'app.proRegisterPage.consultantMale',
-    defaultMessage: 'Consultant',
-  },
-  specializedLawyerFemale: {
-    id: 'app.proRegisterPage.specializedLawyerFemale',
-    defaultMessage: 'Specialized Lawyer',
-  },
-  lawyerFemale: {
-    id: 'app.proRegisterPage.lawyerFemale',
-    defaultMessage: 'Lawyer',
-  },
-  patentLawyerFemale: {
-    id: 'app.proRegisterPage.patentLawyerFemale',
-    defaultMessage: 'Patent Lawyer',
-  },
-  notaryFemale: {
-    id: 'app.proRegisterPage.notaryFemale',
-    defaultMessage: 'Notary',
-  },
-  taxConsultantFemale: {
-    id: 'app.proRegisterPage.taxConsultantFemale',
-    defaultMessage: 'Tax Consultant',
-  },
-  consultantFemale: {
-    id: 'app.proRegisterPage.consultantFemale',
-    defaultMessage: 'Consultant',
-  },
-});
+import { REGISTRATION_STEPS } from '../constants';
 
 const Container = styled.div`
   display: flex;
@@ -98,44 +40,44 @@ function JobTitle({ current, onStepChange, onSubmit }) {
       value: JOBS.SPECIALIZED_LAWYER,
       label: formatMessages(
         current.gender === 0
-          ? messages.specializedLawyerMale
-          : messages.specializedLawyerFemale,
+          ? JOB_TITLES.specializedLawyerMale
+          : JOB_TITLES.specializedLawyerFemale,
       ),
     },
     {
       value: JOBS.LAWYER,
       label: formatMessages(
-        current.gender === 0 ? messages.lawyerMale : messages.lawyerFemale,
+        current.gender === 0 ? JOB_TITLES.lawyerMale : JOB_TITLES.lawyerFemale,
       ),
     },
     {
       value: JOBS.PATENT_LAWYER,
       label: formatMessages(
         current.gender === 0
-          ? messages.patentLawyerMale
-          : messages.patentLawyerFemale,
+          ? JOB_TITLES.patentLawyerMale
+          : JOB_TITLES.patentLawyerFemale,
       ),
     },
     {
       value: JOBS.NOTARY,
       label: formatMessages(
-        current.gender === 0 ? messages.notaryMale : messages.notaryFemale,
+        current.gender === 0 ? JOB_TITLES.notaryMale : JOB_TITLES.notaryFemale,
       ),
     },
     {
       value: JOBS.TAX_CONSULTANT,
       label: formatMessages(
         current.gender === 0
-          ? messages.taxConsultantMale
-          : messages.taxConsultantFemale,
+          ? JOB_TITLES.taxConsultantMale
+          : JOB_TITLES.taxConsultantFemale,
       ),
     },
     {
       value: JOBS.CONSULTANT,
       label: formatMessages(
         current.gender === 0
-          ? messages.consultantMale
-          : messages.consultantFemale,
+          ? JOB_TITLES.consultantMale
+          : JOB_TITLES.consultantFemale,
       ),
     },
   ];
@@ -175,8 +117,8 @@ function JobTitle({ current, onStepChange, onSubmit }) {
   return (
     <Container>
       <ProgressBar value={3} />
-      <Title>{formatMessages(messages.title)}</Title>
-      <Description>{formatMessages(messages.description)}</Description>
+      <Title>{formatMessages(JOB_TITLES.title)}</Title>
+      <Description>{formatMessages(JOB_TITLES.description)}</Description>
       <Form onSubmit={handleSubmit}>
         <JobTitleSelectionContainer>
           <RadioButtonList

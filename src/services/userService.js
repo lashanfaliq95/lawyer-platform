@@ -38,3 +38,8 @@ export const saveUserMessageService = async (id, values) => {
   const result = await post(`/users/${id}/message`, values);
   return result;
 };
+
+export const registerLawyerService = async (values) => {
+  const result = await post('/users/lawyers', values);
+  return result;
+};

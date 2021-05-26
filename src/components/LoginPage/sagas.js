@@ -6,12 +6,14 @@ import {
   resetPasswordService,
   logoutUserService,
   deleteUserService,
+  getValidityOfConfirmationTokenService,
 } from 'services/authService';
 import {
   registerUserService,
   updateUserPasswordService,
   updateUserInfoService,
   saveUserMessageService,
+  registerLawyerService,
 } from 'services/userService';
 
 import {
@@ -30,6 +32,7 @@ import {
   registerUserError,
   logoutUserSuccess,
   logoutUserError,
+  setValidityOfConfirmationToken,
 } from './actions';
 import {
   LOGIN_USER,
@@ -42,6 +45,8 @@ import {
   GET_USER_ID_FROM_TOKEN,
   RESET_PASSWORD,
   LOGOUT_USER,
+  REGISTER_EXPERT,
+  GET_VALIDITY_OF_CONFIRMATION_TOKEN,
 } from './constants';
 import messages from './messages';
 
@@ -158,6 +163,27 @@ function* saveUserMessage(action) {
   }
 }
 
+function* registerLawyer(action) {
+  const response = yield registerLawyerService(action.payload);
+  const { result, error } = response || {};
+  if (result) {
+    yield put(registerUserSuccess());
+  } else {
+    yield put(registerUserError(error));
+    yield getErrorToast(messages.registerError);
+  }
+}
+
+function* getValidityOfConfirmationToken(action) {
+  const response = yield getValidityOfConfirmationTokenService(action.payload);
+  const { result } = response || {};
+  if (result && result.isConfirmationTokenValid) {
+    yield put(setValidityOfConfirmationToken(result.isConfirmationTokenValid));
+  } else {
+    yield getErrorToast(messages.confirmationError);
+  }
+}
+
 export default [
   takeLatest(LOGIN_USER, loginUser),
   takeLatest(REGISTER_USER, registerUser),
@@ -169,4 +195,9 @@ export default [
   takeLatest(GET_USER_ID_FROM_TOKEN, getIdFromToken),
   takeLatest(RESET_PASSWORD, resetPassword),
   takeLatest(LOGOUT_USER, logoutUser),
+  takeLatest(REGISTER_EXPERT, registerLawyer),
+  takeLatest(
+    GET_VALIDITY_OF_CONFIRMATION_TOKEN,
+    getValidityOfConfirmationToken,
+  ),
 ];

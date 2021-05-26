@@ -1,9 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { defineMessages } from 'react-intl';
 
+import { roleMap } from 'components/Shared/constants';
+import { loginUser } from 'components/LoginPage/actions';
 import { PrimaryButton } from 'components/Shared/Buttons';
 import FloatingLabelInput from 'components/Shared/FloatingLabelInput';
 import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
@@ -123,6 +127,9 @@ const Label = styled.span`
 const HighlightedLabel = styled(Label)`
   margin-left: 0.25rem;
   color: #0096dd;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const FooterContainer = styled.div`
@@ -175,10 +182,14 @@ const RightPane = styled.div`
 `;
 
 function ProLoginPage() {
-  function handleOnLoginSubmit() {}
-  const {
-    submitForm, touched, getFieldProps, errors,
-  } = useFormik({
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleOnRegisterClick = () => {
+    history.push('/pro/register');
+  };
+
+  const { touched, getFieldProps, errors, handleSubmit } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -191,13 +202,15 @@ function ProLoginPage() {
         .min(6, messages.invalidPassword)
         .required(messages.invalidPassword),
     }),
-    onSubmit: handleOnLoginSubmit,
+    onSubmit: (values) => {
+      dispatch(loginUser({ ...values, roleId: roleMap.experts }));
+    },
   });
 
   return (
     <Container>
       <LoginHeader>
-        <LoginForm onSubmit={submitForm}>
+        <LoginForm onSubmit={handleSubmit}>
           <Title>Avoplan Pro</Title>
           <FormInputContainer>
             <FloatingLabelInput
@@ -222,11 +235,13 @@ function ProLoginPage() {
             />
           </FormInputContainer>
           <ButtonContainer>
-            <PrimaryButton>{formatMessages(messages.login)}</PrimaryButton>
+            <PrimaryButton type='submit'>
+              {formatMessages(messages.login)}
+            </PrimaryButton>
           </ButtonContainer>
           <RegisterContainer>
             <Label>{formatMessages(messages.newUser)}</Label>
-            <HighlightedLabel>
+            <HighlightedLabel onClick={handleOnRegisterClick}>
               {formatMessages(messages.register)}
             </HighlightedLabel>
           </RegisterContainer>
