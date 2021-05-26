@@ -1,0 +1,22 @@
+# Ignore artifacts:
+coverage
+build
+node_modules
+stats.json
+dist
+lib-cov
+logs
+package-lock.json
+*.log
+
+# Ignore all HTML files:
+*.html
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+src/store/__snapshots__/
+
+yarn.lock
+package-lock.json

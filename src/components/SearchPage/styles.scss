@@ -1,0 +1,295 @@
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.row {
+  margin: 0;
+}
+
+.col-md-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.search-navbar {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
+  a {
+    color: #484848 !important;
+  }
+  .nav-button {
+    color: #484848 !important;
+  }
+}
+
+.search-page {
+  .active {
+    box-shadow: 0 2px 14px rgba(51, 51, 51, 0.2);
+    border: 1px solid #0596de;
+  }
+
+  .clear-filter-button {
+    background-color: #105fbb;
+    border-color: #105fbb;
+    border-radius: 30px;
+  }
+
+  button.clear-filter-button:hover {
+    background-color: #082b53;
+    border-color: #082b53;
+  }
+
+  .search-bar {
+    margin-top: 10px;
+    margin-left: 7px;
+
+    .input-icons {
+      height: 100%;
+      height: 100%;
+      input {
+        height: 100%;
+        border-left: 0;
+      }
+    }
+    .first-search-input {
+      padding: 0;
+      border: 1px solid #ced4da;
+    }
+    .second-search-input {
+      border: 1px solid #ced4da;
+      padding: 0;
+    }
+    .col-md-2 {
+      padding-left: 0;
+    }
+  }
+
+  .search-summary {
+    margin: 35px 24px 20px;
+
+    p {
+      color: grey;
+    }
+  }
+
+  .filter-bar {
+    display: flex;
+    margin: 35px 24px 20px;
+
+    .filter-modal {
+      position: absolute;
+      min-width: 360px;
+      display: inline-block;
+      left: 0px;
+      z-index: 10;
+      background: rgb(255, 255, 255);
+      border: 0.5px solid rgba(118, 118, 118, 0.28);
+      border-radius: 12px;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 37px;
+      overflow: hidden auto;
+      white-space: normal;
+      max-height: calc(100vh - 52px);
+      visibility: visible;
+      .search-input-specialization {
+        padding: 10px 10px 0px;
+        position: relative;
+        .search-input {
+          padding-left: 30px;
+          background: #f6f6f7;
+          border: none;
+        }
+        .search-icon {
+          position: absolute;
+          top: 19px;
+          left: 23px;
+        }
+      }
+
+      .specialization-filter {
+        overflow-y: scroll;
+      }
+      .specialization-filter::-webkit-scrollbar {
+        width: 0; /* Remove scrollbar space */
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+
+      .specialization {
+        padding-top: 10px;
+        .content {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          max-height: 300px;
+          label {
+            margin-bottom: 5px;
+            flex: 0 0 50%;
+            width: 100%;
+          }
+          .specialization-element {
+            padding: 5px 10px;
+            position: relative;
+            margin: 1px;
+
+            .form-check-input {
+              margin-left: 0 !important;
+              width: 24px;
+              height: 24px;
+            }
+            .specialization-text {
+              margin-left: 30px;
+              margin-top: 7px;
+            }
+          }
+          div.specialization-element:hover {
+            background: #f6f6f7;
+          }
+        }
+      }
+    }
+  }
+
+  .info-image {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border: 1px solid white;
+    position: absolute;
+    top: -45px;
+    left: 40px;
+  }
+
+  .map-container {
+    padding: 0;
+    height: 100vh;
+    top: 0;
+    position: sticky;
+    .map {
+      height: 100vh;
+    }
+  }
+
+  .card-container {
+    padding: 0;
+  }
+
+  .list-group {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    .card-separator {
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .profile-card {
+      padding: 8px 8px 12px;
+      min-height: 424px;
+      a {
+        color: #000;
+      }
+      a:hover {
+        color: #000;
+        text-decoration: none;
+      }
+      .cover-image {
+        background-image: url('../../assets/images/cover.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100px;
+      }
+      .name-btn {
+        padding: 0px;
+        text-align: left;
+      }
+      .name-section {
+        margin-top: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 25px;
+      }
+      .job-description {
+        font-weight: bold;
+      }
+
+      .specialization-section {
+        margin-top: 10px;
+        margin-left: 25px;
+      }
+
+      .specialization-Buttons {
+        display: flex;
+        flex-wrap: wrap;
+        button {
+          margin: 5px;
+          margin-left: 0;
+          border-radius: 5px;
+          background-color: #105fbb;
+          border: none;
+          color: black;
+          text-align: left;
+          font-size: 12px;
+          min-width: 146px;
+        }
+        button:hover {
+          text-decoration: none;
+          background: rgba(0, 28, 43, 0.6);
+          color: #000;
+        }
+      }
+      .address {
+        margin-top: 10px;
+        font-size: 14px;
+        margin-bottom: 16px;
+        margin-left: 25px;
+      }
+      .agreement-type {
+        font-size: 14px;
+        color: rgba(67, 95, 113, 0.6);
+      }
+      .appointment-btn {
+        width: 60%;
+        background-color: #105fbb;
+        border-color: #105fbb;
+        font-size: 14px;
+        margin-left: 20px;
+      }
+      .calender-section {
+        margin-top: 20px;
+      }
+      button.appointment-btn:hover {
+        background-color: #082b53;
+        border-color: #082b53;
+      }
+      .row {
+        margin: 0;
+      }
+    }
+  }
+
+  .pagination-wrapper {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 23%;
+  }
+}
+
+.search-footer {
+  margin-top: 0;
+}
+
+.active-card {
+  .profile-card {
+    box-shadow: 0 2px 14px rgba(51, 51, 51, 0.2);
+    border: 1px solid #0596de;
+  }
+}
+
+@media (max-width: 1379px) {
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

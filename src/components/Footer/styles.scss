@@ -1,0 +1,62 @@
+.footer {
+  background-color: rgb(245, 245, 245);
+  color: black;
+  margin-top: 50px;
+  font-size: 14px;
+  .container {
+    max-width: 1250px;
+  }
+  .info-section {
+    padding: 30px;
+    .icon-text {
+      margin-left: 5px;
+      margin-top: 1px;
+    }
+    .column-header {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      font-size: 20px;
+    }
+    .first-column-header {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+  }
+  .bottom-footer {
+    margin-top: 20px;
+    padding: 30px;
+    .first-column {
+      padding-left: 0px;
+      margin-top: 5px;
+    }
+    .icon-bar {
+      span {
+        margin-right: 30px;
+      }
+    }
+    .col-md-1 {
+      margin-top: 5px;
+    }
+    .facebook-icon {
+      font-size: 11px;
+      margin-top: 2px;
+    }
+  }
+}
+
+.no-margin {
+  margin-top: 0;
+}
+
+.transparent-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  padding: 5px;
+}

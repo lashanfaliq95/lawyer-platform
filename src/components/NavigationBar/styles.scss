@@ -1,0 +1,108 @@
+.navbar {
+  background-color: white;
+  font-weight: bold;
+  line-height: 14px;
+  font-size: 14px;
+  font-family: 'Roboto', arial, sans-serif;
+  color: #212529 !important;
+  border: 1px solid #d8d8d8;
+  text-decoration: none !important;
+  a {
+    color: #212529 !important;
+  }
+  ul {
+    width: 100%;
+    justify-content: flex-end;
+    li {
+      padding-left: 10px;
+      button {
+        font: inherit;
+        height: 40px;
+        display: flex;
+        padding: 10px;
+      }
+      .btn-secondary {
+        color: white;
+        max-width: 200px;
+        padding: 6px;
+        border-radius: 8px;
+      }
+
+      .nav-button {
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 30px;
+      }
+      .nav-text {
+        margin-left: 5px;
+      }
+      .black-link {
+        color: #212529 !important;
+      }
+      .btn-link {
+        color: #105fbb;
+      }
+      button.btn-link:hover {
+        color: #004079;
+        text-decoration: none !important;
+      }
+      .logged-in {
+        color: #969ea5;
+      }
+      button.logged-in:hover {
+        color: #434647;
+        text-decoration: none !important;
+      }
+      .nav-button:hover {
+        background-color: rgba(238, 238, 238, 0.4);
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nav-button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    right: 10px;
+    .nav-button-item {
+      margin-left: 10px;
+    }
+  }
+
+  .brand-image {
+    background-image: url('../../assets/images/avoplan_logo.png');
+    height: 42px;
+    width: 140px;
+    background-size: 140px 42px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .nav-search-wrapper {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+
+  .left-pane {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 1061px) {
+    .nav-search {
+      .first-search-input,
+      .second-search-input {
+        width: 200px;
+      }
+    }
+  }
+
+  @media (max-width: 765px) {
+    .nav-search {
+      display: none;
+    }
+  }
+}

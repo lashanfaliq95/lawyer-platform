@@ -1,0 +1,160 @@
+.login-page {
+  height: 100vh;
+  margin: 0;
+  background-color: whitesmoke;
+  overflow-y: scroll;
+  .card-body {
+    padding: 1.25rem 0;
+  }
+  .register-card {
+    max-height: 700px;
+  }
+  .login-card {
+    max-height: 400px;
+  }
+  .reset-card {
+    max-height: 450px;
+  }
+  .forgot-pwd-card {
+    max-height: 400px;
+  }
+  .card {
+    margin: auto;
+    border-radius: 10px;
+    padding: 0 15.84px;
+    width: 410px;
+    height: fit-content;
+    height: -moz-fit-content;
+    min-height: 24rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  .title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    .link-text {
+      text-decoration: none;
+      color: black;
+      width: fit-content;
+      font-weight: 600;
+      font-size: 25px;
+    }
+  }
+  .reset-title {
+    text-decoration: none;
+    color: black;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  input:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.5s ease-in-out !important;
+  }
+
+  .login-btn {
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    background-color: #0596de;
+    border-color: #0596de;
+    height: 52px;
+  }
+
+  button.login-btn:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .register-btn {
+    color: #0596de;
+    margin-top: 5px;
+  }
+
+  .login-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    .bottom-footer {
+      margin: 0;
+      .first-column {
+        padding-left: 10%;
+        margin-top: 5px;
+      }
+      .icon-bar {
+        margin-left: 18%;
+        span {
+          margin-right: 30px;
+        }
+      }
+      .col-md-1 {
+        margin-top: 5px;
+      }
+      .facebook-icon {
+        font-size: 11px;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .outer-link {
+    text-align: center;
+    font-weight: 550;
+    color: grey;
+    a {
+      color: #0596de;
+    }
+  }
+
+  .forgot-pwd-body {
+    text-align: center;
+    margin-top: -15px;
+    .sub-title {
+      font-weight: bold;
+      color: black;
+    }
+    .pwd-description {
+      max-width: 200px;
+      margin: auto;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .success-image {
+    width: 30%;
+    height: 100px;
+    margin-bottom: 16px;
+  }
+
+  .link-text {
+    margin-bottom: 0;
+  }
+
+  p {
+    color: rgb(116, 116, 116);
+  }
+
+  .success-card-link {
+    color: #0596de;
+    font-weight: 550;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1200px;
+  }
+}
