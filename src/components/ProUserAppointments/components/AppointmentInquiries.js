@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
+import intl from 'helpers/intlHelper';
 import { AppointmentPropType } from 'helpers/types';
 import AppointmentInquiry from './AppointmentInquiry';
 
@@ -27,8 +28,6 @@ const Title = styled.span`
 `;
 
 function AppointmentInquiries({ inquiries, onInquiryClick }) {
-  const intl = useIntl();
-
   return (
     <Container>
       <Title>{intl.formatMessage(messages.title)}</Title>

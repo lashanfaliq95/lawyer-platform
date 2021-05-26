@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FaRegCalendar } from 'react-icons/fa';
 import { useSetState } from 'react-use';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
+import intl from 'helpers/intlHelper';
 import { getExpiryDate, prependZero } from 'components/Shared/utils';
 import { AppointmentPropType } from 'helpers/types';
 
@@ -82,8 +83,6 @@ const Title = styled(Label)`
 `;
 
 function AppointmentInquiry({ inquiry, onInquiryClick }) {
-  const intl = useIntl();
-
   const { createdAt } = inquiry;
 
   const [{ hours, minutes }] = useSetState({

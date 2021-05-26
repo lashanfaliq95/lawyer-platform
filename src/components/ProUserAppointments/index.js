@@ -4,8 +4,9 @@ import { IoExitOutline } from 'react-icons/io5';
 import moment from 'moment';
 import { useSetState } from 'react-use';
 import { useHistory } from 'react-router-dom';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
+import intl from 'helpers/intlHelper';
 import {
   getAppointmentsFiltered,
   getLocalizedMonth,
@@ -156,7 +157,6 @@ const EmptyDescription = styled.span`
 
 function ProUserAppointments() {
   const history = useHistory();
-  const intl = useIntl();
 
   const APPOINTMENT_SECTION = [
     {

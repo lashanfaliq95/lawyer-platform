@@ -9,8 +9,9 @@ import {
 } from 'react-icons/fa';
 import { useSetState } from 'react-use';
 import { useHistory } from 'react-router-dom';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
+import intl from 'helpers/intlHelper';
 import { CLIENTS } from 'helpers/data';
 import SearchClient from '../SearchClient/SearchClient';
 
@@ -210,7 +211,6 @@ const ListContainer = styled.div`
 
 function ProTopBar() {
   const history = useHistory();
-  const intl = useIntl();
 
   const searchContainerRef = useRef(null);
 

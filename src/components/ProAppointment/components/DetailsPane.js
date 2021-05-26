@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 import styled, { css } from 'styled-components';
 
+import intl from 'helpers/intlHelper';
 import { AppointmentPropType } from 'helpers/types';
 import {
   getLocalizedDayOfWeek,
@@ -113,8 +114,6 @@ function DetailsPane({ appointment }) {
     user: { firstName, lastName },
     date,
   } = appointment;
-
-  const intl = useIntl();
 
   return (
     <Container>

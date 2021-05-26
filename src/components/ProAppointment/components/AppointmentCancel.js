@@ -2,11 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Modal, ModalBody } from 'reactstrap';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 import { useSetState } from 'react-use';
 import { IoCheckmarkOutline } from 'react-icons/io5';
 import { FaRegCalendarTimes } from 'react-icons/fa';
 
+import intl from 'helpers/intlHelper';
 import { AppointmentPropType } from 'helpers/types';
 import { APPOINTMENT_TYPES } from 'components/Shared/constants';
 import Appointment from 'components/ProUserAppointments/components/Appointment';
@@ -126,8 +127,6 @@ const CheckMark = styled(IoCheckmarkOutline)`
 `;
 
 function AppointmentCancel({ appointment, isOpen, onToggle }) {
-  const intl = useIntl();
-
   const [{ isCancelLoading, isCancelSuccess }, setState] = useSetState({
     isCancelLoading: false,
     isCancelSuccess: false,

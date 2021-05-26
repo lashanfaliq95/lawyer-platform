@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
+import intl from 'helpers/intlHelper';
 import useDropdown, { Dropdown } from 'hooks/useDropdown';
 import FilterPaneDatePicker from './FilterPaneDatePicker';
 import FilterPaneStatusPicker from './FilterPaneStatusPicker';
@@ -61,8 +62,6 @@ function FilterPane({
   onFilterDateSelect,
   onFilterTypeChange,
 }) {
-  const intl = useIntl();
-
   const {
     ref: datePickerRef,
     isOpen: datePickerOpen,

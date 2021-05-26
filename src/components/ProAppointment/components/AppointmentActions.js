@@ -7,8 +7,9 @@ import {
   IoCloseOutline,
   IoMailOpenOutline,
 } from 'react-icons/io5';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
+import intl from 'helpers/intlHelper';
 import { APPOINTMENT_TYPES } from 'components/Shared/constants';
 
 const messages = defineMessages({
@@ -112,8 +113,6 @@ function AppointmentActions({
   onRescheduleAppointment,
   onSendMessage,
 }) {
-  const intl = useIntl();
-
   return (
     <Container>
       <SubTitle>{intl.formatMessage(messages.title)}</SubTitle>

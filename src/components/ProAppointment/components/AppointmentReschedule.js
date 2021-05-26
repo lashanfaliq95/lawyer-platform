@@ -2,11 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Modal, ModalBody } from 'reactstrap';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 import { useSetState } from 'react-use';
 import moment from 'moment';
 import { IoCheckmarkOutline } from 'react-icons/io5';
 
+import intl from 'helpers/intlHelper';
 import TimeSlots from 'components/Shared/TimeSlots/TimeSlots';
 
 const messages = defineMessages({
@@ -90,8 +91,6 @@ const CheckMark = styled(IoCheckmarkOutline)`
 `;
 
 function AppointmentReschedule({ isOpen, onToggle, currentSelectedTimeSlot }) {
-  const intl = useIntl();
-
   const [
     { selectedTimeSlot, isRescheduleLoading, isRescheduleSuccess },
     setState,

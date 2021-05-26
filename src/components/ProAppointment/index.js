@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useSetState } from 'react-use';
 import styled from 'styled-components';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
 import { APPOINTMENTS } from 'helpers/data';
+import intl from 'helpers/intlHelper';
 import { APPOINTMENT_TYPES } from 'components/Shared/constants';
 import Appointment from 'components/ProUserAppointments/components/Appointment';
 import AppointmentInquiry from 'components/ProUserAppointments/components/AppointmentInquiry';
@@ -88,7 +89,6 @@ const HeaderContainer = styled.div`
 `;
 
 function ProAppointment() {
-  const intl = useIntl();
   const { id } = useParams();
 
   const [
