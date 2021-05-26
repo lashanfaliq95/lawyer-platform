@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ProTopBar from 'components/Shared/ProTopBar/ProTopBar';
+import ProTopBar from 'components/Shared/ProTopBar';
 import MainCalendar from './components/MainCalendar';
+import MiniCalendar from './components/MiniCalendar';
+import ViewOption from './components/ViewOption';
 
 const RootContainer = styled.div`
   border: 1px solid red;
@@ -23,9 +25,8 @@ const Container = styled.div`
 
 const LeftPane = styled.div`
   width: 100%;
-  max-width: 300px;
+  max-width: max-content;
   border: 2px solid blue;
-  padding: 1rem;
 `;
 
 const RightPane = styled.div`
@@ -40,7 +41,10 @@ function ProHomePage() {
     <RootContainer>
       <ProTopBar />
       <Container>
-        <LeftPane />
+        <LeftPane>
+          <MiniCalendar />
+          <ViewOption />
+        </LeftPane>
         <RightPane>
           <MainCalendar />
         </RightPane>

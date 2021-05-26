@@ -15,7 +15,7 @@ import {
   APPOINTMENT_RANGES,
   APPOINTMENT_TYPES,
 } from 'components/Shared/constants';
-import ProTopBar from 'components/Shared/ProTopBar/ProTopBar';
+import ProTopBar from 'components/Shared/ProTopBar';
 import FilterPane from './components/FilterPane';
 import AppointmentInquiries from './components/AppointmentInquiries';
 import Appointments from './components/Appointments';

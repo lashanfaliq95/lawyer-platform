@@ -1,33 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bool, func, shape } from 'prop-types';
-import {
-  Form,
-  FormGroup,
-  Button,
-  Card,
-  CardBody,
-  CardTitle,
-  Alert,
-} from 'reactstrap';
+import { func } from 'prop-types';
+import { Form, FormGroup, Button, Card, CardBody, CardTitle } from 'reactstrap';
 import { useFormik } from 'formik';
 
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
+import { roleMap } from 'components/Shared/constants';
 import messages from '../../messages';
+import { loginUser, clearRegisterUserSuccess } from '../../actions';
 
-import { loginUser } from '../../actions';
-
-const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
+const LoginForm = ({
+  loginUser: loginUserAction,
+  clearRegisterUserSuccess: clearRegisterUserSuccessAction,
+}) => {
+  useEffect(() => {
+    clearRegisterUserSuccessAction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: (values) => {
-      loginUserAction(values);
+      loginUserAction({ ...values, roleId: roleMap.users });
     },
   });
 
@@ -74,21 +73,16 @@ const LoginForm = ({ loginUser: loginUserAction, isLoginError }) => {
           <Link to='/auth/register'>{formatMessage(messages.register)}</Link>
         </div>
       </CardBody>
-      {isLoginError && (
-        <Alert color='danger' className='login-error'>
-          Login failed
-        </Alert>
-      )}
     </Card>
   );
 };
 
 LoginForm.propTypes = {
-  intl: shape.isRequired,
   loginUser: func.isRequired,
-  isLoginError: bool.isRequired,
+  clearRegisterUserSuccess: func.isRequired,
 };
 
 export default connect((state) => ({ isLoginError: state.login.loginError }), {
   loginUser,
+  clearRegisterUserSuccess,
 })(LoginForm);

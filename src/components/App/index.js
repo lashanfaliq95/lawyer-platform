@@ -22,6 +22,7 @@ import RegisterCardPage from 'components/LoginPage/components/RegisterCardPage';
 import ResetPwdCardPage from 'components/LoginPage/components/ResetPwdCardPage';
 import UnprotectedRoute from 'components/Shared/UnprotectedRoute';
 import ProRegistrationPage from 'components/ProRegistrationPage';
+import ProConfirmationPage from 'components/ProConfirmationPage';
 import ProLoginPage from 'components/ProLoginPage';
 import ProHomePage from 'components/ProHomePage';
 import ProUserAppointments from 'components/ProUserAppointments';
@@ -68,8 +69,13 @@ const App = () => (
           component={RegisterCardPage}
         />
         <Route path='/auth/reset/:token' exact component={ResetPwdCardPage} />
-        <Route path='/pro/login' exact component={ProLoginPage} />
+        <UnprotectedRoute path='/pro/login' exact component={ProLoginPage} />
         <Route path='/pro/register' exact component={ProRegistrationPage} />
+        <Route
+          path='/pro/confirmation/:token'
+          exact
+          component={ProConfirmationPage}
+        />
         <Route path='/pro/appointments' exact component={ProUserAppointments} />
         <Route path='/pro/appointments/:id' exact component={ProAppointment} />
         <Route path='/pro' exact component={ProHomePage} />

@@ -1,8 +1,7 @@
 import React from 'react';
-import { injectIntl } from 'react-intl';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { shape, func, bool } from 'prop-types';
+import { func, bool } from 'prop-types';
 import {
   Form,
   FormGroup,
@@ -12,21 +11,19 @@ import {
   CardTitle,
   Row,
   Col,
-  Alert,
 } from 'reactstrap';
 import { useFormik } from 'formik';
 
 import formatMessage from 'components/formatMessages';
 import FloatingInputLabel from 'components/Shared/FloatingLabelInput';
 import FloatingLabelPwdInput from 'components/Shared/FloatingLabelPwdInput';
+import { roleMap } from 'components/Shared/constants';
 import messages from '../../messages';
-import { roleMap } from '../../constants';
 import { registerUser } from '../../actions';
 
 const RegisterCard = ({
   registerUser: registerUserAction,
   isRegisterUserSuccess,
-  isRegisterUserError,
 }) => {
   const formik = useFormik({
     initialValues: {
@@ -123,11 +120,6 @@ const RegisterCard = ({
               </Link>
             </div>
           </CardBody>
-          {isRegisterUserError && (
-            <Alert color='danger' className='login-error'>
-              Registration failed
-            </Alert>
-          )}
         </Card>
       )}
     </>
@@ -135,18 +127,13 @@ const RegisterCard = ({
 };
 
 RegisterCard.propTypes = {
-  intl: shape.isRequired,
   registerUser: func.isRequired,
   isRegisterUserSuccess: bool.isRequired,
-  isRegisterUserError: bool.isRequired,
 };
 
-export default injectIntl(
-  connect(
-    (state) => ({
-      isRegisterUserSuccess: state.login.isRegisterUserSuccess,
-      isRegisterUserError: !!state.login.registerUserError,
-    }),
-    { registerUser },
-  )(RegisterCard),
-);
+export default connect(
+  (state) => ({
+    isRegisterUserSuccess: state.login.isRegisterUserSuccess,
+  }),
+  { registerUser },
+)(RegisterCard);

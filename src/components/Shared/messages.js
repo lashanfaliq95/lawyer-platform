@@ -104,3 +104,62 @@ export const DAYS = defineMessages({
     defaultMessage: 'Sunday',
   },
 });
+
+export const JOB_TITLES = defineMessages({
+  title: {
+    id: 'app.shared.jobTitleTitle',
+    defaultMessage: 'Job Title',
+  },
+  description: {
+    id: 'app.shared.jobTitleDescription',
+    defaultMessage: 'What is your job title?',
+  },
+  specializedLawyerMale: {
+    id: 'app.shared.specializedLawyerMale',
+    defaultMessage: 'Specialized Lawyer',
+  },
+  lawyerMale: {
+    id: 'app.shared.lawyerMale',
+    defaultMessage: 'Lawyer',
+  },
+  patentLawyerMale: {
+    id: 'app.shared.patentLawyerMale',
+    defaultMessage: 'Patent Lawyer',
+  },
+  notaryMale: {
+    id: 'app.shared.notaryMale',
+    defaultMessage: 'Notary',
+  },
+  taxConsultantMale: {
+    id: 'app.shared.taxConsultantMale',
+    defaultMessage: 'Tax Consultant',
+  },
+  consultantMale: {
+    id: 'app.shared.consultantMale',
+    defaultMessage: 'Consultant',
+  },
+  specializedLawyerFemale: {
+    id: 'app.shared.specializedLawyerFemale',
+    defaultMessage: 'Specialized Lawyer',
+  },
+  lawyerFemale: {
+    id: 'app.shared.lawyerFemale',
+    defaultMessage: 'Lawyer',
+  },
+  patentLawyerFemale: {
+    id: 'app.shared.patentLawyerFemale',
+    defaultMessage: 'Patent Lawyer',
+  },
+  notaryFemale: {
+    id: 'app.shared.notaryFemale',
+    defaultMessage: 'Notary',
+  },
+  taxConsultantFemale: {
+    id: 'app.shared.taxConsultantFemale',
+    defaultMessage: 'Tax Consultant',
+  },
+  consultantFemale: {
+    id: 'app.shared.consultantFemale',
+    defaultMessage: 'Consultant',
+  },
+});

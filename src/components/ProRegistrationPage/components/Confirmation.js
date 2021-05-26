@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { shape, bool, func, string, number } from 'prop-types';
 import styled from 'styled-components';
 import { defineMessages } from 'react-intl';
 import formatMessages from 'components/formatMessages';
 
 import { CheckBoxLabel } from 'components/Shared/CheckBox/CheckBox';
+import { registerExpert } from 'components/LoginPage/actions';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
@@ -79,18 +81,27 @@ const CheckBoxContainer = styled.div`
   margin-top: 1rem;
 `;
 
-function Confirmation({ current, onStepChange }) {
+const Confirmation = ({ current, onStepChange, data }) => {
+  const dispatch = useDispatch();
+  const isRegisterUserSuccess = useSelector(
+    (state) => state.login.isRegisterUserSuccess,
+  );
+
   const [generalTermsChecked, setGeneralTermsChecked] = useState(false);
   const [updatesChecked, setUpdatesChecked] = useState(false);
-
   const { tutorial } = current;
 
-  function handleOnNext() {
-    //  TODO: API integration
-    onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
-  }
+  useEffect(() => {
+    if (isRegisterUserSuccess) {
+      onStepChange(REGISTRATION_STEPS.ACCOUNT_PENDING);
+    }
+  });
 
-  function handleOnPrevious() {
+  const handleOnNext = () => {
+    dispatch(registerExpert(data));
+  };
+
+  const handleOnPrevious = () => {
     let nextStep;
 
     if (tutorial) {
@@ -99,7 +110,7 @@ function Confirmation({ current, onStepChange }) {
       nextStep = REGISTRATION_STEPS.HOW_TO_USE;
     }
     onStepChange(nextStep);
-  }
+  };
 
   return (
     <Container>
@@ -135,13 +146,28 @@ function Confirmation({ current, onStepChange }) {
       />
     </Container>
   );
-}
+};
 
 Confirmation.propTypes = {
-  current: PropTypes.shape({
-    tutorial: PropTypes.bool,
+  current: shape({
+    tutorial: bool,
   }).isRequired,
-  onStepChange: PropTypes.func.isRequired,
+  onStepChange: func.isRequired,
+  data: shape({
+    city: string,
+    email: string,
+    firstName: string,
+    gender: string,
+    houseNumber: string,
+    jobTitle: number,
+    lastName: string,
+    password: string,
+    road: string,
+    selectedDateTime: string,
+    telephoneNumber: string,
+    tutorial: bool,
+    zipCode: string,
+  }).isRequired,
 };
 
 export default Confirmation;

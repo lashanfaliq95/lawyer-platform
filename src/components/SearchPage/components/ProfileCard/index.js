@@ -1,26 +1,35 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
-import { func, string, number } from 'prop-types';
+import { func, string, number, shape } from 'prop-types';
 import { Col, Button, Row } from 'reactstrap';
 
 import Calender from 'components/SearchPage/components/Calender';
 import formatMessages from 'components/formatMessages';
 import { Link } from 'react-router-dom';
+import { getJobTitle } from 'components/Shared/utils';
 import messages from '../../messages';
 
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
 const ProfileCard = ({
-  id,
-  name,
-  address,
-  imgUrl,
+  user,
   onMouseEnterCard: onMouseEnterCardAction,
   onMouseLeaveCard: onMouseLeaveCardAction,
-  type,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const {
+    id,
+    name,
+    road,
+    houseNumber,
+    zipCode,
+    city,
+    expertId,
+    imageUrl,
+    gender,
+  } = user || {};
 
   return (
     <Element name={`profile-card-${id}`}>
@@ -39,10 +48,14 @@ const ProfileCard = ({
           <Row className='cover-image' />
           <Col md='5'>
             <Link to={`/search/lawyer-details/${id}`}>
-              <img className='info-image' src={imgUrl} alt='Info images' />
+              <img className='info-image' src={imageUrl} alt='Info images' />
               <div className='name-section'>{name}</div>
-              <div className='specialization-section'>{type}</div>
-              <div className='address'>{address}</div>
+              <div className='specialization-section'>
+                {getJobTitle(expertId, gender)}
+              </div>
+              <div className='address'>
+                {`${road} ${houseNumber} ${zipCode} ${city}`}
+              </div>
             </Link>
             <Button className='appointment-btn'>
               {formatMessages(messages.bookAppointment)}
@@ -60,11 +73,17 @@ const ProfileCard = ({
 ProfileCard.propTypes = {
   onMouseEnterCard: func.isRequired,
   onMouseLeaveCard: func.isRequired,
-  id: number.isRequired,
-  name: string.isRequired,
-  address: string.isRequired,
-  imgUrl: string.isRequired,
-  type: string.isRequired,
+  user: shape({
+    id: number.isRequired,
+    name: string.isRequired,
+    road: string.isRequired,
+    houseNumber: string.isRequired,
+    city: string.isRequired,
+    zipCode: string.isRequired,
+    imageUrl: string.isRequired,
+    expertId: number.isRequired,
+    gender: string.isRequired,
+  }).isRequired,
 };
 
 export default connect(null, { onMouseEnterCard, onMouseLeaveCard })(
