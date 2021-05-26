@@ -5,7 +5,9 @@ import { useSetState, usePrevious } from 'react-use';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import styled, { css } from 'styled-components';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
+
+import intl from 'helpers/intlHelper';
 
 const messages = defineMessages({
   title: {
@@ -99,8 +101,6 @@ function FilterPaneDatePicker({
   onFilterDateSelect,
   toggleIsOpen,
 }) {
-  const intl = useIntl();
-
   const PRESET_OPTIONS = [
     {
       title: `${intl.formatMessage(messages.last)} 7 ${intl.formatMessage(

@@ -3,8 +3,9 @@ import { FaCheck } from 'react-icons/fa';
 import { usePrevious, useSetState } from 'react-use';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages } from 'react-intl';
 
+import intl from 'helpers/intlHelper';
 import { APPOINTMENT_TYPES } from 'components/Shared/constants';
 
 const messages = defineMessages({
@@ -110,8 +111,6 @@ function FilterPaneStatusPicker({
   onFilterTypeChange,
   toggleIsOpen,
 }) {
-  const intl = useIntl();
-
   const OPTIONS = [
     {
       label: intl.formatMessage(messages.inquiries),

@@ -2,15 +2,36 @@ import React, { useEffect } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useSetState } from 'react-use';
 import styled from 'styled-components';
+import { defineMessages } from 'react-intl';
 
 import { APPOINTMENTS } from 'helpers/data';
+import intl from 'helpers/intlHelper';
 import { APPOINTMENT_TYPES } from 'components/Shared/constants';
 import Appointment from 'components/ProUserAppointments/components/Appointment';
 import AppointmentInquiry from 'components/ProUserAppointments/components/AppointmentInquiry';
 import DetailsPane from './components/DetailsPane';
-import InquiryActions from './components/InquiryActions';
-import UpcomingActions from './components/UpcomingActions';
-import ExpiredActions from './components/ExpiredActions';
+import AppointmentActions from './components/AppointmentActions';
+import AppointmentReschedule from './components/AppointmentReschedule';
+import AppointmentCancel from './components/AppointmentCancel';
+
+const messages = defineMessages({
+  inquiry: {
+    id: 'app.proAppointment.inquiry',
+    defaultMessage: 'Inquiry',
+  },
+  upcoming: {
+    id: 'app.proAppointment.upcoming',
+    defaultMessage: 'Upcoming Appointment',
+  },
+  cancelled: {
+    id: 'app.proAppointment.cancelled',
+    defaultMessage: 'Cancelled Appointment',
+  },
+  past: {
+    id: 'app.proAppointment.past',
+    defaultMessage: 'Past Appointment',
+  },
+});
 
 const Container = styled.div`
   height: 100%;
@@ -71,12 +92,20 @@ function ProAppointment() {
   const { id } = useParams();
 
   const [
-    { appointment, isAppointmentLoading, isAppointmentNotFound },
+    {
+      appointment,
+      isAppointmentLoading,
+      isAppointmentNotFound,
+      isRescheduleVisible,
+      isCancelVisible,
+    },
     setState,
   ] = useSetState({
     appointment: null,
     isAppointmentLoading: false,
     isAppointmentNotFound: false,
+    isRescheduleVisible: false,
+    isCancelVisible: false,
   });
 
   useEffect(() => {
@@ -100,6 +129,43 @@ function ProAppointment() {
     return <Redirect to='/404-not-found' />;
   }
 
+  function handleOnSendMessage() {
+    //  TODO: Replace email with user email
+    const email = 'shaahid.xd@gmail.com';
+    window.location = `mailto:${email}`;
+  }
+
+  //  TODO: Handle appointment action
+  function handleOnConfirmInquiry() {
+    setState({
+      appointment: { ...appointment, type: APPOINTMENT_TYPES.UPCOMING },
+    });
+  }
+
+  function handleOnRescheduleAppointment() {
+    setState({
+      isRescheduleVisible: true,
+    });
+  }
+
+  function handleOnRescheduleToggle() {
+    setState({
+      isRescheduleVisible: !isRescheduleVisible,
+    });
+  }
+
+  function handleOnCancelAppointment() {
+    setState({
+      isCancelVisible: true,
+    });
+  }
+
+  function handleOnCancelToggle() {
+    setState({
+      isCancelVisible: !isCancelVisible,
+    });
+  }
+
   return (
     appointment && (
       <Container>
@@ -108,13 +174,13 @@ function ProAppointment() {
             {(() => {
               switch (appointment.type) {
                 case APPOINTMENT_TYPES.INQUIRIES:
-                  return 'Terminanfrage';
+                  return intl.formatMessage(messages.inquiry);
                 case APPOINTMENT_TYPES.UPCOMING:
-                  return 'Anstehender Termin';
+                  return intl.formatMessage(messages.upcoming);
                 case APPOINTMENT_TYPES.CANCELLED:
-                  return 'Abgesagter Termin';
+                  return intl.formatMessage(messages.cancelled);
                 default:
-                  return 'Vergangener Termin';
+                  return intl.formatMessage(messages.past);
               }
             })()}
           </Title>
@@ -136,22 +202,32 @@ function ProAppointment() {
             </Pane>
             <Separator />
             <Pane>
-              {(() => {
-                switch (appointment.type) {
-                  case APPOINTMENT_TYPES.INQUIRIES: {
-                    return <InquiryActions />;
-                  }
-                  case APPOINTMENT_TYPES.UPCOMING: {
-                    return <UpcomingActions />;
-                  }
-                  default: {
-                    return <ExpiredActions />;
-                  }
-                }
-              })()}
+              <AppointmentActions
+                type={appointment.type}
+                onCancelAppointment={handleOnCancelAppointment}
+                onConfirmInquiry={handleOnConfirmInquiry}
+                onDenyInquiry={handleOnCancelAppointment}
+                onRescheduleAppointment={handleOnRescheduleAppointment}
+                onSendMessage={handleOnSendMessage}
+              />
             </Pane>
           </PaneContainer>
         </AppointmentContainer>
+        {appointment.type === APPOINTMENT_TYPES.UPCOMING && (
+          <AppointmentReschedule
+            isOpen={isRescheduleVisible}
+            onToggle={handleOnRescheduleToggle}
+            currentSelectedTimeSlot={appointment.date}
+          />
+        )}
+        {(appointment.type === APPOINTMENT_TYPES.UPCOMING ||
+          appointment.type === APPOINTMENT_TYPES.INQUIRIES) && (
+          <AppointmentCancel
+            appointment={appointment}
+            isOpen={isCancelVisible}
+            onToggle={handleOnCancelToggle}
+          />
+        )}
       </Container>
     )
   );

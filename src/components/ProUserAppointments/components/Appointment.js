@@ -2,9 +2,10 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+
 import { APPOINTMENT_COLORS } from 'components/Shared/constants';
 import { AppointmentPropType } from 'helpers/types';
-import { useIntl } from 'react-intl';
+import intl from 'helpers/intlHelper';
 import {
   getLocalizedDayOfWeek,
   getLocalizedMonth,
@@ -61,8 +62,6 @@ const Title = styled(Label)`
 `;
 
 function Appointment({ appointment, index, onAppointmentClick }) {
-  const intl = useIntl();
-
   const {
     user: { firstName, lastName },
     date,
