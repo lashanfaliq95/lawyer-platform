@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { bool } from 'prop-types';
-import {
-  Form, FormGroup, Button, Input, Label,
-} from 'reactstrap';
+import { Form, FormGroup, Button, Input, Label } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
-import HorizontalSeparator from 'components/Shared/HorizontalSeparator';
 
 import NoNewClientsModal from './NoNewClientsModal';
 import messages from '../messages';
@@ -26,6 +23,8 @@ const BookAnAppointmentForm = ({
   );
   const [isAppointmentViaPhone, setIsAppointmentViaPhone] = useState(false);
   const [isPersonnelAppointment, setIsPersonnelAppointment] = useState(false);
+  const [expertOfLawFirm, setExpertOfLawFirm] = useState('');
+  const [summaryOfIssue, setSummaryOfIssue] = useState('');
 
   const onClickNotAExistingClient = () => {
     if (!doesLawyerAcceptNewClients) {
@@ -43,7 +42,6 @@ const BookAnAppointmentForm = ({
       </div>
       <div className='booking-section'>
         <Form>
-          <HorizontalSeparator />
           <div
             className={`form-section ${
               isNotExistingClient || isExitingClient ? 'active-section' : ''
@@ -81,7 +79,7 @@ const BookAnAppointmentForm = ({
               </Label>
             </FormGroup>
           </div>
-          <HorizontalSeparator />
+
           <div
             className={`form-section ${
               typeOfLegalIssue !== '' ? 'active-section' : ''
@@ -96,7 +94,7 @@ const BookAnAppointmentForm = ({
               />
             </FormGroup>
           </div>
-          <HorizontalSeparator />
+
           <div
             className={`form-section ${
               isClientWithInsurance || isClientWithoutInsurance
@@ -134,7 +132,7 @@ const BookAnAppointmentForm = ({
               </Label>
             </FormGroup>
           </div>
-          <HorizontalSeparator />
+
           {doesLawyerOfferPhoneAndVisitingAppointments && (
             <>
               <div
@@ -174,42 +172,66 @@ const BookAnAppointmentForm = ({
                   </Label>
                 </FormGroup>
               </div>
-              <HorizontalSeparator />
             </>
           )}
           {!doesTheFirmHaveOnlyOneLawyer && (
             <>
-              <div className='form-section'>
+              <div
+                className={`form-section ${
+                  expertOfLawFirm ? 'active-section' : ''
+                }`}
+              >
                 <FormGroup>
                   {formatMessage(messages.whichExpertShouldAdviceYou)}
-                  <Input placeholder='Experte' type='select'>
-                    <option>Experte</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <Input
+                    defaultValue=''
+                    type='select'
+                    onChange={(e) => setExpertOfLawFirm(e.target.value)}
+                  >
+                    <option hidden value=''>
+                      Experte
+                    </option>
+                    <option value='Katja'>Katja</option>
+                    <option value='Dr. Rainer'>Dr. Rainer</option>
+                    <option value='Anne'>Anne</option>
+                    <option value='Jan Niklas'>Jan Niklas</option>
                   </Input>
                 </FormGroup>
               </div>
-              <HorizontalSeparator />
             </>
           )}
           {requiresShortSummary && (
             <>
-              <div className='form-section'>
+              <div
+                className={`form-section ${
+                  summaryOfIssue ? 'active-section' : ''
+                }`}
+              >
                 <FormGroup>
                   {formatMessage(messages.summaryOfLegalIssue)}
-                  <Input placeholder='Ihr Text' type='textarea' />
+                  <Input
+                    placeholder='Ihr Text'
+                    type='textarea'
+                    onChange={(e) => {
+                      setSummaryOfIssue(e.target.value);
+                    }}
+                  />
                 </FormGroup>
               </div>
-              <HorizontalSeparator />
             </>
           )}
           <Button className='login-btn' type='submit' color='primary'>
             {formatMessage(messages.bookTheAppointment)}
           </Button>
         </Form>
-        {showModal && <NoNewClientsModal showModal={showModal} />}
+        {showModal && (
+          <NoNewClientsModal
+            showModal={showModal}
+            onClose={() => {
+              setShowModal(false);
+            }}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,13 +1,11 @@
-import { bool, string } from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter,
-} from 'reactstrap';
+import { bool, string, func } from 'prop-types';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
 import messages from '../messages';
 
-const NoNewClientsModal = ({ showModal, phoneNumber }) => {
+const NoNewClientsModal = ({ showModal, phoneNumber, onClose }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -21,7 +19,8 @@ const NoNewClientsModal = ({ showModal, phoneNumber }) => {
       <Modal
         isOpen={modal}
         toggle={toggle}
-        onClose={() => {
+        onClosed={() => {
+          onClose();
           setModal(false);
         }}
       >
@@ -47,6 +46,7 @@ const NoNewClientsModal = ({ showModal, phoneNumber }) => {
 NoNewClientsModal.propTypes = {
   showModal: bool,
   phoneNumber: string.isRequired,
+  onClose: func.isRequired,
 };
 
 NoNewClientsModal.defaultProps = {

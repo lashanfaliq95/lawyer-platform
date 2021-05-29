@@ -8,8 +8,9 @@
   }
 
   .title {
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 5px;
+    color: rgb(104, 101, 101);
   }
   .image {
     .cover-photo {
@@ -30,6 +31,7 @@
     }
     .details {
       height: 200px;
+      color: gray;
       .name-gender {
         position: absolute;
         bottom: 60px;
@@ -43,6 +45,7 @@
   .info {
     padding: 30px;
     .content {
+      color: grey;
       margin-top: 10px;
     }
   }
@@ -66,21 +69,23 @@
   .location {
     display: flex;
     .address {
-      padding: 10px;
+      padding: 20px;
       width: 50%;
       display: flex;
       flex-direction: column;
-      div {
-        margin: 10px;
+      .content {
+        display: flex;
+        :nth-child(2) {
+          color: grey;
+        }
+      }
+      .element-icon {
+        margin-right: 5px;
       }
       .element {
         display: flex;
         flex-direction: column;
-        :first-child {
-          font-weight: 500;
-        }
-        .element-icon {
-        }
+        margin-bottom: 30px;
       }
     }
     .map-section {
@@ -94,6 +99,7 @@
   .contact-appointment {
     display: flex;
     .contact {
+      color: rgb(112, 110, 110);
       padding: 20px;
       width: 50%;
       display: flex;
@@ -101,12 +107,22 @@
       .element {
         margin: 5px;
       }
+      .detail-header {
+        font-weight: 500;
+      }
     }
     .appointment {
       padding: 10px;
       width: 50%;
       display: flex;
       flex-direction: column;
+      .day {
+        font-weight: 500;
+      }
+      .time-range {
+        margin-bottom: 5px;
+        color: rgb(109, 107, 107);
+      }
     }
     .icon-element {
       display: flex;
@@ -123,18 +139,22 @@
   }
 
   .right-section {
-    background-color: #fbfbfb;
+    background-color: #fdfafa;
     margin-top: 30px;
     hr {
-      background-color: #eef2f6 !important;
+      background-color: #ebebeb !important;
+      margin: 0;
     }
     .title {
       font-size: 18px;
       font-weight: 500;
+      color: rgb(37, 36, 36);
+      padding-left: 10px;
     }
     .sub-title {
       font-size: 16px;
       font-weight: 400;
+      padding-left: 10px;
     }
     .booking-section {
       padding: 10px 0;
@@ -142,17 +162,21 @@
         padding: 10px;
         transition: border-left 0.15s;
         transform-origin: left top;
+        border-top: 1px solid #ebebeb;
+        border-left: 2.5px solid transparent;
       }
       .active-section {
         border: none;
+        border-top: 1px solid #ebebeb;
         border-left: 2.5px solid #105fbb !important;
       }
       .form-check {
         border: 1px solid #d8d8d8;
+        background-color: white;
         margin: 10px 0;
         padding: 10px;
         width: 80%;
-        border-radius: 20px;
+        border-radius: 10px;
         .form-check-input {
           position: relative;
           margin-left: 0;
