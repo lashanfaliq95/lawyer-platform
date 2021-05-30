@@ -32,6 +32,7 @@ const BookAnAppointmentForm = ({
       isPersonnelAppointment,
       expertOfLawFirm,
       summaryOfIssue,
+      selectedDate,
     },
     setState,
   ] = useSetState({
@@ -46,6 +47,7 @@ const BookAnAppointmentForm = ({
     isPersonnelAppointment: false,
     expertOfLawFirm: '',
     summaryOfIssue: '',
+    selectedDate: '',
   });
 
   const onClickNotAExistingClient = () => {
@@ -254,7 +256,12 @@ const BookAnAppointmentForm = ({
           )}
           <div className='form-section calender-wrapper'>
             {formatMessage(messages.selectTimeSlot)}
-            <Calender id='mock1' />
+            <Calender
+              id='mock1'
+              onClickValue={(value) => {
+                setState({ selectedDate: value });
+              }}
+            />
             <Button
               className='appointment-btn'
               color='primary'
@@ -278,6 +285,7 @@ const BookAnAppointmentForm = ({
           <AppointmentBookingModal
             body={messages.directBookingModalBody}
             showModal={showApprovalModal && requiresApproval}
+            selectedDate={selectedDate}
             onClose={() => {
               setState({ showApprovalModal: false });
             }}
