@@ -508,4 +508,17 @@ export default {
   'app.proHomePage.viewOptions.typeOfAppointment': 'Terminart',
   'app.proHomePage.viewOptions.expert': 'Experte',
   'app.proHomePage.viewOptions.location': 'Standort',
+  'app.proClientPage.title': 'Mandanten',
+  'app.proClientPage.noClient.title': 'Behalten Sie den Überblick',
+  'app.proClientPage.noClient.description':
+    'Wir nehmen Ihnen die Arbeit ab und fügen Mandanten nach erfolgreicher Terminvereinbarung automatisch zu Ihrem Konto hinzu.',
+  'app.proClientPage.clientList.headerTitle': 'Übersicht',
+  'app.proClientPage.clientList.headerButton': 'Alle anzeigen',
+  'app.proClientPage.clientDetail.title': 'Details',
+  'app.proClientPage.clientDetail.firstName': 'Vorname',
+  'app.proClientPage.clientDetail.lastName': 'Nachname',
+  'app.proClientPage.clientDetail.email': 'E-Mail',
+  'app.proClientPage.clientDetail.mobile': 'Handynummer',
+  'app.proClientPage.clientDetail.btnRemove': 'Entfernen',
+  'app.proClientPage.clientDetail.btnSave': 'Speichern',
 };
