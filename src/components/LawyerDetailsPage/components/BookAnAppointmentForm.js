@@ -3,6 +3,7 @@ import { bool } from 'prop-types';
 import { Form, FormGroup, Button, Input, Label } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
+import Calender from 'components/SearchPage/components/Calender';
 
 import NoNewClientsModal from './NoNewClientsModal';
 import messages from '../messages';
@@ -220,9 +221,13 @@ const BookAnAppointmentForm = ({
               </div>
             </>
           )}
-          <Button className='login-btn' type='submit' color='primary'>
-            {formatMessage(messages.bookTheAppointment)}
-          </Button>
+          <div className='form-section calender-wrapper'>
+            {formatMessage(messages.selectTimeSlot)}
+            <Calender id='mock1' />
+            <Button className='appointment-btn' type='submit' color='primary'>
+              {formatMessage(messages.bookTheAppointment)}
+            </Button>
+          </div>
         </Form>
         {showModal && (
           <NoNewClientsModal

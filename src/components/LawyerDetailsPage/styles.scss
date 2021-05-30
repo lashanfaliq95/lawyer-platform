@@ -188,6 +188,23 @@
           width: 100%;
         }
       }
+      .calender-wrapper {
+        position: relative;
+        height: 400px;
+      }
+
+      .appointment-btn {
+        width: 40%;
+        background-color: #105fbb;
+        border-color: #105fbb;
+        font-size: 14px;
+        margin-left: 30%;
+      }
+
+      button.appointment-btn:hover {
+        background-color: #082b53;
+        border-color: #082b53;
+      }
     }
   }
 }
