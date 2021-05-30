@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { bool, string, func } from 'prop-types';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Col, Row } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
+import Icon from 'components/Shared/Icon';
 import messages from '../messages';
 
 const NoNewClientsModal = ({ showModal, phoneNumber, onClose }) => {
@@ -28,16 +29,28 @@ const NoNewClientsModal = ({ showModal, phoneNumber, onClose }) => {
           {formatMessage(messages.noNewClientModalTitle)}
         </ModalHeader>
         <ModalBody>
-          {formatMessage(messages.noNewClientModalBody, { phoneNumber })}
+          <Row>
+            <Col md='1' style={{ margin: 'auto 10px auto auto' }}>
+              <Icon name='user-alt-slash' size='extraLarge' />
+            </Col>
+            <Col>
+              {formatMessage(messages.noNewClientModalBody, { phoneNumber })}
+            </Col>
+          </Row>
         </ModalBody>
-        <ModalFooter>
-          <Button color='primary' onClick={toggle}>
-            {formatMessage(messages.cancel)}
-          </Button>
-          <Button color='secondary' onClick={toggle}>
-            <a href={`tel:${phoneNumber}`}>{formatMessage(messages.call)}</a>
-          </Button>
-        </ModalFooter>
+        <Row style={{ marginBottom: '10px' }}>
+          <Col
+            md={{ offset: '1', size: '11' }}
+            style={{ display: 'flex', justifyContent: 'space-between' }}
+          >
+            <Button color='link' onClick={toggle}>
+              {formatMessage(messages.cancel)}
+            </Button>
+            <Button color='secondary' onClick={toggle}>
+              <a href={`tel:${phoneNumber}`}>{formatMessage(messages.call)}</a>
+            </Button>
+          </Col>
+        </Row>
       </Modal>
     </div>
   );

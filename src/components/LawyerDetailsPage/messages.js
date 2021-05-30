@@ -170,4 +170,22 @@ export default defineMessages({
     id: 'app.lawyerDetailsPage.call',
     defaultMessage: 'Call',
   },
+  appointmentBookingModalTitle: {
+    id: 'app.lawyerDetailsPage.appointmentBookingModalTitle',
+    defaultMessage: 'Important info before your booking',
+  },
+  directBookingModalBody: {
+    id: 'app.lawyerDetailsPage.directBookingModalBody',
+    defaultMessage:
+      'You are obligated to change or cancel the appointment, if you cannot appear there on time',
+  },
+  messageToYouFromTheLawyer: {
+    id: 'app.lawyerDetailsPage.messageToYouFromTheLawyer',
+    defaultMessage: 'Message to you from the lawyer',
+  },
+  manualBookingModalBody: {
+    id: 'app.lawyerDetailsPage.manualBookingModalBody',
+    defaultMessage: `remember that your appointment is then confirmed, after the expert
+    confirmed the appointment within 48 hours`,
+  },
 });

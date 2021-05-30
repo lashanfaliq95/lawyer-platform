@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSetState } from 'react-use';
 import { bool } from 'prop-types';
 import { Form, FormGroup, Button, Input } from 'reactstrap';
 
@@ -7,6 +8,8 @@ import Calender from 'components/SearchPage/components/Calender';
 
 import RadioInputWithTick from 'components/Shared/RadioInputWithTick';
 import NoNewClientsModal from './NoNewClientsModal';
+import AppointmentBookingModal from './AppointmentBookingModal';
+
 import messages from '../messages';
 
 const BookAnAppointmentForm = ({
@@ -14,23 +17,40 @@ const BookAnAppointmentForm = ({
   doesLawyerOfferPhoneAndVisitingAppointments,
   doesTheFirmHaveOnlyOneLawyer,
   requiresShortSummary,
+  requiresApproval,
 }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [isNotExistingClient, setIsNotExitingClient] = useState(false);
-  const [isExitingClient, setIsExitingClient] = useState(false);
-  const [typeOfLegalIssue, setTypeOfLegalIssue] = useState('');
-  const [isClientWithInsurance, setIsClientWithInsurance] = useState(false);
-  const [isClientWithoutInsurance, setIsClientWithoutInsurance] = useState(
-    false,
-  );
-  const [isAppointmentViaPhone, setIsAppointmentViaPhone] = useState(false);
-  const [isPersonnelAppointment, setIsPersonnelAppointment] = useState(false);
-  const [expertOfLawFirm, setExpertOfLawFirm] = useState('');
-  const [summaryOfIssue, setSummaryOfIssue] = useState('');
+  const [
+    {
+      showModal,
+      showApprovalModal,
+      isNotExistingClient,
+      isExitingClient,
+      typeOfLegalIssue,
+      isClientWithInsurance,
+      isClientWithoutInsurance,
+      isAppointmentViaPhone,
+      isPersonnelAppointment,
+      expertOfLawFirm,
+      summaryOfIssue,
+    },
+    setState,
+  ] = useSetState({
+    showModal: false,
+    showApprovalModal: false,
+    isNotExistingClient: false,
+    isExitingClient: false,
+    typeOfLegalIssue: '',
+    isClientWithInsurance: false,
+    isClientWithoutInsurance: false,
+    isAppointmentViaPhone: false,
+    isPersonnelAppointment: false,
+    expertOfLawFirm: '',
+    summaryOfIssue: '',
+  });
 
   const onClickNotAExistingClient = () => {
     if (!doesLawyerAcceptNewClients) {
-      setShowModal(true);
+      setState({ showModal: true });
     }
   };
 
@@ -69,8 +89,10 @@ const BookAnAppointmentForm = ({
                   name='existingClient'
                   checked={isNotExistingClient}
                   onClick={() => {
-                    setIsNotExitingClient(!isNotExistingClient);
-                    setIsExitingClient(false);
+                    setState({
+                      isNotExistingClient: !isNotExistingClient,
+                      isExitingClient: false,
+                    });
                   }}
                   onChange={onClickNotAExistingClient}
                   label={messages.no}
@@ -82,8 +104,10 @@ const BookAnAppointmentForm = ({
                 name='existingClient'
                 checked={isExitingClient}
                 onClick={() => {
-                  setIsExitingClient(!isExitingClient);
-                  setIsNotExitingClient(false);
+                  setState({
+                    isNotExistingClient: false,
+                    isExitingClient: !isExitingClient,
+                  });
                 }}
                 label={messages.iAmAlreadyAClient}
               />
@@ -100,7 +124,7 @@ const BookAnAppointmentForm = ({
               <Input
                 placeholder='Angelegenheit'
                 value={typeOfLegalIssue}
-                onChange={(e) => setTypeOfLegalIssue(e.target.value)}
+                onChange={(e) => setState({ typeOfLegalIssue: e.target.value })}
               />
             </FormGroup>
           </div>
@@ -118,8 +142,10 @@ const BookAnAppointmentForm = ({
                 name='legalInsurance'
                 checked={isClientWithoutInsurance}
                 onClick={() => {
-                  setIsClientWithoutInsurance(true);
-                  setIsClientWithInsurance(false);
+                  setState({
+                    isClientWithInsurance: false,
+                    isClientWithoutInsurance: true,
+                  });
                 }}
                 label={messages.no}
               />
@@ -129,8 +155,10 @@ const BookAnAppointmentForm = ({
                 name='legalInsurance'
                 checked={isClientWithInsurance}
                 onClick={() => {
-                  setIsClientWithoutInsurance(false);
-                  setIsClientWithInsurance(true);
+                  setState({
+                    isClientWithInsurance: true,
+                    isClientWithoutInsurance: false,
+                  });
                 }}
                 label={messages.yesIHaveLegalInsurance}
               />
@@ -152,8 +180,10 @@ const BookAnAppointmentForm = ({
                     name='appointmentType'
                     checked={isAppointmentViaPhone}
                     onClick={() => {
-                      setIsAppointmentViaPhone(true);
-                      setIsPersonnelAppointment(false);
+                      setState({
+                        isAppointmentViaPhone: true,
+                        isPersonnelAppointment: false,
+                      });
                     }}
                     label={messages.appointmentViaPhone}
                   />
@@ -163,8 +193,10 @@ const BookAnAppointmentForm = ({
                     name='appointmentType'
                     checked={isPersonnelAppointment}
                     onClick={() => {
-                      setIsAppointmentViaPhone(false);
-                      setIsPersonnelAppointment(true);
+                      setState({
+                        isAppointmentViaPhone: false,
+                        isPersonnelAppointment: true,
+                      });
                     }}
                     label={messages.personnelAppointments}
                   />
@@ -184,7 +216,9 @@ const BookAnAppointmentForm = ({
                   <Input
                     defaultValue=''
                     type='select'
-                    onChange={(e) => setExpertOfLawFirm(e.target.value)}
+                    onChange={(e) => {
+                      setState({ expertOfLawFirm: e.target.value });
+                    }}
                   >
                     <option hidden value=''>
                       Experte
@@ -211,7 +245,7 @@ const BookAnAppointmentForm = ({
                     placeholder='Ihr Text'
                     type='textarea'
                     onChange={(e) => {
-                      setSummaryOfIssue(e.target.value);
+                      setState({ summaryOfIssue: e.target.value });
                     }}
                   />
                 </FormGroup>
@@ -221,7 +255,13 @@ const BookAnAppointmentForm = ({
           <div className='form-section calender-wrapper'>
             {formatMessage(messages.selectTimeSlot)}
             <Calender id='mock1' />
-            <Button className='appointment-btn' type='submit' color='primary'>
+            <Button
+              className='appointment-btn'
+              color='primary'
+              onClick={() => {
+                setState({ showApprovalModal: true });
+              }}
+            >
               {formatMessage(messages.bookTheAppointment)}
             </Button>
           </div>
@@ -230,7 +270,25 @@ const BookAnAppointmentForm = ({
           <NoNewClientsModal
             showModal={showModal}
             onClose={() => {
-              setShowModal(false);
+              setState({ showModal: false });
+            }}
+          />
+        )}
+        {showApprovalModal && requiresApproval && (
+          <AppointmentBookingModal
+            body={messages.directBookingModalBody}
+            showModal={showApprovalModal && requiresApproval}
+            onClose={() => {
+              setState({ showApprovalModal: false });
+            }}
+          />
+        )}
+        {showApprovalModal && !requiresApproval && (
+          <AppointmentBookingModal
+            body={messages.manualBookingModalBody}
+            showModal={showApprovalModal && !requiresApproval}
+            onClose={() => {
+              setState({ showApprovalModal: false });
             }}
           />
         )}
@@ -244,6 +302,7 @@ BookAnAppointmentForm.propTypes = {
   doesLawyerOfferPhoneAndVisitingAppointments: bool,
   requiresShortSummary: bool,
   doesTheFirmHaveOnlyOneLawyer: bool,
+  requiresApproval: bool,
 };
 
 BookAnAppointmentForm.defaultProps = {
@@ -251,6 +310,7 @@ BookAnAppointmentForm.defaultProps = {
   doesLawyerOfferPhoneAndVisitingAppointments: true,
   requiresShortSummary: true,
   doesTheFirmHaveOnlyOneLawyer: false,
+  requiresApproval: false,
 };
 
 export default BookAnAppointmentForm;
