@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { bool } from 'prop-types';
-import { Form, FormGroup, Button, Input, Label } from 'reactstrap';
+import { Form, FormGroup, Button, Input } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
 import Calender from 'components/SearchPage/components/Calender';
 
+import RadioInputWithTick from 'components/Shared/RadioInputWithTick';
 import NoNewClientsModal from './NoNewClientsModal';
 import messages from '../messages';
 
@@ -33,6 +34,19 @@ const BookAnAppointmentForm = ({
     }
   };
 
+  const shouldShowStepFour =
+    doesLawyerOfferPhoneAndVisitingAppointments &&
+    (isNotExistingClient || isExitingClient) &&
+    typeOfLegalIssue &&
+    (isClientWithInsurance || isClientWithoutInsurance);
+
+  const shouldShowStepFive =
+    shouldShowStepFour &&
+    (isPersonnelAppointment || isAppointmentViaPhone) &&
+    !doesTheFirmHaveOnlyOneLawyer;
+
+  const shouldShowStepSix =
+    shouldShowStepFive && expertOfLawFirm && requiresShortSummary;
   return (
     <div className='right-section'>
       <div className='title'>
@@ -51,33 +65,28 @@ const BookAnAppointmentForm = ({
             {formatMessage(messages.areYouAlreadyAClient)}
             <FormGroup check>
               <div className='check-box'>
-                <Label check onChange={onClickNotAExistingClient}>
-                  <Input
-                    type='radio'
-                    name='existingClient'
-                    checked={isNotExistingClient}
-                    onClick={() => {
-                      setIsNotExitingClient(!isNotExistingClient);
-                      setIsExitingClient(false);
-                    }}
-                  />
-                  {formatMessage(messages.no)}
-                </Label>
+                <RadioInputWithTick
+                  name='existingClient'
+                  checked={isNotExistingClient}
+                  onClick={() => {
+                    setIsNotExitingClient(!isNotExistingClient);
+                    setIsExitingClient(false);
+                  }}
+                  onChange={onClickNotAExistingClient}
+                  label={messages.no}
+                />
               </div>
             </FormGroup>
             <FormGroup check>
-              <Label check>
-                <Input
-                  type='radio'
-                  name='existingClient'
-                  checked={isExitingClient}
-                  onClick={() => {
-                    setIsExitingClient(!isExitingClient);
-                    setIsNotExitingClient(false);
-                  }}
-                />
-                {formatMessage(messages.iAmAlreadyAClient)}
-              </Label>
+              <RadioInputWithTick
+                name='existingClient'
+                checked={isExitingClient}
+                onClick={() => {
+                  setIsExitingClient(!isExitingClient);
+                  setIsNotExitingClient(false);
+                }}
+                label={messages.iAmAlreadyAClient}
+              />
             </FormGroup>
           </div>
 
@@ -105,36 +114,30 @@ const BookAnAppointmentForm = ({
           >
             {formatMessage(messages.doYouHaveLegalInsurance)}
             <FormGroup check>
-              <Label check>
-                <Input
-                  type='radio'
-                  name='legalInsurance'
-                  checked={isClientWithoutInsurance}
-                  onClick={() => {
-                    setIsClientWithoutInsurance(true);
-                    setIsClientWithInsurance(false);
-                  }}
-                />
-                {formatMessage(messages.no)}
-              </Label>
+              <RadioInputWithTick
+                name='legalInsurance'
+                checked={isClientWithoutInsurance}
+                onClick={() => {
+                  setIsClientWithoutInsurance(true);
+                  setIsClientWithInsurance(false);
+                }}
+                label={messages.no}
+              />
             </FormGroup>
             <FormGroup check>
-              <Label check>
-                <Input
-                  type='radio'
-                  name='legalInsurance'
-                  checked={isClientWithInsurance}
-                  onClick={() => {
-                    setIsClientWithoutInsurance(false);
-                    setIsClientWithInsurance(true);
-                  }}
-                />
-                {formatMessage(messages.yesIHaveLegalInsurance)}
-              </Label>
+              <RadioInputWithTick
+                name='legalInsurance'
+                checked={isClientWithInsurance}
+                onClick={() => {
+                  setIsClientWithoutInsurance(false);
+                  setIsClientWithInsurance(true);
+                }}
+                label={messages.yesIHaveLegalInsurance}
+              />
             </FormGroup>
           </div>
 
-          {doesLawyerOfferPhoneAndVisitingAppointments && (
+          {shouldShowStepFour && (
             <>
               <div
                 className={`form-section ${
@@ -145,37 +148,31 @@ const BookAnAppointmentForm = ({
               >
                 {formatMessage(messages.selectTypeOfAppointment)}
                 <FormGroup check>
-                  <Label check>
-                    <Input
-                      type='radio'
-                      name='appointmentType'
-                      checked={isAppointmentViaPhone}
-                      onClick={() => {
-                        setIsAppointmentViaPhone(true);
-                        setIsPersonnelAppointment(false);
-                      }}
-                    />
-                    {formatMessage(messages.appointmentViaPhone)}
-                  </Label>
+                  <RadioInputWithTick
+                    name='appointmentType'
+                    checked={isAppointmentViaPhone}
+                    onClick={() => {
+                      setIsAppointmentViaPhone(true);
+                      setIsPersonnelAppointment(false);
+                    }}
+                    label={messages.appointmentViaPhone}
+                  />
                 </FormGroup>
                 <FormGroup check>
-                  <Label check>
-                    <Input
-                      type='radio'
-                      name='appointmentType'
-                      checked={isPersonnelAppointment}
-                      onClick={() => {
-                        setIsAppointmentViaPhone(false);
-                        setIsPersonnelAppointment(true);
-                      }}
-                    />
-                    {formatMessage(messages.personnelAppointments)}
-                  </Label>
+                  <RadioInputWithTick
+                    name='appointmentType'
+                    checked={isPersonnelAppointment}
+                    onClick={() => {
+                      setIsAppointmentViaPhone(false);
+                      setIsPersonnelAppointment(true);
+                    }}
+                    label={messages.personnelAppointments}
+                  />
                 </FormGroup>
               </div>
             </>
           )}
-          {!doesTheFirmHaveOnlyOneLawyer && (
+          {shouldShowStepFive && (
             <>
               <div
                 className={`form-section ${
@@ -201,7 +198,7 @@ const BookAnAppointmentForm = ({
               </div>
             </>
           )}
-          {requiresShortSummary && (
+          {shouldShowStepSix && (
             <>
               <div
                 className={`form-section ${

@@ -23,6 +23,9 @@
 }
 
 .search-page {
+  * {
+    font-family: 'Montserrat', arial, sans-serif;
+  }
   .active {
     box-shadow: 0 2px 14px rgba(51, 51, 51, 0.2);
     border: 1px solid #0596de;

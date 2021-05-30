@@ -1,5 +1,6 @@
 .lawyer-details-page {
   width: 100%;
+  font-family: 'Montserrat', arial, sans-serif;
 
   .section {
     border: 1px solid #d8d8d8;
@@ -139,7 +140,7 @@
   }
 
   .right-section {
-    background-color: #fdfafa;
+    background-color: #fbfbfb;
     margin-top: 30px;
     hr {
       background-color: #ebebeb !important;
@@ -194,11 +195,11 @@
       }
 
       .appointment-btn {
-        width: 40%;
+        width: 50%;
         background-color: #105fbb;
         border-color: #105fbb;
         font-size: 14px;
-        margin-left: 30%;
+        margin-left: 25%;
       }
 
       button.appointment-btn:hover {
