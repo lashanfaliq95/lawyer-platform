@@ -29,6 +29,7 @@ import ProUserAppointments from 'components/ProUserAppointments';
 import ProAppointment from 'components/ProAppointment';
 import ProtectedRoute from 'components/Shared/ProtectedRoute';
 import ProClientPage from 'components/ProClientPage';
+import ProMessagePage from 'components/ProMessagePage';
 
 import reducers from 'reducers';
 import sagas from 'sagas';
@@ -79,7 +80,8 @@ const App = () => (
         />
         <Route path='/pro/appointments' exact component={ProUserAppointments} />
         <Route path='/pro/appointments/:id' exact component={ProAppointment} />
-        <Route path='/pro/client' exact component={ProClientPage} />
+        <Route path='/pro/clients' exact component={ProClientPage} />
+        <Route path='/pro/messages' exact component={ProMessagePage} />
         <Route path='/pro' exact component={ProHomePage} />
         <Route path='/404-not-found' component={NotFoundPage} />
         <Redirect from='*' to='/404-not-found' />

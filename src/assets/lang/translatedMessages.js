@@ -521,4 +521,10 @@ export default {
   'app.proClientPage.clientDetail.mobile': 'Handynummer',
   'app.proClientPage.clientDetail.btnRemove': 'Entfernen',
   'app.proClientPage.clientDetail.btnSave': 'Speichern',
+  'app.proMessagePage.title': 'Nachrichten',
+  'app.proMessagePage.subtitle': 'Wem möchten Sie eine E-Mail senden?',
+  'app.proMessagePage.noClient.title': 'Behalten Sie den Überblick',
+  'app.proMessagePage.noClient.description':
+    'Wir nehmen Ihnen die Arbeit ab und fügen Mandanten nach erfolgreicher Terminvereinbarung automatisch zu Ihrem Konto hinzu.',
+  'app.proMessagePage.sendEmailBtn': 'E-Mail Weiterleitung',
 };
