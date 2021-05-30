@@ -1,0 +1,81 @@
+const clients = [
+  {
+    id: 1,
+    firstName: 'Stefan',
+    lastName: 'Seitz',
+    email: 'stefanseitz@test.com',
+    mobile: '+94773121234',
+  },
+  {
+    id: 2,
+    firstName: 'Pia',
+    lastName: 'Parez',
+    email: 'piaparez@test.com',
+    mobile: '+94773168345',
+  },
+  {
+    id: 3,
+    firstName: 'Toni',
+    lastName: 'Kroos',
+    email: 'tonikroos@test.com',
+    mobile: '+94777778345',
+  },
+  {
+    id: 4,
+    firstName: 'Sarah',
+    lastName: 'Müller',
+    email: 'sarahmuller@test.com',
+    mobile: '+94773169999',
+  },
+  {
+    id: 5,
+    firstName: 'Stefan',
+    lastName: 'Schmidt',
+    email: 'stefanschmidt@test.com',
+    mobile: '+94773163232',
+  },
+  {
+    id: 6,
+    firstName: 'Tony',
+    lastName: 'Stark',
+    email: 'tonystark@test.com',
+    mobile: '+94778883232',
+  },
+  {
+    id: 7,
+    firstName: 'Peter',
+    lastName: 'Parker',
+    email: 'spidey@test.com',
+    mobile: '+94765432198',
+  },
+  {
+    id: 8,
+    firstName: 'Bruce',
+    lastName: 'Wayne',
+    email: 'batman@test.com',
+    mobile: '+94778098765',
+  },
+  {
+    id: 9,
+    firstName: 'Barry',
+    lastName: 'Allen',
+    email: 'flash@test.com',
+    mobile: '+94779990065',
+  },
+  {
+    id: 10,
+    firstName: 'Tom',
+    lastName: 'Jerry',
+    email: 'tomjerry@test.com',
+    mobile: '+94718750011',
+  },
+  {
+    id: 11,
+    firstName: 'Rebecca',
+    lastName: 'Meow',
+    email: 'rebeccameow@test.com',
+    mobile: '+94718001100',
+  },
+];
+
+export default clients;
