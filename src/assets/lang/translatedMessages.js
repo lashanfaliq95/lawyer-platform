@@ -233,6 +233,22 @@ export default {
     'Information zu erhalten.',
   'app.lawyerDetailsPage.cancel': 'Abbrechen',
   'app.lawyerDetailsPage.call': 'Anrufen',
+  'app.lawyerDetailsPage.appointmentBookingModalTitle': `Wichtige Informationen vor
+  Ihrem Termin`,
+  'app.lawyerDetailsPage.directBookingModalBody': `Mit der Terminbuchung
+  verpflichten Sie sich, diesen Termin
+  rechtzeitig wahrzunehmen. Sollten
+  Sie verhindert sein, denken Sie bitte
+  daran, Ihren Termin so früh wie
+  möglich zu verschieben oder
+  abzusagen.`,
+  'app.lawyerDetailsPage.messageToYouFromTheLawyer': `Mitteilung des Experten zu
+  Ihrem Termin:`,
+  'app.lawyerDetailsPage.manualBookingModalBody': `Bitte denken Sie daran,
+  dass Ihr Termin erst bestätigt ist,
+  wenn der Experte innerhalb von
+  48 Stunden Ihre Anfrage
+  angenommen hat.`,
   'app.appointmentsPage.appointments': 'Termine',
   'app.appointmentsPage.pastAppointments': 'Vergangene',
   'app.appointmentsPage.upComingAppointments': 'Anstehende',
