@@ -160,11 +160,17 @@
     .booking-section {
       padding: 10px 0;
       .form-section {
-        padding: 10px;
         transition: border-left 0.15s;
         transform-origin: left top;
         border-top: 1px solid #ebebeb;
         border-left: 2.5px solid transparent;
+        padding: 20px;
+        .section-title {
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 20px;
+          display: block;
+        }
       }
       .active-section {
         border: none;

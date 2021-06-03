@@ -56,19 +56,45 @@ const BookAnAppointmentForm = ({
     }
   };
 
-  const shouldShowStepFour =
-    doesLawyerOfferPhoneAndVisitingAppointments &&
+  const isFirstThreeStepsCompleted =
     (isNotExistingClient || isExitingClient) &&
     typeOfLegalIssue &&
     (isClientWithInsurance || isClientWithoutInsurance);
 
+  const shouldShowStepFour =
+    doesLawyerOfferPhoneAndVisitingAppointments && isFirstThreeStepsCompleted;
+
   const shouldShowStepFive =
-    shouldShowStepFour &&
-    (isPersonnelAppointment || isAppointmentViaPhone) &&
-    !doesTheFirmHaveOnlyOneLawyer;
+    !doesTheFirmHaveOnlyOneLawyer &&
+    ((shouldShowStepFour &&
+      (isPersonnelAppointment || isAppointmentViaPhone)) ||
+      (!doesLawyerOfferPhoneAndVisitingAppointments &&
+        isFirstThreeStepsCompleted));
 
   const shouldShowStepSix =
-    shouldShowStepFive && expertOfLawFirm && requiresShortSummary;
+    requiresShortSummary &&
+    ((shouldShowStepFive && expertOfLawFirm) ||
+      (doesTheFirmHaveOnlyOneLawyer &&
+        doesLawyerOfferPhoneAndVisitingAppointments &&
+        (isPersonnelAppointment || isAppointmentViaPhone)) ||
+      (doesTheFirmHaveOnlyOneLawyer &&
+        !doesLawyerOfferPhoneAndVisitingAppointments &&
+        isFirstThreeStepsCompleted));
+
+  const shouldShowCalender =
+    (shouldShowStepSix && summaryOfIssue) ||
+    (!requiresShortSummary &&
+      !doesTheFirmHaveOnlyOneLawyer &&
+      expertOfLawFirm) ||
+    (!requiresShortSummary &&
+      doesTheFirmHaveOnlyOneLawyer &&
+      doesLawyerOfferPhoneAndVisitingAppointments &&
+      (isPersonnelAppointment || isAppointmentViaPhone)) ||
+    (!requiresShortSummary &&
+      doesTheFirmHaveOnlyOneLawyer &&
+      !doesLawyerOfferPhoneAndVisitingAppointments &&
+      isFirstThreeStepsCompleted);
+
   return (
     <div className='right-section'>
       <div className='title'>
@@ -84,7 +110,9 @@ const BookAnAppointmentForm = ({
               isNotExistingClient || isExitingClient ? 'active-section' : ''
             }`}
           >
-            {formatMessage(messages.areYouAlreadyAClient)}
+            <span className='section-title'>
+              {formatMessage(messages.areYouAlreadyAClient)}
+            </span>
             <FormGroup check>
               <div className='check-box'>
                 <RadioInputWithTick
@@ -122,7 +150,9 @@ const BookAnAppointmentForm = ({
             }`}
           >
             <FormGroup>
-              {formatMessage(messages.whatTypeOfLegalIssueIsIt)}
+              <span className='section-title'>
+                {formatMessage(messages.whatTypeOfLegalIssueIsIt)}
+              </span>
               <Input
                 placeholder='Angelegenheit'
                 value={typeOfLegalIssue}
@@ -138,7 +168,9 @@ const BookAnAppointmentForm = ({
                 : ''
             }`}
           >
-            {formatMessage(messages.doYouHaveLegalInsurance)}
+            <span className='section-title'>
+              {formatMessage(messages.doYouHaveLegalInsurance)}
+            </span>
             <FormGroup check>
               <RadioInputWithTick
                 name='legalInsurance'
@@ -176,7 +208,9 @@ const BookAnAppointmentForm = ({
                     : ''
                 }`}
               >
-                {formatMessage(messages.selectTypeOfAppointment)}
+                <span className='section-title'>
+                  {formatMessage(messages.selectTypeOfAppointment)}
+                </span>
                 <FormGroup check>
                   <RadioInputWithTick
                     name='appointmentType'
@@ -214,7 +248,9 @@ const BookAnAppointmentForm = ({
                 }`}
               >
                 <FormGroup>
-                  {formatMessage(messages.whichExpertShouldAdviceYou)}
+                  <span className='section-title'>
+                    {formatMessage(messages.whichExpertShouldAdviceYou)}
+                  </span>
                   <Input
                     defaultValue=''
                     type='select'
@@ -242,36 +278,49 @@ const BookAnAppointmentForm = ({
                 }`}
               >
                 <FormGroup>
-                  {formatMessage(messages.summaryOfLegalIssue)}
+                  <span className='section-title'>
+                    {formatMessage(messages.summaryOfLegalIssue)}
+                  </span>
+
                   <Input
                     placeholder='Ihr Text'
                     type='textarea'
                     onChange={(e) => {
                       setState({ summaryOfIssue: e.target.value });
                     }}
+                    style={{ height: '200px' }}
                   />
                 </FormGroup>
               </div>
             </>
           )}
-          <div className='form-section calender-wrapper'>
-            {formatMessage(messages.selectTimeSlot)}
-            <Calender
-              id='mock1'
-              onClickValue={(value) => {
-                setState({ selectedDate: value });
-              }}
-            />
-            <Button
-              className='appointment-btn'
-              color='primary'
-              onClick={() => {
-                setState({ showApprovalModal: true });
-              }}
+          {shouldShowCalender && (
+            <div
+              className={`form-section calender-wrapper ${
+                selectedDate ? 'active-section' : ''
+              }`}
             >
-              {formatMessage(messages.bookTheAppointment)}
-            </Button>
-          </div>
+              <span className='section-title'>
+                {' '}
+                {formatMessage(messages.selectTimeSlot)}
+              </span>
+              <Calender
+                id='mock1'
+                onClickValue={(value) => {
+                  setState({ selectedDate: value });
+                }}
+              />
+              <Button
+                className='appointment-btn'
+                color='primary'
+                onClick={() => {
+                  setState({ showApprovalModal: true });
+                }}
+              >
+                {formatMessage(messages.bookTheAppointment)}
+              </Button>
+            </div>
+          )}
         </Form>
         {showModal && (
           <NoNewClientsModal
