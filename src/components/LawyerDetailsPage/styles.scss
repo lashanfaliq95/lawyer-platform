@@ -46,7 +46,7 @@
   .info {
     padding: 30px;
     .content {
-      color: grey;
+      color: rgb(102, 100, 100);
       margin-top: 10px;
     }
   }
@@ -57,10 +57,10 @@
       display: flex;
 
       .element {
-        background-color: #105fbb;
-        border-radius: 25px;
+        background-color: #eff3f7;
+        border-radius: 5px;
         padding: 10px;
-        color: white;
+        color: rgb(129, 123, 123);
         font-size: 12px;
         margin: 5px;
       }
@@ -157,6 +157,7 @@
       font-weight: 400;
       padding-left: 10px;
     }
+
     .booking-section {
       padding: 10px 0;
       .form-section {
@@ -195,6 +196,18 @@
           width: 100%;
         }
       }
+
+      .top-radio-input {
+        margin-bottom: 0;
+        border-radius: 5px 5px 0 0;
+        border-bottom: transparent;
+      }
+
+      .bottom-radio-button {
+        margin-top: 0;
+        border-radius: 0 0 5px 5px;
+      }
+
       .calender-wrapper {
         position: relative;
         height: 400px;
@@ -213,5 +226,23 @@
         border-color: #082b53;
       }
     }
+  }
+}
+
+.appointment-modal {
+  .modal-content {
+    width: 800px;
+  }
+  button {
+    height: 40px;
+  }
+}
+
+.booking-appointment-modal {
+  .modal-content {
+    width: 800px;
+  }
+  button {
+    height: 40px;
   }
 }

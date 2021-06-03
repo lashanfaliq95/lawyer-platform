@@ -20,6 +20,7 @@ const NoNewClientsModal = ({ showModal, phoneNumber, onClose }) => {
       <Modal
         isOpen={modal}
         toggle={toggle}
+        className='appointment-modal'
         onClosed={() => {
           onClose();
           setModal(false);
@@ -30,27 +31,31 @@ const NoNewClientsModal = ({ showModal, phoneNumber, onClose }) => {
         </ModalHeader>
         <ModalBody>
           <Row>
-            <Col md='1' style={{ margin: 'auto 10px auto auto' }}>
+            <Col md='1' style={{ margin: 'auto 5px' }}>
               <Icon name='user-alt-slash' size='extraLarge' />
             </Col>
-            <Col>
+            <Col md='7'>
               {formatMessage(messages.noNewClientModalBody, { phoneNumber })}
+            </Col>
+            <Col
+              md={{ size: '3' }}
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <Button color='link' onClick={toggle}>
+                {formatMessage(messages.cancel)}
+              </Button>
+              <Button color='secondary' onClick={toggle}>
+                <a href={`tel:${phoneNumber}`}>
+                  {formatMessage(messages.call)}
+                </a>
+              </Button>
             </Col>
           </Row>
         </ModalBody>
-        <Row style={{ marginBottom: '10px' }}>
-          <Col
-            md={{ offset: '1', size: '11' }}
-            style={{ display: 'flex', justifyContent: 'space-between' }}
-          >
-            <Button color='link' onClick={toggle}>
-              {formatMessage(messages.cancel)}
-            </Button>
-            <Button color='secondary' onClick={toggle}>
-              <a href={`tel:${phoneNumber}`}>{formatMessage(messages.call)}</a>
-            </Button>
-          </Col>
-        </Row>
       </Modal>
     </div>
   );

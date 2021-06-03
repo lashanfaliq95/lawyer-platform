@@ -113,23 +113,21 @@ const BookAnAppointmentForm = ({
             <span className='section-title'>
               {formatMessage(messages.areYouAlreadyAClient)}
             </span>
-            <FormGroup check>
-              <div className='check-box'>
-                <RadioInputWithTick
-                  name='existingClient'
-                  checked={isNotExistingClient}
-                  onClick={() => {
-                    setState({
-                      isNotExistingClient: !isNotExistingClient,
-                      isExitingClient: false,
-                    });
-                  }}
-                  onChange={onClickNotAExistingClient}
-                  label={messages.no}
-                />
-              </div>
+            <FormGroup check className='top-radio-input'>
+              <RadioInputWithTick
+                name='existingClient'
+                checked={isNotExistingClient}
+                onClick={() => {
+                  setState({
+                    isNotExistingClient: !isNotExistingClient,
+                    isExitingClient: false,
+                  });
+                }}
+                onChange={onClickNotAExistingClient}
+                label={messages.no}
+              />
             </FormGroup>
-            <FormGroup check>
+            <FormGroup check className='bottom-radio-button'>
               <RadioInputWithTick
                 name='existingClient'
                 checked={isExitingClient}
@@ -154,10 +152,20 @@ const BookAnAppointmentForm = ({
                 {formatMessage(messages.whatTypeOfLegalIssueIsIt)}
               </span>
               <Input
-                placeholder='Angelegenheit'
-                value={typeOfLegalIssue}
-                onChange={(e) => setState({ typeOfLegalIssue: e.target.value })}
-              />
+                defaultValue=''
+                type='select'
+                onChange={(e) => {
+                  setState({ typeOfLegalIssue: e.target.value });
+                }}
+              >
+                <option hidden value=''>
+                  Angelegenheit
+                </option>
+                <option value='Katja'>Katja</option>
+                <option value='Dr. Rainer'>Dr. Rainer</option>
+                <option value='Anne'>Anne</option>
+                <option value='Jan Niklas'>Jan Niklas</option>
+              </Input>
             </FormGroup>
           </div>
 
@@ -171,7 +179,7 @@ const BookAnAppointmentForm = ({
             <span className='section-title'>
               {formatMessage(messages.doYouHaveLegalInsurance)}
             </span>
-            <FormGroup check>
+            <FormGroup check className='top-radio-input'>
               <RadioInputWithTick
                 name='legalInsurance'
                 checked={isClientWithoutInsurance}
@@ -184,7 +192,7 @@ const BookAnAppointmentForm = ({
                 label={messages.no}
               />
             </FormGroup>
-            <FormGroup check>
+            <FormGroup check className='bottom-radio-button'>
               <RadioInputWithTick
                 name='legalInsurance'
                 checked={isClientWithInsurance}
@@ -211,8 +219,9 @@ const BookAnAppointmentForm = ({
                 <span className='section-title'>
                   {formatMessage(messages.selectTypeOfAppointment)}
                 </span>
-                <FormGroup check>
+                <FormGroup check className='top-radio-input'>
                   <RadioInputWithTick
+                    className='top-radio-input'
                     name='appointmentType'
                     checked={isAppointmentViaPhone}
                     onClick={() => {
@@ -224,7 +233,7 @@ const BookAnAppointmentForm = ({
                     label={messages.appointmentViaPhone}
                   />
                 </FormGroup>
-                <FormGroup check>
+                <FormGroup check className='bottom-radio-button'>
                   <RadioInputWithTick
                     name='appointmentType'
                     checked={isPersonnelAppointment}
@@ -301,7 +310,6 @@ const BookAnAppointmentForm = ({
               }`}
             >
               <span className='section-title'>
-                {' '}
                 {formatMessage(messages.selectTimeSlot)}
               </span>
               <Calender

@@ -21,6 +21,7 @@ const DirectBookingModal = ({ showModal, lawyerMessage, onClose, body }) => {
       <Modal
         isOpen={modal}
         toggle={toggle}
+        className='appointment-modal'
         onClosed={() => {
           onClose();
           setModal(false);
@@ -31,21 +32,23 @@ const DirectBookingModal = ({ showModal, lawyerMessage, onClose, body }) => {
         </ModalHeader>
         <ModalBody>
           <Row>
-            <Col md='1' style={{ margin: 'auto 10px auto auto' }}>
+            <Col md='1' style={{ margin: 'auto 5px' }}>
               <Icon name='calendar-alt' size='extraLarge' />
             </Col>
-            <Col>
+            <Col md='5'>
               {formatMessage(body)}
               <Hr color='#bfbebe' />
               {lawyerMessage &&
                 `${formatMessage(messages.messageToYouFromTheLawyer)}
               ${lawyerMessage}`}
             </Col>
-          </Row>
-          <Row style={{ marginTop: '20px' }}>
             <Col
-              md={{ offset: '1', size: '11' }}
-              style={{ display: 'flex', justifyContent: 'space-between' }}
+              md='5'
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
             >
               <Button color='link' onClick={toggle}>
                 {formatMessage(messages.cancel)}
