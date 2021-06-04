@@ -2,7 +2,7 @@ import moment from 'moment';
 import intl from 'helpers/intlHelper';
 
 import { APPOINTMENT_RANGES } from 'components/Shared/constants';
-import { DAYS, MONTHS, JOB_TITLES } from './messages';
+import { DAYS, MONTHS, JOB_TITLES, SHORT_DAYS } from './messages';
 import { JOBS, GENDER } from './constants';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -53,6 +53,10 @@ export function getLocalizedMonth(momentObj) {
 
 export function getLocalizedDayOfWeek(momentObj) {
   return DAYS[moment(momentObj).format('dddd').toLowerCase()];
+}
+
+export function getLocalizedShortDayOfWeek(momentObj) {
+  return SHORT_DAYS[moment(momentObj).format('dddd').toLowerCase()];
 }
 
 export function mapCustomAppointments(arr, format) {
@@ -174,3 +178,20 @@ export const getJobTitle = (expertId, gender) => {
       return null;
   }
 };
+
+const TIME_SLOTS = [];
+
+export function getTimeSlots() {
+  if (TIME_SLOTS.length === 0) {
+    const date = moment().startOf('day');
+
+    TIME_SLOTS.push('00:00');
+
+    for (let i = 0; i < 95; i += 1) {
+      const newDate = date.add(15, 'minute');
+      TIME_SLOTS.push(`${newDate.format('HH')}:${newDate.format('mm')}`);
+    }
+  }
+
+  return TIME_SLOTS;
+}

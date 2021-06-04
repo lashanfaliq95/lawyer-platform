@@ -105,6 +105,37 @@ export const DAYS = defineMessages({
   },
 });
 
+export const SHORT_DAYS = defineMessages({
+  monday: {
+    id: 'app.common.days.mon',
+    defaultMessage: 'Mon',
+  },
+  tuesday: {
+    id: 'app.common.days.tue',
+    defaultMessage: 'Tue',
+  },
+  wednesday: {
+    id: 'app.common.days.wed',
+    defaultMessage: 'Wed',
+  },
+  thursday: {
+    id: 'app.common.days.thu',
+    defaultMessage: 'Thu',
+  },
+  friday: {
+    id: 'app.common.days.fri',
+    defaultMessage: 'Fri',
+  },
+  saturday: {
+    id: 'app.common.days.sat',
+    defaultMessage: 'Sat',
+  },
+  sunday: {
+    id: 'app.common.days.sun',
+    defaultMessage: 'Sun',
+  },
+});
+
 export const JOB_TITLES = defineMessages({
   title: {
     id: 'app.shared.jobTitleTitle',
@@ -161,5 +192,61 @@ export const JOB_TITLES = defineMessages({
   consultantFemale: {
     id: 'app.shared.consultantFemale',
     defaultMessage: 'Consultant',
+  },
+});
+
+export const LEGAL_ISSUE_TYPES = defineMessages({
+  typeOne: {
+    id: 'app.appointmentTypes.typeOne',
+    defaultMessage: 'Type One',
+  },
+  typeTwo: {
+    id: 'app.appointmentTypes.typeTwo',
+    defaultMessage: 'Type Two',
+  },
+});
+
+export const OFFERED_APPOINTMENT_TYPES = defineMessages({
+  personalVisit: {
+    id: 'app.appointmentTypes.personalVisit',
+    defaultMessage: 'Personal Visit',
+  },
+  phoneAppointment: {
+    id: 'app.appointmentTypes.phoneAppointment',
+    defaultMessage: 'Phone Appointment',
+  },
+});
+
+export const NOTIFICATION_TYPES = defineMessages({
+  none: {
+    id: 'app.notificationTypes.none',
+    defaultMessage: 'None',
+  },
+  email: {
+    id: 'app.notificationTypes.email',
+    defaultMessage: 'E-Mail',
+  },
+  emailAndSms: {
+    id: 'app.notificationTypes.emailAndSms',
+    defaultMessage: 'E-Mail and SMS',
+  },
+});
+
+export const REPEAT_FREQUENCY_TYPES = defineMessages({
+  everyDay: {
+    id: 'app.repeatFrequencyTypes.everyDay',
+    defaultMessage: 'Every Day',
+  },
+  everyWeek: {
+    id: 'app.repeatFrequencyTypes.everyWeek',
+    defaultMessage: 'Every Week',
+  },
+  everyMonth: {
+    id: 'app.repeatFrequencyTypes.everyMonth',
+    defaultMessage: 'Every Month',
+  },
+  everyYear: {
+    id: 'app.repeatFrequencyTypes.everyYear',
+    defaultMessage: 'Every Year',
   },
 });

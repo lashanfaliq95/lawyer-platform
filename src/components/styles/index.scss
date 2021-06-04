@@ -13,7 +13,8 @@ body {
     font-size: 14px !important;
   }
   .btn.focus,
-  .btn:focus {
+  .btn:focus,
+  button:focus {
     outline: 0;
     box-shadow: none !important;
   }

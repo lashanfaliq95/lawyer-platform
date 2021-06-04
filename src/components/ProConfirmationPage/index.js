@@ -25,6 +25,7 @@ const ProRegistrationPage = ({ match }) => {
   useEffect(() => {
     const { params } = match;
     dispatch(getValidityOfConfirmationToken(params.token));
+    //  eslint-disable-next-line
   }, []);
 
   return (
