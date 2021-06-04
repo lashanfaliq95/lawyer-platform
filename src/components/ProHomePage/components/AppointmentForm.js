@@ -225,7 +225,6 @@ function handleEndDateValidation(toDate) {
 function AppointmentForm({ type }) {
   const [
     { isSuccess, isAlternateSuccess, isLoading, isAlternateLoading },
-    setState,
   ] = useSetState({
     isSuccess: false,
     isAlternateSuccess: false,

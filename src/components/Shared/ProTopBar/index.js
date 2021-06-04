@@ -10,6 +10,7 @@ import {
 import { useSetState } from 'react-use';
 import { useHistory } from 'react-router-dom';
 import { defineMessages } from 'react-intl';
+import PropTypes from 'prop-types';
 
 import intl from 'helpers/intlHelper';
 import { CLIENTS } from 'helpers/data';
@@ -91,6 +92,12 @@ const NavigationItem = styled.button`
 const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  ${({ visible }) =>
+    !visible &&
+    css`
+      visibility: hidden;
+    `}
 
   padding: 0.5rem 0;
 `;
@@ -209,7 +216,14 @@ const ListContainer = styled.div`
   }
 `;
 
-function ProTopBar() {
+export const TAB_TYPES = {
+  HOME: 0,
+  CLIENTS: 1,
+  MESSAGES: 2,
+  ACCOUNT: 3,
+};
+
+function ProTopBar({ type, showClientSearch }) {
   const history = useHistory();
 
   const searchContainerRef = useRef(null);
@@ -237,8 +251,24 @@ function ProTopBar() {
     }, 500);
   }
 
-  function handleOnClientClick() {
+  function handleOnSearchEntryClick() {
     history.push('/pro/appointments');
+  }
+
+  function handleOnClientsClick() {
+    history.push('/pro/clients');
+  }
+
+  function handleOnMessagesClick() {
+    history.push('/pro/messages');
+  }
+
+  function handleOnHomeClick() {
+    history.push('/pro');
+  }
+
+  function handleOnMyAccountsClick() {
+    history.push('/pro/my-account');
   }
 
   const showDropdown = searchTerm && searchTerm.length >= 2 && searchTermFocus;
@@ -252,7 +282,7 @@ function ProTopBar() {
     <Container>
       <Title>Avoplan Pro</Title>
       <Separator />
-      <SearchContainer>
+      <SearchContainer visible={showClientSearch}>
         <SearchInputContainer ref={searchContainerRef}>
           <FaSearch />
           <SearchInput
@@ -275,7 +305,7 @@ function ProTopBar() {
                       <SearchClient
                         client={c}
                         search={searchTerm}
-                        onClick={handleOnClientClick}
+                        onClick={handleOnSearchEntryClick}
                       />
                     </ListItemContainer>
                   ))
@@ -296,19 +326,31 @@ function ProTopBar() {
       </SearchContainer>
       <Separator />
       <NavigationContainer>
-        <NavigationItem selected>
+        <NavigationItem
+          selected={type === TAB_TYPES.HOME}
+          onClick={handleOnHomeClick}
+        >
           <FaRegCalendar />
           {intl.formatMessage(messages.calendar)}
         </NavigationItem>
-        <NavigationItem>
+        <NavigationItem
+          selected={type === TAB_TYPES.CLIENTS}
+          onClick={handleOnClientsClick}
+        >
           <FaUsers />
           {intl.formatMessage(messages.clients)}
         </NavigationItem>
-        <NavigationItem>
+        <NavigationItem
+          selected={type === TAB_TYPES.MESSAGES}
+          onClick={handleOnMessagesClick}
+        >
           <FaEnvelope />
           {intl.formatMessage(messages.messages)}
         </NavigationItem>
-        <NavigationItem>
+        <NavigationItem
+          selected={type === TAB_TYPES.ACCOUNT}
+          onClick={handleOnMyAccountsClick}
+        >
           <FaUser />
           {intl.formatMessage(messages.myAccount)}
         </NavigationItem>
@@ -316,5 +358,15 @@ function ProTopBar() {
     </Container>
   );
 }
+
+ProTopBar.propTypes = {
+  type: PropTypes.number,
+  showClientSearch: PropTypes.bool,
+};
+
+ProTopBar.defaultProps = {
+  type: TAB_TYPES.HOME,
+  showClientSearch: false,
+};
 
 export default ProTopBar;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { MdArrowForward } from 'react-icons/md';
 
 import formatMessages from 'components/formatMessages';
-import ProTopBar from 'components/Shared/ProTopBar';
+import ProTopBar, { TAB_TYPES } from 'components/Shared/ProTopBar';
 import NoClient from './components/NoClient';
 import ClientItem from './components/ClientItem';
 import messages from './messages';
@@ -36,11 +36,11 @@ const Container = styled.div`
 const Title = styled.div`
   font-weight: 600;
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const Subtitle = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
 `;
 
@@ -99,7 +99,7 @@ function ProMessagePage() {
 
   return (
     <RootContainer>
-      <ProTopBar />
+      <ProTopBar type={TAB_TYPES.MESSAGES} />
       <Container>
         <Title>{formatMessages(messages.proMessagePageTitle)}</Title>
         <Subtitle>{formatMessages(messages.proMessagePageSubtitle)}</Subtitle>

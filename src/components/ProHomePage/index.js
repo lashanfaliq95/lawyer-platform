@@ -18,9 +18,11 @@ const messages = defineMessages({
 });
 
 const RootContainer = styled.div`
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  background-color: #fbfbfb;
 
   * {
     font-family: 'Montserrat', arial, sans-serif;
@@ -29,13 +31,15 @@ const RootContainer = styled.div`
 
 const Container = styled.div`
   display: flex;
+  flex-direction: row;
   flex: 1;
+  padding: 1rem;
+  width: 100%;
 `;
 
 const LeftPane = styled.div`
   width: 100%;
   max-width: max-content;
-  padding: 1rem;
 `;
 
 const RightPane = styled.div`
@@ -67,7 +71,7 @@ function ProHomePage() {
 
   return (
     <RootContainer>
-      <ProTopBar />
+      <ProTopBar showClientSearch />
       <Container>
         <LeftPane>
           <ButtonContainer>
