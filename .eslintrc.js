@@ -25,6 +25,7 @@ module.exports = {
     'function-paren-newline': 'off',
     'object-curly-newline': 'off',
     'arrow-body-style': 'off',
+    'no-confusing-arrow': 'off',
     'operator-linebreak': [
       'error',
       'after',
