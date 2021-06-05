@@ -221,7 +221,7 @@
 
       .calender-wrapper {
         position: relative;
-        height: 400px;
+        height: 500px;
       }
 
       .appointment-btn {
@@ -235,6 +235,11 @@
       button.appointment-btn:hover {
         background-color: #082b53;
         border-color: #082b53;
+      }
+
+      .no-appointments-overlay {
+        left: 35px;
+        width: 320px;
       }
     }
   }
@@ -265,6 +270,7 @@
   .btn-secondary {
     background-color: #105fbb;
     border-color: #105fbb;
+    color: white;
     a {
       color: white;
     }

@@ -37,9 +37,10 @@ const DirectBookingModal = ({ showModal, lawyerMessage, onClose, body }) => {
             </Col>
             <Col md='5'>
               {formatMessage(body)}
-              <Hr color='#bfbebe' />
               {lawyerMessage &&
-                `${formatMessage(messages.messageToYouFromTheLawyer)}
+                (<Hr color='#bfbebe' />)`${formatMessage(
+                  messages.messageToYouFromTheLawyer,
+                )}
               ${lawyerMessage}`}
             </Col>
             <Col

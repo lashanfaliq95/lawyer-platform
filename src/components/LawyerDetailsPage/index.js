@@ -52,6 +52,7 @@ const LawyerDetailsPage = ({
     isLawyerOfferingPhoneAndVisitingAppointments,
     isRequireShortSummary,
     isAppointmentRequireApproval,
+    lawyersOfFirm,
   } = lawyerDetails || {};
 
   return (
@@ -219,12 +220,13 @@ const LawyerDetailsPage = ({
           <Col md={{ size: '3', offset: '1' }}>
             <BookAnAppointmentForm
               legalIssues={legalIssues}
-              isLawyerAcceptingNewClients={isLawyerAcceptingNewClients}
+              isLawyerAcceptingNewClients={!!isLawyerAcceptingNewClients}
               isLawyerOfferingPhoneAndVisitingAppointments={
-                isLawyerOfferingPhoneAndVisitingAppointments
+                !!isLawyerOfferingPhoneAndVisitingAppointments
               }
-              isRequireShortSummary={isRequireShortSummary}
-              isAppointmentRequireApproval={isAppointmentRequireApproval}
+              isRequireShortSummary={!!isRequireShortSummary}
+              isAppointmentRequireApproval={!!isAppointmentRequireApproval}
+              lawyersOfFirm={lawyersOfFirm || []}
             />
           </Col>
         </Row>

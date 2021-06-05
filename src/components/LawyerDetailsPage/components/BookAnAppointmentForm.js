@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSetState } from 'react-use';
-import { bool, shape } from 'prop-types';
+import { bool, shape, string } from 'prop-types';
 import { Form, FormGroup, Button, Input } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
@@ -16,7 +16,7 @@ const BookAnAppointmentForm = ({
   legalIssues,
   isLawyerAcceptingNewClients,
   isLawyerOfferingPhoneAndVisitingAppointments,
-  doesTheFirmHaveOnlyOneLawyer,
+  lawyersOfFirm,
   isRequireShortSummary,
   isAppointmentRequireApproval,
 }) => {
@@ -64,6 +64,8 @@ const BookAnAppointmentForm = ({
 
   const shouldShowStepFour =
     isLawyerOfferingPhoneAndVisitingAppointments && isFirstThreeStepsCompleted;
+
+  const doesTheFirmHaveOnlyOneLawyer = lawyersOfFirm.length <= 1;
 
   const shouldShowStepFive =
     !doesTheFirmHaveOnlyOneLawyer &&
@@ -275,10 +277,12 @@ const BookAnAppointmentForm = ({
                     <option hidden value=''>
                       Experte
                     </option>
-                    <option value='Katja'>Katja</option>
-                    <option value='Dr. Rainer'>Dr. Rainer</option>
-                    <option value='Anne'>Anne</option>
-                    <option value='Jan Niklas'>Jan Niklas</option>
+                    {lawyersOfFirm.length > 1 &&
+                      lawyersOfFirm.map((lawyer) => (
+                        <option key={lawyer} value='lawyer'>
+                          {lawyer}
+                        </option>
+                      ))}
                   </Input>
                 </FormGroup>
               </div>
@@ -317,12 +321,20 @@ const BookAnAppointmentForm = ({
               <span className='section-title'>
                 {formatMessage(messages.selectTimeSlot)}
               </span>
-              <Calender
-                id='mock1'
-                onClickValue={(value) => {
-                  setState({ selectedDate: value });
+              <div
+                style={{
+                  height: '330px',
+                  position: 'relative',
+                  marginBottom: '20px',
                 }}
-              />
+              >
+                <Calender
+                  id='mock1'
+                  onClickValue={(value) => {
+                    setState({ selectedDate: value });
+                  }}
+                />
+              </div>
               <Button
                 className='appointment-btn'
                 color='primary'
@@ -371,16 +383,16 @@ BookAnAppointmentForm.propTypes = {
   isLawyerAcceptingNewClients: bool,
   isLawyerOfferingPhoneAndVisitingAppointments: bool,
   isRequireShortSummary: bool,
-  doesTheFirmHaveOnlyOneLawyer: bool,
+  lawyersOfFirm: shape([]),
   isAppointmentRequireApproval: bool,
-  legalIssues: shape([]),
+  legalIssues: string,
 };
 
 BookAnAppointmentForm.defaultProps = {
   isLawyerAcceptingNewClients: false,
-  isLawyerOfferingPhoneAndVisitingAppointments: true,
-  isRequireShortSummary: true,
-  doesTheFirmHaveOnlyOneLawyer: false,
+  isLawyerOfferingPhoneAndVisitingAppointments: false,
+  isRequireShortSummary: false,
+  lawyersOfFirm: [],
   isAppointmentRequireApproval: false,
   legalIssues: '',
 };
