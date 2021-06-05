@@ -27,7 +27,7 @@ const ProfileCard = ({
     zipCode,
     city,
     expertId,
-    imageUrl,
+    imgUrl,
     gender,
   } = user || {};
 
@@ -48,7 +48,7 @@ const ProfileCard = ({
           <Row className='cover-image' />
           <Col md='5'>
             <Link to={`/search/lawyer-details/${id}`}>
-              <img className='info-image' src={imageUrl} alt='Info images' />
+              <img className='info-image' src={imgUrl} alt='Info images' />
               <div className='name-section'>{name}</div>
               <div className='specialization-section'>
                 {getJobTitle(expertId, gender)}
@@ -80,7 +80,7 @@ ProfileCard.propTypes = {
     houseNumber: string.isRequired,
     city: string.isRequired,
     zipCode: string.isRequired,
-    imageUrl: string.isRequired,
+    imgUrl: string.isRequired,
     expertId: number.isRequired,
     gender: string.isRequired,
   }).isRequired,

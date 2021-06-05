@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSetState } from 'react-use';
-import { bool } from 'prop-types';
+import { bool, shape } from 'prop-types';
 import { Form, FormGroup, Button, Input } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
@@ -13,11 +13,12 @@ import AppointmentBookingModal from './AppointmentBookingModal';
 import messages from '../messages';
 
 const BookAnAppointmentForm = ({
-  doesLawyerAcceptNewClients,
-  doesLawyerOfferPhoneAndVisitingAppointments,
+  legalIssues,
+  isLawyerAcceptingNewClients,
+  isLawyerOfferingPhoneAndVisitingAppointments,
   doesTheFirmHaveOnlyOneLawyer,
-  requiresShortSummary,
-  requiresApproval,
+  isRequireShortSummary,
+  isAppointmentRequireApproval,
 }) => {
   const [
     {
@@ -51,7 +52,7 @@ const BookAnAppointmentForm = ({
   });
 
   const onClickNotAExistingClient = () => {
-    if (!doesLawyerAcceptNewClients) {
+    if (!isLawyerAcceptingNewClients) {
       setState({ showModal: true });
     }
   };
@@ -62,38 +63,40 @@ const BookAnAppointmentForm = ({
     (isClientWithInsurance || isClientWithoutInsurance);
 
   const shouldShowStepFour =
-    doesLawyerOfferPhoneAndVisitingAppointments && isFirstThreeStepsCompleted;
+    isLawyerOfferingPhoneAndVisitingAppointments && isFirstThreeStepsCompleted;
 
   const shouldShowStepFive =
     !doesTheFirmHaveOnlyOneLawyer &&
     ((shouldShowStepFour &&
       (isPersonnelAppointment || isAppointmentViaPhone)) ||
-      (!doesLawyerOfferPhoneAndVisitingAppointments &&
+      (!isLawyerOfferingPhoneAndVisitingAppointments &&
         isFirstThreeStepsCompleted));
 
   const shouldShowStepSix =
-    requiresShortSummary &&
+    isRequireShortSummary &&
     ((shouldShowStepFive && expertOfLawFirm) ||
       (doesTheFirmHaveOnlyOneLawyer &&
-        doesLawyerOfferPhoneAndVisitingAppointments &&
+        isLawyerOfferingPhoneAndVisitingAppointments &&
         (isPersonnelAppointment || isAppointmentViaPhone)) ||
       (doesTheFirmHaveOnlyOneLawyer &&
-        !doesLawyerOfferPhoneAndVisitingAppointments &&
+        !isLawyerOfferingPhoneAndVisitingAppointments &&
         isFirstThreeStepsCompleted));
 
   const shouldShowCalender =
     (shouldShowStepSix && summaryOfIssue) ||
-    (!requiresShortSummary &&
+    (!isRequireShortSummary &&
       !doesTheFirmHaveOnlyOneLawyer &&
       expertOfLawFirm) ||
-    (!requiresShortSummary &&
+    (!isRequireShortSummary &&
       doesTheFirmHaveOnlyOneLawyer &&
-      doesLawyerOfferPhoneAndVisitingAppointments &&
+      isLawyerOfferingPhoneAndVisitingAppointments &&
       (isPersonnelAppointment || isAppointmentViaPhone)) ||
-    (!requiresShortSummary &&
+    (!isRequireShortSummary &&
       doesTheFirmHaveOnlyOneLawyer &&
-      !doesLawyerOfferPhoneAndVisitingAppointments &&
+      !isLawyerOfferingPhoneAndVisitingAppointments &&
       isFirstThreeStepsCompleted);
+
+  const legalIssuesArray = legalIssues ? legalIssues.split(',') : [];
 
   return (
     <div className='right-section'>
@@ -161,10 +164,12 @@ const BookAnAppointmentForm = ({
                 <option hidden value=''>
                   Angelegenheit
                 </option>
-                <option value='Katja'>Katja</option>
-                <option value='Dr. Rainer'>Dr. Rainer</option>
-                <option value='Anne'>Anne</option>
-                <option value='Jan Niklas'>Jan Niklas</option>
+                {legalIssuesArray.length > 0 &&
+                  legalIssuesArray.map((issue) => (
+                    <option key={issue} value='issues'>
+                      {issue}
+                    </option>
+                  ))}
               </Input>
             </FormGroup>
           </div>
@@ -338,20 +343,20 @@ const BookAnAppointmentForm = ({
             }}
           />
         )}
-        {showApprovalModal && requiresApproval && (
+        {showApprovalModal && isAppointmentRequireApproval && (
           <AppointmentBookingModal
             body={messages.directBookingModalBody}
-            showModal={showApprovalModal && requiresApproval}
+            showModal={showApprovalModal && isAppointmentRequireApproval}
             selectedDate={selectedDate}
             onClose={() => {
               setState({ showApprovalModal: false });
             }}
           />
         )}
-        {showApprovalModal && !requiresApproval && (
+        {showApprovalModal && !isAppointmentRequireApproval && (
           <AppointmentBookingModal
             body={messages.manualBookingModalBody}
-            showModal={showApprovalModal && !requiresApproval}
+            showModal={showApprovalModal && !isAppointmentRequireApproval}
             onClose={() => {
               setState({ showApprovalModal: false });
             }}
@@ -363,19 +368,21 @@ const BookAnAppointmentForm = ({
 };
 
 BookAnAppointmentForm.propTypes = {
-  doesLawyerAcceptNewClients: bool,
-  doesLawyerOfferPhoneAndVisitingAppointments: bool,
-  requiresShortSummary: bool,
+  isLawyerAcceptingNewClients: bool,
+  isLawyerOfferingPhoneAndVisitingAppointments: bool,
+  isRequireShortSummary: bool,
   doesTheFirmHaveOnlyOneLawyer: bool,
-  requiresApproval: bool,
+  isAppointmentRequireApproval: bool,
+  legalIssues: shape([]),
 };
 
 BookAnAppointmentForm.defaultProps = {
-  doesLawyerAcceptNewClients: false,
-  doesLawyerOfferPhoneAndVisitingAppointments: true,
-  requiresShortSummary: true,
+  isLawyerAcceptingNewClients: false,
+  isLawyerOfferingPhoneAndVisitingAppointments: true,
+  isRequireShortSummary: true,
   doesTheFirmHaveOnlyOneLawyer: false,
-  requiresApproval: false,
+  isAppointmentRequireApproval: false,
+  legalIssues: '',
 };
 
 export default BookAnAppointmentForm;
