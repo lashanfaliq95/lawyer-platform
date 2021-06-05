@@ -3,7 +3,7 @@ import { useSetState } from 'react-use';
 import styled from 'styled-components';
 
 import formatMessages from 'components/formatMessages';
-import ProTopBar from 'components/Shared/ProTopBar';
+import ProTopBar, { TAB_TYPES } from 'components/Shared/ProTopBar';
 import ClientList from './components/ClientList';
 import NoClient from './components/NoClient';
 import messages from './messages';
@@ -62,7 +62,7 @@ function ProClientPage() {
 
   return (
     <RootContainer>
-      <ProTopBar />
+      <ProTopBar type={TAB_TYPES.CLIENTS} />
       <Container>
         <Title>{formatMessages(messages.proClientPageTitle)}</Title>
         {loading && <Title>Loading...</Title>}
