@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { bool, string, func, shape } from 'prop-types';
-import { Button, Modal, ModalHeader, ModalBody, Col, Row } from 'reactstrap';
+import { Button, Modal, ModalBody, Col, Row } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
 import Hr from 'components/Shared/HorizontalSeparator';
@@ -27,10 +27,10 @@ const DirectBookingModal = ({ showModal, lawyerMessage, onClose, body }) => {
           setModal(false);
         }}
       >
-        <ModalHeader toggle={toggle}>
-          {formatMessage(messages.appointmentBookingModalTitle)}
-        </ModalHeader>
         <ModalBody>
+          <span className='title'>
+            {formatMessage(messages.appointmentBookingModalTitle)}
+          </span>
           <Row>
             <Col md='1' style={{ margin: 'auto 5px' }}>
               <Icon name='calendar-alt' size='extraLarge' />

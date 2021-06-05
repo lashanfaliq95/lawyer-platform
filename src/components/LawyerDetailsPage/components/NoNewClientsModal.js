@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { bool, string, func } from 'prop-types';
-import { Button, Modal, ModalHeader, ModalBody, Col, Row } from 'reactstrap';
+import { Button, Modal, ModalBody, Col, Row } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
 import Icon from 'components/Shared/Icon';
@@ -26,10 +26,10 @@ const NoNewClientsModal = ({ showModal, phoneNumber, onClose }) => {
           setModal(false);
         }}
       >
-        <ModalHeader toggle={toggle}>
-          {formatMessage(messages.noNewClientModalTitle)}
-        </ModalHeader>
         <ModalBody>
+          <span className='title'>
+            {formatMessage(messages.noNewClientModalTitle)}
+          </span>
           <Row>
             <Col md='1' style={{ margin: 'auto 5px' }}>
               <Icon name='user-alt-slash' size='extraLarge' />

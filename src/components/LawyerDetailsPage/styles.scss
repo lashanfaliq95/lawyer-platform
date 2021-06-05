@@ -14,28 +14,40 @@
     color: rgb(104, 101, 101);
   }
   .image {
+    position: relative;
+    height: 392px;
     .cover-photo {
       width: 100%;
       height: 200px;
       background-repeat: no-repeat;
       background-size: 100% 200px;
+      z-index: 0;
     }
     .profile-photo {
       position: absolute;
       left: 5%;
-      top: 145px;
+      top: 135px;
       width: 100px;
       height: 100px;
       border-radius: 50%;
       background-repeat: no-repeat;
       background-size: 100px 100px;
+      z-index: 10;
     }
     .details {
       height: 200px;
+      width: 100%;
       color: gray;
+      border-top: transparent solid 1px;
+      border-radius: 10px 10px 0 0;
+      margin-top: -10px;
+      z-index: 5;
+      position: absolute;
+      top: 190px;
+      background-color: white;
       .name-gender {
         position: absolute;
-        bottom: 60px;
+        bottom: 70px;
         left: 50px;
         display: flex;
         flex-direction: column;
@@ -183,7 +195,6 @@
         background-color: white;
         margin: 10px 0;
         padding: 10px;
-        width: 80%;
         border-radius: 10px;
         .form-check-input {
           position: relative;
@@ -230,11 +241,38 @@
 }
 
 .appointment-modal {
-  .modal-content {
-    width: 800px;
+  max-width: 900px;
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: 97px;
+    font-weight: 500;
   }
+  .modal-content {
+    width: 900px;
+  }
+
   button {
     height: 40px;
+  }
+
+  .btn-link {
+    color: #105fbb;
+  }
+
+  .btn-secondary {
+    background-color: #105fbb;
+    border-color: #105fbb;
+    a {
+      color: white;
+    }
+  }
+
+  button.btn-secondary:hover {
+    background-color: #082b53;
+    border-color: #082b53;
   }
 }
 
