@@ -609,4 +609,23 @@ export default {
   'app.repeatFrequencyTypes.everyMonth': 'Monatlich',
   'app.repeatFrequencyTypes.everyYear': 'Jährlich',
   'app.singleSelect.selectPlaceholder': 'Wählen',
+  'app.proPersonalSettingPage.title': 'Persönliche Daten',
+  'app.proPersonalSettingPage.infoBox.title': 'Sicherheit bei Avoplan',
+  'app.proPersonalSettingPage.infoBox.description':
+    'Ihre Kontaktdaten werden nicht weitergegeben und nur von  Avoplan verwendet, um eine zuverlässige und sichere Nutzung unserer Plattform zu ermöglichen.',
+  'app.proPersonalSettingPage.infoBox.btnLearnMore': 'Mehr erfahren',
+  'app.proPersonalSettingPage.contactInfo.title': 'Kontaktdaten',
+  'app.proPersonalSettingPage.contactInfo.firstName': 'Vorname',
+  'app.proPersonalSettingPage.contactInfo.lastName': 'Nachname',
+  'app.proPersonalSettingPage.contactInfo.email': 'E-Mail',
+  'app.proPersonalSettingPage.contactInfo.mobile': 'Handynummer',
+  'app.proPersonalSettingPage.btnSaveChanges': 'Änderung speichern',
+  'app.proPersonalSettingPage.btnChangesSaved': 'Änderung gespeichert',
+  'app.proPersonalSettingPage.furtherInfo.title': 'Zusätzliche Informationen',
+  'app.proPersonalSettingPage.furtherInfo.gender': 'Geschlecht',
+  'app.proPersonalSettingPage.furtherInfo.jobTitle': 'Berufsbezeichnung',
+  'app.proPersonalSettingPage.setting.title': 'Verwalten',
+  'app.proPersonalSettingPage.setting.deletAccount': 'Konto löschen',
+  'app.proPersonalSettingPage.setting.description':
+    'Möchten Sie wirklich wieder zum Hörer greifen?',
 };
