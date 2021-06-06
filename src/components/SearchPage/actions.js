@@ -4,9 +4,8 @@ import {
   ON_MOUSE_LEAVE_CARD,
   GET_LAWYERS,
   SET_LAWYERS,
-  SET_LANGUAGE_FILTERS,
+  SET_FILTERS,
   SET_ACTIVE_FILTERS,
-  SET_SPECIALIZATION_FILTERS,
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
   SET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM,
@@ -44,13 +43,8 @@ export const setLawyers = (data) => ({
   payload: data,
 });
 
-export const setLanguageFilters = (data) => ({
-  type: SET_LANGUAGE_FILTERS,
-  payload: data,
-});
-
-export const setSpecializationFilters = (data) => ({
-  type: SET_SPECIALIZATION_FILTERS,
+export const setFilters = (data) => ({
+  type: SET_FILTERS,
   payload: data,
 });
 

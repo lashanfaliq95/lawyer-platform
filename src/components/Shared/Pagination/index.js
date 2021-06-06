@@ -11,8 +11,8 @@ const PaginationComponent = (props) => {
 
   useEffect(() => {
     if (
-      currentPage < currentPageSection
-      || currentPage >= currentPageSection + maxShownPages - 1
+      currentPage < currentPageSection ||
+      currentPage >= currentPageSection + maxShownPages - 1
     ) {
       setCurrentPageSection(currentPage);
     }

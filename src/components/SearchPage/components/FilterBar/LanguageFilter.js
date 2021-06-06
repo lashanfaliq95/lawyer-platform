@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
-import {
-  arrayOf, func, bool, shape, number,
-} from 'prop-types';
+import { arrayOf, func, bool, shape, number } from 'prop-types';
 
-import { setLanguageFilters } from '../../actions';
+import { setFilters } from '../../actions';
 import FilterModal from './FilterModal';
 
 const getSelectedLanguages = (languages) => {
@@ -18,14 +16,26 @@ const getSelectedLanguages = (languages) => {
   return selectedLanguages;
 };
 
+const getUpdatedLanguages = (languages, activeLanguages) => {
+  return languages.map((language) => {
+    const updatedLanguages = { ...language };
+    if (activeLanguages.includes(language.id)) {
+      updatedLanguages.isChecked = true;
+    }
+    return updatedLanguages;
+  });
+};
+
 const LanguageFilter = ({
   languages,
   activeLanguages,
-  setLanguageFilters: setLanguageFiltersAction,
+  setFilters: setLanguageFiltersAction,
   isFilterActive,
   onClose,
 }) => {
-  const [updatedLanguages, setUpdatedLanguages] = useState([...languages]);
+  const [updatedLanguages, setUpdatedLanguages] = useState(
+    getUpdatedLanguages(languages, activeLanguages),
+  );
   const [isLanguageSelected, setIsLanguageSelected] = useState(false);
 
   const onChange = (e) => {
@@ -70,7 +80,7 @@ const LanguageFilter = ({
                 <Input
                   value={id}
                   type='checkbox'
-                  checked={isChecked || activeLanguages.includes(id)}
+                  checked={isChecked || false}
                   onChange={onChange}
                 />
                 <div className='specialization-text'>{language}</div>
@@ -85,10 +95,10 @@ const LanguageFilter = ({
 
 LanguageFilter.propTypes = {
   languages: arrayOf(shape({})).isRequired,
-  setLanguageFilters: func.isRequired,
+  setFilters: func.isRequired,
   isFilterActive: bool.isRequired,
   onClose: func.isRequired,
   activeLanguages: arrayOf(shape(number)).isRequired,
 };
 
-export default connect(null, { setLanguageFilters })(LanguageFilter);
+export default connect(null, { setFilters })(LanguageFilter);

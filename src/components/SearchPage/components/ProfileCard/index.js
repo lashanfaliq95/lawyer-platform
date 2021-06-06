@@ -6,7 +6,7 @@ import { Col, Button, Row } from 'reactstrap';
 
 import Calender from 'components/SearchPage/components/Calender';
 import formatMessages from 'components/formatMessages';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { getJobTitle } from 'components/Shared/utils';
 import messages from '../../messages';
 
@@ -18,6 +18,7 @@ const ProfileCard = ({
   onMouseLeaveCard: onMouseLeaveCardAction,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const history = useHistory();
 
   const {
     id,
@@ -30,6 +31,12 @@ const ProfileCard = ({
     imgUrl,
     gender,
   } = user || {};
+
+  const lawyerDetailsPageUrl = `/search/lawyer-details/${id}`;
+
+  const onClickBookAppointment = () => {
+    history.push(lawyerDetailsPageUrl);
+  };
 
   return (
     <Element name={`profile-card-${id}`}>
@@ -47,7 +54,7 @@ const ProfileCard = ({
         <Row>
           <Row className='cover-image' />
           <Col md='5'>
-            <Link to={`/search/lawyer-details/${id}`}>
+            <Link to={lawyerDetailsPageUrl}>
               <img className='info-image' src={imgUrl} alt='Info images' />
               <div className='name-section'>{name}</div>
               <div className='specialization-section'>
@@ -57,7 +64,10 @@ const ProfileCard = ({
                 {`${road} ${houseNumber}, ${zipCode} ${city}`}
               </div>
             </Link>
-            <Button className='appointment-btn'>
+            <Button
+              className='appointment-btn'
+              onClick={onClickBookAppointment}
+            >
               {formatMessages(messages.bookAppointment)}
             </Button>
           </Col>

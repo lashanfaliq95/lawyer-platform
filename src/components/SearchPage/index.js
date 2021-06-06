@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container, Col, Row } from 'reactstrap';
-
+import qs from 'qs';
 import { connect } from 'react-redux';
 import { arrayOf, shape, func, bool } from 'prop-types';
 
@@ -33,10 +33,16 @@ const SearchPage = ({
   clearFilters: clearFiltersAction,
 }) => {
   useEffect(() => {
-    const { searchTermForNameOrFirm, searchTermForLocation } =
-      location.state || {};
+    const {
+      searchTermForNameOrFirm,
+      searchTermForLocation,
+    } = qs.parse(location.search, { ignoreQueryPrefix: true });
+
     if (searchTermForNameOrFirm !== '' || searchTermForLocation !== '') {
-      getSearchResultAction({ nameOrFirm: searchTermForNameOrFirm });
+      getSearchResultAction({
+        nameOrFirm: searchTermForNameOrFirm,
+        location: searchTermForLocation,
+      });
     } else {
       getLawyersAction();
     }
@@ -49,6 +55,7 @@ const SearchPage = ({
         className='search-navbar'
         showLawyerLogin={false}
         showSearchInput
+        searchTerm={searchTerm}
       />
       <Container className='search-page' fluid>
         <Col md='12'>
