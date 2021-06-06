@@ -54,7 +54,7 @@ const ProfileCard = ({
                 {getJobTitle(expertId, gender)}
               </div>
               <div className='address'>
-                {`${road} ${houseNumber} ${zipCode} ${city}`}
+                {`${road} ${houseNumber}, ${zipCode} ${city}`}
               </div>
             </Link>
             <Button className='appointment-btn'>
