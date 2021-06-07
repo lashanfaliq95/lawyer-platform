@@ -249,6 +249,7 @@ export default {
   wenn der Experte innerhalb von
   48 Stunden Ihre Anfrage
   angenommen hat.`,
+  'app.lawyerDetailsPage.disabledFriendly': 'Barrierefrei',
   'app.appointmentsPage.appointments': 'Termine',
   'app.appointmentsPage.pastAppointments': 'Vergangene',
   'app.appointmentsPage.upComingAppointments': 'Anstehende',

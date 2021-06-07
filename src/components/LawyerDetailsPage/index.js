@@ -53,6 +53,9 @@ const LawyerDetailsPage = ({
     isRequireShortSummary,
     isAppointmentRequireApproval,
     lawyersOfFirm,
+    buildingFloor,
+    buildingParking,
+    isBuildingDisabledFriendly,
   } = lawyerDetails || {};
 
   return (
@@ -120,12 +123,34 @@ const LawyerDetailsPage = ({
                   <span className='title'>
                     {formatMessages(messages.access)}
                   </span>
-                  <div className='content'>
-                    <span className='element-icon'>
-                      <Icon name='parking' size='large' />
-                    </span>
-                    <span>{houseNumber}</span>
+                  <div className='access-element'>
+                    <Icon
+                      name='parking'
+                      size='large'
+                      className='element-icon'
+                    />
+                    <span className='text'>{buildingParking}</span>
                   </div>
+                  <div className='access-element'>
+                    <Icon
+                      name='building'
+                      size='large'
+                      className='element-icon'
+                    />
+                    <span className='text'>{buildingFloor}</span>
+                  </div>
+                  {isBuildingDisabledFriendly === 1 ? (
+                    <div className='access-element'>
+                      <Icon
+                        name='wheelchair'
+                        size='large'
+                        className='element-icon'
+                      />
+                      <span className='text'>
+                        {formatMessages(messages.disabledFriendly)}
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
               </div>
               <div className='map-section'>

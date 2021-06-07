@@ -188,4 +188,8 @@ export default defineMessages({
     defaultMessage: `remember that your appointment is then confirmed, after the expert
     confirmed the appointment within 48 hours`,
   },
+  disabledFriendly: {
+    id: 'app.lawyerDetailsPage.disabledFriendly',
+    defaultMessage: 'Disabled friendly',
+  },
 });
