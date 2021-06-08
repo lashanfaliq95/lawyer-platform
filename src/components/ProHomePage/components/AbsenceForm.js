@@ -8,10 +8,9 @@ import intl from 'helpers/intlHelper';
 import { CLIENTS } from 'helpers/data';
 import SingleSelect from 'components/Shared/SingleSelect/SingleSelect';
 import Switch from 'components/Shared/Switch/Switch';
-import { REPEAT_FREQUENCY_TYPES as REPEAT_FREQUENCY_MESSAGES } from 'components/Shared/messages';
-import { REPEAT_FREQUENCY_TYPES } from 'components/Shared/constants';
+import { REPEAT_FREQUENCY_TYPES } from 'components/Shared/options';
+import { FormContainer } from 'components/Shared';
 import {
-  FormContainer,
   MultiLineItemContainer,
   LineItemContainer,
   Value,
@@ -105,25 +104,6 @@ const DUMMY_EXPERTS = CLIENTS.map(({ firstName, lastName, id }) => ({
   value: id,
   label: `${firstName} ${lastName}`,
 }));
-
-const REPEAT_FREQUENCY_OPTIONS = [
-  {
-    label: intl.formatMessage(REPEAT_FREQUENCY_MESSAGES.everyDay),
-    value: REPEAT_FREQUENCY_TYPES.EVERY_DAY,
-  },
-  {
-    label: intl.formatMessage(REPEAT_FREQUENCY_MESSAGES.everyWeek),
-    value: REPEAT_FREQUENCY_TYPES.EVERY_WEEK,
-  },
-  {
-    label: intl.formatMessage(REPEAT_FREQUENCY_MESSAGES.everyMonth),
-    value: REPEAT_FREQUENCY_TYPES.EVERY_MONTH,
-  },
-  {
-    label: intl.formatMessage(REPEAT_FREQUENCY_MESSAGES.everyYear),
-    value: REPEAT_FREQUENCY_TYPES.EVERY_YEAR,
-  },
-];
 
 function handleEndDateValidation(toDate) {
   const { toTime, fromTime, fromDate } = this.parent;
@@ -311,7 +291,7 @@ function AbsenceForm() {
           <LineItemContainer>
             <Label>{intl.formatMessage(messages.frequency)}</Label>
             <SingleSelect
-              options={REPEAT_FREQUENCY_OPTIONS}
+              options={REPEAT_FREQUENCY_TYPES}
               onOptionSelect={handleFrequencyChange}
               selected={frequency}
             />

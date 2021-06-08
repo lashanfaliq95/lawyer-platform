@@ -9,6 +9,13 @@ const Container = styled.div`
   border-radius: 20px;
   margin: auto 0;
   cursor: pointer;
+
+  ${({ lg }) =>
+    lg &&
+    css`
+      width: 50px;
+      height: 25px;
+    `}
 `;
 
 const Button = styled.button`
@@ -25,23 +32,32 @@ const Button = styled.button`
       transform: translateX(100%);
       background-color: #006ea9;
     `}}
+
+  ${({ lg }) =>
+    lg &&
+    css`
+      width: 25px;
+      height: 25px;
+    `}
 `;
 
-function Switch({ isSwitchedOn, onToggleSwitch, readOnly }) {
+function Switch({ lg, isSwitchedOn, onToggleSwitch, readOnly }) {
   return (
-    <Container onClick={!readOnly && onToggleSwitch}>
-      <Button isSwitchedOn={isSwitchedOn} />
+    <Container lg={lg} onClick={!readOnly && onToggleSwitch}>
+      <Button lg={lg} isSwitchedOn={isSwitchedOn} />
     </Container>
   );
 }
 
 Switch.propTypes = {
+  lg: PropTypes.bool,
   isSwitchedOn: PropTypes.bool,
   onToggleSwitch: PropTypes.func,
   readOnly: PropTypes.bool,
 };
 
 Switch.defaultProps = {
+  lg: false,
   readOnly: false,
   isSwitchedOn: false,
   onToggleSwitch: () => {},

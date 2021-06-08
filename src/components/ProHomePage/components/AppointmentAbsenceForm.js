@@ -6,13 +6,11 @@ import { FaTimes } from 'react-icons/fa';
 
 import intl from 'helpers/intlHelper';
 import { CALENDAR_FORM_TYPES } from 'components/Shared/constants';
+import { Container, StyledModal, StyledModalBody } from 'components/Shared';
 import {
-  StyledModal,
-  StyledModalBody,
   Title,
   TitleContainer,
   TitleContainerSeparator,
-  Container,
   CancelButton,
 } from '.';
 import AppointmentForm from './AppointmentForm';

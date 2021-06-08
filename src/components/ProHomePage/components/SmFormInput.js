@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Container = styled.div`
@@ -10,7 +10,6 @@ const Container = styled.div`
 
 const Input = styled.input`
   font-size: 13px;
-  font-weight: 500;
   border: none;
   border-bottom: 2px solid #d2d2d2;
   margin-bottom: auto;
@@ -19,6 +18,17 @@ const Input = styled.input`
     outline: none;
     border-bottom-color: #006ea9;
   }
+
+  ${({ lg }) =>
+    lg &&
+    css`
+      font-size: 18px;
+    `}
+
+  ${({ fontWeight }) =>
+    css`
+      font-weight: ${fontWeight};
+    `}
 `;
 
 const TextAreaInput = styled.textarea`
@@ -32,6 +42,17 @@ const TextAreaInput = styled.textarea`
     outline: none;
     border-bottom-color: #006ea9;
   }
+
+  ${({ lg }) =>
+    lg &&
+    css`
+      font-size: 18px;
+    `}
+
+  ${({ fontWeight }) =>
+    css`
+      font-weight: ${fontWeight};
+    `}
 `;
 
 const ValidationError = styled.span`
@@ -53,12 +74,16 @@ SmFormInput.propTypes = {
   textArea: PropTypes.bool,
   error: PropTypes.string,
   touched: PropTypes.bool,
+  lg: PropTypes.bool,
+  fontWeight: PropTypes.number,
 };
 
 SmFormInput.defaultProps = {
   textArea: false,
   error: null,
   touched: false,
+  lg: false,
+  fontWeight: 500,
 };
 
 export default SmFormInput;

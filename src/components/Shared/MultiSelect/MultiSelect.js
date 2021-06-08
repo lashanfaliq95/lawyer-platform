@@ -1,5 +1,5 @@
 import useDropdown, { Dropdown } from 'hooks/useDropdown';
-import React from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { defineMessages } from 'react-intl';
@@ -17,19 +17,21 @@ const messages = defineMessages({
 
 const Container = styled.div`
   position: relative;
+  display: flex;
 `;
 
 const Input = styled.button`
   display: flex;
   background-color: transparent;
   border: none;
-  height: 100%;
   border-bottom: 2px solid #d2d2d2;
   font-size: 13px;
   width: 100%;
   padding-left: 0;
   padding-right: 0;
   text-align: start;
+  overflow: hidden;
+  flex: 1;
   align-items: center;
 
   ${({ lg }) =>
@@ -46,7 +48,17 @@ const Input = styled.button`
 `;
 
 const InputLabel = styled.div`
-  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  ${({ width }) => {
+    return css`
+      width: ${width}px;
+      min-width: ${width}px;
+      max-width: ${width}px;
+    `;
+  }}
 `;
 
 const SelectList = styled.div`
@@ -54,6 +66,8 @@ const SelectList = styled.div`
   flex-direction: column;
   background-color: #ffffff;
   width: 100%;
+  max-height: 200px;
+  overflow: auto;
 
   div:not(:last-child) {
     border-bottom: 1px solid #d2d2d2;
@@ -85,13 +99,29 @@ const IconContainer = styled.div`
   padding: 0rem 0.5rem;
 `;
 
-function DefaultInput({ option, onDropdownToggle, isToggled, lg }) {
+function DefaultInput({ options, onDropdownToggle, isToggled, lg }) {
+  const [width, setWidth] = useState(0);
+  const containerRef = useRef();
+  const arrowRef = useRef();
+  const inputRef = useRef();
+
+  useLayoutEffect(() => {
+    setWidth(containerRef.current.clientWidth - arrowRef.current.clientWidth);
+  }, []);
+
   return (
-    <Input lg={lg} onClick={onDropdownToggle} selected={isToggled}>
-      <InputLabel>
-        {option ? option.label : intl.formatMessage(messages.selectPlaceholder)}
+    <Input
+      ref={containerRef}
+      lg={lg}
+      onClick={onDropdownToggle}
+      selected={isToggled}
+    >
+      <InputLabel ref={inputRef} width={width}>
+        {options.length === 0
+          ? intl.formatMessage(messages.selectPlaceholder)
+          : options.map(({ label }) => label).join(', ')}
       </InputLabel>
-      <IconContainer>
+      <IconContainer ref={arrowRef}>
         {isToggled ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </IconContainer>
     </Input>
@@ -99,14 +129,14 @@ function DefaultInput({ option, onDropdownToggle, isToggled, lg }) {
 }
 
 DefaultInput.propTypes = {
-  option: SelectOptionType,
+  options: PropTypes.arrayOf(SelectOptionType),
   onDropdownToggle: PropTypes.func,
   isToggled: PropTypes.bool,
   lg: PropTypes.bool,
 };
 
 DefaultInput.defaultProps = {
-  option: null,
+  options: [],
   onDropdownToggle: () => {},
   isToggled: false,
   lg: false,
@@ -137,7 +167,7 @@ DefaultListItem.defaultProps = {
   onClick: false,
 };
 
-function SingleSelect({
+function MultiSelect({
   options,
   selected,
   onOptionSelect,
@@ -147,8 +177,25 @@ function SingleSelect({
 }) {
   const { ref, isOpen, toggleIsOpen } = useDropdown({});
 
+  function getIsItemSelected({ value }) {
+    return (
+      selected.findIndex(({ value: foundValue }) => foundValue === value) !== -1
+    );
+  }
+
   function handleOnOptionSelect(option) {
-    onOptionSelect(option);
+    const { value } = option;
+    let updated;
+    const isItemSelected = getIsItemSelected(option);
+
+    if (isItemSelected) {
+      updated = selected.filter(
+        ({ value: foundValue }) => foundValue !== value,
+      );
+    } else {
+      updated = [...selected, option];
+    }
+    onOptionSelect(updated);
     toggleIsOpen();
   }
 
@@ -158,7 +205,7 @@ function SingleSelect({
         renderInput(selected, toggleIsOpen, isOpen)
       ) : (
         <DefaultInput
-          option={selected}
+          options={selected}
           onDropdownToggle={toggleIsOpen}
           isToggled={isOpen}
           lg={isDefaultInputLg}
@@ -168,12 +215,13 @@ function SingleSelect({
         <SelectList>
           {options.map((option) => {
             const { value } = option;
+            const isItemSelected = getIsItemSelected(option);
 
             return renderOption ? (
-              renderOption(option, selected, handleOnOptionSelect)
+              renderOption(option, handleOnOptionSelect)
             ) : (
               <DefaultListItem
-                selected={selected && selected.value === value}
+                selected={isItemSelected}
                 option={option}
                 key={value}
                 onClick={handleOnOptionSelect}
@@ -186,21 +234,21 @@ function SingleSelect({
   );
 }
 
-SingleSelect.propTypes = {
+MultiSelect.propTypes = {
   options: PropTypes.arrayOf(SelectOptionType),
-  selected: SelectOptionType,
+  selected: PropTypes.arrayOf(SelectOptionType),
   onOptionSelect: PropTypes.func.isRequired,
   renderInput: PropTypes.func,
   renderOption: PropTypes.func,
   isDefaultInputLg: PropTypes.func,
 };
 
-SingleSelect.defaultProps = {
+MultiSelect.defaultProps = {
   options: [],
-  selected: null,
+  selected: [],
   renderInput: undefined,
   renderOption: undefined,
   isDefaultInputLg: false,
 };
 
-export default SingleSelect;
+export default MultiSelect;

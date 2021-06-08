@@ -250,3 +250,18 @@ export const REPEAT_FREQUENCY_TYPES = defineMessages({
     defaultMessage: 'Every Year',
   },
 });
+
+export const TITLES = defineMessages({
+  professor: {
+    id: 'app.titles.professor',
+    defaultMessage: 'Prof.',
+  },
+  doctor: {
+    id: 'app.titles.doctor',
+    defaultMessage: 'Dr.',
+  },
+  professorDoctor: {
+    id: 'app.titles.professorDoctor',
+    defaultMessage: 'Prof. Dr.',
+  },
+});
