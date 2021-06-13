@@ -1,9 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import { Form, FormGroup, Row, Col } from 'reactstrap';
+import { Form, FormGroup, Row, Col, Input, Label } from 'reactstrap';
 
-import Input from 'components/Shared/FloatingLabelInput';
 import formatMessages from 'components/formatMessages';
 import { updateUserInfo } from 'components/LoginPage/actions';
 
@@ -25,7 +24,7 @@ const ContactSection = () => {
   });
 
   return (
-    <Card style={{ paddingBottom: '5px' }}>
+    <Card style={{ paddingBottom: '5px', width: '33%', fontSize: '15px' }}>
       <CardExternalTitle>
         {formatMessages(messages.contactInfo)}
       </CardExternalTitle>
@@ -33,50 +32,62 @@ const ContactSection = () => {
         <Row form>
           <Col md={6}>
             <FormGroup>
+              <Label style={{ fontWeight: 'bold' }}>
+                {formatMessages(messages.firstName)}
+              </Label>
               <Input
-                label={messages.firstName}
                 type='text'
                 name='firstName'
                 id='firstName'
                 required
+                placeholder='Thomas'
                 {...formik.getFieldProps('firstName')}
               />
             </FormGroup>
           </Col>
           <Col md={6}>
             <FormGroup>
+              <Label style={{ fontWeight: 'bold' }}>
+                {formatMessages(messages.lastName)}
+              </Label>
               <Input
-                label={messages.lastName}
                 type='text'
                 name='lastName'
                 id='lastName'
                 required
+                placeholder='Muller'
                 {...formik.getFieldProps('lastName')}
               />
             </FormGroup>
           </Col>
         </Row>
         <FormGroup>
+          <Label style={{ fontWeight: 'bold' }}>
+            {formatMessages(messages.emailPlaceHolder)}
+          </Label>
           <Input
-            label={messages.emailPlaceHolder}
             type='email'
             name='email'
             id='email'
             required
+            placeholder='mail@mail.com'
             {...formik.getFieldProps('email')}
           />
         </FormGroup>
         <FormGroup>
+          <Label style={{ fontWeight: 'bold' }}>
+            {formatMessages(messages.mobileOrLandLine)}
+          </Label>
           <Input
-            label={messages.mobileOrLandLine}
             type='text'
             name='phoneNumber'
             id='phoneNumber'
             required
+            placeholder='1234567890'
             {...formik.getFieldProps('phoneNumber')}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup style={{ float: 'right' }}>
           <CardBtn type='submit'>
             {formatMessages(messages.saveChanges)}
           </CardBtn>

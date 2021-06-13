@@ -40,6 +40,7 @@ const PasswordSectionContainer = () => {
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             required
+            securityTitle={messages.security}
           />
         </FormGroup>
         <FormGroup>
@@ -53,9 +54,10 @@ const PasswordSectionContainer = () => {
             }
             showPwdStrength
             required
+            securityTitle={messages.security}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup style={{ float: 'right' }}>
           <CardBtn type='submit'>
             {formatMessages(messages.changePassword)}
           </CardBtn>

@@ -9,7 +9,7 @@ import formatMessages from 'components/formatMessages';
 import { Link, useHistory } from 'react-router-dom';
 import { getJobTitle } from 'components/Shared/utils';
 import messages from '../../messages';
-
+import { specializationsFilters } from '../../constants';
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
 const ProfileCard = ({
@@ -30,6 +30,7 @@ const ProfileCard = ({
     expertId,
     imgUrl,
     gender,
+    specializationIds,
   } = user || {};
 
   const lawyerDetailsPageUrl = `/search/lawyer-details/${id}`;
@@ -58,7 +59,24 @@ const ProfileCard = ({
               <img className='info-image' src={imgUrl} alt='Info images' />
               <div className='name-section'>{name}</div>
               <div className='specialization-section'>
-                {getJobTitle(expertId, gender)}
+                <span>{getJobTitle(expertId, gender)}</span>
+                &nbsp;
+                {specializationIds && specializationIds.length !== 0 && (
+                  <>
+                    <span>
+                      {formatMessages(messages.for)}
+                      &nbsp;
+                      {specializationIds &&
+                        specializationIds
+                          .map(
+                            (specializationId) =>
+                              specializationsFilters[specializationId]
+                                .specialization,
+                          )
+                          .toString()}
+                    </span>
+                  </>
+                )}
               </div>
               <div className='address'>
                 {`${road} ${houseNumber}, ${zipCode} ${city}`}

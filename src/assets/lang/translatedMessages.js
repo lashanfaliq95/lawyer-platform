@@ -79,6 +79,7 @@ export default {
     'Wir haben Ihnen eine E-Mail zum Zurücksetzen Ihreres Passworts geschickt',
   'app.loginPage.noMailReceivedText': 'Sie haben die E-Mail nicht erhalten?',
   'app.loginPage.switchToHelp': 'Hilfebereich aufrufen',
+  'app.loginPage.loginError': 'error',
   'app.homePage.videoSectionCardTitle': 'Von überall. Zu jeder Zeit.',
   'app.homePage.videoSectionCardDescription':
     'Terminbuchung war noch nie so einfach. Ob morgens oder abends. Wir kennen keine Zeiten. In der digitalen Zukunft möchten wir mit Ihnen gemeinsam gehen. Fangen wir in der Gegenwart an.',
@@ -168,6 +169,7 @@ export default {
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
   'app.searchPage.clearFilers': 'Filter löschen',
+  'app.searchPage.for': 'für',
   'app.lawyerDetailsPage.infoText':
     'Liebe Mandanten,{br} ' +
     'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}' +
@@ -421,6 +423,7 @@ export default {
   'app.accountPage.deleteAccountModalContent':
     'Möchten Sie wirklich Ihr Avoplan-Konto löschen? Bitte beachten Sie: Das Löschen Ihres Kontos ist dauerhaft und kann nicht rückgängig gemacht werden. Sämtliche Termine werden abgesagt.',
   'app.accountPage.no': 'Abbrechen',
+  'app.accountPage.security': 'Sicherheit',
   'app.proTopBar.search': 'Mandanten durchsuchen...',
   'app.proTopBar.calendar': 'Terminkalender',
   'app.proTopBar.clients': 'Mandanten',

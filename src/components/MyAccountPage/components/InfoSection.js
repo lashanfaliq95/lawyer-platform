@@ -7,7 +7,7 @@ import messages from '../messages';
 import { Card, CartTitle, CardBody, CardContent, CardBtn } from '../styles';
 
 const InfoSectionContainer = () => (
-  <Card secondary>
+  <Card secondary style={{ width: '33%' }}>
     <CartTitle>{formatMessages(messages.infoTitle)}</CartTitle>
     <CardBody>
       <Icon name='lock' size='extraLarge' />
