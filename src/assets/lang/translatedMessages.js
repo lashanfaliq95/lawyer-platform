@@ -278,6 +278,8 @@ export default {
   'app.appointmentsPage.no': 'Abbrechen',
   'app.appointmentsPage.cancel': 'Termin absagen',
   'app.appointmentsPage.rebookAppointment': 'Neuen Termin vereinbaren',
+  'app.appointmentsPage.appointmentViaPhone': 'Telefonische Beratung',
+  'app.appointmentsPage.personnelAppointments': 'Vor-Ort-Termin',
   'app.proRegisterPage.titleText': 'Die Zukunft der Rechtsberatung',
   'app.proRegisterPage.descriptionText':
     'Avoplan Pro ist die perfekte Softwarelösung für Rechtsanwälte, Notare und Berater Die innovative Technologie hilft Ihnen dabei Ihren Umsatz zu steigern, mehr Zeit zu gewinnen und Mandanten ein noch besseres Erlebnis zu ermöglichen.',
@@ -528,4 +530,21 @@ export default {
   'app.proHomePage.viewOptions.typeOfAppointment': 'Terminart',
   'app.proHomePage.viewOptions.expert': 'Experte',
   'app.proHomePage.viewOptions.location': 'Standort',
+  'app.appointmentConfirmationPage.title':
+    'Ihr Termin ist noch nicht bestätigt.',
+  'app.appointmentConfirmationPage.subTitle': `Bestätigen Sie Ihren Termin,
+  indem Sie sich registrieren oder einloggen.`,
+  'app.appointmentConfirmationPage.newToAvoplan': 'Neu bei Avoplan?',
+  'app.appointmentConfirmationPage.register': 'Registrieren',
+  'app.appointmentConfirmationPage.alreadyOnAvoplan': 'Bereits bei Avoplan?',
+  'app.appointmentConfirmationPage.login': 'Einloggen',
+  'app.appointmentConfirmationPage.appointmentBooked':
+    'Ihr Termin wurde erfolgreich gebucht.',
+  'app.appointmentConfirmationPage.sentConfirmationEmail': `Wir haben
+  Ihnen eine Bestätigung Ihres
+  Termins per E-Mail gesendet.`,
+  'app.appointmentConfirmationPage.remindAppointment': `Zusätzlich
+  werden wir Sie rechtzeitig per E-
+  Mail an Ihren Termin erinnern.`,
+  'app.appointmentConfirmationPage.addToCalender': 'Zum Kalender hinzufügen',
 };

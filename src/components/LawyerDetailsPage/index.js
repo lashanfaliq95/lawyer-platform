@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { func, shape, string } from 'prop-types';
+import { bool, func, shape, string } from 'prop-types';
 import { Container, Col, Row } from 'reactstrap';
 
 import './styles.scss';
@@ -13,6 +13,7 @@ import Icon from 'components/Shared/Icon';
 
 import { getJobTitle } from 'components/Shared/utils';
 import { getLawyerDetails } from 'components/SearchPage/actions';
+import { setCurrentAppointment } from 'components/AppointmentsPage/action';
 import { DAYS } from 'components/Shared/messages';
 import BookAnAppointmentForm from './components/BookAnAppointmentForm';
 import messages from './messages';
@@ -25,7 +26,9 @@ const LawyerDetailsPage = ({
   className,
   lawyerDetails,
   getLawyerDetails: getLawyerDetailsAction,
+  setCurrentAppointment: setCurrentAppointmentAction,
   match,
+  isUserLoggedIn,
 }) => {
   useEffect(() => {
     getLawyerDetailsAction(match.params.id);
@@ -56,7 +59,10 @@ const LawyerDetailsPage = ({
     buildingFloor,
     buildingParking,
     isBuildingDisabledFriendly,
+    standardMessage,
   } = lawyerDetails || {};
+
+  const jobTitle = getJobTitle(expertId, gender);
 
   return (
     <>
@@ -76,7 +82,7 @@ const LawyerDetailsPage = ({
               <div className='details'>
                 <div className='name-gender'>
                   <span style={{ fontWeight: 'bold' }}>{name}</span>
-                  <span>{getJobTitle(expertId, gender)}</span>
+                  <span>{jobTitle}</span>
                 </div>
               </div>
             </div>
@@ -252,6 +258,23 @@ const LawyerDetailsPage = ({
               isRequireShortSummary={!!isRequireShortSummary}
               isAppointmentRequireApproval={!!isAppointmentRequireApproval}
               lawyersOfFirm={lawyersOfFirm || []}
+              setCurrentAppointment={setCurrentAppointmentAction}
+              lawyerDetails={{
+                name,
+                imgUrl,
+                lat: latitude,
+                lon: longitude,
+                road,
+                houseNumber,
+                zipCode,
+                city,
+                phoneNumber: mobilePhone,
+                occupation: jobTitle,
+                buildingFloor,
+                buildingParking,
+                standardMessage,
+              }}
+              isUserLoggedIn={isUserLoggedIn}
             />
           </Col>
         </Row>
@@ -264,8 +287,10 @@ const LawyerDetailsPage = ({
 LawyerDetailsPage.propTypes = {
   className: string,
   getLawyerDetails: func.isRequired,
+  setCurrentAppointment: func.isRequired,
   match: shape({}).isRequired,
   lawyerDetails: shape({}).isRequired,
+  isUserLoggedIn: bool.isRequired,
 };
 
 LawyerDetailsPage.defaultProps = {
@@ -274,8 +299,10 @@ LawyerDetailsPage.defaultProps = {
 
 const mapStateToProps = (state) => ({
   lawyerDetails: state.search.lawyerDetails,
+  isUserLoggedIn: !!state.login.userDetails && state.login.userDetails.id,
 });
 
-export default connect(mapStateToProps, { getLawyerDetails })(
-  LawyerDetailsPage,
-);
+export default connect(mapStateToProps, {
+  getLawyerDetails,
+  setCurrentAppointment,
+})(LawyerDetailsPage);

@@ -58,16 +58,6 @@ const NavigationBar = ({
                 </div>
               )}
               <div className='nav-button-item'>
-                <Link to='/help' className='no-hover'>
-                  <Button color='link' className='black-link'>
-                    <Icon name='question-circle' />
-                    <span className='nav-text'>
-                      {formatMessages(messages.needHelp)}
-                    </span>
-                  </Button>
-                </Link>
-              </div>
-              <div className='nav-button-item'>
                 <Link to='/auth/login' className='no-hover'>
                   <Button color='link' className='black-link'>
                     <Icon name='user-alt' />

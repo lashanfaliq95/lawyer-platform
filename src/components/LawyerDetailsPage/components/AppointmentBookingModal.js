@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { bool, string, func, shape } from 'prop-types';
 import { Button, Modal, ModalBody, Col, Row } from 'reactstrap';
 
@@ -7,7 +8,17 @@ import Hr from 'components/Shared/HorizontalSeparator';
 import Icon from 'components/Shared/Icon';
 import messages from '../messages';
 
-const DirectBookingModal = ({ showModal, lawyerMessage, onClose, body }) => {
+const DirectBookingModal = ({
+  showModal,
+  lawyerMessage,
+  onClose,
+  body,
+  onSelect,
+  data,
+  isUserLoggedIn,
+}) => {
+  const history = useHistory();
+
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -15,6 +26,16 @@ const DirectBookingModal = ({ showModal, lawyerMessage, onClose, body }) => {
     setModal(showModal);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showModal]);
+
+  const onClickBookAppointment = () => {
+    onSelect(data);
+    toggle();
+    if (isUserLoggedIn) {
+      history.push('/appointment-success');
+    } else {
+      history.push('/appointment-confirmation');
+    }
+  };
 
   return (
     <Modal
@@ -53,7 +74,11 @@ const DirectBookingModal = ({ showModal, lawyerMessage, onClose, body }) => {
             <Button color='link' onClick={toggle}>
               {formatMessage(messages.cancel)}
             </Button>
-            <Button color='secondary' onClick={toggle} type='button'>
+            <Button
+              color='secondary'
+              onClick={onClickBookAppointment}
+              type='button'
+            >
               {formatMessage(messages.bookTheAppointment)}
             </Button>
           </Col>
@@ -68,6 +93,9 @@ DirectBookingModal.propTypes = {
   lawyerMessage: string,
   onClose: func.isRequired,
   body: shape({}).isRequired,
+  onSelect: func.isRequired,
+  data: shape({}).isRequired,
+  isUserLoggedIn: bool.isRequired,
 };
 
 DirectBookingModal.defaultProps = {

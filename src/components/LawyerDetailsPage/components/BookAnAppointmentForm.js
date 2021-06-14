@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSetState } from 'react-use';
-import { bool, shape, string } from 'prop-types';
+import { bool, shape, string, func } from 'prop-types';
 import { Form, FormGroup, Button, Input } from 'reactstrap';
 
 import formatMessage from 'components/formatMessages';
@@ -19,6 +19,9 @@ const BookAnAppointmentForm = ({
   lawyersOfFirm,
   isRequireShortSummary,
   isAppointmentRequireApproval,
+  setCurrentAppointment,
+  lawyerDetails,
+  isUserLoggedIn,
 }) => {
   const [
     {
@@ -160,6 +163,7 @@ const BookAnAppointmentForm = ({
                 defaultValue=''
                 type='select'
                 onChange={(e) => {
+                  console.log(e.target.value);
                   setState({ typeOfLegalIssue: e.target.value });
                 }}
               >
@@ -168,7 +172,7 @@ const BookAnAppointmentForm = ({
                 </option>
                 {legalIssuesArray.length > 0 &&
                   legalIssuesArray.map((issue) => (
-                    <option key={issue} value='issues'>
+                    <option key={issue} value={issue}>
                       {issue}
                     </option>
                   ))}
@@ -359,7 +363,14 @@ const BookAnAppointmentForm = ({
           <AppointmentBookingModal
             body={messages.directBookingModalBody}
             showModal={showApprovalModal && isAppointmentRequireApproval}
-            selectedDate={selectedDate}
+            onSelect={setCurrentAppointment}
+            data={{
+              isAppointmentViaPhone,
+              typeOfAppointment: typeOfLegalIssue,
+              appointment: selectedDate,
+              ...lawyerDetails,
+            }}
+            isUserLoggedIn={isUserLoggedIn}
             onClose={() => {
               setState({ showApprovalModal: false });
             }}
@@ -369,6 +380,14 @@ const BookAnAppointmentForm = ({
           <AppointmentBookingModal
             body={messages.manualBookingModalBody}
             showModal={showApprovalModal && !isAppointmentRequireApproval}
+            onSelect={setCurrentAppointment}
+            data={{
+              isAppointmentViaPhone,
+              typeOfAppointment: typeOfLegalIssue,
+              appointment: selectedDate,
+              ...lawyerDetails,
+            }}
+            isUserLoggedIn={isUserLoggedIn}
             onClose={() => {
               setState({ showApprovalModal: false });
             }}
@@ -386,6 +405,9 @@ BookAnAppointmentForm.propTypes = {
   lawyersOfFirm: shape([]),
   isAppointmentRequireApproval: bool,
   legalIssues: string,
+  setCurrentAppointment: func.isRequired,
+  lawyerDetails: shape({}).isRequired,
+  isUserLoggedIn: bool.isRequired,
 };
 
 BookAnAppointmentForm.defaultProps = {
