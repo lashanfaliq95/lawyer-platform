@@ -1,27 +1,35 @@
 import styled from 'styled-components';
-import { Container, Button, ModalBody, Modal } from 'reactstrap';
+import { Container, Button, ModalBody, Modal, Col } from 'reactstrap';
 
 import Icon from 'components/Shared/Icon';
 
 const MyAccountPageContainer = styled(Container)`
   background-color: #fbfbfb;
-  height: calc(100vh - 60px);
-  padding: 2%;
+  padding: 1% 2% 1% 2%;
+  input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-width: 2px;
+  }
+  input[type='text']:focus {
+    box-shadow: 0 0 0 rgb(255, 255, 255);
+  }
 `;
 
 const Title = styled.span`
   font-size: 30px;
   font-weight: bold;
-  margin-left: -10%;
+  margin-left: -15%;
 `;
 
 const LogoutIcon = styled(Icon)`
-  background-color: grey;
+  background-color: #dedede;
   border-radius: 30px;
   width: 35px;
   height: 35px;
   margin-top: 5px;
-  margin-right: -10%;
+  margin-right: -16%;
 
   > svg {
     margin-left: 8px;
@@ -47,6 +55,9 @@ const Card = styled.div`
   border: 1px solid;
   border-color: ${(props) =>
     (props.secondary ? '#ccecfa' : 'rgba(0, 0, 0, 0.125)')};
+  .pwd-bar-wrapper {
+    width: 60%;
+  }
 `;
 
 const CardExternalTitle = styled.span`
@@ -116,6 +127,7 @@ const DeleteAccountButtonGroup = styled.div`
 export {
   MyAccountPageContainer,
   Row,
+  Col,
   Title,
   LogoutIcon,
   Card,

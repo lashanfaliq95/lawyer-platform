@@ -1,6 +1,9 @@
 .home-page {
   height: auto;
   padding: 0;
+  * {
+    font-family: 'Montserrat', arial, sans-serif;
+  }
   .top-image-container {
     background-repeat: no-repeat;
     background-image: url('../../assets/images/header-home.png');

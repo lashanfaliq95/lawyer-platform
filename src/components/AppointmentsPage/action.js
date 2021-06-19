@@ -4,6 +4,7 @@ import {
   TOGGLE_CANCELLATION_MODAL,
   SET_ACTIVE_USER_APPOINTMENT,
   SET_ACTIVE_PAST_APPOINTMENT,
+  SET_CURRENT_APPOINTMENT,
 } from './constants';
 
 export const deleteAppointment = (payload) => ({
@@ -21,10 +22,16 @@ export const setActiveUserAppointment = (payload) => ({
   payload,
 });
 
+export const setCurrentAppointment = (payload) => ({
+  type: SET_CURRENT_APPOINTMENT,
+  payload,
+});
+
 export const setActivePastAppointment = (payload) => ({
   type: SET_ACTIVE_PAST_APPOINTMENT,
   payload,
 });
+
 export const toggleCancellationModal = (payload) => ({
   type: TOGGLE_CANCELLATION_MODAL,
   payload,

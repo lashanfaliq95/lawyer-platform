@@ -125,7 +125,7 @@ function* deleteUser() {
     clearStorage();
     yield put(logoutUserSuccess());
   } else {
-    yield getErrorToast(messages.deleteUsrError);
+    yield getErrorToast(messages.loginError);
   }
 }
 

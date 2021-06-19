@@ -7,7 +7,8 @@ import { Form } from 'reactstrap';
 import formatMessages from 'components/formatMessages';
 import RadioButtonList from 'components/Shared/RadioButtonList/RadioButtonList';
 import { JOB_TITLES } from 'components/Shared/messages';
-import { JOBS } from 'components/Shared/constants';
+import { FEMALE_JOB_TYPES, MALE_JOB_TYPES } from 'components/Shared/options';
+import { GENDER } from 'components/Shared/constants';
 import ProgressBar from './ProgressBar';
 import FooterContainer from './FooterContainer';
 import { REGISTRATION_STEPS } from '../constants';
@@ -35,52 +36,8 @@ const JobTitleSelectionContainer = styled.div`
 `;
 
 function JobTitle({ current, onStepChange, onSubmit }) {
-  const jobTitles = [
-    {
-      value: JOBS.SPECIALIZED_LAWYER,
-      label: formatMessages(
-        current.gender === 0
-          ? JOB_TITLES.specializedLawyerMale
-          : JOB_TITLES.specializedLawyerFemale,
-      ),
-    },
-    {
-      value: JOBS.LAWYER,
-      label: formatMessages(
-        current.gender === 0 ? JOB_TITLES.lawyerMale : JOB_TITLES.lawyerFemale,
-      ),
-    },
-    {
-      value: JOBS.PATENT_LAWYER,
-      label: formatMessages(
-        current.gender === 0
-          ? JOB_TITLES.patentLawyerMale
-          : JOB_TITLES.patentLawyerFemale,
-      ),
-    },
-    {
-      value: JOBS.NOTARY,
-      label: formatMessages(
-        current.gender === 0 ? JOB_TITLES.notaryMale : JOB_TITLES.notaryFemale,
-      ),
-    },
-    {
-      value: JOBS.TAX_CONSULTANT,
-      label: formatMessages(
-        current.gender === 0
-          ? JOB_TITLES.taxConsultantMale
-          : JOB_TITLES.taxConsultantFemale,
-      ),
-    },
-    {
-      value: JOBS.CONSULTANT,
-      label: formatMessages(
-        current.gender === 0
-          ? JOB_TITLES.consultantMale
-          : JOB_TITLES.consultantFemale,
-      ),
-    },
-  ];
+  const jobTitles =
+    current.gender === GENDER.MALE ? MALE_JOB_TYPES : FEMALE_JOB_TYPES;
 
   function handleOnJobTitleSubmit({ jobTitle }) {
     onSubmit({

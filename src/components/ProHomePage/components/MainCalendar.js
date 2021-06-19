@@ -7,7 +7,7 @@ const Container = styled.div`
 `;
 
 function MainCalendar() {
-  return <Container></Container>;
+  return <Container />;
 }
 
 export default MainCalendar;

@@ -93,4 +93,12 @@ export default defineMessages({
     id: 'app.appointmentsPage.rebookAppointment',
     defaultMessage: 'Rebook Appointment',
   },
+  appointmentViaPhone: {
+    id: 'app.appointmentsPage.appointmentViaPhone',
+    defaultMessage: 'appointment via phone calls',
+  },
+  personnelAppointments: {
+    id: 'app.appointmentsPage.personnelAppointments',
+    defaultMessage: 'personal visit in lawyer‘s office',
+  },
 });

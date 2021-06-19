@@ -38,40 +38,6 @@
       }
     }
 
-    .list-item {
-      display: flex;
-      .initials-icon {
-        color: orange;
-        background-color: orangered;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        text-align: center;
-        padding-top: 18px;
-        margin-top: 6px;
-        margin-right: 10px;
-      }
-    }
-
-    .list-group {
-      border-radius: 20px;
-    }
-
-    .list-item-title {
-      font-weight: bold;
-    }
-
-    .address {
-      display: flex;
-      justify-content: space-between;
-      .directions {
-        padding: 10px;
-        a {
-          color: #105fbb;
-        }
-      }
-    }
-
     .list-footer {
       display: flex;
       justify-content: space-between;
@@ -144,4 +110,50 @@
     background-color: #004079;
     border-color: #004079;
   }
+}
+
+.initials-icon {
+  color: orange;
+  background-color: orangered;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 18px;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.list-item {
+  display: flex;
+}
+
+.list-group {
+  border-radius: 20px;
+}
+
+.list-item-title {
+  font-weight: bold;
+}
+
+.address {
+  display: flex;
+  justify-content: space-between;
+  .directions {
+    padding: 10px;
+    a {
+      color: #105fbb;
+    }
+  }
+}
+
+.no-border-radius {
+  border-radius: 0;
 }

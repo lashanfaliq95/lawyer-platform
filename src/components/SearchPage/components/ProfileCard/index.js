@@ -6,10 +6,10 @@ import { Col, Button, Row } from 'reactstrap';
 
 import Calender from 'components/SearchPage/components/Calender';
 import formatMessages from 'components/formatMessages';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { getJobTitle } from 'components/Shared/utils';
 import messages from '../../messages';
-
+import { specializationsFilters } from '../../constants';
 import { onMouseEnterCard, onMouseLeaveCard } from '../../actions';
 
 const ProfileCard = ({
@@ -18,6 +18,7 @@ const ProfileCard = ({
   onMouseLeaveCard: onMouseLeaveCardAction,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const history = useHistory();
 
   const {
     id,
@@ -27,9 +28,16 @@ const ProfileCard = ({
     zipCode,
     city,
     expertId,
-    imageUrl,
+    imgUrl,
     gender,
+    specializationIds,
   } = user || {};
+
+  const lawyerDetailsPageUrl = `/search/lawyer-details/${id}`;
+
+  const onClickBookAppointment = () => {
+    history.push(lawyerDetailsPageUrl);
+  };
 
   return (
     <Element name={`profile-card-${id}`}>
@@ -47,17 +55,37 @@ const ProfileCard = ({
         <Row>
           <Row className='cover-image' />
           <Col md='5'>
-            <Link to={`/search/lawyer-details/${id}`}>
-              <img className='info-image' src={imageUrl} alt='Info images' />
+            <Link to={lawyerDetailsPageUrl}>
+              <img className='info-image' src={imgUrl} alt='Info images' />
               <div className='name-section'>{name}</div>
               <div className='specialization-section'>
-                {getJobTitle(expertId, gender)}
+                <span>{getJobTitle(expertId, gender)}</span>
+                &nbsp;
+                {specializationIds && specializationIds.length !== 0 && (
+                  <>
+                    <span>
+                      {formatMessages(messages.for)}
+                      &nbsp;
+                      {specializationIds &&
+                        specializationIds
+                          .map(
+                            (specializationId) =>
+                              specializationsFilters[specializationId]
+                                .specialization,
+                          )
+                          .toString()}
+                    </span>
+                  </>
+                )}
               </div>
               <div className='address'>
-                {`${road} ${houseNumber} ${zipCode} ${city}`}
+                {`${road} ${houseNumber}, ${zipCode} ${city}`}
               </div>
             </Link>
-            <Button className='appointment-btn'>
+            <Button
+              className='appointment-btn'
+              onClick={onClickBookAppointment}
+            >
               {formatMessages(messages.bookAppointment)}
             </Button>
           </Col>
@@ -80,7 +108,7 @@ ProfileCard.propTypes = {
     houseNumber: string.isRequired,
     city: string.isRequired,
     zipCode: string.isRequired,
-    imageUrl: string.isRequired,
+    imgUrl: string.isRequired,
     expertId: number.isRequired,
     gender: string.isRequired,
   }).isRequired,

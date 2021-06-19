@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
-import {
-  Row, Col, Container, Button,
-} from 'reactstrap';
-import {
-  func, string, shape, bool, number,
-} from 'prop-types';
+import { Row, Col, Container, Button } from 'reactstrap';
+import { func, string, shape, bool, number } from 'prop-types';
 import './styles.scss';
 
 import HS from 'components/Shared/HorizontalSeparator';
@@ -35,6 +31,7 @@ const Calender = ({
   availability,
   isLoading,
   currentId,
+  onClickValue,
 }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [calenderHeader, setCalenderHeader] = useState(
@@ -70,7 +67,13 @@ const Calender = ({
         }
         result[dayOfWeek].push(
           availability[dayOfWeek][i] ? (
-            <button className='slot' type='button'>
+            <button
+              className='slot'
+              type='button'
+              onClick={() => {
+                onClickValue(availability[dayOfWeek][i].timeSlot);
+              }}
+            >
               10:30
             </button>
           ) : (
@@ -95,8 +98,8 @@ const Calender = ({
               size='large'
               onClick={onClickPreviousWeek}
             />
-            {calenderHeader.length > 0
-              && calenderHeader.map(({ month, dayOfMonth, dayOfWeek }) => (
+            {calenderHeader.length > 0 &&
+              calenderHeader.map(({ month, dayOfMonth, dayOfWeek }) => (
                 <Col key={`${month}${dayOfMonth}`}>
                   <div className='day-name'>
                     {formatMessages(DAY_OF_WEEK[dayOfWeek])}
@@ -178,6 +181,7 @@ Calender.propTypes = {
   isLoading: bool,
   availability: shape(),
   currentId: string,
+  onClickValue: func,
 };
 
 Calender.defaultProps = {
@@ -185,6 +189,7 @@ Calender.defaultProps = {
   isLoading: false,
   availability: null,
   currentId: null,
+  onClickValue: () => {},
 };
 
 const mapStateToProps = (state, props) => ({

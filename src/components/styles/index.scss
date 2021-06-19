@@ -6,14 +6,15 @@ html {
 }
 
 body {
-  font-family: 'Roboto', arial, sans-serif !important;
+  font-family: 'Montserrat', arial, sans-serif;
   height: 100%;
 
   p {
     font-size: 14px !important;
   }
   .btn.focus,
-  .btn:focus {
+  .btn:focus,
+  button:focus {
     outline: 0;
     box-shadow: none !important;
   }

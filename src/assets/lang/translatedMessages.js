@@ -79,6 +79,7 @@ export default {
     'Wir haben Ihnen eine E-Mail zum Zurücksetzen Ihreres Passworts geschickt',
   'app.loginPage.noMailReceivedText': 'Sie haben die E-Mail nicht erhalten?',
   'app.loginPage.switchToHelp': 'Hilfebereich aufrufen',
+  'app.loginPage.loginError': 'error',
   'app.homePage.videoSectionCardTitle': 'Von überall. Zu jeder Zeit.',
   'app.homePage.videoSectionCardDescription':
     'Terminbuchung war noch nie so einfach. Ob morgens oder abends. Wir kennen keine Zeiten. In der digitalen Zukunft möchten wir mit Ihnen gemeinsam gehen. Fangen wir in der Gegenwart an.',
@@ -168,6 +169,7 @@ export default {
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
   'app.searchPage.clearFilers': 'Filter löschen',
+  'app.searchPage.for': 'für',
   'app.lawyerDetailsPage.infoText':
     'Liebe Mandanten,{br} ' +
     'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}' +
@@ -233,6 +235,23 @@ export default {
     'Information zu erhalten.',
   'app.lawyerDetailsPage.cancel': 'Abbrechen',
   'app.lawyerDetailsPage.call': 'Anrufen',
+  'app.lawyerDetailsPage.appointmentBookingModalTitle': `Wichtige Informationen vor
+  Ihrem Termin`,
+  'app.lawyerDetailsPage.directBookingModalBody': `Mit der Terminbuchung
+  verpflichten Sie sich, diesen Termin
+  rechtzeitig wahrzunehmen. Sollten
+  Sie verhindert sein, denken Sie bitte
+  daran, Ihren Termin so früh wie
+  möglich zu verschieben oder
+  abzusagen.`,
+  'app.lawyerDetailsPage.messageToYouFromTheLawyer': `Mitteilung des Experten zu
+  Ihrem Termin:`,
+  'app.lawyerDetailsPage.manualBookingModalBody': `Bitte denken Sie daran,
+  dass Ihr Termin erst bestätigt ist,
+  wenn der Experte innerhalb von
+  48 Stunden Ihre Anfrage
+  angenommen hat.`,
+  'app.lawyerDetailsPage.disabledFriendly': 'Barrierefrei',
   'app.appointmentsPage.appointments': 'Termine',
   'app.appointmentsPage.pastAppointments': 'Vergangene',
   'app.appointmentsPage.upComingAppointments': 'Anstehende',
@@ -259,6 +278,8 @@ export default {
   'app.appointmentsPage.no': 'Abbrechen',
   'app.appointmentsPage.cancel': 'Termin absagen',
   'app.appointmentsPage.rebookAppointment': 'Neuen Termin vereinbaren',
+  'app.appointmentsPage.appointmentViaPhone': 'Telefonische Beratung',
+  'app.appointmentsPage.personnelAppointments': 'Vor-Ort-Termin',
   'app.proRegisterPage.titleText': 'Die Zukunft der Rechtsberatung',
   'app.proRegisterPage.descriptionText':
     'Avoplan Pro ist die perfekte Softwarelösung für Rechtsanwälte, Notare und Berater Die innovative Technologie hilft Ihnen dabei Ihren Umsatz zu steigern, mehr Zeit zu gewinnen und Mandanten ein noch besseres Erlebnis zu ermöglichen.',
@@ -404,6 +425,7 @@ export default {
   'app.accountPage.deleteAccountModalContent':
     'Möchten Sie wirklich Ihr Avoplan-Konto löschen? Bitte beachten Sie: Das Löschen Ihres Kontos ist dauerhaft und kann nicht rückgängig gemacht werden. Sämtliche Termine werden abgesagt.',
   'app.accountPage.no': 'Abbrechen',
+  'app.accountPage.security': 'Sicherheit',
   'app.proTopBar.search': 'Mandanten durchsuchen...',
   'app.proTopBar.calendar': 'Terminkalender',
   'app.proTopBar.clients': 'Mandanten',
@@ -503,9 +525,160 @@ export default {
   'app.common.days.friday': 'Freitag',
   'app.common.days.saturday': 'Samstag',
   'app.common.days.sunday': 'Sonntag',
+  'app.common.days.mon': 'Mo',
+  'app.common.days.tue': 'Di',
+  'app.common.days.wed': 'Mi',
+  'app.common.days.thu': 'Do',
+  'app.common.days.fri': 'Fr',
+  'app.common.days.sat': 'Sa',
+  'app.common.days.sun': 'So',
   'app.proHomePage.viewOptions.title': 'Ansichtsoptionen',
   'app.proHomePage.viewOptions.legalIssues': 'Angelegenheit',
   'app.proHomePage.viewOptions.typeOfAppointment': 'Terminart',
   'app.proHomePage.viewOptions.expert': 'Experte',
   'app.proHomePage.viewOptions.location': 'Standort',
+  'app.appointmentConfirmationPage.title':
+    'Ihr Termin ist noch nicht bestätigt.',
+  'app.appointmentConfirmationPage.subTitle': `Bestätigen Sie Ihren Termin,
+  indem Sie sich registrieren oder einloggen.`,
+  'app.appointmentConfirmationPage.newToAvoplan': 'Neu bei Avoplan?',
+  'app.appointmentConfirmationPage.register': 'Registrieren',
+  'app.appointmentConfirmationPage.alreadyOnAvoplan': 'Bereits bei Avoplan?',
+  'app.appointmentConfirmationPage.login': 'Einloggen',
+  'app.appointmentConfirmationPage.appointmentBooked':
+    'Ihr Termin wurde erfolgreich gebucht.',
+  'app.appointmentConfirmationPage.sentConfirmationEmail': `Wir haben
+  Ihnen eine Bestätigung Ihres
+  Termins per E-Mail gesendet.`,
+  'app.appointmentConfirmationPage.remindAppointment': `Zusätzlich
+  werden wir Sie rechtzeitig per E-
+  Mail an Ihren Termin erinnern.`,
+  'app.appointmentConfirmationPage.addToCalender': 'Zum Kalender hinzufügen',
+  'app.proClientPage.title': 'Mandanten',
+  'app.proClientPage.noClient.title': 'Behalten Sie den Überblick',
+  'app.proClientPage.noClient.description':
+    'Wir nehmen Ihnen die Arbeit ab und fügen Mandanten nach erfolgreicher Terminvereinbarung automatisch zu Ihrem Konto hinzu.',
+  'app.proClientPage.clientList.headerTitle': 'Übersicht',
+  'app.proClientPage.clientList.headerButton': 'Alle anzeigen',
+  'app.proClientPage.clientDetail.title': 'Details',
+  'app.proClientPage.clientDetail.firstName': 'Vorname',
+  'app.proClientPage.clientDetail.lastName': 'Nachname',
+  'app.proClientPage.clientDetail.email': 'E-Mail',
+  'app.proClientPage.clientDetail.mobile': 'Handynummer',
+  'app.proClientPage.clientDetail.btnRemove': 'Entfernen',
+  'app.proClientPage.clientDetail.btnSave': 'Speichern',
+  'app.proMessagePage.title': 'Nachrichten',
+  'app.proMessagePage.subtitle': 'Wem möchten Sie eine E-Mail senden?',
+  'app.proMessagePage.noClient.title': 'Behalten Sie den Überblick',
+  'app.proMessagePage.noClient.description':
+    'Wir nehmen Ihnen die Arbeit ab und fügen Mandanten nach erfolgreicher Terminvereinbarung automatisch zu Ihrem Konto hinzu.',
+  'app.proMessagePage.sendEmailBtn': 'E-Mail Weiterleitung',
+  'app.proHomePage.newAppointment': 'Neuer Termin',
+  'app.proHomePage.absenceForm.description': 'Bezeichnung',
+  'app.proHomePage.absenceForm.begin': 'Beginn',
+  'app.proHomePage.absenceForm.end': 'Ende',
+  'app.proHomePage.absenceForm.repeats': 'Wiederholung',
+  'app.proHomePage.absenceForm.recurringAbsence':
+    'Als wiederkehrende Abwesenheit festlegen',
+  'app.proHomePage.absenceForm.experts': 'Experte',
+  'app.proHomePage.absenceForm.location': 'Standort',
+  'app.proHomePage.absenceForm.details': 'Details',
+  'app.proHomePage.absenceForm.frequency': 'Frequenz',
+  'app.proHomePage.absenceForm.endDate': 'Enddatum: (optional)',
+  'app.proHomePage.absenceForm.cancel': 'Löschen',
+  'app.proHomePage.absenceForm.createAbsence': 'Abwesenheit erstellen',
+  'app.proHomePage.absenceForm.descriptionRequired': '',
+  'app.proHomePage.absenceForm.locationRequired': '',
+  'app.proHomePage.absenceForm.detailsRequired': '',
+  'app.proHomePage.absenceForm.expertRequired': '',
+  'app.proHomePage.absenceForm.frequencyRequired': '',
+  'app.proHomePage.absenceForm.invalidDateTime': '',
+  'app.proHomePage.appointmentAbsenceForm.newAppointment': 'Neuer Termin',
+  'app.proHomePage.appointmentAbsenceForm.upcomingAppointment':
+    'Anstehender Termin',
+  'app.proHomePage.appointmentAbsenceForm.cancelledAppointment':
+    'Abgesagter Termin',
+  'app.proHomePage.appointmentAbsenceForm.pastAppointment':
+    'Vergangener Termin',
+  'app.proHomePage.appointmentAbsenceForm.inquiryAppointment': 'Terminanfrage',
+  'app.proHomePage.appointmentAbsenceForm.absense': 'Abwesenheit',
+  'app.proHomePage.appointmentForm.typeOfLegalIssue': 'Angelegenheit',
+  'app.proHomePage.appointmentForm.begin': 'Beginn',
+  'app.proHomePage.appointmentForm.end': 'Ende',
+  'app.proHomePage.appointmentForm.firstName': 'Vorname',
+  'app.proHomePage.appointmentForm.lastName': 'Nachname',
+  'app.proHomePage.appointmentForm.email': 'E-Mail',
+  'app.proHomePage.appointmentForm.phoneNumber': 'Handynummer',
+  'app.proHomePage.appointmentForm.statusOfClient': 'Mandantenstatus',
+  'app.proHomePage.appointmentForm.insuranceForLawsuits':
+    'Rechtsschutzversicherung',
+  'app.proHomePage.appointmentForm.typeOfAppointment': 'Terminart',
+  'app.proHomePage.appointmentForm.notifications': 'Benachrichtigungen',
+  'app.proHomePage.appointmentForm.details': 'Details',
+  'app.proHomePage.appointmentForm.createAppointment': 'Termin erstellen',
+  'app.proHomePage.appointmentForm.createdAppointment': 'Termin erstellt',
+  'app.proHomePage.appointmentForm.newClient': 'Neuer Mandant',
+  'app.proHomePage.appointmentForm.existingInsurance': 'Vorhanden',
+  'app.proHomePage.appointmentForm.cancelAppointment': 'Termin absagen',
+  'app.proHomePage.appointmentForm.cancelledAppointment': 'Termin absgesagt',
+  'app.proHomePage.appointmentForm.saveChanges': 'Speichern',
+  'app.proHomePage.appointmentForm.saved': 'Gespeichert',
+  'app.proHomePage.appointmentForm.confirmAppointment': 'Termin bestätigen',
+  'app.proHomePage.appointmentForm.denyInquiry': 'Anfrage ablehnen',
+  'app.proHomePage.appointmentForm.confirmedAppointment': 'Termin bestätigt',
+  'app.proHomePage.appointmentForm.deniedInquiry': 'Anfrage abgelehnt',
+  'app.proHomePage.appointmentForm.legalIssueTypeRequired': '',
+  'app.proHomePage.appointmentForm.emailRequired': '',
+  'app.proHomePage.appointmentForm.firstNameRequired': '',
+  'app.proHomePage.appointmentForm.lastNameRequired': '',
+  'app.proHomePage.appointmentForm.phoneNumberRequired': '',
+  'app.proHomePage.appointmentForm.appointmentTypeRequired': '',
+  'app.proHomePage.appointmentForm.detailsRequired': '',
+  'app.proHomePage.appointmentForm.invalidDateTime': '',
+  'app.dateTimeInput.placeholder': 'Wählen',
+  'app.appointmentTypes.typeOne': '',
+  'app.appointmentTypes.typeTwo': '',
+  'app.appointmentTypes.personalVisit': 'Vor-Ort- Termin',
+  'app.appointmentTypes.phoneAppointment': 'Telefonische Beratung',
+  'app.notificationTypes.none': 'Keine',
+  'app.notificationTypes.email': 'E- Mail',
+  'app.notificationTypes.emailAndSms': 'E-Mail und SMS',
+  'app.repeatFrequencyTypes.everyDay': 'Täglich',
+  'app.repeatFrequencyTypes.everyWeek': 'Wöchentlich',
+  'app.repeatFrequencyTypes.everyMonth': 'Monatlich',
+  'app.repeatFrequencyTypes.everyYear': 'Jährlich',
+  'app.singleSelect.selectPlaceholder': 'Wählen',
+  'app.proPersonalSettingPage.title': 'Persönliche Daten',
+  'app.proPersonalSettingPage.infoBox.title': 'Sicherheit bei Avoplan',
+  'app.proPersonalSettingPage.infoBox.description':
+    'Ihre Kontaktdaten werden nicht weitergegeben und nur von  Avoplan verwendet, um eine zuverlässige und sichere Nutzung unserer Plattform zu ermöglichen.',
+  'app.proPersonalSettingPage.infoBox.btnLearnMore': 'Mehr erfahren',
+  'app.proPersonalSettingPage.contactInfo.title': 'Kontaktdaten',
+  'app.proPersonalSettingPage.contactInfo.firstName': 'Vorname',
+  'app.proPersonalSettingPage.contactInfo.lastName': 'Nachname',
+  'app.proPersonalSettingPage.contactInfo.email': 'E-Mail',
+  'app.proPersonalSettingPage.contactInfo.mobile': 'Handynummer',
+  'app.proPersonalSettingPage.btnSaveChanges': 'Änderung speichern',
+  'app.proPersonalSettingPage.btnChangesSaved': 'Änderung gespeichert',
+  'app.proPersonalSettingPage.furtherInfo.title': 'Zusätzliche Informationen',
+  'app.proPersonalSettingPage.furtherInfo.gender': 'Geschlecht',
+  'app.proPersonalSettingPage.furtherInfo.jobTitle': 'Berufsbezeichnung',
+  'app.proPersonalSettingPage.setting.title': 'Verwalten',
+  'app.proPersonalSettingPage.setting.deletAccount': 'Konto löschen',
+  'app.proPersonalSettingPage.setting.description':
+    'Möchten Sie wirklich wieder zum Hörer greifen?',
+  'app.proSecuritySettingPage.title': 'Sicherheitseinstellungen',
+  'app.proSecuritySettingPage.infoBox.title':
+    'Kontrolle ist gut. Mehr Kontrolle ist besser.',
+  'app.proSecuritySettingPage.infoBox.description':
+    'Behalten Sie jederzeit die Kontrolle über Ihre Daten und bestimmen Sie, wer auf Ihr Konto zugreifen dar.',
+  'app.proSecuritySettingPage.passwordBox.currentPassword':
+    'Aktuelles Passwort',
+  'app.proSecuritySettingPage.passwordBox.newPassword': 'Neues Passwort',
+  'app.proSecuritySettingPage.passwordBox.security': 'Sicherheit',
+  'app.proSecuritySettingPage.passwordBox.securityDescription':
+    'Merken Sie sich das Passwort.',
+  'app.proSecuritySettingPage.passwordBox.reloginInstruction':
+    'Nach der Änderung deines Passworts musst du dich erneut einloggen.',
+  'app.proSecuritySettingPage.passwordBox.btnChangePassword': 'Passwort ändern',
 };

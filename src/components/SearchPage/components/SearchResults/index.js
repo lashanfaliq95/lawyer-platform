@@ -9,11 +9,11 @@ const SearchResults = ({
   numberOfResults,
   searchTerm,
   isSearchLoading,
-  gender,
+  users,
 }) => {
   const renderMessage = () => {
-    if (numberOfResults === 1) {
-      if (gender === MALE) {
+    if (users.length === 1) {
+      if (users[0].gender === MALE) {
         return formatMessages(messages.searchSummaryWithOneMale, {
           location: searchTerm.location || CITY_OF_COLOGNE,
         });
@@ -22,6 +22,7 @@ const SearchResults = ({
         location: searchTerm.location,
       });
     }
+
     if (numberOfResults < 100) {
       return formatMessages(messages.SearchSummary, {
         location: searchTerm.location || CITY_OF_COLOGNE,

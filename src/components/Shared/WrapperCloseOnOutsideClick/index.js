@@ -1,7 +1,5 @@
 import React, { useRef, useEffect, memo } from 'react';
-import {
-  string, func, node, bool, shape,
-} from 'prop-types';
+import { string, func, node, bool, shape } from 'prop-types';
 
 const WrapperCloseOnOutsideClick = ({
   children,
@@ -15,10 +13,10 @@ const WrapperCloseOnOutsideClick = ({
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        wrapperRef.current
-        && !wrapperRef.current.contains(event.target)
-        && buttonRef.current
-        && !buttonRef.current.contains(event.target)
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
       ) {
         // When the button is clicked do nothing
         onClose();

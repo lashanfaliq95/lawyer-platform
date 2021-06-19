@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { bool, string } from 'prop-types';
+import { bool, shape, string } from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 import {
   Collapse,
@@ -22,6 +22,7 @@ const NavigationBar = ({
   showLawyerLogin,
   showSearchInput,
   isUserLoggedIn,
+  searchTerm,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const history = useHistory();
@@ -42,7 +43,7 @@ const NavigationBar = ({
       <NavbarToggler onClick={toggle} />
       {showSearchInput && (
         <div className='nav-search-wrapper'>
-          <SearchBar />
+          <SearchBar searchTerm={searchTerm} />
         </div>
       )}
       <Collapse isOpen={isOpen} navbar>
@@ -56,16 +57,6 @@ const NavigationBar = ({
                   </Button>
                 </div>
               )}
-              <div className='nav-button-item'>
-                <Link to='/help' className='no-hover'>
-                  <Button color='link' className='black-link'>
-                    <Icon name='question-circle' />
-                    <span className='nav-text'>
-                      {formatMessages(messages.needHelp)}
-                    </span>
-                  </Button>
-                </Link>
-              </div>
               <div className='nav-button-item'>
                 <Link to='/auth/login' className='no-hover'>
                   <Button color='link' className='black-link'>
@@ -134,12 +125,14 @@ NavigationBar.propTypes = {
   showLawyerLogin: bool,
   showSearchInput: bool,
   isUserLoggedIn: bool.isRequired,
+  searchTerm: shape({ location: string, nameOrFirm: string }),
 };
 
 NavigationBar.defaultProps = {
   className: '',
   showLawyerLogin: true,
   showSearchInput: false,
+  searchTerm: {},
 };
 
 export default connect((state) => ({

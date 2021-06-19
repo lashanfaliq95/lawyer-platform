@@ -5,7 +5,9 @@ import moment from 'moment';
 import classnames from 'classnames';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { defineMessages } from 'react-intl';
+
 import formatMessages from 'components/formatMessages';
+import { getTimeSlots } from '../utils';
 
 const messages = defineMessages({
   sunday: {
@@ -111,19 +113,6 @@ const CalendarSlots = styled(CalendarSlotsEmpty)`
   }
 `;
 
-const TIME_SLOTS = [];
-
-function populateTimeSlots() {
-  const date = moment().set('minute', 0);
-
-  for (let i = 0; i < 20; i += 1) {
-    const newDate = date.add(15, 'minute');
-    TIME_SLOTS.push(`${newDate.format('HH')}:${newDate.format('mm')}`);
-  }
-}
-
-populateTimeSlots();
-
 function getRandomInt(min, max) {
   return (
     Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) +
@@ -132,7 +121,8 @@ function getRandomInt(min, max) {
 }
 
 function getRandomTimeStamps(numberOfElements) {
-  return TIME_SLOTS.slice()
+  return getTimeSlots()
+    .slice()
     .sort(() => 0.5 - Math.random())
     .slice(0, numberOfElements);
 }

@@ -35,6 +35,9 @@ const FloatingLabelPwdInput = (props) => {
     ...rest
   } = props;
   const { value: propValue } = rest;
+  if (propValue === '') {
+    delete rest.value;
+  }
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
@@ -100,20 +103,32 @@ const FloatingLabelPwdInput = (props) => {
             hideScoreWord ? 'hide-score-word' : '',
           ].join(' ')}
         >
-          {hideScoreWord && (
+          {securityTitle && (
             <SecurityTitle>{intl.formatMessage(securityTitle)}</SecurityTitle>
           )}
           <PasswordStrengthBar
             password={password}
             scoreWordClassName='score-word-style'
-            scoreWords={[
-              'Sicherheit',
-              'Sicherheit: sehr schlecht',
-              'Sicherheit: schlecht',
-              'Sicherheit: gut',
-              'Sicherheit: sehr gut',
-            ]}
-            shortScoreWord='Sicherheit'
+            scoreWords={
+              securityTitle
+                ? [
+                  'sehr schlecht',
+                  'sehr schlecht',
+                  'schlecht',
+                  'gut',
+                  'sehr gut',
+                ]
+                : [
+                  'Sicherheit',
+                  'Sicherheit: sehr schlecht',
+                  'Sicherheit: schlecht',
+                  'Sicherheit: gut',
+                  'Sicherheit: sehr gut',
+                ]
+            }
+            shortScoreWord={
+              securityTitle ? 'Merken Sie sich das Passwort' : 'Sicherheit'
+            }
           />
         </div>
       )}
@@ -140,7 +155,7 @@ FloatingLabelPwdInput.defaultProps = {
   showForgotPwdBtn: false,
   showPwdStrength: false,
   hideScoreWord: false,
-  securityTitle: {},
+  securityTitle: null,
   invalid: false,
   value: '',
   error: null,

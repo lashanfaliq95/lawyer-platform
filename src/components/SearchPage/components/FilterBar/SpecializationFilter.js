@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { Input, Label } from 'reactstrap';
-import {
-  arrayOf, func, bool, shape, number,
-} from 'prop-types';
+import { arrayOf, func, bool, shape, number } from 'prop-types';
 
 import Icon from 'components/Shared/Icon';
-import { setSpecializationFilters } from '../../actions';
+import { setFilters } from '../../actions';
 import FilterModal from './FilterModal';
 import messages from '../../messages';
 
@@ -21,12 +19,24 @@ const getSelectedSpecializations = (lawSpecializations) => {
   return selectedSpecialization;
 };
 
-const resetSpecialization = (specializations) => specializations.map((specialization) => ({
-  ...specialization,
-  isHidden: false,
-}));
+const getUpdatedSpecializations = (specializations, activeSpecializations) => {
+  return specializations.map((specialization) => {
+    const updatedSpecialization = { ...specialization };
+    if (activeSpecializations.includes(specialization.id)) {
+      updatedSpecialization.isChecked = true;
+    }
+    return updatedSpecialization;
+  });
+};
 
-const getIsSearchTermLawyer = (searchTerm) => searchTerm.toLowerCase() === 'lawyer' ||
+const resetSpecialization = (specializations) =>
+  specializations.map((specialization) => ({
+    ...specialization,
+    isHidden: false,
+  }));
+
+const getIsSearchTermLawyer = (searchTerm) =>
+  searchTerm.toLowerCase() === 'lawyer' ||
   searchTerm.toLowerCase() === 'anwalt' ||
   searchTerm.toLowerCase() === 'anwälte' ||
   searchTerm.toLowerCase() === 'anwältin' ||
@@ -35,16 +45,15 @@ const getIsSearchTermLawyer = (searchTerm) => searchTerm.toLowerCase() === 'lawy
 const SpecializationFilter = ({
   specializations,
   activeSpecializations,
-  setSpecializationFilters: setSpecializationFiltersAction,
+  setFilters: setSpecializationFiltersAction,
   isFilterActive,
   intl,
   onClose,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredLawSpecialization, setFilteredLawSpecialization] = useState([
-    ...specializations,
-  ]);
-
+  const [filteredLawSpecialization, setFilteredLawSpecialization] = useState(
+    getUpdatedSpecializations(specializations, activeSpecializations),
+  );
   const [
     isLawyerSpecializationSelected,
     setIsLawyerSpecializationSelected,
@@ -145,7 +154,7 @@ const SpecializationFilter = ({
                     <Input
                       type='checkbox'
                       value={id}
-                      checked={isChecked || activeSpecializations.includes(id)}
+                      checked={isChecked || false}
                       onChange={onChangeLawyerSpecializations}
                     />
                     <div className='specialization-text'>{specialization}</div>
@@ -160,13 +169,11 @@ const SpecializationFilter = ({
 
 SpecializationFilter.propTypes = {
   specializations: arrayOf(shape({})).isRequired,
-  setSpecializationFilters: func.isRequired,
+  setFilters: func.isRequired,
   isFilterActive: bool.isRequired,
   intl: shape.isRequired,
   onClose: func.isRequired,
   activeSpecializations: arrayOf(shape(number)).isRequired,
 };
 
-export default injectIntl(
-  connect(null, { setSpecializationFilters })(SpecializationFilter),
-);
+export default injectIntl(connect(null, { setFilters })(SpecializationFilter));
