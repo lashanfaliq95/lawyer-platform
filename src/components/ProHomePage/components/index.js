@@ -1,30 +1,4 @@
-import { Modal, ModalBody } from 'reactstrap';
 import styled, { css } from 'styled-components';
-
-export const StyledModal = styled(Modal)`
-  .modal-content {
-    border-radius: 20px;
-    border: none;
-  }
-`;
-
-export const StyledModalBody = styled(ModalBody)`
-  padding: 0;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  * {
-    font-family: 'Montserrat', arial, sans-serif;
-  }
-`;
-
-export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export const Title = styled.div`
   text-align: center;

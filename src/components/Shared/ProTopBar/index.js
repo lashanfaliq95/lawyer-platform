@@ -51,6 +51,7 @@ const Container = styled.div`
   display: flex;
   border-bottom: 1px solid #d2d2d2;
   padding: 1rem;
+  padding-top: 2rem;
 `;
 
 const Title = styled.div`

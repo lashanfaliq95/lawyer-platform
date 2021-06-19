@@ -8,20 +8,15 @@ import * as Yup from 'yup';
 import moment from 'moment';
 import { useSetState } from 'react-use';
 
-import {
-  OFFERED_APPOINTMENT_TYPES as OFFERED_APPOINTMENT_MESSAGES,
-  NOTIFICATION_TYPES as NOTIFICATION_TYPES_MESSAGES,
-  LEGAL_ISSUE_TYPES as LEGAL_ISSUE_TYPES_MESSAGES,
-} from 'components/Shared/messages';
-import {
-  OFFERED_APPOINTMENT_TYPES,
-  NOTIFICATION_TYPES,
-  LEGAL_ISSUE_TYPES,
-  CALENDAR_FORM_TYPES,
-} from 'components/Shared/constants';
+import { CALENDAR_FORM_TYPES } from 'components/Shared/constants';
 import Switch from 'components/Shared/Switch/Switch';
 import {
-  FormContainer,
+  APPOINTMENT_TYPES,
+  LEGAL_ISSUE_TYPES,
+  NOTIFICATION_TYPES,
+} from 'components/Shared/options';
+import { FormContainer } from 'components/Shared';
+import {
   LineItemContainer,
   MultiLineItemContainer,
   Label,
@@ -167,43 +162,6 @@ const messages = defineMessages({
   },
 });
 
-const LEGAL_ISSUE_OPTIONS = [
-  {
-    label: intl.formatMessage(LEGAL_ISSUE_TYPES_MESSAGES.typeOne),
-    value: LEGAL_ISSUE_TYPES.TYPE_ONE,
-  },
-  {
-    label: intl.formatMessage(LEGAL_ISSUE_TYPES_MESSAGES.typeTwo),
-    value: LEGAL_ISSUE_TYPES.TYPE_TWO,
-  },
-];
-
-const APPOINTMENT_OPTIONS = [
-  {
-    label: intl.formatMessage(OFFERED_APPOINTMENT_MESSAGES.personalVisit),
-    value: OFFERED_APPOINTMENT_TYPES.PERSONAL_VISIT,
-  },
-  {
-    label: intl.formatMessage(OFFERED_APPOINTMENT_MESSAGES.phoneAppointment),
-    value: OFFERED_APPOINTMENT_TYPES.PHONE_APPOINTMENT,
-  },
-];
-
-const NOTIFICATION_OPTIONS = [
-  {
-    label: intl.formatMessage(NOTIFICATION_TYPES_MESSAGES.none),
-    value: NOTIFICATION_TYPES.NONE,
-  },
-  {
-    label: intl.formatMessage(NOTIFICATION_TYPES_MESSAGES.email),
-    value: NOTIFICATION_TYPES.EMAIL,
-  },
-  {
-    label: intl.formatMessage(NOTIFICATION_TYPES_MESSAGES.emailAndSms),
-    value: NOTIFICATION_TYPES.EMAIL_SMS,
-  },
-];
-
 function handleEndDateValidation(toDate) {
   const { toTime, fromTime, fromDate } = this.parent;
   const [fromHours, fromMinutes] = fromTime.split(':');
@@ -264,7 +222,7 @@ function AppointmentForm({ type }) {
       newCustomer: false,
       existingInsurance: false,
       appointmentType: null,
-      notificationType: NOTIFICATION_OPTIONS[0],
+      notificationType: NOTIFICATION_TYPES[0],
       details: '',
     },
     validationSchema: Yup.object({
@@ -372,7 +330,7 @@ function AppointmentForm({ type }) {
         <LineItemContainer>
           <Label>{intl.formatMessage(messages.typeOfLegalIssue)}</Label>
           <SingleSelect
-            options={LEGAL_ISSUE_OPTIONS}
+            options={LEGAL_ISSUE_TYPES}
             onOptionSelect={handleLegalIssueChange}
             selected={legalIssueType}
           />
@@ -465,7 +423,7 @@ function AppointmentForm({ type }) {
         <LineItemContainer>
           <Label>{intl.formatMessage(messages.typeOfAppointment)}</Label>
           <SingleSelect
-            options={APPOINTMENT_OPTIONS}
+            options={APPOINTMENT_TYPES}
             onOptionSelect={handleTypeChange}
             selected={appointmentType}
           />
@@ -476,7 +434,7 @@ function AppointmentForm({ type }) {
         <LineItemContainer>
           <Label>{intl.formatMessage(messages.notifications)}</Label>
           <SingleSelect
-            options={NOTIFICATION_OPTIONS}
+            options={NOTIFICATION_TYPES}
             onOptionSelect={handleNotificationChange}
             selected={notificationType}
           />
