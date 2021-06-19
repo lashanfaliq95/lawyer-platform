@@ -628,4 +628,18 @@ export default {
   'app.proPersonalSettingPage.setting.deletAccount': 'Konto löschen',
   'app.proPersonalSettingPage.setting.description':
     'Möchten Sie wirklich wieder zum Hörer greifen?',
+  'app.proSecuritySettingPage.title': 'Sicherheitseinstellungen',
+  'app.proSecuritySettingPage.infoBox.title':
+    'Kontrolle ist gut. Mehr Kontrolle ist besser.',
+  'app.proSecuritySettingPage.infoBox.description':
+    'Behalten Sie jederzeit die Kontrolle über Ihre Daten und bestimmen Sie, wer auf Ihr Konto zugreifen dar.',
+  'app.proSecuritySettingPage.passwordBox.currentPassword':
+    'Aktuelles Passwort',
+  'app.proSecuritySettingPage.passwordBox.newPassword': 'Neues Passwort',
+  'app.proSecuritySettingPage.passwordBox.security': 'Sicherheit',
+  'app.proSecuritySettingPage.passwordBox.securityDescription':
+    'Merken Sie sich das Passwort.',
+  'app.proSecuritySettingPage.passwordBox.reloginInstruction':
+    'Nach der Änderung deines Passworts musst du dich erneut einloggen.',
+  'app.proSecuritySettingPage.passwordBox.btnChangePassword': 'Passwort ändern',
 };
