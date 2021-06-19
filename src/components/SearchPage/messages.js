@@ -193,4 +193,8 @@ export default defineMessages({
     id: 'app.searchPage.clearFilers',
     defaultMessage: 'Clear filters',
   },
+  for: {
+    id: 'app.searchPage.for',
+    defaultMessage: 'For',
+  },
 });

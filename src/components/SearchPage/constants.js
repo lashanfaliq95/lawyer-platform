@@ -5,8 +5,10 @@ export const GET_LAWYERS = 'GET_LAWYERS';
 export const SET_LAWYERS = 'SET_LAWYERS';
 export const SET_ACTIVE_FILTERS = 'SET_ACTIVE_FILTERS';
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
-export const SET_LANGUAGE_FILTERS = 'SET_LANGUAGE_FILTERS';
+export const SET_FILTERS = 'SET_FILTERS';
 export const SET_SPECIALIZATION_FILTERS = 'SET_SPECIALIZATION_FILTERS';
+export const SET_IMMEDIATE_CONFIRMATION_FILTER =
+  'SET_IMMEDIATE_CONFIRMATION_FILTER';
 export const SEARCH_BY_NAME_OR_FIRM_OR_LOCATION =
   'SEARCH_BY_NAME_OR_FIRM_OR_LOCATION';
 export const GET_SEARCH_SUGGESTIONS_FOR_NAME_OR_FIRM =
@@ -28,8 +30,8 @@ export const LAWYER = 'Lawyer';
 export const NOTARY = 'Notary';
 export const CONSULTANT = 'Consultant';
 export const EXPERT = 'Expert';
-export const MALE = 'Male';
-export const FEMALE = 'Female';
+export const MALE = 'male';
+export const FEMALE = 'female';
 export const CITY_OF_COLOGNE = 'Köln';
 
 export const languages = [

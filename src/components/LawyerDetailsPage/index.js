@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { func, shape, string } from 'prop-types';
+import { bool, func, shape, string } from 'prop-types';
 import { Container, Col, Row } from 'reactstrap';
 
 import './styles.scss';
@@ -13,18 +13,22 @@ import Icon from 'components/Shared/Icon';
 
 import { getJobTitle } from 'components/Shared/utils';
 import { getLawyerDetails } from 'components/SearchPage/actions';
+import { setCurrentAppointment } from 'components/AppointmentsPage/action';
+import { DAYS } from 'components/Shared/messages';
 import BookAnAppointmentForm from './components/BookAnAppointmentForm';
 import messages from './messages';
 import { specializationsMap, languageMap } from './constants';
 
 const coverImageUrl =
-  'https://www.zipjob.com/blog/wp-content/uploads/2020/08/linkedin-default-background-cover-photo-1.png';
+  'https://career-lunch-storage.s3.eu-central-1.amazonaws.com/v2/blog/articles/linkedin-title-picture.jpg';
 
 const LawyerDetailsPage = ({
   className,
   lawyerDetails,
   getLawyerDetails: getLawyerDetailsAction,
+  setCurrentAppointment: setCurrentAppointmentAction,
   match,
+  isUserLoggedIn,
 }) => {
   useEffect(() => {
     getLawyerDetailsAction(match.params.id);
@@ -46,14 +50,26 @@ const LawyerDetailsPage = ({
     languageIds,
     fax,
     gender,
+    legalIssues,
+    isLawyerAcceptingNewClients,
+    isLawyerOfferingPhoneAndVisitingAppointments,
+    isRequireShortSummary,
+    isAppointmentRequireApproval,
+    lawyersOfFirm,
+    buildingFloor,
+    buildingParking,
+    isBuildingDisabledFriendly,
+    standardMessage,
   } = lawyerDetails || {};
+
+  const jobTitle = getJobTitle(expertId, gender);
 
   return (
     <>
       <NavigationBar />
       <Container className={`lawyer-details-page ${className}`} fluid>
         <Row>
-          <Col md='8'>
+          <Col md='7'>
             <div className='image section'>
               <div
                 className='cover-photo'
@@ -66,7 +82,7 @@ const LawyerDetailsPage = ({
               <div className='details'>
                 <div className='name-gender'>
                   <span style={{ fontWeight: 'bold' }}>{name}</span>
-                  <span>{getJobTitle(expertId, gender)}</span>
+                  <span>{jobTitle}</span>
                 </div>
               </div>
             </div>
@@ -95,7 +111,9 @@ const LawyerDetailsPage = ({
               <div className='address'>
                 <div className='title'>{formatMessages(messages.location)}</div>
                 <div className='element'>
-                  <span>{formatMessages(messages.address)}</span>
+                  <span className='title'>
+                    {formatMessages(messages.address)}
+                  </span>
                   <div className='content'>
                     <span className='element-icon'>
                       <Icon name='map-marker-alt' size='large' />
@@ -108,13 +126,37 @@ const LawyerDetailsPage = ({
                   </div>
                 </div>
                 <div className='element'>
-                  <span>{formatMessages(messages.access)}</span>
-                  <span>
-                    <span className='element-icon'>
-                      <Icon name='parking' size='large' />
-                    </span>
-                    {houseNumber}
+                  <span className='title'>
+                    {formatMessages(messages.access)}
                   </span>
+                  <div className='access-element'>
+                    <Icon
+                      name='parking'
+                      size='large'
+                      className='element-icon'
+                    />
+                    <span className='text'>{buildingParking}</span>
+                  </div>
+                  <div className='access-element'>
+                    <Icon
+                      name='building'
+                      size='large'
+                      className='element-icon'
+                    />
+                    <span className='text'>{buildingFloor}</span>
+                  </div>
+                  {isBuildingDisabledFriendly === 1 ? (
+                    <div className='access-element'>
+                      <Icon
+                        name='wheelchair'
+                        size='large'
+                        className='element-icon'
+                      />
+                      <span className='text'>
+                        {formatMessages(messages.disabledFriendly)}
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
               </div>
               <div className='map-section'>
@@ -137,7 +179,9 @@ const LawyerDetailsPage = ({
                     <div className='icon'>
                       <Icon name='phone' />
                     </div>
-                    <span>{formatMessages(messages.Telephone)}</span>
+                    <span className='detail-header'>
+                      {formatMessages(messages.Telephone)}
+                    </span>
                   </div>
                   <span>{mobilePhone}</span>
                 </div>
@@ -146,16 +190,20 @@ const LawyerDetailsPage = ({
                     <div className='icon'>
                       <Icon name='fax' />
                     </div>
-                    <span>{formatMessages(messages.Fax)}</span>
+                    <span className='detail-header'>
+                      {formatMessages(messages.Fax)}
+                    </span>
                   </div>
-                  <span>{fax}</span>
+                  <span>{fax || 'mock fax'}</span>
                 </div>
                 <div className='element'>
                   <div className='icon-element'>
                     <div className='icon'>
                       <Icon name='envelope' />
                     </div>
-                    <span>{formatMessages(messages.email)}</span>
+                    <span className='detail-header'>
+                      {formatMessages(messages.email)}
+                    </span>
                   </div>
                   <span>{email}</span>
                 </div>
@@ -164,7 +212,9 @@ const LawyerDetailsPage = ({
                     <div className='icon'>
                       <Icon name='globe' />
                     </div>
-                    <span>{formatMessages(messages.Language)}</span>
+                    <span className='detail-header'>
+                      {formatMessages(messages.Language)}
+                    </span>
                   </div>
                   <div className='languages'>
                     {languageIds &&
@@ -178,17 +228,54 @@ const LawyerDetailsPage = ({
                 <span className='title'>
                   {formatMessages(messages.openHours)}
                 </span>
-                <span>Monday</span>
-                <span>Tuesday</span>
-                <span>Wednesday</span>
-                <span>Thursday</span>
-                <span>Friday</span>
-                <span>Saturday</span>
+                <span className='day'>{formatMessages(DAYS.monday)}</span>
+                <span className='time-range'>8:30-13:00</span>
+
+                <span className='day'>{formatMessages(DAYS.tuesday)}</span>
+                <span className='time-range'>8:30-13:00</span>
+
+                <span className='day'>{formatMessages(DAYS.wednesday)}</span>
+                <span className='time-range'>8:30-13:00</span>
+
+                <span className='day'>{formatMessages(DAYS.thursday)}</span>
+                <span className='time-range'>8:30-13:00</span>
+
+                <span className='day'>{formatMessages(DAYS.friday)}</span>
+                <span className='time-range'>8:30-13:00</span>
+
+                <span className='day'>{formatMessages(DAYS.saturday)}</span>
+                <span className='time-range'>8:30-13:00</span>
               </div>
             </div>
           </Col>
-          <Col md='4'>
-            <BookAnAppointmentForm />
+          <Col md={{ size: '3', offset: '1' }}>
+            <BookAnAppointmentForm
+              legalIssues={legalIssues}
+              isLawyerAcceptingNewClients={!!isLawyerAcceptingNewClients}
+              isLawyerOfferingPhoneAndVisitingAppointments={
+                !!isLawyerOfferingPhoneAndVisitingAppointments
+              }
+              isRequireShortSummary={!!isRequireShortSummary}
+              isAppointmentRequireApproval={!!isAppointmentRequireApproval}
+              lawyersOfFirm={lawyersOfFirm || []}
+              setCurrentAppointment={setCurrentAppointmentAction}
+              lawyerDetails={{
+                name,
+                imgUrl,
+                lat: latitude,
+                lon: longitude,
+                road,
+                houseNumber,
+                zipCode,
+                city,
+                phoneNumber: mobilePhone,
+                occupation: jobTitle,
+                buildingFloor,
+                buildingParking,
+                standardMessage,
+              }}
+              isUserLoggedIn={isUserLoggedIn}
+            />
           </Col>
         </Row>
       </Container>
@@ -200,8 +287,10 @@ const LawyerDetailsPage = ({
 LawyerDetailsPage.propTypes = {
   className: string,
   getLawyerDetails: func.isRequired,
+  setCurrentAppointment: func.isRequired,
   match: shape({}).isRequired,
   lawyerDetails: shape({}).isRequired,
+  isUserLoggedIn: bool.isRequired,
 };
 
 LawyerDetailsPage.defaultProps = {
@@ -210,8 +299,10 @@ LawyerDetailsPage.defaultProps = {
 
 const mapStateToProps = (state) => ({
   lawyerDetails: state.search.lawyerDetails,
+  isUserLoggedIn: !!state.login.userDetails && state.login.userDetails.id,
 });
 
-export default connect(mapStateToProps, { getLawyerDetails })(
-  LawyerDetailsPage,
-);
+export default connect(mapStateToProps, {
+  getLawyerDetails,
+  setCurrentAppointment,
+})(LawyerDetailsPage);

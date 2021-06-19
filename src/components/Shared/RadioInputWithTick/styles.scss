@@ -1,0 +1,25 @@
+.radio-button-with-check {
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .icon {
+    position: absolute;
+    left: 17px;
+    top: 14px;
+    color: white;
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .message {
+    vertical-align: super;
+    max-width: 250px;
+  }
+}

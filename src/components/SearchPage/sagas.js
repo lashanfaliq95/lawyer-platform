@@ -27,8 +27,7 @@ import {
 import {
   GET_LAWYERS,
   GET_LAWYER_DETAILS,
-  SET_LANGUAGE_FILTERS,
-  SET_SPECIALIZATION_FILTERS,
+  SET_FILTERS,
   SEARCH_BY_NAME_OR_FIRM_OR_LOCATION,
   GET_LAWYER_AVAILABILITY,
   LOAD_LAWYER_AVAILABILITY,
@@ -99,8 +98,7 @@ export default [
   takeLatest(CLEAR_FILTERS, getFilteredSearchResult),
   takeEvery(LOAD_LAWYER_AVAILABILITY, getLawyerAvailability),
   takeLatest(GET_LAWYER_DETAILS, getLawyerDetails),
-  debounce(500, SET_LANGUAGE_FILTERS, getFilteredSearchResult),
-  debounce(500, SET_SPECIALIZATION_FILTERS, getFilteredSearchResult),
+  debounce(500, SET_FILTERS, getFilteredSearchResult),
   debounce(500, SEARCH_BY_NAME_OR_FIRM_OR_LOCATION, getSearchResults),
   debounce(500, GET_LAWYER_AVAILABILITY, getLawyerAvailability),
   debounce(

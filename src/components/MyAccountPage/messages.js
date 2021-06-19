@@ -79,4 +79,7 @@ export default defineMessages({
     id: 'app.accountPage.no',
     defaultMessage: 'No',
   },
+  security: {
+    id: 'app.accountPage.security',
+  },
 });

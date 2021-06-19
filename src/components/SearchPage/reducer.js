@@ -116,7 +116,7 @@ const initialState = {
     activeAvailability: [],
     activeSpecializations: [],
     freeFirstAppointment: false,
-    appointmentWithImmediateConfirmation: false,
+    appointmentWithImmediateConfirmation: null,
     activeLanguages: [],
   },
   availability: {},

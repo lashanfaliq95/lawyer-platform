@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {
-  func, arrayOf, string, bool,
-} from 'prop-types';
+import { func, arrayOf, string, bool, shape } from 'prop-types';
 import Autosuggest from 'react-autosuggest';
+import qs from 'qs';
 
 import {
   getSearchSuggestionsForNameOrFirm,
@@ -73,6 +72,7 @@ const SearchBar = ({
   nameOrFirmSuggestions,
   locationSuggestions: locationSuggestionsProp,
   isLinkToSearch,
+  searchTerm,
 }) => {
   const [searchTermForLocation, setSearchTermForLocation] = useState('');
   const [searchTermForNameOrFirm, setSearchTermForNameOrFirm] = useState('');
@@ -84,6 +84,17 @@ const SearchBar = ({
   useEffect(() => {
     setSuggestions(nameOrFirmSuggestions);
   }, [nameOrFirmSuggestions]);
+
+  useEffect(() => {
+    if (searchTerm.location) {
+      setSearchTermForLocation(searchTerm.location);
+    }
+
+    if (searchTerm.nameOrFirm) {
+      setSearchTermForNameOrFirm(searchTerm.nameOrFirm);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   useEffect(() => {
     setLocationSuggestions(locationSuggestionsProp);
@@ -122,6 +133,15 @@ const SearchBar = ({
     setIsLocationPopupShown(false);
   };
 
+  const getRoutePath = () => {
+    const locationQuery = qs.stringify({ searchTermForLocation });
+    const nameOrFirmQuery = qs.stringify({ searchTermForNameOrFirm });
+
+    return `/search?${searchTermForLocation ? `${locationQuery}&` : ''}${
+      searchTermForNameOrFirm ? `${nameOrFirmQuery}` : ''
+    }`;
+  };
+
   return (
     <div className='nav-search'>
       <Autosuggest
@@ -141,7 +161,8 @@ const SearchBar = ({
         }}
         renderInputComponent={renderInputComponent}
         renderSuggestionsContainer={renderSuggestionsContainer}
-        onSuggestionSelected={(e, { suggestion }) => setSearchTermForNameOrFirm(suggestion)}
+        onSuggestionSelected={(e, { suggestion }) =>
+          setSearchTermForNameOrFirm(suggestion)}
       />
       {isPopupShown && (
         <div className='custom-suggestions-popup'>
@@ -190,7 +211,8 @@ const SearchBar = ({
           }}
           renderInputComponent={renderSecondInputComponent}
           renderSuggestionsContainer={renderSuggestionsContainer}
-          onSuggestionSelected={(e, { suggestion }) => setSearchTermForLocation(suggestion)}
+          onSuggestionSelected={(e, { suggestion }) =>
+            setSearchTermForLocation(suggestion)}
         />
 
         {isLocationPopupShown && (
@@ -229,7 +251,7 @@ const SearchBar = ({
       </div>
       <div className='search-icon'>
         {isLinkToSearch ? (
-          <Link to='/search'>
+          <Link to={getRoutePath()}>
             <Icon name='search' size='large' />
           </Link>
         ) : (
@@ -247,12 +269,14 @@ SearchBar.propTypes = {
   nameOrFirmSuggestions: arrayOf(string),
   locationSuggestions: arrayOf(string),
   isLinkToSearch: bool,
+  searchTerm: shape({ location: string, nameOrFirm: string }),
 };
 
 SearchBar.defaultProps = {
   nameOrFirmSuggestions: [],
   locationSuggestions: [],
   isLinkToSearch: false,
+  searchTerm: {},
 };
 
 const mapStateToProps = (state) => ({

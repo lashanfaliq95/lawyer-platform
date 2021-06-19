@@ -1,5 +1,6 @@
 .lawyer-details-page {
   width: 100%;
+  font-family: 'Montserrat', arial, sans-serif;
 
   .section {
     border: 1px solid #d8d8d8;
@@ -8,31 +9,45 @@
   }
 
   .title {
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 5px;
+    color: rgb(104, 101, 101);
   }
   .image {
+    position: relative;
+    height: 392px;
     .cover-photo {
       width: 100%;
       height: 200px;
       background-repeat: no-repeat;
       background-size: 100% 200px;
+      z-index: 0;
     }
     .profile-photo {
       position: absolute;
       left: 5%;
-      top: 145px;
+      top: 135px;
       width: 100px;
       height: 100px;
       border-radius: 50%;
       background-repeat: no-repeat;
       background-size: 100px 100px;
+      z-index: 10;
     }
     .details {
       height: 200px;
+      width: 100%;
+      color: gray;
+      border-top: transparent solid 1px;
+      border-radius: 10px 10px 0 0;
+      margin-top: -10px;
+      z-index: 5;
+      position: absolute;
+      top: 190px;
+      background-color: white;
       .name-gender {
         position: absolute;
-        bottom: 60px;
+        bottom: 70px;
         left: 50px;
         display: flex;
         flex-direction: column;
@@ -43,6 +58,7 @@
   .info {
     padding: 30px;
     .content {
+      color: rgb(102, 100, 100);
       margin-top: 10px;
     }
   }
@@ -53,10 +69,10 @@
       display: flex;
 
       .element {
-        background-color: #105fbb;
-        border-radius: 25px;
+        background-color: #eff3f7;
+        border-radius: 5px;
         padding: 10px;
-        color: white;
+        color: rgb(129, 123, 123);
         font-size: 12px;
         margin: 5px;
       }
@@ -66,20 +82,28 @@
   .location {
     display: flex;
     .address {
-      padding: 10px;
+      padding: 20px;
       width: 50%;
       display: flex;
       flex-direction: column;
-      div {
-        margin: 10px;
+      .content {
+        display: flex;
+        :nth-child(2) {
+          color: grey;
+        }
+      }
+      .element-icon {
+        margin-right: 5px;
       }
       .element {
         display: flex;
         flex-direction: column;
-        :first-child {
-          font-weight: 500;
-        }
-        .element-icon {
+        margin-bottom: 30px;
+        .access-element {
+          margin-bottom: 10px;
+          .text {
+            color: grey;
+          }
         }
       }
     }
@@ -94,6 +118,7 @@
   .contact-appointment {
     display: flex;
     .contact {
+      color: rgb(112, 110, 110);
       padding: 20px;
       width: 50%;
       display: flex;
@@ -101,12 +126,22 @@
       .element {
         margin: 5px;
       }
+      .detail-header {
+        font-weight: 500;
+      }
     }
     .appointment {
       padding: 10px;
       width: 50%;
       display: flex;
       flex-direction: column;
+      .day {
+        font-weight: 500;
+      }
+      .time-range {
+        margin-bottom: 5px;
+        color: rgb(109, 107, 107);
+      }
     }
     .icon-element {
       display: flex;
@@ -126,33 +161,47 @@
     background-color: #fbfbfb;
     margin-top: 30px;
     hr {
-      background-color: #eef2f6 !important;
+      background-color: #ebebeb !important;
+      margin: 0;
     }
     .title {
       font-size: 18px;
       font-weight: 500;
+      color: rgb(37, 36, 36);
+      padding-left: 10px;
     }
     .sub-title {
       font-size: 16px;
       font-weight: 400;
+      padding-left: 10px;
     }
+
     .booking-section {
       padding: 10px 0;
       .form-section {
-        padding: 10px;
         transition: border-left 0.15s;
         transform-origin: left top;
+        border-top: 1px solid #ebebeb;
+        border-left: 2.5px solid transparent;
+        padding: 20px;
+        .section-title {
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 20px;
+          display: block;
+        }
       }
       .active-section {
         border: none;
+        border-top: 1px solid #ebebeb;
         border-left: 2.5px solid #105fbb !important;
       }
       .form-check {
         border: 1px solid #d8d8d8;
+        background-color: white;
         margin: 10px 0;
         padding: 10px;
-        width: 80%;
-        border-radius: 20px;
+        border-radius: 10px;
         .form-check-input {
           position: relative;
           margin-left: 0;
@@ -164,6 +213,86 @@
           width: 100%;
         }
       }
+
+      .top-radio-input {
+        margin-bottom: 0;
+        border-radius: 5px 5px 0 0;
+        border-bottom: transparent;
+      }
+
+      .bottom-radio-button {
+        margin-top: 0;
+        border-radius: 0 0 5px 5px;
+      }
+
+      .calender-wrapper {
+        position: relative;
+        height: 500px;
+      }
+
+      .appointment-btn {
+        width: 50%;
+        background-color: #105fbb;
+        border-color: #105fbb;
+        font-size: 14px;
+        margin-left: 25%;
+      }
+
+      button.appointment-btn:hover {
+        background-color: #082b53;
+        border-color: #082b53;
+      }
+
+      .no-appointments-overlay {
+        left: 35px;
+        width: 320px;
+      }
     }
+  }
+}
+
+.appointment-modal {
+  max-width: 900px;
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: 97px;
+    font-weight: 500;
+  }
+  .modal-content {
+    width: 900px;
+  }
+
+  button {
+    height: 40px;
+  }
+
+  .btn-link {
+    color: #105fbb;
+  }
+
+  .btn-secondary {
+    background-color: #105fbb;
+    border-color: #105fbb;
+    color: white;
+    a {
+      color: white;
+    }
+  }
+
+  button.btn-secondary:hover {
+    background-color: #082b53;
+    border-color: #082b53;
+  }
+}
+
+.booking-appointment-modal {
+  .modal-content {
+    width: 800px;
+  }
+  button {
+    height: 40px;
   }
 }

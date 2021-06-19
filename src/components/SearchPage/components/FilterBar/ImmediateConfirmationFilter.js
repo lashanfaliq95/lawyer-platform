@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { bool, func } from 'prop-types';
 
 import ToggleSwitch from 'components/Shared/ToggleSwitch';
 import messages from '../../messages';
 import FilterModal from './FilterModal';
+import { setFilters } from '../../actions';
 
 const ImmediateConfirmationFilter = ({ isFilterActive, onClose }) => {
-  const [isImmediateConfirmation, setIsImmediateConfirmation] = useState(false);
+  const dispatch = useDispatch();
+
+  const [isImmediateConfirmation, setIsImmediateConfirmation] = useState(
+    isFilterActive,
+  );
   const isBtnDisabled = isImmediateConfirmation ? false : !isFilterActive;
 
   const onClickCancel = () => {
@@ -14,6 +20,11 @@ const ImmediateConfirmationFilter = ({ isFilterActive, onClose }) => {
   };
 
   const onClickSave = () => {
+    dispatch(
+      setFilters({
+        appointmentWithImmediateConfirmation: isImmediateConfirmation,
+      }),
+    );
     onClose();
   };
 

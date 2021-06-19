@@ -169,10 +169,10 @@ function DateTimeInput({
         >
           {date
             ? `${intl.formatMessage(
-                getLocalizedShortDayOfWeek(date),
-              )}, ${date.format('DD')}. ${intl.formatMessage(
-                getLocalizedMonth(date),
-              )}`
+              getLocalizedShortDayOfWeek(date),
+            )}, ${date.format('DD')}. ${intl.formatMessage(
+              getLocalizedMonth(date),
+            )}`
             : intl.formatMessage(messages.placeholder)}
         </DatePickerButton>
         {!hideDateClear && (

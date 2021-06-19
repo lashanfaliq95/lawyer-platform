@@ -23,6 +23,9 @@
 }
 
 .search-page {
+  * {
+    font-family: 'Montserrat', arial, sans-serif;
+  }
   .active {
     box-shadow: 0 2px 14px rgba(51, 51, 51, 0.2);
     border: 1px solid #0596de;
@@ -216,6 +219,10 @@
       .specialization-section {
         margin-top: 10px;
         margin-left: 25px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 14px;
       }
 
       .specialization-Buttons {
@@ -255,12 +262,13 @@
         font-size: 14px;
         margin-left: 20px;
       }
-      .calender-section {
-        margin-top: 20px;
-      }
+
       button.appointment-btn:hover {
         background-color: #082b53;
         border-color: #082b53;
+      }
+      .calender-section {
+        margin-top: 20px;
       }
       .row {
         margin: 0;

@@ -79,6 +79,7 @@ export default {
     'Wir haben Ihnen eine E-Mail zum Zurücksetzen Ihreres Passworts geschickt',
   'app.loginPage.noMailReceivedText': 'Sie haben die E-Mail nicht erhalten?',
   'app.loginPage.switchToHelp': 'Hilfebereich aufrufen',
+  'app.loginPage.loginError': 'error',
   'app.homePage.videoSectionCardTitle': 'Von überall. Zu jeder Zeit.',
   'app.homePage.videoSectionCardDescription':
     'Terminbuchung war noch nie so einfach. Ob morgens oder abends. Wir kennen keine Zeiten. In der digitalen Zukunft möchten wir mit Ihnen gemeinsam gehen. Fangen wir in der Gegenwart an.',
@@ -168,6 +169,7 @@ export default {
   'app.searchPage.expertsNearby': 'Experten in Ihrer Nähe finden',
   'app.searchPage.suggestion': 'Vorschläge',
   'app.searchPage.clearFilers': 'Filter löschen',
+  'app.searchPage.for': 'für',
   'app.lawyerDetailsPage.infoText':
     'Liebe Mandanten,{br} ' +
     'Ich freue mich, Sie in meiner Kanzlei in Köln begrüßen zu dürfen!{br}' +
@@ -233,6 +235,23 @@ export default {
     'Information zu erhalten.',
   'app.lawyerDetailsPage.cancel': 'Abbrechen',
   'app.lawyerDetailsPage.call': 'Anrufen',
+  'app.lawyerDetailsPage.appointmentBookingModalTitle': `Wichtige Informationen vor
+  Ihrem Termin`,
+  'app.lawyerDetailsPage.directBookingModalBody': `Mit der Terminbuchung
+  verpflichten Sie sich, diesen Termin
+  rechtzeitig wahrzunehmen. Sollten
+  Sie verhindert sein, denken Sie bitte
+  daran, Ihren Termin so früh wie
+  möglich zu verschieben oder
+  abzusagen.`,
+  'app.lawyerDetailsPage.messageToYouFromTheLawyer': `Mitteilung des Experten zu
+  Ihrem Termin:`,
+  'app.lawyerDetailsPage.manualBookingModalBody': `Bitte denken Sie daran,
+  dass Ihr Termin erst bestätigt ist,
+  wenn der Experte innerhalb von
+  48 Stunden Ihre Anfrage
+  angenommen hat.`,
+  'app.lawyerDetailsPage.disabledFriendly': 'Barrierefrei',
   'app.appointmentsPage.appointments': 'Termine',
   'app.appointmentsPage.pastAppointments': 'Vergangene',
   'app.appointmentsPage.upComingAppointments': 'Anstehende',
@@ -259,6 +278,8 @@ export default {
   'app.appointmentsPage.no': 'Abbrechen',
   'app.appointmentsPage.cancel': 'Termin absagen',
   'app.appointmentsPage.rebookAppointment': 'Neuen Termin vereinbaren',
+  'app.appointmentsPage.appointmentViaPhone': 'Telefonische Beratung',
+  'app.appointmentsPage.personnelAppointments': 'Vor-Ort-Termin',
   'app.proRegisterPage.titleText': 'Die Zukunft der Rechtsberatung',
   'app.proRegisterPage.descriptionText':
     'Avoplan Pro ist die perfekte Softwarelösung für Rechtsanwälte, Notare und Berater Die innovative Technologie hilft Ihnen dabei Ihren Umsatz zu steigern, mehr Zeit zu gewinnen und Mandanten ein noch besseres Erlebnis zu ermöglichen.',
@@ -404,6 +425,7 @@ export default {
   'app.accountPage.deleteAccountModalContent':
     'Möchten Sie wirklich Ihr Avoplan-Konto löschen? Bitte beachten Sie: Das Löschen Ihres Kontos ist dauerhaft und kann nicht rückgängig gemacht werden. Sämtliche Termine werden abgesagt.',
   'app.accountPage.no': 'Abbrechen',
+  'app.accountPage.security': 'Sicherheit',
   'app.proTopBar.search': 'Mandanten durchsuchen...',
   'app.proTopBar.calendar': 'Terminkalender',
   'app.proTopBar.clients': 'Mandanten',
@@ -515,6 +537,23 @@ export default {
   'app.proHomePage.viewOptions.typeOfAppointment': 'Terminart',
   'app.proHomePage.viewOptions.expert': 'Experte',
   'app.proHomePage.viewOptions.location': 'Standort',
+  'app.appointmentConfirmationPage.title':
+    'Ihr Termin ist noch nicht bestätigt.',
+  'app.appointmentConfirmationPage.subTitle': `Bestätigen Sie Ihren Termin,
+  indem Sie sich registrieren oder einloggen.`,
+  'app.appointmentConfirmationPage.newToAvoplan': 'Neu bei Avoplan?',
+  'app.appointmentConfirmationPage.register': 'Registrieren',
+  'app.appointmentConfirmationPage.alreadyOnAvoplan': 'Bereits bei Avoplan?',
+  'app.appointmentConfirmationPage.login': 'Einloggen',
+  'app.appointmentConfirmationPage.appointmentBooked':
+    'Ihr Termin wurde erfolgreich gebucht.',
+  'app.appointmentConfirmationPage.sentConfirmationEmail': `Wir haben
+  Ihnen eine Bestätigung Ihres
+  Termins per E-Mail gesendet.`,
+  'app.appointmentConfirmationPage.remindAppointment': `Zusätzlich
+  werden wir Sie rechtzeitig per E-
+  Mail an Ihren Termin erinnern.`,
+  'app.appointmentConfirmationPage.addToCalender': 'Zum Kalender hinzufügen',
   'app.proClientPage.title': 'Mandanten',
   'app.proClientPage.noClient.title': 'Behalten Sie den Überblick',
   'app.proClientPage.noClient.description':

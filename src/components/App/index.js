@@ -28,6 +28,8 @@ import ProHomePage from 'components/ProHomePage';
 import ProUserAppointments from 'components/ProUserAppointments';
 import ProAppointment from 'components/ProAppointment';
 import ProtectedRoute from 'components/Shared/ProtectedRoute';
+import AppointmentConfirmationPage from 'components/AppointmentConfirmationPage';
+import AppointmentSuccessPage from 'components/AppointmentSuccessPage';
 import ProClientPage from 'components/ProClientPage';
 import ProMessagePage from 'components/ProMessagePage';
 import ProAccountPage from 'components/ProAccountPage';
@@ -68,6 +70,16 @@ const App = () => (
           path='/search/lawyer-details/:id'
           exact
           component={LawyerDetailsPage}
+        />
+        <Route
+          path='/appointment-confirmation'
+          exact
+          component={AppointmentConfirmationPage}
+        />
+        <Route
+          path='/appointment-success'
+          exact
+          component={AppointmentSuccessPage}
         />
         <UnprotectedRoute path='/auth/login' exact component={LoginCardPage} />
         <UnprotectedRoute
