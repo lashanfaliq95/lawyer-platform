@@ -30,9 +30,21 @@ import ProAppointment from 'components/ProAppointment';
 import ProtectedRoute from 'components/Shared/ProtectedRoute';
 import AppointmentConfirmationPage from 'components/AppointmentConfirmationPage';
 import AppointmentSuccessPage from 'components/AppointmentSuccessPage';
+import ProClientPage from 'components/ProClientPage';
+import ProMessagePage from 'components/ProMessagePage';
+import ProAccountPage from 'components/ProAccountPage';
 
 import reducers from 'reducers';
 import sagas from 'sagas';
+import PersonalSettingsPage from 'components/PersonalSettingsPage';
+import SecuritySettingsPage from 'components/SecuritySettingsPage';
+import PublicProfilePage from 'components/PublicProfilePage';
+import LegalIssueSettingsPage from 'components/LegalIssueSettingsPage';
+import CalendarSettingsPage from 'components/CalendarSettingsPage';
+import LocationSettingsPage from 'components/LocationSettingsPage';
+import HelpSettingsPage from 'components/HelpSettingsPage';
+import PaymentSettingsPage from 'components/PaymentSettingsPage';
+import UserSettingsPage from 'components/UserSettingsPage';
 import NotFoundPage from './components/NotFoundPage';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -90,6 +102,50 @@ const App = () => (
         />
         <Route path='/pro/appointments' exact component={ProUserAppointments} />
         <Route path='/pro/appointments/:id' exact component={ProAppointment} />
+        <Route path='/pro/clients' exact component={ProClientPage} />
+        <Route path='/pro/messages' exact component={ProMessagePage} />
+        <Route path='/pro/my-account' exact component={ProAccountPage} />
+        <Route
+          path='/pro/my-account/personal'
+          exact
+          component={PersonalSettingsPage}
+        />
+        <Route
+          path='/pro/my-account/security-settings'
+          exact
+          component={SecuritySettingsPage}
+        />
+        <Route
+          path='/pro/my-account/public-profile'
+          exact
+          component={PublicProfilePage}
+        />
+        <Route
+          path='/pro/my-account/users'
+          exact
+          component={UserSettingsPage}
+        />
+        <Route
+          path='/pro/my-account/legal-issues'
+          exact
+          component={LegalIssueSettingsPage}
+        />
+        <Route
+          path='/pro/my-account/calendar-settings'
+          exact
+          component={CalendarSettingsPage}
+        />
+        <Route
+          path='/pro/my-account/locations'
+          exact
+          component={LocationSettingsPage}
+        />
+        <Route path='/pro/my-account/help' exact component={HelpSettingsPage} />
+        <Route
+          path='/pro/my-account/payment-and-invoices'
+          exact
+          component={PaymentSettingsPage}
+        />
         <Route path='/pro' exact component={ProHomePage} />
         <Route path='/404-not-found' component={NotFoundPage} />
         <Redirect from='*' to='/404-not-found' />

@@ -9,6 +9,7 @@ const DropdownContainer = styled.div`
   z-index: 10;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 5px;
+  overflow: hidden;
 
   ${({ width, isOpen, hasLayoutLoaded }) => css`
     min-width: ${width};
@@ -84,6 +85,7 @@ function useDropdown({
   onOpen = () => {},
   calculateHeight = false,
   initialStatus = false,
+  onClickOutside = undefined,
 }) {
   const ref = useRef();
   const [{ isOpen, hasLayoutLoaded }, setState] = useSetState({
@@ -118,7 +120,11 @@ function useDropdown({
   useEffect(() => {
     function handleOnClick(event) {
       if (ref && ref.current && !ref.current.contains(event.target)) {
-        setState({ isOpen: false });
+        if (onClickOutside) {
+          onClickOutside();
+        } else {
+          setState({ isOpen: false });
+        }
       }
     }
     document.addEventListener('mousedown', handleOnClick, false);
@@ -126,6 +132,7 @@ function useDropdown({
     return () => {
       document.removeEventListener('mousedown', handleOnClick, false);
     };
+    //  eslint-disable-next-line
   }, [ref, setState]);
 
   return { ref, isOpen, toggleIsOpen, hasLayoutLoaded };

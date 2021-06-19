@@ -18,5 +18,3 @@ export const SecondaryButton = styled(Button)`
   background-color: transparent;
   color: #0061c0;
 `;
-
-export default {};

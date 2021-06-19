@@ -204,6 +204,7 @@ function FilterPaneDatePicker({
         onFocusChange={handleOnFocusedInputChange}
         numberOfMonths={3}
         initialVisibleMonth={() => moment().subtract(1, 'month')}
+        hideKeyboardShortcutsPanel
       />
       <Footer>
         <Button onClick={handleOnClearDates}>

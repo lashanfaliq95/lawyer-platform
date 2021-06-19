@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { DayPickerSingleDateController } from 'react-dates';
 import moment from 'moment';
 
+import MonthContainer from './MonthContainer';
+
 function MiniCalendar() {
   const [focused, setFocused] = useState(true);
   const [date, setDate] = useState(moment());
@@ -21,6 +23,9 @@ function MiniCalendar() {
       onFocusChange={focusChangeHandler}
       focused={focused}
       noBorder
+      renderMonthElement={(props) => <MonthContainer {...props} />}
+      noNavButtons
+      hideKeyboardShortcutsPanel
     />
   );
 }
