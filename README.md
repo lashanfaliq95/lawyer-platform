@@ -1,6 +1,6 @@
 # lawyer-platform
 
-A web app for lawyers to sign up and be found. The backend of the repo is lawyer-platform-backend.
+A web app for lawyers to sign up and be found. The backend of the repo is https://github.com/lashanfaliq95/lawyer-platform-backend
 
 ### `yarn start`
 
